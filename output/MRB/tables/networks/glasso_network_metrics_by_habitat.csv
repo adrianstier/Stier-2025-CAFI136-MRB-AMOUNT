@@ -1,0 +1,4 @@
+habitat,n_nodes,n_edges,density,transitivity,modularity
+1,38,0,0,NA,NA
+3,38,0,0,NA,NA
+6,38,1,0.0014224751066856329,0,-1.2929280899007802e-16

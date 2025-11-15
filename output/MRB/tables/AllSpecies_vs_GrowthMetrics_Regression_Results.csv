@@ -1,0 +1,596 @@
+species,metric,slope,r_squared,p_value,error
+Dascyllus aruanus,delta_surface_area,26.935051045180746,0.06437558624632944,0.14763728209757948,NA
+Dascyllus aruanus,delta_volume,138.21727484186755,0.3438609337871051,2.6788084626858436e-4,NA
+Dascyllus aruanus,delta_max_height,0.04365452731024106,0.008894890531458406,0.5957319103134782,NA
+Dascyllus aruanus,delta_interstitial,17.982505537650695,0.015373765359080789,0.48477330150112685,NA
+Dascyllus aruanus,size_corrected_volume_growth,0.07576834525726835,0.2500810539168377,0.0025984042962786326,NA
+Caracanthus maculatus,delta_surface_area,-29.376447335616312,0.0032372699082296526,0.817036645433497,NA
+Caracanthus maculatus,delta_volume,232.79906049657538,0.03799617267914335,0.4238870949910972,NA
+Caracanthus maculatus,delta_max_height,-1.0799712178356162,0.23862219014130434,0.03382614008999989,NA
+Caracanthus maculatus,delta_interstitial,135.28654866095917,0.03442549376348635,0.44696211883391856,NA
+Caracanthus maculatus,size_corrected_volume_growth,-0.05806078644753658,0.004820185173776203,0.7776190376335561,NA
+Paragobiodon modestus,delta_surface_area,32.01063868539828,0.04474890921820099,0.24513444122907782,NA
+Paragobiodon modestus,delta_volume,-15.86458649564449,0.002335860341396737,0.7928004121116647,NA
+Paragobiodon modestus,delta_max_height,-0.0398117469210112,0.0037559101234395597,0.7389807905384549,NA
+Paragobiodon modestus,delta_interstitial,64.18132156808845,0.07985949119451102,0.11708454820226749,NA
+Paragobiodon modestus,size_corrected_volume_growth,-0.021796882880375824,0.010450145200787932,0.5777105890493686,NA
+Echinometra mathaei,delta_surface_area,-570.6819937500007,0.257029397288524,0.38332295373835523,NA
+Echinometra mathaei,delta_volume,-321.4477792000005,0.03950317767224706,0.7486146039906443,NA
+Echinometra mathaei,delta_max_height,-1.577439978,0.7140072544675725,0.07153369378339518,NA
+Echinometra mathaei,delta_interstitial,-1071.2958968000005,0.2936239665105542,0.3455019409490396,NA
+Echinometra mathaei,size_corrected_volume_growth,-0.15875757744257912,0.039352932714900556,0.7490867132315318,NA
+Synalpheus charon,delta_surface_area,43.524390643137075,0.0062381886952047995,0.6235248144233104,NA
+Synalpheus charon,delta_volume,124.7787776556854,0.01112672771836344,0.5115860758252216,NA
+Synalpheus charon,delta_max_height,-0.5239306607784291,0.05991259780144181,0.12297758888501287,NA
+Synalpheus charon,delta_interstitial,29.571801409019823,0.0013330864880954129,0.8207092039452732,NA
+Synalpheus charon,size_corrected_volume_growth,0.07071977927939635,0.011747105725379715,0.49997705795261893,NA
+Trapezia serenei,delta_surface_area,-5.879021764622924,0.0018200166620298882,0.7808154685359967,NA
+Trapezia serenei,delta_volume,17.431337081230005,0.003197079664353676,0.7121859119241036,NA
+Trapezia serenei,delta_max_height,-0.18158433682010575,0.09927725640745871,0.035014482022564845,NA
+Trapezia serenei,delta_interstitial,13.19279872034988,0.0047373610724328165,0.6532468257723136,NA
+Trapezia serenei,size_corrected_volume_growth,-0.0022667108829209355,1.3845807364480677e-4,0.9388497931236361,NA
+Harpiliopsis spinigera,delta_surface_area,27.676807189320375,0.10158068125637731,0.03285491139963973,NA
+Harpiliopsis spinigera,delta_volume,95.26562575461163,0.2404796999289456,6.268992379935235e-4,NA
+Harpiliopsis spinigera,delta_max_height,-0.0226768033896565,0.0038991557591911124,0.683646283656518,NA
+Harpiliopsis spinigera,delta_interstitial,25.57791489587379,0.04484425430422632,0.16256967011934412,NA
+Harpiliopsis spinigera,size_corrected_volume_growth,0.03845836877914159,0.10037409934120309,0.03396890526065886,NA
+Galathea mauritiana,delta_surface_area,-16.72131883433735,0.10503133885841463,0.12235306201497974,NA
+Galathea mauritiana,delta_volume,-34.27273407349397,0.07980402424373699,0.18106072964436312,NA
+Galathea mauritiana,delta_max_height,-7.95073915662668e-4,1.2710355940190528e-5,0.986808979689327,NA
+Galathea mauritiana,delta_interstitial,-24.119625507831334,0.11834852762756916,0.09975235316622223,NA
+Galathea mauritiana,size_corrected_volume_growth,-0.016049633841330967,0.03943080575221927,0.352279226259391,NA
+Strigatella assimilis,delta_surface_area,-122.72832235135137,0.08559074056403067,0.21066955116430158,NA
+Strigatella assimilis,delta_volume,-268.21916391081083,0.10708529241913103,0.15902586917811615,NA
+Strigatella assimilis,delta_max_height,-0.05870836698648657,0.0020994955282351907,0.8478831001310461,NA
+Strigatella assimilis,delta_interstitial,-60.936756697297334,0.011268322314542934,0.6560144333594023,NA
+Strigatella assimilis,size_corrected_volume_growth,-0.15270367527102585,0.10874134186970968,0.15565050541168524,NA
+Galeropsis monodonta,delta_surface_area,-0.813744170184085,0.002070063919391575,0.7693212317071292,NA
+Galeropsis monodonta,delta_volume,8.098908902849738,0.03921958986560954,0.19752541686506592,NA
+Galeropsis monodonta,delta_max_height,-0.01696640521454848,0.048441423315564204,0.1511214345046608,NA
+Galeropsis monodonta,delta_interstitial,1.0361855259734425,0.0017171780633065115,0.7894108569468044,NA
+Galeropsis monodonta,size_corrected_volume_growth,9.512745912989241e-4,0.0013791923730092058,0.8108474756580735,NA
+Calcinus latens,delta_surface_area,-13.13858421487417,0.02456162178452199,0.36134704991807,NA
+Calcinus latens,delta_volume,-37.96454186965197,0.04938487442832153,0.19268906236300354,NA
+Calcinus latens,delta_max_height,-0.023446797456817776,0.005956204384871085,0.6545972056073467,NA
+Calcinus latens,delta_interstitial,-7.125414591200998,0.0032351477487055657,0.7417830583690397,NA
+Calcinus latens,size_corrected_volume_growth,-0.02406798312983602,0.05942189851381441,0.1519450591307631,NA
+NA,delta_surface_area,NA,NA,NA,Insufficient data
+NA,delta_volume,NA,NA,NA,Insufficient data
+NA,delta_max_height,NA,NA,NA,Insufficient data
+NA,delta_interstitial,NA,NA,NA,Insufficient data
+NA,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Arete indicus,delta_surface_area,NA,NA,NA,Insufficient data
+Arete indicus,delta_volume,NA,NA,NA,Insufficient data
+Arete indicus,delta_max_height,NA,NA,NA,Insufficient data
+Arete indicus,delta_interstitial,NA,NA,NA,Insufficient data
+Arete indicus,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Luniella pugil,delta_surface_area,-81.19418077251191,0.06343236145317287,0.2145337158615665,NA
+Luniella pugil,delta_volume,-177.8167503252765,0.06859684610006342,0.1961822348475875,NA
+Luniella pugil,delta_max_height,0.06019058146919433,0.0025374140299139307,0.8069409750041386,NA
+Luniella pugil,delta_interstitial,-94.00428087693513,0.04349610067371181,0.30657505830939796,NA
+Luniella pugil,size_corrected_volume_growth,-0.12483917115646316,0.10340759994154522,0.10917016705787785,NA
+Gobiodon unicolor,delta_surface_area,NA,NA,NA,Insufficient data
+Gobiodon unicolor,delta_volume,NA,NA,NA,Insufficient data
+Gobiodon unicolor,delta_max_height,NA,NA,NA,Insufficient data
+Gobiodon unicolor,delta_interstitial,NA,NA,NA,Insufficient data
+Gobiodon unicolor,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Vexillum interruptum,delta_surface_area,NA,0,NA,NA
+Vexillum interruptum,delta_volume,NA,0,NA,NA
+Vexillum interruptum,delta_max_height,NA,0,NA,NA
+Vexillum interruptum,delta_interstitial,NA,0,NA,NA
+Vexillum interruptum,size_corrected_volume_growth,NA,0,NA,NA
+Carinomitra typha,delta_surface_area,-42.346230500000196,0.005836952052878241,0.8134400874285626,NA
+Carinomitra typha,delta_volume,-363.0335284800005,0.10639416217221494,0.30079749608036793,NA
+Carinomitra typha,delta_max_height,0.0027343974999993665,2.7957310709138325e-6,0.9958852196065169,NA
+Carinomitra typha,delta_interstitial,-175.87370012000017,0.04740253298375317,0.4966535144922686,NA
+Carinomitra typha,size_corrected_volume_growth,-0.20821703957654167,0.1134493656981034,0.28435917625650203,NA
+Zafra hahajimana,delta_surface_area,70.19420636000011,0.025362299838643625,0.6823463929476146,NA
+Zafra hahajimana,delta_volume,284.40698629800005,0.18341426384887655,0.25012786311087465,NA
+Zafra hahajimana,delta_max_height,0.2079312466800007,0.01428302624919899,0.7594122141575208,NA
+Zafra hahajimana,delta_interstitial,172.96491998200003,0.05295827541630569,0.5513893871187593,NA
+Zafra hahajimana,size_corrected_volume_growth,0.12074182082026139,0.08980769922197632,0.43336151753547847,NA
+Stomatolina rubra,delta_surface_area,-30.809371236024916,0.00922596777598593,0.7918142590776036,NA
+Stomatolina rubra,delta_volume,20.017343126086917,7.833525352850838e-4,0.9388232348030019,NA
+Stomatolina rubra,delta_max_height,-0.45011789309316796,0.09574755480207098,0.3842909467266876,NA
+Stomatolina rubra,delta_interstitial,-158.60620600807462,0.14285507294772457,0.281540692193426,NA
+Stomatolina rubra,size_corrected_volume_growth,-0.047288626263392884,0.00896178560692135,0.7947624557812695,NA
+Macteola interrupta,delta_surface_area,-326.16561457142876,0.11195712222978305,0.4178784110748844,NA
+Macteola interrupta,delta_volume,-183.5729718857139,0.010821626333135088,0.8063518973403756,NA
+Macteola interrupta,delta_max_height,-1.1137578227142868,0.3859020833658315,0.10019721606784546,NA
+Macteola interrupta,delta_interstitial,-653.9529789714288,0.1508213171477429,0.3417331797813003,NA
+Macteola interrupta,size_corrected_volume_growth,-0.28120925319113066,0.08727959158047532,0.47745395729117945,NA
+Apataxia cerithiiformis,delta_surface_area,-4.6343839009276095,0.008210450390210984,0.6339369590203137,NA
+Apataxia cerithiiformis,delta_volume,2.011547969604828,2.6750086676727405e-4,0.9316400652659018,NA
+Apataxia cerithiiformis,delta_max_height,0.006580439248252824,0.0010724536876980562,0.8635993781700675,NA
+Apataxia cerithiiformis,delta_interstitial,-5.156509429810659,0.004438262403118191,0.7265050442047043,NA
+Apataxia cerithiiformis,size_corrected_volume_growth,-0.003822685024187801,0.0026443583030968916,0.7872621581671417,NA
+Cerithium zebrum,delta_surface_area,3.384824013328244,3.4916968615596086e-4,0.9233542037419284,NA
+Cerithium zebrum,delta_volume,90.3890286142042,0.049696467733016114,0.24507627627212636,NA
+Cerithium zebrum,delta_max_height,0.10239352980198022,0.01955188188226421,0.46940922196574086,NA
+Cerithium zebrum,delta_interstitial,-12.253079527379974,0.002297475527863666,0.8049784088297234,NA
+Cerithium zebrum,size_corrected_volume_growth,0.05868938453700461,0.05270847686760677,0.23089983619363025,NA
+Athanas djiboutensis,delta_surface_area,-52.75698581677974,0.1914995806813943,0.03247098751222105,NA
+Athanas djiboutensis,delta_volume,-50.08179882850091,0.03962994871075456,0.3510412156866607,NA
+Athanas djiboutensis,delta_max_height,-0.11660946425169656,0.061429503392747324,0.24291841805492126,NA
+Athanas djiboutensis,delta_interstitial,-28.513224195558262,0.02940771949014967,0.4230021181872792,NA
+Athanas djiboutensis,size_corrected_volume_growth,-0.0352515488468292,0.07419863135077306,0.19783979209242591,NA
+Breviturma dentata,delta_surface_area,NA,0,NA,NA
+Breviturma dentata,delta_volume,NA,0,NA,NA
+Breviturma dentata,delta_max_height,NA,0,NA,NA
+Breviturma dentata,delta_interstitial,NA,0,NA,NA
+Breviturma dentata,size_corrected_volume_growth,NA,0,NA,NA
+Periclimenes watamuae,delta_surface_area,7.33159135536502,0.08874532811167288,0.11651751240953513,NA
+Periclimenes watamuae,delta_volume,7.910614656591002,0.02207265309202229,0.44179981352670783,NA
+Periclimenes watamuae,delta_max_height,0.026596566669555573,0.11168564185751705,0.07641600425330872,NA
+Periclimenes watamuae,delta_interstitial,14.969902967186899,0.1671888880771425,0.02763991172964661,NA
+Periclimenes watamuae,size_corrected_volume_growth,-0.0019481938221713286,0.004311545622067123,0.7350511292558726,NA
+Fennera chacei,delta_surface_area,2.3308421578044713,0.035281123123739086,0.23357635986220399,NA
+Fennera chacei,delta_volume,5.391438580372047,0.03925706197580435,0.2084577030344988,NA
+Fennera chacei,delta_max_height,0.003566920398770491,0.005260263407906421,0.6480663714081543,NA
+Fennera chacei,delta_interstitial,3.1703116608323016,0.034433532068255036,0.23937764620362126,NA
+Fennera chacei,size_corrected_volume_growth,0.0034207500614129444,0.040112068686864226,0.20347153640608473,NA
+Dascyllus flavicaudus,delta_surface_area,-10.775219316077035,0.008213029225325545,0.6666001686337089,NA
+Dascyllus flavicaudus,delta_volume,37.330661779864656,0.017007707774636845,0.5343711513638604,NA
+Dascyllus flavicaudus,delta_max_height,0.042761285248438974,0.0063458865323122796,0.7050472449677161,NA
+Dascyllus flavicaudus,delta_interstitial,16.385836045317404,0.0083745423015785,0.6635246821750487,NA
+Dascyllus flavicaudus,size_corrected_volume_growth,-0.00334990863197496,3.1409004945945595e-4,0.9329907590269806,NA
+Pascula muricata,delta_surface_area,49.1845195319549,0.2102174611943978,0.18261961394525797,NA
+Pascula muricata,delta_volume,41.731253331390974,0.06231376609709454,0.48671407636967023,NA
+Pascula muricata,delta_max_height,0.12654607783270697,0.0752394479979026,0.4431170792857917,NA
+Pascula muricata,delta_interstitial,16.074596305827036,0.01304034714754526,0.7534319547739099,NA
+Pascula muricata,size_corrected_volume_growth,0.04326143398737309,0.2168180431976424,0.17501836810659777,NA
+Cellana taitensis,delta_surface_area,-189.3369010833336,0.04503942309886772,0.46636855990602566,NA
+Cellana taitensis,delta_volume,-680.4050688000003,0.14907631143706482,0.17270490818788553,NA
+Cellana taitensis,delta_max_height,-0.13041325091666878,0.0014730332955229615,0.8963584473854918,NA
+Cellana taitensis,delta_interstitial,20.88233496666647,4.640607896397564e-4,0.9417300204850412,NA
+Cellana taitensis,size_corrected_volume_growth,-0.4122202248213006,0.16227898924707682,0.15325758728921426,NA
+Xanthias lamarckii,delta_surface_area,NA,0,NA,NA
+Xanthias lamarckii,delta_volume,NA,0,NA,NA
+Xanthias lamarckii,delta_max_height,NA,0,NA,NA
+Xanthias lamarckii,delta_interstitial,NA,0,NA,NA
+Xanthias lamarckii,size_corrected_volume_growth,NA,0,NA,NA
+Menaethius monoceros,delta_surface_area,-17.484330230337164,0.006112633266675185,0.7904957099835441,NA
+Menaethius monoceros,delta_volume,-1.0211511078652131,4.786426349980812e-6,0.9940776305634836,NA
+Menaethius monoceros,delta_max_height,-0.030567490168539328,0.0019341510599171848,0.8813304014704311,NA
+Menaethius monoceros,delta_interstitial,-43.72020573483147,0.01622821773018915,0.6642988209930704,NA
+Menaethius monoceros,size_corrected_volume_growth,-0.03089881953182753,0.014155405973243095,0.6853975999944473,NA
+Diala albugo,delta_surface_area,-35.124795627403,0.046209612070694246,0.29161260677785716,NA
+Diala albugo,delta_volume,-46.80904710968194,0.018311372210085657,0.5098288881173421,NA
+Diala albugo,delta_max_height,0.011808026075498126,3.3137480323183044e-4,0.9296676145352858,NA
+Diala albugo,delta_interstitial,1.051331977560344,2.460079395811415e-5,0.9808151469901983,NA
+Diala albugo,size_corrected_volume_growth,-0.024937027909118264,0.012196116197012778,0.5912204720740215,NA
+Ophiolepis cincta,delta_surface_area,NA,NA,NA,Insufficient data
+Ophiolepis cincta,delta_volume,NA,NA,NA,Insufficient data
+Ophiolepis cincta,delta_max_height,NA,NA,NA,Insufficient data
+Ophiolepis cincta,delta_interstitial,NA,NA,NA,Insufficient data
+Ophiolepis cincta,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Hargeria rapax,delta_surface_area,-6.5541996290322535,0.0024905762105975645,0.8254415414134474,NA
+Hargeria rapax,delta_volume,40.991456554668915,0.013733214294181518,0.6034995085822441,NA
+Hargeria rapax,delta_max_height,-0.08463030119100179,0.021104339186937826,0.5188921511523862,NA
+Hargeria rapax,delta_interstitial,-66.74213757249574,0.2112164902589698,0.03140850488475105,NA
+Hargeria rapax,size_corrected_volume_growth,0.02213866885459412,0.008440465577947486,0.6842825555406096,NA
+Neocirrhites armatus,delta_surface_area,NA,NA,NA,Insufficient data
+Neocirrhites armatus,delta_volume,NA,NA,NA,Insufficient data
+Neocirrhites armatus,delta_max_height,NA,NA,NA,Insufficient data
+Neocirrhites armatus,delta_interstitial,NA,NA,NA,Insufficient data
+Neocirrhites armatus,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Paragobiodon lacunicolus,delta_surface_area,-297.9506520000001,0.2074165696020462,0.4408493979515032,NA
+Paragobiodon lacunicolus,delta_volume,-201.7233893500001,0.06071141978238305,0.6894817306347985,NA
+Paragobiodon lacunicolus,delta_max_height,-1.393289707833334,0.44802823341502956,0.2165604592719589,NA
+Paragobiodon lacunicolus,delta_interstitial,13.484740350000582,6.522149201932187e-4,0.967486908417772,NA
+Paragobiodon lacunicolus,size_corrected_volume_growth,-0.1356881927027228,0.08080819430296032,0.6429944640334317,NA
+Alpheus lottini,delta_surface_area,-33.44589485828075,0.036984465404549124,0.2758729777828755,NA
+Alpheus lottini,delta_volume,2.8882806902423566,5.236406814210227e-5,0.9676014428753243,NA
+Alpheus lottini,delta_max_height,-0.18641273327381322,0.08006074673170549,0.10491313762459994,NA
+Alpheus lottini,delta_interstitial,-0.554493130667023,5.6659772499271136e-6,0.9893402311746389,NA
+Alpheus lottini,size_corrected_volume_growth,-0.026592388975425534,0.01403024239369882,0.5046487910099984,NA
+Alpheus diadema,delta_surface_area,183.54576183333307,0.03867821937612048,0.6725455743361304,NA
+Alpheus diadema,delta_volume,-97.35752696666734,0.00640231772373325,0.8645976095972329,NA
+Alpheus diadema,delta_max_height,-1.5138198036666664,0.13050663823822076,0.4259340916082426,NA
+Alpheus diadema,delta_interstitial,466.1858779666672,0.15575727274627915,0.38093843993692367,NA
+Alpheus diadema,size_corrected_volume_growth,-0.11369004331158603,0.027791588207815337,0.7209037854445773,NA
+Breviturma pica,delta_surface_area,NA,NA,NA,Insufficient data
+Breviturma pica,delta_volume,NA,NA,NA,Insufficient data
+Breviturma pica,delta_max_height,NA,NA,NA,Insufficient data
+Breviturma pica,delta_interstitial,NA,NA,NA,Insufficient data
+Breviturma pica,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Mitrella moleculina,delta_surface_area,-50.13050931754035,0.4443123342777261,0.02510041893744551,NA
+Mitrella moleculina,delta_volume,-97.14781455312506,0.3650737720285751,0.04897436671540983,NA
+Mitrella moleculina,delta_max_height,-0.19409367270665331,0.13489951868275205,0.2664919499865721,NA
+Mitrella moleculina,delta_interstitial,-84.21731232489918,0.41559705943865566,0.03224129719891481,NA
+Mitrella moleculina,size_corrected_volume_growth,-0.05545457245847603,0.2866219564305567,0.0896603211325399,NA
+Diala semistriata,delta_surface_area,-37.70679740950225,0.03069379617412904,0.46003058354559867,NA
+Diala semistriata,delta_volume,-6.573854710181013,2.1026671466466425e-4,0.9516173861027665,NA
+Diala semistriata,delta_max_height,0.2816475042556562,0.07457676312375427,0.24403652796690678,NA
+Diala semistriata,delta_interstitial,-4.114197595248791,1.8951543319086726e-4,0.9540642957039607,NA
+Diala semistriata,size_corrected_volume_growth,-0.019249624119447195,0.0033092449249705774,0.8096340685437321,NA
+Coralliogalathea humilis,delta_surface_area,-103.2634754444444,0.16443223946954857,0.27890356999907545,NA
+Coralliogalathea humilis,delta_volume,-214.02030807777763,0.14274797704679865,0.31609084306744517,NA
+Coralliogalathea humilis,delta_max_height,-0.2013067943333332,0.08233501331988141,0.4540852162148069,NA
+Coralliogalathea humilis,delta_interstitial,-194.72393275555555,0.36210194762092685,0.08646002822774727,NA
+Coralliogalathea humilis,size_corrected_volume_growth,-0.07851966009620766,0.0681854039528858,0.497350378970688,NA
+Cerithium punctatum,delta_surface_area,NA,0,NA,NA
+Cerithium punctatum,delta_volume,NA,0,NA,NA
+Cerithium punctatum,delta_max_height,NA,0,NA,NA
+Cerithium punctatum,delta_interstitial,NA,0,NA,NA
+Cerithium punctatum,size_corrected_volume_growth,NA,0,NA,NA
+Parelasmopus suensis,delta_surface_area,NA,NA,NA,Insufficient data
+Parelasmopus suensis,delta_volume,NA,NA,NA,Insufficient data
+Parelasmopus suensis,delta_max_height,NA,NA,NA,Insufficient data
+Parelasmopus suensis,delta_interstitial,NA,NA,NA,Insufficient data
+Parelasmopus suensis,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Trapezia bidentata,delta_surface_area,NA,NA,NA,Insufficient data
+Trapezia bidentata,delta_volume,NA,NA,NA,Insufficient data
+Trapezia bidentata,delta_max_height,NA,NA,NA,Insufficient data
+Trapezia bidentata,delta_interstitial,NA,NA,NA,Insufficient data
+Trapezia bidentata,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Morula zebrina,delta_surface_area,-8.45959327777782,8.158805335671915e-4,0.9335611659482311,NA
+Morula zebrina,delta_volume,-312.9970240555556,0.19646925588166456,0.1721110171919634,NA
+Morula zebrina,delta_max_height,-0.4994758073333334,0.09243178363027403,0.36337641176104285,NA
+Morula zebrina,delta_interstitial,49.7786128333332,0.005440615706087407,0.8293556350079883,NA
+Morula zebrina,size_corrected_volume_growth,-0.1358388342995736,0.16449358182481497,0.21587915163017646,NA
+Euplica varians,delta_surface_area,185.65592066666662,0.21854640315470147,0.24279424391600568,NA
+Euplica varians,delta_volume,104.24832636666673,0.01217069927885871,0.7948205519156848,NA
+Euplica varians,delta_max_height,0.857041921400001,0.08142679479204963,0.49329642494970316,NA
+Euplica varians,delta_interstitial,340.0970171000004,0.19336879327454165,0.2756161757808098,NA
+Euplica varians,size_corrected_volume_growth,-0.05546940516986162,0.03206165584161004,0.6713739180195406,NA
+Chlorodiella laevissima,delta_surface_area,NA,NA,NA,Insufficient data
+Chlorodiella laevissima,delta_volume,NA,NA,NA,Insufficient data
+Chlorodiella laevissima,delta_max_height,NA,NA,NA,Insufficient data
+Chlorodiella laevissima,delta_interstitial,NA,NA,NA,Insufficient data
+Chlorodiella laevissima,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Eratoena schmeltziana,delta_surface_area,NA,NA,NA,Insufficient data
+Eratoena schmeltziana,delta_volume,NA,NA,NA,Insufficient data
+Eratoena schmeltziana,delta_max_height,NA,NA,NA,Insufficient data
+Eratoena schmeltziana,delta_interstitial,NA,NA,NA,Insufficient data
+Eratoena schmeltziana,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Trapezia areolata,delta_surface_area,NA,NA,NA,Insufficient data
+Trapezia areolata,delta_volume,NA,NA,NA,Insufficient data
+Trapezia areolata,delta_max_height,NA,NA,NA,Insufficient data
+Trapezia areolata,delta_interstitial,NA,NA,NA,Insufficient data
+Trapezia areolata,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Halichoeres trimaculatus,delta_surface_area,-23.957659769230645,0.0038077871569313915,0.8655281667088408,NA
+Halichoeres trimaculatus,delta_volume,-190.04751643846157,0.04470347585910676,0.5576196033318973,NA
+Halichoeres trimaculatus,delta_max_height,0.08584432484615385,0.003047363290662908,0.8796109106766943,NA
+Halichoeres trimaculatus,delta_interstitial,-16.14511463846117,9.335999851808098e-4,0.933223591027315,NA
+Halichoeres trimaculatus,size_corrected_volume_growth,-0.16728485950972913,0.13478145395256724,0.29668092367972615,NA
+Trapezia guttata,delta_surface_area,NA,NA,NA,Insufficient data
+Trapezia guttata,delta_volume,NA,NA,NA,Insufficient data
+Trapezia guttata,delta_max_height,NA,NA,NA,Insufficient data
+Trapezia guttata,delta_interstitial,NA,NA,NA,Insufficient data
+Trapezia guttata,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Thalamita coeruleipes,delta_surface_area,NA,NA,NA,Insufficient data
+Thalamita coeruleipes,delta_volume,NA,NA,NA,Insufficient data
+Thalamita coeruleipes,delta_max_height,NA,NA,NA,Insufficient data
+Thalamita coeruleipes,delta_interstitial,NA,NA,NA,Insufficient data
+Thalamita coeruleipes,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Alpheus dolerus,delta_surface_area,NA,0,NA,NA
+Alpheus dolerus,delta_volume,NA,0,NA,NA
+Alpheus dolerus,delta_max_height,NA,0,NA,NA
+Alpheus dolerus,delta_interstitial,NA,0,NA,NA
+Alpheus dolerus,size_corrected_volume_growth,NA,0,NA,NA
+Vexillum roseum,delta_surface_area,NA,NA,NA,Insufficient data
+Vexillum roseum,delta_volume,NA,NA,NA,Insufficient data
+Vexillum roseum,delta_max_height,NA,NA,NA,Insufficient data
+Vexillum roseum,delta_interstitial,NA,NA,NA,Insufficient data
+Vexillum roseum,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Vexillum tusum,delta_surface_area,NA,NA,NA,Insufficient data
+Vexillum tusum,delta_volume,NA,NA,NA,Insufficient data
+Vexillum tusum,delta_max_height,NA,NA,NA,Insufficient data
+Vexillum tusum,delta_interstitial,NA,NA,NA,Insufficient data
+Vexillum tusum,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Cystiscus garretti,delta_surface_area,NA,0,NA,NA
+Cystiscus garretti,delta_volume,NA,0,NA,NA
+Cystiscus garretti,delta_max_height,NA,0,NA,NA
+Cystiscus garretti,delta_interstitial,NA,0,NA,NA
+Cystiscus garretti,size_corrected_volume_growth,NA,0,NA,NA
+Morula uva,delta_surface_area,NA,NA,NA,Insufficient data
+Morula uva,delta_volume,NA,NA,NA,Insufficient data
+Morula uva,delta_max_height,NA,NA,NA,Insufficient data
+Morula uva,delta_interstitial,NA,NA,NA,Insufficient data
+Morula uva,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Chlorodiella barbata,delta_surface_area,-54.12745134499999,0.30803544730163684,0.01681092556734082,NA
+Chlorodiella barbata,delta_volume,-92.32625280850006,0.21767571492002996,0.050962354978714534,NA
+Chlorodiella barbata,delta_max_height,-0.05956075399500001,0.043521593962673466,0.4061151063529227,NA
+Chlorodiella barbata,delta_interstitial,-75.01448650983335,0.2348333355336231,0.04153915194945102,NA
+Chlorodiella barbata,size_corrected_volume_growth,-0.047214490825732265,0.19554912158412036,0.06613452482718662,NA
+Prodotia iostoma,delta_surface_area,NA,NA,NA,Insufficient data
+Prodotia iostoma,delta_volume,NA,NA,NA,Insufficient data
+Prodotia iostoma,delta_max_height,NA,NA,NA,Insufficient data
+Prodotia iostoma,delta_interstitial,NA,NA,NA,Insufficient data
+Prodotia iostoma,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Harpiliopsis beaupresii,delta_surface_area,79.88703043421042,0.055162868955383006,0.4869428239935665,NA
+Harpiliopsis beaupresii,delta_volume,177.97810784736834,0.03760392121641587,0.5677757489508204,NA
+Harpiliopsis beaupresii,delta_max_height,0.6981968848947374,0.2569761761576085,0.11150851603536482,NA
+Harpiliopsis beaupresii,delta_interstitial,30.821695165789382,0.012385957899389751,0.7445980127144041,NA
+Harpiliopsis beaupresii,size_corrected_volume_growth,0.12404734263396176,0.05395813554488029,0.49187649948458867,NA
+Trapezia tigrina,delta_surface_area,213.54754949999983,0.12228066638887838,0.3562803436739037,NA
+Trapezia tigrina,delta_volume,406.1550911850001,0.06855173735026647,0.4961548525095837,NA
+Trapezia tigrina,delta_max_height,2.726357559199999,0.5112130921438357,0.030384507510165682,NA
+Trapezia tigrina,delta_interstitial,464.74802566500034,0.434883055742815,0.05331966557623588,NA
+Trapezia tigrina,size_corrected_volume_growth,0.22473304793937882,0.03424132418788344,0.6336227517023342,NA
+Thinora maldivensis,delta_surface_area,NA,NA,NA,Insufficient data
+Thinora maldivensis,delta_volume,NA,NA,NA,Insufficient data
+Thinora maldivensis,delta_max_height,NA,NA,NA,Insufficient data
+Thinora maldivensis,delta_interstitial,NA,NA,NA,Insufficient data
+Thinora maldivensis,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Drupella margariticola,delta_surface_area,NA,NA,NA,Insufficient data
+Drupella margariticola,delta_volume,NA,NA,NA,Insufficient data
+Drupella margariticola,delta_max_height,NA,NA,NA,Insufficient data
+Drupella margariticola,delta_interstitial,NA,NA,NA,Insufficient data
+Drupella margariticola,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Stomatella auricula,delta_surface_area,-223.41552285714286,0.29808063109995864,0.2624197699600255,NA
+Stomatella auricula,delta_volume,-474.8074877857142,0.40334116053951036,0.1754420753328693,NA
+Stomatella auricula,delta_max_height,0.37817709657142795,0.14838423582281204,0.4507691878014742,NA
+Stomatella auricula,delta_interstitial,54.4841529285714,0.018509723278929614,0.7971834622196602,NA
+Stomatella auricula,size_corrected_volume_growth,-0.2773393778438578,0.38466925841369043,0.18896356828032101,NA
+Haurakia marmorata,delta_surface_area,NA,NA,NA,Insufficient data
+Haurakia marmorata,delta_volume,NA,NA,NA,Insufficient data
+Haurakia marmorata,delta_max_height,NA,NA,NA,Insufficient data
+Haurakia marmorata,delta_interstitial,NA,NA,NA,Insufficient data
+Haurakia marmorata,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Thalamita admete,delta_surface_area,NA,NA,NA,Insufficient data
+Thalamita admete,delta_volume,NA,NA,NA,Insufficient data
+Thalamita admete,delta_max_height,NA,NA,NA,Insufficient data
+Thalamita admete,delta_interstitial,NA,NA,NA,Insufficient data
+Thalamita admete,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Rissoina heronensis,delta_surface_area,NA,NA,NA,Insufficient data
+Rissoina heronensis,delta_volume,NA,NA,NA,Insufficient data
+Rissoina heronensis,delta_max_height,NA,NA,NA,Insufficient data
+Rissoina heronensis,delta_interstitial,NA,NA,NA,Insufficient data
+Rissoina heronensis,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Carinomitra saltata,delta_surface_area,NA,NA,NA,Insufficient data
+Carinomitra saltata,delta_volume,NA,NA,NA,Insufficient data
+Carinomitra saltata,delta_max_height,NA,NA,NA,Insufficient data
+Carinomitra saltata,delta_interstitial,NA,NA,NA,Insufficient data
+Carinomitra saltata,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Trapezia speciosa,delta_surface_area,NA,NA,NA,Insufficient data
+Trapezia speciosa,delta_volume,NA,NA,NA,Insufficient data
+Trapezia speciosa,delta_max_height,NA,NA,NA,Insufficient data
+Trapezia speciosa,delta_interstitial,NA,NA,NA,Insufficient data
+Trapezia speciosa,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Antennatus tuberosus,delta_surface_area,NA,NA,NA,Insufficient data
+Antennatus tuberosus,delta_volume,NA,NA,NA,Insufficient data
+Antennatus tuberosus,delta_max_height,NA,NA,NA,Insufficient data
+Antennatus tuberosus,delta_interstitial,NA,NA,NA,Insufficient data
+Antennatus tuberosus,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Calcinus nitidus,delta_surface_area,NA,NA,NA,Insufficient data
+Calcinus nitidus,delta_volume,NA,NA,NA,Insufficient data
+Calcinus nitidus,delta_max_height,NA,NA,NA,Insufficient data
+Calcinus nitidus,delta_interstitial,NA,NA,NA,Insufficient data
+Calcinus nitidus,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Domecia glabra,delta_surface_area,NA,NA,NA,Insufficient data
+Domecia glabra,delta_volume,NA,NA,NA,Insufficient data
+Domecia glabra,delta_max_height,NA,NA,NA,Insufficient data
+Domecia glabra,delta_interstitial,NA,NA,NA,Insufficient data
+Domecia glabra,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Phylladiorhynchus integrirostris,delta_surface_area,NA,NA,NA,Insufficient data
+Phylladiorhynchus integrirostris,delta_volume,NA,NA,NA,Insufficient data
+Phylladiorhynchus integrirostris,delta_max_height,NA,NA,NA,Insufficient data
+Phylladiorhynchus integrirostris,delta_interstitial,NA,NA,NA,Insufficient data
+Phylladiorhynchus integrirostris,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Cyclodius ungulatus,delta_surface_area,NA,NA,NA,Insufficient data
+Cyclodius ungulatus,delta_volume,NA,NA,NA,Insufficient data
+Cyclodius ungulatus,delta_max_height,NA,NA,NA,Insufficient data
+Cyclodius ungulatus,delta_interstitial,NA,NA,NA,Insufficient data
+Cyclodius ungulatus,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Lienardia fallax,delta_surface_area,NA,NA,NA,Insufficient data
+Lienardia fallax,delta_volume,NA,NA,NA,Insufficient data
+Lienardia fallax,delta_max_height,NA,NA,NA,Insufficient data
+Lienardia fallax,delta_interstitial,NA,NA,NA,Insufficient data
+Lienardia fallax,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Lucilina pacifica,delta_surface_area,260.62864112499994,0.4943196447792985,0.18532696017041175,NA
+Lucilina pacifica,delta_volume,145.691693625,0.0498744866769533,0.7180341691853414,NA
+Lucilina pacifica,delta_max_height,0.6210017827500007,0.2555745458800856,0.38490064356039333,NA
+Lucilina pacifica,delta_interstitial,90.87765774999997,0.04170101456415931,0.7418125258925923,NA
+Lucilina pacifica,size_corrected_volume_growth,0.21770801182590388,0.4585729785101359,0.20918809006975322,NA
+Alpheus paracrinitus,delta_surface_area,NA,NA,NA,Insufficient data
+Alpheus paracrinitus,delta_volume,NA,NA,NA,Insufficient data
+Alpheus paracrinitus,delta_max_height,NA,NA,NA,Insufficient data
+Alpheus paracrinitus,delta_interstitial,NA,NA,NA,Insufficient data
+Alpheus paracrinitus,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Chromis atripectoralis,delta_surface_area,NA,NA,NA,Insufficient data
+Chromis atripectoralis,delta_volume,NA,NA,NA,Insufficient data
+Chromis atripectoralis,delta_max_height,NA,NA,NA,Insufficient data
+Chromis atripectoralis,delta_interstitial,NA,NA,NA,Insufficient data
+Chromis atripectoralis,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Monetaria obvelata,delta_surface_area,NA,NA,NA,Insufficient data
+Monetaria obvelata,delta_volume,NA,NA,NA,Insufficient data
+Monetaria obvelata,delta_max_height,NA,NA,NA,Insufficient data
+Monetaria obvelata,delta_interstitial,NA,NA,NA,Insufficient data
+Monetaria obvelata,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Cerithium columna,delta_surface_area,NA,NA,NA,Insufficient data
+Cerithium columna,delta_volume,NA,NA,NA,Insufficient data
+Cerithium columna,delta_max_height,NA,NA,NA,Insufficient data
+Cerithium columna,delta_interstitial,NA,NA,NA,Insufficient data
+Cerithium columna,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Coriophora ustulata,delta_surface_area,NA,NA,NA,Insufficient data
+Coriophora ustulata,delta_volume,NA,NA,NA,Insufficient data
+Coriophora ustulata,delta_max_height,NA,NA,NA,Insufficient data
+Coriophora ustulata,delta_interstitial,NA,NA,NA,Insufficient data
+Coriophora ustulata,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Kermia maculosa,delta_surface_area,NA,NA,NA,Insufficient data
+Kermia maculosa,delta_volume,NA,NA,NA,Insufficient data
+Kermia maculosa,delta_max_height,NA,NA,NA,Insufficient data
+Kermia maculosa,delta_interstitial,NA,NA,NA,Insufficient data
+Kermia maculosa,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Astralium confragosum,delta_surface_area,NA,NA,NA,Insufficient data
+Astralium confragosum,delta_volume,NA,NA,NA,Insufficient data
+Astralium confragosum,delta_max_height,NA,NA,NA,Insufficient data
+Astralium confragosum,delta_interstitial,NA,NA,NA,Insufficient data
+Astralium confragosum,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Trapezia punctimanus,delta_surface_area,NA,NA,NA,Insufficient data
+Trapezia punctimanus,delta_volume,NA,NA,NA,Insufficient data
+Trapezia punctimanus,delta_max_height,NA,NA,NA,Insufficient data
+Trapezia punctimanus,delta_interstitial,NA,NA,NA,Insufficient data
+Trapezia punctimanus,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Cyclodius nitidus,delta_surface_area,NA,NA,NA,Insufficient data
+Cyclodius nitidus,delta_volume,NA,NA,NA,Insufficient data
+Cyclodius nitidus,delta_max_height,NA,NA,NA,Insufficient data
+Cyclodius nitidus,delta_interstitial,NA,NA,NA,Insufficient data
+Cyclodius nitidus,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Liomera bella,delta_surface_area,NA,NA,NA,Insufficient data
+Liomera bella,delta_volume,NA,NA,NA,Insufficient data
+Liomera bella,delta_max_height,NA,NA,NA,Insufficient data
+Liomera bella,delta_interstitial,NA,NA,NA,Insufficient data
+Liomera bella,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Ophiactis savignyi,delta_surface_area,NA,NA,NA,Insufficient data
+Ophiactis savignyi,delta_volume,NA,NA,NA,Insufficient data
+Ophiactis savignyi,delta_max_height,NA,NA,NA,Insufficient data
+Ophiactis savignyi,delta_interstitial,NA,NA,NA,Insufficient data
+Ophiactis savignyi,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Galathea spinosorostris,delta_surface_area,NA,NA,NA,Insufficient data
+Galathea spinosorostris,delta_volume,NA,NA,NA,Insufficient data
+Galathea spinosorostris,delta_max_height,NA,NA,NA,Insufficient data
+Galathea spinosorostris,delta_interstitial,NA,NA,NA,Insufficient data
+Galathea spinosorostris,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Ophiocomella sexradia,delta_surface_area,NA,NA,NA,Insufficient data
+Ophiocomella sexradia,delta_volume,NA,NA,NA,Insufficient data
+Ophiocomella sexradia,delta_max_height,NA,NA,NA,Insufficient data
+Ophiocomella sexradia,delta_interstitial,NA,NA,NA,Insufficient data
+Ophiocomella sexradia,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Alpheus parvirostris,delta_surface_area,NA,NA,NA,Insufficient data
+Alpheus parvirostris,delta_volume,NA,NA,NA,Insufficient data
+Alpheus parvirostris,delta_max_height,NA,NA,NA,Insufficient data
+Alpheus parvirostris,delta_interstitial,NA,NA,NA,Insufficient data
+Alpheus parvirostris,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Atys semistriatus,delta_surface_area,NA,NA,NA,Insufficient data
+Atys semistriatus,delta_volume,NA,NA,NA,Insufficient data
+Atys semistriatus,delta_max_height,NA,NA,NA,Insufficient data
+Atys semistriatus,delta_interstitial,NA,NA,NA,Insufficient data
+Atys semistriatus,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Saron marmoratus,delta_surface_area,NA,NA,NA,Insufficient data
+Saron marmoratus,delta_volume,NA,NA,NA,Insufficient data
+Saron marmoratus,delta_max_height,NA,NA,NA,Insufficient data
+Saron marmoratus,delta_interstitial,NA,NA,NA,Insufficient data
+Saron marmoratus,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Diadema savignyi,delta_surface_area,NA,NA,NA,Insufficient data
+Diadema savignyi,delta_volume,NA,NA,NA,Insufficient data
+Diadema savignyi,delta_max_height,NA,NA,NA,Insufficient data
+Diadema savignyi,delta_interstitial,NA,NA,NA,Insufficient data
+Diadema savignyi,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Thor amboinensis,delta_surface_area,NA,NA,NA,Insufficient data
+Thor amboinensis,delta_volume,NA,NA,NA,Insufficient data
+Thor amboinensis,delta_max_height,NA,NA,NA,Insufficient data
+Thor amboinensis,delta_interstitial,NA,NA,NA,Insufficient data
+Thor amboinensis,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Quadrimaera quadrimana,delta_surface_area,NA,NA,NA,Insufficient data
+Quadrimaera quadrimana,delta_volume,NA,NA,NA,Insufficient data
+Quadrimaera quadrimana,delta_max_height,NA,NA,NA,Insufficient data
+Quadrimaera quadrimana,delta_interstitial,NA,NA,NA,Insufficient data
+Quadrimaera quadrimana,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Mastonia vulpina,delta_surface_area,NA,NA,NA,Insufficient data
+Mastonia vulpina,delta_volume,NA,NA,NA,Insufficient data
+Mastonia vulpina,delta_max_height,NA,NA,NA,Insufficient data
+Mastonia vulpina,delta_interstitial,NA,NA,NA,Insufficient data
+Mastonia vulpina,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Eucithara paucicostata,delta_surface_area,NA,NA,NA,Insufficient data
+Eucithara paucicostata,delta_volume,NA,NA,NA,Insufficient data
+Eucithara paucicostata,delta_max_height,NA,NA,NA,Insufficient data
+Eucithara paucicostata,delta_interstitial,NA,NA,NA,Insufficient data
+Eucithara paucicostata,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Pomacentrus pavo,delta_surface_area,NA,NA,NA,Insufficient data
+Pomacentrus pavo,delta_volume,NA,NA,NA,Insufficient data
+Pomacentrus pavo,delta_max_height,NA,NA,NA,Insufficient data
+Pomacentrus pavo,delta_interstitial,NA,NA,NA,Insufficient data
+Pomacentrus pavo,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Ophiomastix elegans,delta_surface_area,NA,NA,NA,Insufficient data
+Ophiomastix elegans,delta_volume,NA,NA,NA,Insufficient data
+Ophiomastix elegans,delta_max_height,NA,NA,NA,Insufficient data
+Ophiomastix elegans,delta_interstitial,NA,NA,NA,Insufficient data
+Ophiomastix elegans,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Paracirrhites arcatus,delta_surface_area,NA,NA,NA,Insufficient data
+Paracirrhites arcatus,delta_volume,NA,NA,NA,Insufficient data
+Paracirrhites arcatus,delta_max_height,NA,NA,NA,Insufficient data
+Paracirrhites arcatus,delta_interstitial,NA,NA,NA,Insufficient data
+Paracirrhites arcatus,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Graphicomassa margarita,delta_surface_area,NA,NA,NA,Insufficient data
+Graphicomassa margarita,delta_volume,NA,NA,NA,Insufficient data
+Graphicomassa margarita,delta_max_height,NA,NA,NA,Insufficient data
+Graphicomassa margarita,delta_interstitial,NA,NA,NA,Insufficient data
+Graphicomassa margarita,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Caducifer decapitatus,delta_surface_area,NA,NA,NA,Insufficient data
+Caducifer decapitatus,delta_volume,NA,NA,NA,Insufficient data
+Caducifer decapitatus,delta_max_height,NA,NA,NA,Insufficient data
+Caducifer decapitatus,delta_interstitial,NA,NA,NA,Insufficient data
+Caducifer decapitatus,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Alpheus pachychirus,delta_surface_area,NA,NA,NA,Insufficient data
+Alpheus pachychirus,delta_volume,NA,NA,NA,Insufficient data
+Alpheus pachychirus,delta_max_height,NA,NA,NA,Insufficient data
+Alpheus pachychirus,delta_interstitial,NA,NA,NA,Insufficient data
+Alpheus pachychirus,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Medaeus ornatus,delta_surface_area,NA,NA,NA,Insufficient data
+Medaeus ornatus,delta_volume,NA,NA,NA,Insufficient data
+Medaeus ornatus,delta_max_height,NA,NA,NA,Insufficient data
+Medaeus ornatus,delta_interstitial,NA,NA,NA,Insufficient data
+Medaeus ornatus,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Scabricola olivaeformis,delta_surface_area,NA,NA,NA,Insufficient data
+Scabricola olivaeformis,delta_volume,NA,NA,NA,Insufficient data
+Scabricola olivaeformis,delta_max_height,NA,NA,NA,Insufficient data
+Scabricola olivaeformis,delta_interstitial,NA,NA,NA,Insufficient data
+Scabricola olivaeformis,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Vexillum aureolatum,delta_surface_area,NA,NA,NA,Insufficient data
+Vexillum aureolatum,delta_volume,NA,NA,NA,Insufficient data
+Vexillum aureolatum,delta_max_height,NA,NA,NA,Insufficient data
+Vexillum aureolatum,delta_interstitial,NA,NA,NA,Insufficient data
+Vexillum aureolatum,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Trapezia bella,delta_surface_area,NA,NA,NA,Insufficient data
+Trapezia bella,delta_volume,NA,NA,NA,Insufficient data
+Trapezia bella,delta_max_height,NA,NA,NA,Insufficient data
+Trapezia bella,delta_interstitial,NA,NA,NA,Insufficient data
+Trapezia bella,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Alpheus clypeatus,delta_surface_area,NA,NA,NA,Insufficient data
+Alpheus clypeatus,delta_volume,NA,NA,NA,Insufficient data
+Alpheus clypeatus,delta_max_height,NA,NA,NA,Insufficient data
+Alpheus clypeatus,delta_interstitial,NA,NA,NA,Insufficient data
+Alpheus clypeatus,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Tetralia ocucaerulea,delta_surface_area,NA,NA,NA,Insufficient data
+Tetralia ocucaerulea,delta_volume,NA,NA,NA,Insufficient data
+Tetralia ocucaerulea,delta_max_height,NA,NA,NA,Insufficient data
+Tetralia ocucaerulea,delta_interstitial,NA,NA,NA,Insufficient data
+Tetralia ocucaerulea,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Purpuradusta fimbriata,delta_surface_area,NA,NA,NA,Insufficient data
+Purpuradusta fimbriata,delta_volume,NA,NA,NA,Insufficient data
+Purpuradusta fimbriata,delta_max_height,NA,NA,NA,Insufficient data
+Purpuradusta fimbriata,delta_interstitial,NA,NA,NA,Insufficient data
+Purpuradusta fimbriata,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Domiporta filaris,delta_surface_area,NA,NA,NA,Insufficient data
+Domiporta filaris,delta_volume,NA,NA,NA,Insufficient data
+Domiporta filaris,delta_max_height,NA,NA,NA,Insufficient data
+Domiporta filaris,delta_interstitial,NA,NA,NA,Insufficient data
+Domiporta filaris,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Peristernia nassatula,delta_surface_area,NA,NA,NA,Insufficient data
+Peristernia nassatula,delta_volume,NA,NA,NA,Insufficient data
+Peristernia nassatula,delta_max_height,NA,NA,NA,Insufficient data
+Peristernia nassatula,delta_interstitial,NA,NA,NA,Insufficient data
+Peristernia nassatula,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Bittium glareosum,delta_surface_area,NA,NA,NA,Insufficient data
+Bittium glareosum,delta_volume,NA,NA,NA,Insufficient data
+Bittium glareosum,delta_max_height,NA,NA,NA,Insufficient data
+Bittium glareosum,delta_interstitial,NA,NA,NA,Insufficient data
+Bittium glareosum,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Stegastes nigricans,delta_surface_area,NA,NA,NA,Insufficient data
+Stegastes nigricans,delta_volume,NA,NA,NA,Insufficient data
+Stegastes nigricans,delta_max_height,NA,NA,NA,Insufficient data
+Stegastes nigricans,delta_interstitial,NA,NA,NA,Insufficient data
+Stegastes nigricans,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Ophiocoma schoenleinii,delta_surface_area,NA,NA,NA,Insufficient data
+Ophiocoma schoenleinii,delta_volume,NA,NA,NA,Insufficient data
+Ophiocoma schoenleinii,delta_max_height,NA,NA,NA,Insufficient data
+Ophiocoma schoenleinii,delta_interstitial,NA,NA,NA,Insufficient data
+Ophiocoma schoenleinii,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Pseudocheilinus hexataenia,delta_surface_area,NA,NA,NA,Insufficient data
+Pseudocheilinus hexataenia,delta_volume,NA,NA,NA,Insufficient data
+Pseudocheilinus hexataenia,delta_max_height,NA,NA,NA,Insufficient data
+Pseudocheilinus hexataenia,delta_interstitial,NA,NA,NA,Insufficient data
+Pseudocheilinus hexataenia,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Harpiliopsis depressa,delta_surface_area,NA,NA,NA,Insufficient data
+Harpiliopsis depressa,delta_volume,NA,NA,NA,Insufficient data
+Harpiliopsis depressa,delta_max_height,NA,NA,NA,Insufficient data
+Harpiliopsis depressa,delta_interstitial,NA,NA,NA,Insufficient data
+Harpiliopsis depressa,size_corrected_volume_growth,NA,NA,NA,Insufficient data
+Chlorocurtis jactans,delta_surface_area,NA,NA,NA,Insufficient data
+Chlorocurtis jactans,delta_volume,NA,NA,NA,Insufficient data
+Chlorocurtis jactans,delta_max_height,NA,NA,NA,Insufficient data
+Chlorocurtis jactans,delta_interstitial,NA,NA,NA,Insufficient data
+Chlorocurtis jactans,size_corrected_volume_growth,NA,NA,NA,Insufficient data

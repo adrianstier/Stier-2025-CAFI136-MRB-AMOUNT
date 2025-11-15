@@ -1,0 +1,4 @@
+axis,rule,flipped_initial
+Community PC1,Manual: make gradient positive,TRUE
+Condition PC1,Target metric 'delta_surface_area' positive,FALSE
+Condition PC1,"Ensure positive corr(Comm PC1, Cond PC1)",TRUE

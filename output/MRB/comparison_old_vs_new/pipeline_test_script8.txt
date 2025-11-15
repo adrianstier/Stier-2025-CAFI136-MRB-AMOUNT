@@ -1,0 +1,1679 @@
+✅ MRB Figure Standards loaded
+   • Base font size:  14 
+   • Publication DPI:  600 
+   • Treatment colors defined
+   • theme_publication() available
+   • Specialized themes loaded
+   • Helper functions ready
+
+[[1]]
+[1] "here"      "stats"     "graphics"  "grDevices" "utils"     "datasets" 
+[7] "methods"   "base"     
+
+[[2]]
+[1] "glue"      "here"      "stats"     "graphics"  "grDevices" "utils"    
+[7] "datasets"  "methods"   "base"     
+
+[[3]]
+ [1] "cli"       "glue"      "here"      "stats"     "graphics"  "grDevices"
+ [7] "utils"     "datasets"  "methods"   "base"     
+
+[[4]]
+ [1] "dplyr"     "cli"       "glue"      "here"      "stats"     "graphics" 
+ [7] "grDevices" "utils"     "datasets"  "methods"   "base"     
+
+[[5]]
+ [1] "tidyr"     "dplyr"     "cli"       "glue"      "here"      "stats"    
+ [7] "graphics"  "grDevices" "utils"     "datasets"  "methods"   "base"     
+
+[[6]]
+ [1] "tibble"    "tidyr"     "dplyr"     "cli"       "glue"      "here"     
+ [7] "stats"     "graphics"  "grDevices" "utils"     "datasets"  "methods"  
+[13] "base"     
+
+[[7]]
+ [1] "stringr"   "tibble"    "tidyr"     "dplyr"     "cli"       "glue"     
+ [7] "here"      "stats"     "graphics"  "grDevices" "utils"     "datasets" 
+[13] "methods"   "base"     
+
+[[8]]
+ [1] "purrr"     "stringr"   "tibble"    "tidyr"     "dplyr"     "cli"      
+ [7] "glue"      "here"      "stats"     "graphics"  "grDevices" "utils"    
+[13] "datasets"  "methods"   "base"     
+
+[[9]]
+ [1] "readr"     "purrr"     "stringr"   "tibble"    "tidyr"     "dplyr"    
+ [7] "cli"       "glue"      "here"      "stats"     "graphics"  "grDevices"
+[13] "utils"     "datasets"  "methods"   "base"     
+
+[[10]]
+ [1] "forcats"   "readr"     "purrr"     "stringr"   "tibble"    "tidyr"    
+ [7] "dplyr"     "cli"       "glue"      "here"      "stats"     "graphics" 
+[13] "grDevices" "utils"     "datasets"  "methods"   "base"     
+
+[[11]]
+ [1] "ggplot2"   "forcats"   "readr"     "purrr"     "stringr"   "tibble"   
+ [7] "tidyr"     "dplyr"     "cli"       "glue"      "here"      "stats"    
+[13] "graphics"  "grDevices" "utils"     "datasets"  "methods"   "base"     
+
+[[12]]
+ [1] "patchwork" "ggplot2"   "forcats"   "readr"     "purrr"     "stringr"  
+ [7] "tibble"    "tidyr"     "dplyr"     "cli"       "glue"      "here"     
+[13] "stats"     "graphics"  "grDevices" "utils"     "datasets"  "methods"  
+[19] "base"     
+
+[[13]]
+ [1] "scales"    "patchwork" "ggplot2"   "forcats"   "readr"     "purrr"    
+ [7] "stringr"   "tibble"    "tidyr"     "dplyr"     "cli"       "glue"     
+[13] "here"      "stats"     "graphics"  "grDevices" "utils"     "datasets" 
+[19] "methods"   "base"     
+
+[[14]]
+ [1] "vegan"     "permute"   "scales"    "patchwork" "ggplot2"   "forcats"  
+ [7] "readr"     "purrr"     "stringr"   "tibble"    "tidyr"     "dplyr"    
+[13] "cli"       "glue"      "here"      "stats"     "graphics"  "grDevices"
+[19] "utils"     "datasets"  "methods"   "base"     
+
+[[15]]
+ [1] "lme4"      "Matrix"    "vegan"     "permute"   "scales"    "patchwork"
+ [7] "ggplot2"   "forcats"   "readr"     "purrr"     "stringr"   "tibble"   
+[13] "tidyr"     "dplyr"     "cli"       "glue"      "here"      "stats"    
+[19] "graphics"  "grDevices" "utils"     "datasets"  "methods"   "base"     
+
+[[16]]
+ [1] "lmerTest"  "lme4"      "Matrix"    "vegan"     "permute"   "scales"   
+ [7] "patchwork" "ggplot2"   "forcats"   "readr"     "purrr"     "stringr"  
+[13] "tibble"    "tidyr"     "dplyr"     "cli"       "glue"      "here"     
+[19] "stats"     "graphics"  "grDevices" "utils"     "datasets"  "methods"  
+[25] "base"     
+
+[[17]]
+ [1] "broom.mixed" "lmerTest"    "lme4"        "Matrix"      "vegan"      
+ [6] "permute"     "scales"      "patchwork"   "ggplot2"     "forcats"    
+[11] "readr"       "purrr"       "stringr"     "tibble"      "tidyr"      
+[16] "dplyr"       "cli"         "glue"        "here"        "stats"      
+[21] "graphics"    "grDevices"   "utils"       "datasets"    "methods"    
+[26] "base"       
+
+[[18]]
+ [1] "car"         "carData"     "broom.mixed" "lmerTest"    "lme4"       
+ [6] "Matrix"      "vegan"       "permute"     "scales"      "patchwork"  
+[11] "ggplot2"     "forcats"     "readr"       "purrr"       "stringr"    
+[16] "tibble"      "tidyr"       "dplyr"       "cli"         "glue"       
+[21] "here"        "stats"       "graphics"    "grDevices"   "utils"      
+[26] "datasets"    "methods"     "base"       
+
+[[19]]
+ [1] "gt"          "car"         "carData"     "broom.mixed" "lmerTest"   
+ [6] "lme4"        "Matrix"      "vegan"       "permute"     "scales"     
+[11] "patchwork"   "ggplot2"     "forcats"     "readr"       "purrr"      
+[16] "stringr"     "tibble"      "tidyr"       "dplyr"       "cli"        
+[21] "glue"        "here"        "stats"       "graphics"    "grDevices"  
+[26] "utils"       "datasets"    "methods"     "base"       
+
+✔ Loaded 19 packages.
+ℹ Figure dir: /Users/adrianstiermbp2023/Stier-2025-CAFI136-MRB-AMOUNT/output/MRB/figures/cafi-coral
+ℹ Table  dir: /Users/adrianstiermbp2023/Stier-2025-CAFI136-MRB-AMOUNT/output/MRB/tables
+ℹ 44 colonies retained by ≥80% alive filter.
+
+── 1) Loading & processing data ──
+
+ℹ Reading CAFI community file…
+ℹ Building coral × species abundance matrix…
+ℹ Summarising species prevalence & totals (pre-filter)…
+ℹ Applying filters: total_count >= 10, n_corals >= 10
+✔ Species retained: 38/118 (dropped: 80)
+ℹ Reading growth & physiology files…
+✔ Alive-threshold filter applied to community matrix: kept 44/54 corals; dropped 10.
+ℹ Example dropped coral IDs: POC100, POC104, POC110, POC114, POC66, POC68, POC79, POC83, POC85, POC90
+✔ Data loaded: 44 corals × 38 species (post-filter)
+✔ Growth rows: 44 | Physio rows: 44
+ℹ Constructing condition (z-scored) and community matrices…
+✔ Matrices ready: RAW=38 spp, SQRT=38 spp, HELL=38 spp
+
+── 2) Defining PCA helper ──
+
+── 3) Running PCAs & aligning PC1 to Condition PC1 ──
+
+✅ Saved: scree_COMM_SQRT_CS (.png and .pdf)
+   Dimensions: 5 x 4 inches at 600 DPI
+✅ Saved: scree_COND_z (.png and .pdf)
+   Dimensions: 5 x 4 inches at 600 DPI
+✅ Saved: PC1_loadings_COMM_SQRT_CS (.png and .pdf)
+   Dimensions: 6 x 5 inches at 600 DPI
+✅ Saved: scree_COMM_HELLINGER (.png and .pdf)
+   Dimensions: 5 x 4 inches at 600 DPI
+✅ Saved: scree_COND_z (.png and .pdf)
+   Dimensions: 5 x 4 inches at 600 DPI
+✅ Saved: PC1_loadings_COMM_HELLINGER (.png and .pdf)
+   Dimensions: 6 x 5 inches at 600 DPI
+✅ Saved: scree_COMM_SQRT (.png and .pdf)
+   Dimensions: 5 x 4 inches at 600 DPI
+✅ Saved: scree_COND_z (.png and .pdf)
+   Dimensions: 5 x 4 inches at 600 DPI
+✅ Saved: PC1_loadings_COMM_SQRT (.png and .pdf)
+   Dimensions: 6 x 5 inches at 600 DPI
+✅ Saved: scree_COMM_RAW (.png and .pdf)
+   Dimensions: 5 x 4 inches at 600 DPI
+✅ Saved: scree_COND_z (.png and .pdf)
+   Dimensions: 5 x 4 inches at 600 DPI
+✅ Saved: PC1_loadings_COMM_RAW (.png and .pdf)
+   Dimensions: 6 x 5 inches at 600 DPI
+✅ Saved: PC1_loadings_COMM_SQRT_CS_aligned (.png and .pdf)
+   Dimensions: 6 x 5 inches at 600 DPI
+✅ Saved: PC1_loadings_COMM_SQRT_aligned (.png and .pdf)
+   Dimensions: 6 x 5 inches at 600 DPI
+── 4) Fitting LMMs and summarizing effects (SQRT_CS, HELLINGER, SQRT) ──
+
+✔ Fitted LMMs for SQRT_CS, HELLINGER, and SQRT.
+
+── 4.2) Plotting marginal fits ──
+
+✅ Saved: LMM_COMM_vs_COND_comparison (.png and .pdf)
+   Dimensions: 18 x 5 inches at 600 DPI
+Warning messages:
+1: In grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y,  :
+  for 'SQRT_CS community → condition' in 'mbcsToSbcs': -> substituted for → (U+2192)
+2: In grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y,  :
+  for 'HELLINGER community → condition' in 'mbcsToSbcs': -> substituted for → (U+2192)
+3: In grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y,  :
+  for 'SQRT community → condition' in 'mbcsToSbcs': -> substituted for → (U+2192)
+── 4.3) Summarizing fixed effects ──
+
+<div id="pzveloiefp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+  <style>#pzveloiefp table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#pzveloiefp thead, #pzveloiefp tbody, #pzveloiefp tfoot, #pzveloiefp tr, #pzveloiefp td, #pzveloiefp th {
+  border-style: none;
+}
+
+#pzveloiefp p {
+  margin: 0;
+  padding: 0;
+}
+
+#pzveloiefp .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#pzveloiefp .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#pzveloiefp .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#pzveloiefp .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#pzveloiefp .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#pzveloiefp .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#pzveloiefp .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#pzveloiefp .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#pzveloiefp .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#pzveloiefp .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#pzveloiefp .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#pzveloiefp .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#pzveloiefp .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#pzveloiefp .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#pzveloiefp .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#pzveloiefp .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#pzveloiefp .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#pzveloiefp .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#pzveloiefp .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pzveloiefp .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#pzveloiefp .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#pzveloiefp .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#pzveloiefp .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pzveloiefp .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#pzveloiefp .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#pzveloiefp .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#pzveloiefp .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pzveloiefp .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#pzveloiefp .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#pzveloiefp .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#pzveloiefp .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#pzveloiefp .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#pzveloiefp .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pzveloiefp .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#pzveloiefp .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pzveloiefp .gt_left {
+  text-align: left;
+}
+
+#pzveloiefp .gt_center {
+  text-align: center;
+}
+
+#pzveloiefp .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#pzveloiefp .gt_font_normal {
+  font-weight: normal;
+}
+
+#pzveloiefp .gt_font_bold {
+  font-weight: bold;
+}
+
+#pzveloiefp .gt_font_italic {
+  font-style: italic;
+}
+
+#pzveloiefp .gt_super {
+  font-size: 65%;
+}
+
+#pzveloiefp .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#pzveloiefp .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#pzveloiefp .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#pzveloiefp .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#pzveloiefp .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#pzveloiefp .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#pzveloiefp .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#pzveloiefp .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#pzveloiefp div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+  <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    <tr class="gt_heading">
+      <td colspan="8" class="gt_heading gt_title gt_font_normal" style><span class='gt_from_md'><strong>LMM Summary: Community PC1 → Condition PC1</strong></span></td>
+    </tr>
+    <tr class="gt_heading">
+      <td colspan="8" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style>SQRT_CS (sqrt + center/scale), HELLINGER, SQRT (sqrt only)</td>
+    </tr>
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Matrix">Matrix</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Estimate">Estimate</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Std_Error">Std. Error</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="DF">df</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="t_stat">t-stat</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="p_value">p-value</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="CI_lower">CI Lower</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="CI_upper">CI Upper</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="Matrix" class="gt_row gt_left">SQRT_CS</td>
+<td headers="Estimate" class="gt_row gt_right">0.301</td>
+<td headers="Std_Error" class="gt_row gt_right">0.116</td>
+<td headers="DF" class="gt_row gt_right">33.41295</td>
+<td headers="t_stat" class="gt_row gt_right">2.580</td>
+<td headers="p_value" class="gt_row gt_right">0.014</td>
+<td headers="CI_lower" class="gt_row gt_right">0.064</td>
+<td headers="CI_upper" class="gt_row gt_right">0.537</td></tr>
+    <tr><td headers="Matrix" class="gt_row gt_left">HELLINGER</td>
+<td headers="Estimate" class="gt_row gt_right">0.311</td>
+<td headers="Std_Error" class="gt_row gt_right">0.108</td>
+<td headers="DF" class="gt_row gt_right">25.15926</td>
+<td headers="t_stat" class="gt_row gt_right">2.890</td>
+<td headers="p_value" class="gt_row gt_right">0.008</td>
+<td headers="CI_lower" class="gt_row gt_right">0.089</td>
+<td headers="CI_upper" class="gt_row gt_right">0.533</td></tr>
+    <tr><td headers="Matrix" class="gt_row gt_left">SQRT</td>
+<td headers="Estimate" class="gt_row gt_right">0.179</td>
+<td headers="Std_Error" class="gt_row gt_right">0.123</td>
+<td headers="DF" class="gt_row gt_right">37.08420</td>
+<td headers="t_stat" class="gt_row gt_right">1.460</td>
+<td headers="p_value" class="gt_row gt_right">0.153</td>
+<td headers="CI_lower" class="gt_row gt_right">−0.070</td>
+<td headers="CI_upper" class="gt_row gt_right">0.429</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+`geom_smooth()` using formula = 'y ~ x'
+`geom_smooth()` using formula = 'y ~ x'
+`geom_smooth()` using formula = 'y ~ x'
+`geom_smooth()` using formula = 'y ~ x'
+`geom_smooth()` using formula = 'y ~ x'
+`geom_smooth()` using formula = 'y ~ x'
+`geom_smooth()` using formula = 'y ~ x'
+`geom_smooth()` using formula = 'y ~ x'
+`geom_smooth()` using formula = 'y ~ x'
+✅ Saved: PCA_9panel_overview (.png and .pdf)
+   Dimensions: 15 x 12 inches at 600 DPI
+`geom_smooth()` using formula = 'y ~ x'
+`geom_smooth()` using formula = 'y ~ x'
+`geom_smooth()` using formula = 'y ~ x'
+✅ Saved: SQRT_CS_PC1loadings_and_scatter (.png and .pdf)
+   Dimensions: 10 x 5 inches at 600 DPI
+Warning messages:
+1: annotation$theme is not a valid theme.
+Please use `theme()` to construct themes. 
+2: annotation$theme is not a valid theme.
+Please use `theme()` to construct themes. 
+3: annotation$theme is not a valid theme.
+Please use `theme()` to construct themes. 
+
+── 5) Building publication-ready 3-panel figures ──
+
+── 5.3) HELLINGER 3-panel ──
+
+`geom_smooth()` using formula = 'y ~ x'
+`geom_smooth()` using formula = 'y ~ x'
+`geom_smooth()` using formula = 'y ~ x'
+✅ Saved: PCA_LOADINGS_HELLINGER_3panel_clean (.png and .pdf)
+   Dimensions: 13 x 5 inches at 600 DPI
+
+── 5.4) RAW 3-panel ──
+
+`geom_smooth()` using formula = 'y ~ x'
+`geom_smooth()` using formula = 'y ~ x'
+`geom_smooth()` using formula = 'y ~ x'
+✅ Saved: PCA_LOADINGS_RAW_3panel_clean (.png and .pdf)
+   Dimensions: 13 x 5 inches at 600 DPI
+
+── 5.5) RAW-only 2-panel (A/B) ──
+
+`geom_smooth()` using formula = 'y ~ x'
+`geom_smooth()` using formula = 'y ~ x'
+`geom_smooth()` using formula = 'y ~ x'
+✅ Saved: PCA_LOADINGS_RAW_2panel_clean (.png and .pdf)
+   Dimensions: 9.5 x 6 inches at 600 DPI
+`geom_smooth()` using formula = 'y ~ x'
+`geom_smooth()` using formula = 'y ~ x'
+! Bootstrapping master_df/species_name_map/physio_vars for §5.6
+ℹ Applied alive filter to master_df: kept 44/44 corals.
+
+── 5.6) Species–performance correlations (raw & sqrt) with PC1 & taxon-group ordering ──
+
+ℹ Computing PC1(coral) from physio_vars (centered & scaled).
+✔ Computed PC1(coral) and saved loadings → /Users/adrianstiermbp2023/Stier-2025-CAFI136-MRB-AMOUNT/output/MRB/tables/pc1_coral_loadings.csv
+✔ Wrote correlation table (incl. taxon_group & r_pc1_species) → /Users/adrianstiermbp2023/Stier-2025-CAFI136-MRB-AMOUNT/output/MRB/tables/species_performance_correlations_raw_and_sqrt_w_groups.csv
+✅ Saved: species_performance_corr_heatmap_sqrt_byGroup_orderedByPC1 (.png and .pdf)
+   Dimensions: 10 x 11 inches at 600 DPI
+✔ §5.6 done: heatmap saved; rows ordered by r(species, PC1) within Fish / Shrimps+Crabs / Snails / Other.
+
+── 6) Species-level regressions (top-20 by |RAW PC1 loading|) ──
+
+✔ Selected top 20 species by |RAW PC1 loading|.
+✔ Wrote species-level LMM table → /Users/adrianstiermbp2023/Stier-2025-CAFI136-MRB-AMOUNT/output/MRB/tables/LMM_species_top20_RAWsqrt_vs_condPC1.csv
+✅ Saved: LMM_species_top20_coefplot (.png and .pdf)
+   Dimensions: 7 x 7 inches at 600 DPI
+<div id="duhtxcdzeb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+  <style>#duhtxcdzeb table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#duhtxcdzeb thead, #duhtxcdzeb tbody, #duhtxcdzeb tfoot, #duhtxcdzeb tr, #duhtxcdzeb td, #duhtxcdzeb th {
+  border-style: none;
+}
+
+#duhtxcdzeb p {
+  margin: 0;
+  padding: 0;
+}
+
+#duhtxcdzeb .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#duhtxcdzeb .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#duhtxcdzeb .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#duhtxcdzeb .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#duhtxcdzeb .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#duhtxcdzeb .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#duhtxcdzeb .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#duhtxcdzeb .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#duhtxcdzeb .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#duhtxcdzeb .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#duhtxcdzeb .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#duhtxcdzeb .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#duhtxcdzeb .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#duhtxcdzeb .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#duhtxcdzeb .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#duhtxcdzeb .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#duhtxcdzeb .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#duhtxcdzeb .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#duhtxcdzeb .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#duhtxcdzeb .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#duhtxcdzeb .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#duhtxcdzeb .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#duhtxcdzeb .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#duhtxcdzeb .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#duhtxcdzeb .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#duhtxcdzeb .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#duhtxcdzeb .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#duhtxcdzeb .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#duhtxcdzeb .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#duhtxcdzeb .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#duhtxcdzeb .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#duhtxcdzeb .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#duhtxcdzeb .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#duhtxcdzeb .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#duhtxcdzeb .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#duhtxcdzeb .gt_left {
+  text-align: left;
+}
+
+#duhtxcdzeb .gt_center {
+  text-align: center;
+}
+
+#duhtxcdzeb .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#duhtxcdzeb .gt_font_normal {
+  font-weight: normal;
+}
+
+#duhtxcdzeb .gt_font_bold {
+  font-weight: bold;
+}
+
+#duhtxcdzeb .gt_font_italic {
+  font-style: italic;
+}
+
+#duhtxcdzeb .gt_super {
+  font-size: 65%;
+}
+
+#duhtxcdzeb .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#duhtxcdzeb .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#duhtxcdzeb .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#duhtxcdzeb .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#duhtxcdzeb .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#duhtxcdzeb .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#duhtxcdzeb .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#duhtxcdzeb .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#duhtxcdzeb div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+  <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    <tr class="gt_heading">
+      <td colspan="12" class="gt_heading gt_title gt_font_normal" style><span class='gt_from_md'><strong>Top-20 species (by |RAW PC1 loading|): LMM on Coral condition PC1</strong></span></td>
+    </tr>
+    <tr class="gt_heading">
+      <td colspan="12" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style>Model: cond_PC1 ~ sqrt(abundance) + (1 | reef)</td>
+    </tr>
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="species">Species</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="term">term</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="estimate">β (sqrt abundance)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="std.error">SE</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="df">df</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="statistic">statistic</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="p.value">p</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="conf.low">CI low</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="conf.high">CI high</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="loading">RAW PC1 loading</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="sign">sign</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="p_adj_hochberg">p (Hochberg)</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="species" class="gt_row gt_left">Caracanthus maculatus</td>
+<td headers="term" class="gt_row gt_left">sqrt_abund</td>
+<td headers="estimate" class="gt_row gt_right">1.4200</td>
+<td headers="std.error" class="gt_row gt_right">0.394</td>
+<td headers="df" class="gt_row gt_right">40.08555</td>
+<td headers="statistic" class="gt_row gt_right">3.60738488</td>
+<td headers="p.value" class="gt_row gt_right">0.000848</td>
+<td headers="conf.low" class="gt_row gt_right">0.6250</td>
+<td headers="conf.high" class="gt_row gt_right">2.2200</td>
+<td headers="loading" class="gt_row gt_right">0.211</td>
+<td headers="sign" class="gt_row gt_right">+</td>
+<td headers="p_adj_hochberg" class="gt_row gt_right">0.017</td></tr>
+    <tr><td headers="species" class="gt_row gt_left">Luniella pugil</td>
+<td headers="term" class="gt_row gt_left">sqrt_abund</td>
+<td headers="estimate" class="gt_row gt_right">-0.9170</td>
+<td headers="std.error" class="gt_row gt_right">0.354</td>
+<td headers="df" class="gt_row gt_right">38.54196</td>
+<td headers="statistic" class="gt_row gt_right">-2.58961502</td>
+<td headers="p.value" class="gt_row gt_right">0.013500</td>
+<td headers="conf.low" class="gt_row gt_right">-1.6300</td>
+<td headers="conf.high" class="gt_row gt_right">-0.2000</td>
+<td headers="loading" class="gt_row gt_right">-0.210</td>
+<td headers="sign" class="gt_row gt_right">-</td>
+<td headers="p_adj_hochberg" class="gt_row gt_right">0.256</td></tr>
+    <tr><td headers="species" class="gt_row gt_left">Alpheus diadema</td>
+<td headers="term" class="gt_row gt_left">sqrt_abund</td>
+<td headers="estimate" class="gt_row gt_right">-0.9950</td>
+<td headers="std.error" class="gt_row gt_right">0.474</td>
+<td headers="df" class="gt_row gt_right">39.05832</td>
+<td headers="statistic" class="gt_row gt_right">-2.09982133</td>
+<td headers="p.value" class="gt_row gt_right">0.042300</td>
+<td headers="conf.low" class="gt_row gt_right">-1.9500</td>
+<td headers="conf.high" class="gt_row gt_right">-0.0366</td>
+<td headers="loading" class="gt_row gt_right">-0.225</td>
+<td headers="sign" class="gt_row gt_right">-</td>
+<td headers="p_adj_hochberg" class="gt_row gt_right">0.761</td></tr>
+    <tr><td headers="species" class="gt_row gt_left">Calcinus latens</td>
+<td headers="term" class="gt_row gt_left">sqrt_abund</td>
+<td headers="estimate" class="gt_row gt_right">0.4530</td>
+<td headers="std.error" class="gt_row gt_right">0.251</td>
+<td headers="df" class="gt_row gt_right">41.82175</td>
+<td headers="statistic" class="gt_row gt_right">1.80380474</td>
+<td headers="p.value" class="gt_row gt_right">0.078500</td>
+<td headers="conf.low" class="gt_row gt_right">-0.0539</td>
+<td headers="conf.high" class="gt_row gt_right">0.9610</td>
+<td headers="loading" class="gt_row gt_right">0.141</td>
+<td headers="sign" class="gt_row gt_right">+</td>
+<td headers="p_adj_hochberg" class="gt_row gt_right">0.962</td></tr>
+    <tr><td headers="species" class="gt_row gt_left">Periclimenes watamuae</td>
+<td headers="term" class="gt_row gt_left">sqrt_abund</td>
+<td headers="estimate" class="gt_row gt_right">0.2120</td>
+<td headers="std.error" class="gt_row gt_right">0.129</td>
+<td headers="df" class="gt_row gt_right">41.88951</td>
+<td headers="statistic" class="gt_row gt_right">1.64183150</td>
+<td headers="p.value" class="gt_row gt_right">0.108000</td>
+<td headers="conf.low" class="gt_row gt_right">-0.0487</td>
+<td headers="conf.high" class="gt_row gt_right">0.4730</td>
+<td headers="loading" class="gt_row gt_right">0.177</td>
+<td headers="sign" class="gt_row gt_right">+</td>
+<td headers="p_adj_hochberg" class="gt_row gt_right">0.962</td></tr>
+    <tr><td headers="species" class="gt_row gt_left">Dascyllus flavicaudus</td>
+<td headers="term" class="gt_row gt_left">sqrt_abund</td>
+<td headers="estimate" class="gt_row gt_right">0.3210</td>
+<td headers="std.error" class="gt_row gt_right">0.204</td>
+<td headers="df" class="gt_row gt_right">30.95768</td>
+<td headers="statistic" class="gt_row gt_right">1.57522534</td>
+<td headers="p.value" class="gt_row gt_right">0.125000</td>
+<td headers="conf.low" class="gt_row gt_right">-0.0945</td>
+<td headers="conf.high" class="gt_row gt_right">0.7360</td>
+<td headers="loading" class="gt_row gt_right">0.171</td>
+<td headers="sign" class="gt_row gt_right">+</td>
+<td headers="p_adj_hochberg" class="gt_row gt_right">0.962</td></tr>
+    <tr><td headers="species" class="gt_row gt_left">Harpiliopsis spinigera</td>
+<td headers="term" class="gt_row gt_left">sqrt_abund</td>
+<td headers="estimate" class="gt_row gt_right">0.4550</td>
+<td headers="std.error" class="gt_row gt_right">0.308</td>
+<td headers="df" class="gt_row gt_right">39.78940</td>
+<td headers="statistic" class="gt_row gt_right">1.47783912</td>
+<td headers="p.value" class="gt_row gt_right">0.147000</td>
+<td headers="conf.low" class="gt_row gt_right">-0.1670</td>
+<td headers="conf.high" class="gt_row gt_right">1.0800</td>
+<td headers="loading" class="gt_row gt_right">0.212</td>
+<td headers="sign" class="gt_row gt_right">+</td>
+<td headers="p_adj_hochberg" class="gt_row gt_right">0.962</td></tr>
+    <tr><td headers="species" class="gt_row gt_left">Apataxia cerithiiformis</td>
+<td headers="term" class="gt_row gt_left">sqrt_abund</td>
+<td headers="estimate" class="gt_row gt_right">-0.2940</td>
+<td headers="std.error" class="gt_row gt_right">0.207</td>
+<td headers="df" class="gt_row gt_right">38.08420</td>
+<td headers="statistic" class="gt_row gt_right">-1.41994888</td>
+<td headers="p.value" class="gt_row gt_right">0.164000</td>
+<td headers="conf.low" class="gt_row gt_right">-0.7130</td>
+<td headers="conf.high" class="gt_row gt_right">0.1250</td>
+<td headers="loading" class="gt_row gt_right">-0.199</td>
+<td headers="sign" class="gt_row gt_right">-</td>
+<td headers="p_adj_hochberg" class="gt_row gt_right">0.962</td></tr>
+    <tr><td headers="species" class="gt_row gt_left">Zafra hahajimana</td>
+<td headers="term" class="gt_row gt_left">sqrt_abund</td>
+<td headers="estimate" class="gt_row gt_right">0.5580</td>
+<td headers="std.error" class="gt_row gt_right">0.453</td>
+<td headers="df" class="gt_row gt_right">37.06546</td>
+<td headers="statistic" class="gt_row gt_right">1.23306004</td>
+<td headers="p.value" class="gt_row gt_right">0.225000</td>
+<td headers="conf.low" class="gt_row gt_right">-0.3590</td>
+<td headers="conf.high" class="gt_row gt_right">1.4800</td>
+<td headers="loading" class="gt_row gt_right">-0.196</td>
+<td headers="sign" class="gt_row gt_right">-</td>
+<td headers="p_adj_hochberg" class="gt_row gt_right">0.962</td></tr>
+    <tr><td headers="species" class="gt_row gt_left">Halichoeres trimaculatus</td>
+<td headers="term" class="gt_row gt_left">sqrt_abund</td>
+<td headers="estimate" class="gt_row gt_right">0.6320</td>
+<td headers="std.error" class="gt_row gt_right">0.532</td>
+<td headers="df" class="gt_row gt_right">40.14894</td>
+<td headers="statistic" class="gt_row gt_right">1.18752918</td>
+<td headers="p.value" class="gt_row gt_right">0.242000</td>
+<td headers="conf.low" class="gt_row gt_right">-0.4430</td>
+<td headers="conf.high" class="gt_row gt_right">1.7100</td>
+<td headers="loading" class="gt_row gt_right">0.143</td>
+<td headers="sign" class="gt_row gt_right">+</td>
+<td headers="p_adj_hochberg" class="gt_row gt_right">0.962</td></tr>
+    <tr><td headers="species" class="gt_row gt_left">Galathea mauritiana</td>
+<td headers="term" class="gt_row gt_left">sqrt_abund</td>
+<td headers="estimate" class="gt_row gt_right">-0.3430</td>
+<td headers="std.error" class="gt_row gt_right">0.299</td>
+<td headers="df" class="gt_row gt_right">41.06940</td>
+<td headers="statistic" class="gt_row gt_right">-1.14555927</td>
+<td headers="p.value" class="gt_row gt_right">0.259000</td>
+<td headers="conf.low" class="gt_row gt_right">-0.9470</td>
+<td headers="conf.high" class="gt_row gt_right">0.2620</td>
+<td headers="loading" class="gt_row gt_right">-0.291</td>
+<td headers="sign" class="gt_row gt_right">-</td>
+<td headers="p_adj_hochberg" class="gt_row gt_right">0.962</td></tr>
+    <tr><td headers="species" class="gt_row gt_left">Alpheus lottini</td>
+<td headers="term" class="gt_row gt_left">sqrt_abund</td>
+<td headers="estimate" class="gt_row gt_right">-0.2790</td>
+<td headers="std.error" class="gt_row gt_right">0.303</td>
+<td headers="df" class="gt_row gt_right">38.16445</td>
+<td headers="statistic" class="gt_row gt_right">-0.92115508</td>
+<td headers="p.value" class="gt_row gt_right">0.363000</td>
+<td headers="conf.low" class="gt_row gt_right">-0.8930</td>
+<td headers="conf.high" class="gt_row gt_right">0.3340</td>
+<td headers="loading" class="gt_row gt_right">-0.126</td>
+<td headers="sign" class="gt_row gt_right">-</td>
+<td headers="p_adj_hochberg" class="gt_row gt_right">0.962</td></tr>
+    <tr><td headers="species" class="gt_row gt_left">Mitrella moleculina</td>
+<td headers="term" class="gt_row gt_left">sqrt_abund</td>
+<td headers="estimate" class="gt_row gt_right">-0.3410</td>
+<td headers="std.error" class="gt_row gt_right">0.427</td>
+<td headers="df" class="gt_row gt_right">38.00258</td>
+<td headers="statistic" class="gt_row gt_right">-0.79923043</td>
+<td headers="p.value" class="gt_row gt_right">0.429000</td>
+<td headers="conf.low" class="gt_row gt_right">-1.2100</td>
+<td headers="conf.high" class="gt_row gt_right">0.5230</td>
+<td headers="loading" class="gt_row gt_right">-0.239</td>
+<td headers="sign" class="gt_row gt_right">-</td>
+<td headers="p_adj_hochberg" class="gt_row gt_right">0.962</td></tr>
+    <tr><td headers="species" class="gt_row gt_left">Paragobiodon modestus</td>
+<td headers="term" class="gt_row gt_left">sqrt_abund</td>
+<td headers="estimate" class="gt_row gt_right">-0.1940</td>
+<td headers="std.error" class="gt_row gt_right">0.266</td>
+<td headers="df" class="gt_row gt_right">41.98718</td>
+<td headers="statistic" class="gt_row gt_right">-0.72758086</td>
+<td headers="p.value" class="gt_row gt_right">0.471000</td>
+<td headers="conf.low" class="gt_row gt_right">-0.7310</td>
+<td headers="conf.high" class="gt_row gt_right">0.3440</td>
+<td headers="loading" class="gt_row gt_right">-0.154</td>
+<td headers="sign" class="gt_row gt_right">-</td>
+<td headers="p_adj_hochberg" class="gt_row gt_right">0.962</td></tr>
+    <tr><td headers="species" class="gt_row gt_left">Strigatella assimilis</td>
+<td headers="term" class="gt_row gt_left">sqrt_abund</td>
+<td headers="estimate" class="gt_row gt_right">0.2630</td>
+<td headers="std.error" class="gt_row gt_right">0.435</td>
+<td headers="df" class="gt_row gt_right">40.95720</td>
+<td headers="statistic" class="gt_row gt_right">0.60505142</td>
+<td headers="p.value" class="gt_row gt_right">0.548000</td>
+<td headers="conf.low" class="gt_row gt_right">-0.6160</td>
+<td headers="conf.high" class="gt_row gt_right">1.1400</td>
+<td headers="loading" class="gt_row gt_right">-0.251</td>
+<td headers="sign" class="gt_row gt_right">-</td>
+<td headers="p_adj_hochberg" class="gt_row gt_right">0.962</td></tr>
+    <tr><td headers="species" class="gt_row gt_left">Cerithium zebrum</td>
+<td headers="term" class="gt_row gt_left">sqrt_abund</td>
+<td headers="estimate" class="gt_row gt_right">-0.1200</td>
+<td headers="std.error" class="gt_row gt_right">0.287</td>
+<td headers="df" class="gt_row gt_right">41.96452</td>
+<td headers="statistic" class="gt_row gt_right">-0.41744308</td>
+<td headers="p.value" class="gt_row gt_right">0.678000</td>
+<td headers="conf.low" class="gt_row gt_right">-0.6990</td>
+<td headers="conf.high" class="gt_row gt_right">0.4590</td>
+<td headers="loading" class="gt_row gt_right">-0.179</td>
+<td headers="sign" class="gt_row gt_right">-</td>
+<td headers="p_adj_hochberg" class="gt_row gt_right">0.962</td></tr>
+    <tr><td headers="species" class="gt_row gt_left">Diala albugo</td>
+<td headers="term" class="gt_row gt_left">sqrt_abund</td>
+<td headers="estimate" class="gt_row gt_right">-0.0992</td>
+<td headers="std.error" class="gt_row gt_right">0.266</td>
+<td headers="df" class="gt_row gt_right">38.80314</td>
+<td headers="statistic" class="gt_row gt_right">-0.37220707</td>
+<td headers="p.value" class="gt_row gt_right">0.712000</td>
+<td headers="conf.low" class="gt_row gt_right">-0.6380</td>
+<td headers="conf.high" class="gt_row gt_right">0.4400</td>
+<td headers="loading" class="gt_row gt_right">-0.202</td>
+<td headers="sign" class="gt_row gt_right">-</td>
+<td headers="p_adj_hochberg" class="gt_row gt_right">0.962</td></tr>
+    <tr><td headers="species" class="gt_row gt_left">Stomatolina rubra</td>
+<td headers="term" class="gt_row gt_left">sqrt_abund</td>
+<td headers="estimate" class="gt_row gt_right">-0.1460</td>
+<td headers="std.error" class="gt_row gt_right">0.472</td>
+<td headers="df" class="gt_row gt_right">40.93083</td>
+<td headers="statistic" class="gt_row gt_right">-0.30942313</td>
+<td headers="p.value" class="gt_row gt_right">0.759000</td>
+<td headers="conf.low" class="gt_row gt_right">-1.1000</td>
+<td headers="conf.high" class="gt_row gt_right">0.8080</td>
+<td headers="loading" class="gt_row gt_right">-0.272</td>
+<td headers="sign" class="gt_row gt_right">-</td>
+<td headers="p_adj_hochberg" class="gt_row gt_right">0.962</td></tr>
+    <tr><td headers="species" class="gt_row gt_left">Diala semistriata</td>
+<td headers="term" class="gt_row gt_left">sqrt_abund</td>
+<td headers="estimate" class="gt_row gt_right">-0.0696</td>
+<td headers="std.error" class="gt_row gt_right">0.297</td>
+<td headers="df" class="gt_row gt_right">40.42521</td>
+<td headers="statistic" class="gt_row gt_right">-0.23431678</td>
+<td headers="p.value" class="gt_row gt_right">0.816000</td>
+<td headers="conf.low" class="gt_row gt_right">-0.6700</td>
+<td headers="conf.high" class="gt_row gt_right">0.5300</td>
+<td headers="loading" class="gt_row gt_right">-0.231</td>
+<td headers="sign" class="gt_row gt_right">-</td>
+<td headers="p_adj_hochberg" class="gt_row gt_right">0.962</td></tr>
+    <tr><td headers="species" class="gt_row gt_left">Trapezia serenei</td>
+<td headers="term" class="gt_row gt_left">sqrt_abund</td>
+<td headers="estimate" class="gt_row gt_right">-0.0232</td>
+<td headers="std.error" class="gt_row gt_right">0.486</td>
+<td headers="df" class="gt_row gt_right">41.99965</td>
+<td headers="statistic" class="gt_row gt_right">-0.04761997</td>
+<td headers="p.value" class="gt_row gt_right">0.962000</td>
+<td headers="conf.low" class="gt_row gt_right">-1.0000</td>
+<td headers="conf.high" class="gt_row gt_right">0.9580</td>
+<td headers="loading" class="gt_row gt_right">-0.265</td>
+<td headers="sign" class="gt_row gt_right">-</td>
+<td headers="p_adj_hochberg" class="gt_row gt_right">0.962</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+
+── 6.6) Plotting species-level regressions with lmer fits ──
+
+✅ Saved: species_top20_LMM_panels (.png and .pdf)
+   Dimensions: 12 x 14 inches at 600 DPI
+✔ Panel figure written: /Users/adrianstiermbp2023/Stier-2025-CAFI136-MRB-AMOUNT/output/MRB/figures/cafi-coral/species_top20_LMM_panels.png and /Users/adrianstiermbp2023/Stier-2025-CAFI136-MRB-AMOUNT/output/MRB/figures/cafi-coral/species_top20_LMM_panels.pdf
+
+── 6.7) Faceted species fits (raw abundance, sqrt axis) ──
+
+✅ Saved: species_faceted_LMM_lines_rawX_sqrtAxis (.png and .pdf)
+   Dimensions: 5 x 6 inches at 600 DPI
+✔ Faceted figure written: /Users/adrianstiermbp2023/Stier-2025-CAFI136-MRB-AMOUNT/output/MRB/figures/cafi-coral/species_faceted_LMM_lines_rawX_sqrtAxis.png and /Users/adrianstiermbp2023/Stier-2025-CAFI136-MRB-AMOUNT/output/MRB/figures/cafi-coral/species_faceted_LMM_lines_rawX_sqrtAxis.pdf
+
+── 6.8) Faceted species fits (3x2, wide slide with title) ──
+
+✅ Saved: species_faceted_LMM_lines_rawX_sqrtAxis_wide_3x2 (.png and .pdf)
+   Dimensions: 13.33 x 7.5 inches at 600 DPI
+✔ Wrote PPT-wide figure → /Users/adrianstiermbp2023/Stier-2025-CAFI136-MRB-AMOUNT/output/MRB/figures/cafi-coral/species_faceted_LMM_lines_rawX_sqrtAxis_wide_3x2.png / .pdf
+
+── 6.9) Building master_df for Section 7 ──
+
+✔ master_df ready: 44 corals × 38 focal species columns.
+ℹ Example species columns: Alpheus_diadema, Alpheus_lottini, Apataxia_cerithiiformis, Athanas_djiboutensis, Calcinus_latens, Caracanthus_maculatus
+
+── Section 7: Network analysis (reef-adjusted residual correlations) ───────────
+
+Attaching package: ‘igraph’
+
+The following object is masked from ‘package:vegan’:
+
+    diversity
+
+The following object is masked from ‘package:permute’:
+
+    permute
+
+The following objects are masked from ‘package:purrr’:
+
+    compose, simplify
+
+The following object is masked from ‘package:tibble’:
+
+    as_data_frame
+
+The following object is masked from ‘package:tidyr’:
+
+    crossing
+
+The following objects are masked from ‘package:dplyr’:
+
+    as_data_frame, groups, union
+
+The following object is masked from ‘package:cli’:
+
+    tree
+
+The following objects are masked from ‘package:stats’:
+
+    decompose, spectrum
+
+The following object is masked from ‘package:base’:
+
+    union
+
+✔ Alive filter applied (≥80%): kept 44/44 corals.
+boundary (singular) fit: see help('isSingular')
+boundary (singular) fit: see help('isSingular')
+boundary (singular) fit: see help('isSingular')
+boundary (singular) fit: see help('isSingular')
+boundary (singular) fit: see help('isSingular')
+boundary (singular) fit: see help('isSingular')
+boundary (singular) fit: see help('isSingular')
+✔ Edges kept at |r| ≥ 0.3: 89
+Warning message:
+In grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y,  :
+  for 'reef-adjusted residuals (random intercept for reef); edges shown for |r| ≥ 0.3' in 'mbcsToSbcs': >= substituted for ≥ (U+2265)
+
+── Input overview ──
+
+ℹ Corals (rows) used after drop_na: 44
+ℹ Trait variables: 5 → growth_vol_b, protein_mg_cm2, carb_mg_cm2, zoox_cells_cm2, afdw_mg_cm2
+ℹ Candidate species variables (pre-network): 39
+
+── Network overview (|r| >= 0.3) ──
+
+✔ Edges retained: 89 (Positive: 75; Negative: 14)
+✔ Nodes in network: 42 (Traits: 5; Species: 37)
+
+── Top edges by |r| ──
+
+ℹ Top 10 overall:
+ rank                     from                     to         r   Effect     1           protein_mg_cm2            carb_mg_cm2 0.7831215 Positive     2 Coralliogalathea_humilis      Stomatolina_rubra 0.6486044 Positive     3        Diala_semistriata      Stomatolina_rubra 0.6185346 Positive     4        Diala_semistriata    Mitrella_moleculina 0.5870366 Positive     5              carb_mg_cm2            afdw_mg_cm2 0.5480217 Positive     6     Galeropsis_monodonta       Trapezia_serenei 0.5099164 Positive     7           protein_mg_cm2            afdw_mg_cm2 0.5097699 Positive     8           zoox_cells_cm2   Galeropsis_monodonta 0.5054704 Positive     9         Cerithium_zebrum         Hargeria_rapax 0.4806237 Positive    10    Dascyllus_flavicaudus Harpiliopsis_spinigera 0.4750464 Positive  abs_weight   0.7831215   0.6486044   0.6185346   0.5870366   0.5480217   0.5099164   0.5097699   0.5054704   0.4806237   0.4750464
+ℹ Top 5 positive:
+ rank                     from                  to         r abs_weight     1           protein_mg_cm2         carb_mg_cm2 0.7831215  0.7831215     2 Coralliogalathea_humilis   Stomatolina_rubra 0.6486044  0.6486044     3        Diala_semistriata   Stomatolina_rubra 0.6185346  0.6185346     4        Diala_semistriata Mitrella_moleculina 0.5870366  0.5870366     5              carb_mg_cm2         afdw_mg_cm2 0.5480217  0.5480217
+ℹ Top 5 negative:
+ rank              from                      to          r abs_weight     1    zoox_cells_cm2     Galathea_mauritiana -0.4460203  0.4460203     2 Dascyllus_aruanus       Synalpheus_charon -0.4347486  0.4347486     3    Fennera_chacei   Paragobiodon_modestus -0.4168658  0.4168658     4  Pascula_muricata       Synalpheus_charon -0.4081912  0.4081912     5    zoox_cells_cm2 Apataxia_cerithiiformis -0.3810430  0.3810430
+  - afdw_mg_cm2: Caracanthus_maculatus (0.38); Athanas_djiboutensis (0.32)
+  - carb_mg_cm2: afdw_mg_cm2 (0.55); zoox_cells_cm2 (0.36); Caracanthus_maculatus (0.35); Luniella_pugil (-0.34); Periclimenes_watamuae (0.32); Fennera_chacei (0.30)
+  - growth_vol_b: Dascyllus_aruanus (0.40); Harpiliopsis_spinigera (0.37); protein_mg_cm2 (0.37); Caracanthus_maculatus (0.32); Synalpheus_charon (-0.31)
+  - protein_mg_cm2: carb_mg_cm2 (0.78); afdw_mg_cm2 (0.51); Caracanthus_maculatus (0.41); Fennera_chacei (0.39); Luniella_pugil (-0.33); Dascyllus_flavicaudus (0.32)
+  - zoox_cells_cm2: Galeropsis_monodonta (0.51); Galathea_mauritiana (-0.45); Zafra_hahajimana (0.38); Apataxia_cerithiiformis (-0.38); Stomatolina_rubra (-0.34); afdw_mg_cm2 (0.34) 
+
+── Per-trait top species links (|r| >= 0.3; top 10 per trait) ──
+
+growth_vol_b:
+# A tibble: 5 × 5
+  trait        species                     r Effect   abs_weight
+  <chr>        <chr>                   <dbl> <chr>         <dbl>
+1 growth_vol_b Dascyllus_aruanus       0.405 Positive      0.405
+2 growth_vol_b Harpiliopsis_spinigera  0.374 Positive      0.374
+3 growth_vol_b protein_mg_cm2          0.366 Positive      0.366
+4 growth_vol_b Caracanthus_maculatus   0.321 Positive      0.321
+5 growth_vol_b Synalpheus_charon      -0.313 Negative      0.313
+protein_mg_cm2:
+# A tibble: 6 × 5
+  trait          species                    r Effect   abs_weight
+  <chr>          <chr>                  <dbl> <chr>         <dbl>
+1 protein_mg_cm2 carb_mg_cm2            0.783 Positive      0.783
+2 protein_mg_cm2 afdw_mg_cm2            0.510 Positive      0.510
+3 protein_mg_cm2 Caracanthus_maculatus  0.406 Positive      0.406
+4 protein_mg_cm2 Fennera_chacei         0.390 Positive      0.390
+5 protein_mg_cm2 Luniella_pugil        -0.333 Negative      0.333
+6 protein_mg_cm2 Dascyllus_flavicaudus  0.316 Positive      0.316
+carb_mg_cm2:
+# A tibble: 6 × 5
+  trait       species                    r Effect   abs_weight
+  <chr>       <chr>                  <dbl> <chr>         <dbl>
+1 carb_mg_cm2 afdw_mg_cm2            0.548 Positive      0.548
+2 carb_mg_cm2 zoox_cells_cm2         0.361 Positive      0.361
+3 carb_mg_cm2 Caracanthus_maculatus  0.348 Positive      0.348
+4 carb_mg_cm2 Luniella_pugil        -0.343 Negative      0.343
+5 carb_mg_cm2 Periclimenes_watamuae  0.322 Positive      0.322
+6 carb_mg_cm2 Fennera_chacei         0.301 Positive      0.301
+zoox_cells_cm2:
+# A tibble: 6 × 5
+  trait          species                      r Effect   abs_weight
+  <chr>          <chr>                    <dbl> <chr>         <dbl>
+1 zoox_cells_cm2 Galeropsis_monodonta     0.505 Positive      0.505
+2 zoox_cells_cm2 Galathea_mauritiana     -0.446 Negative      0.446
+3 zoox_cells_cm2 Zafra_hahajimana         0.381 Positive      0.381
+4 zoox_cells_cm2 Apataxia_cerithiiformis -0.381 Negative      0.381
+5 zoox_cells_cm2 Stomatolina_rubra       -0.343 Negative      0.343
+6 zoox_cells_cm2 afdw_mg_cm2              0.340 Positive      0.340
+afdw_mg_cm2:
+# A tibble: 2 × 5
+  trait       species                   r Effect   abs_weight
+  <chr>       <chr>                 <dbl> <chr>         <dbl>
+1 afdw_mg_cm2 Caracanthus_maculatus 0.379 Positive      0.379
+2 afdw_mg_cm2 Athanas_djiboutensis  0.317 Positive      0.317
+
+── Top nodes by degree (then strength, betweenness) ──
+
+                     name    Type degree strength betweenness
+        Stomatolina_rubra Species      9 3.927249  0.08414634
+           protein_mg_cm2   Trait      7 3.104356  0.06951220
+ Coralliogalathea_humilis Species      7 3.025761  0.05000000
+              carb_mg_cm2   Trait      7 3.005466  0.03902439
+           zoox_cells_cm2   Trait      7 2.757821  0.15243902
+      Galathea_mauritiana Species      7 2.718374  0.12804878
+         Trapezia_serenei Species      7 2.593030  0.14634146
+    Caracanthus_maculatus Species      6 2.191334  0.03536585
+        Dascyllus_aruanus Species      6 2.154130  0.11707317
+    Dascyllus_flavicaudus Species      6 2.096575  0.05609756
+           Fennera_chacei Species      6 2.057758  0.02560976
+      Mitrella_moleculina Species      5 2.143779  0.03658537
+              afdw_mg_cm2   Trait      5 2.093339  0.08414634
+   Harpiliopsis_spinigera Species      5 1.998059  0.03902439
+         Cerithium_zebrum Species      5 1.974664  0.04878049
+✔ Wrote tables → /Users/adrianstiermbp2023/Stier-2025-CAFI136-MRB-AMOUNT/output/MRB/tables
+
+----- COPY/PASTE LINES -----
+We standardized all variables and retained Pearson correlations with |r| ≥ 0.30 (n_edges = 89; positive = 75; negative = 14).
+The resulting network comprised 42 nodes (5 trait variables; 37 species variables).
+Strongest association observed: protein_mg_cm2 – carb_mg_cm2 (r = 0.78).
+Per-trait top species (|r|):
+  - afdw_mg_cm2: Caracanthus_maculatus (0.38); Athanas_djiboutensis (0.32)
+  - afdw_mg_cm2: Caracanthus_maculatus (0.38); Athanas_djiboutensis (0.32)
+  - carb_mg_cm2: afdw_mg_cm2 (0.55); zoox_cells_cm2 (0.36); Caracanthus_maculatus (0.35); Luniella_pugil (-0.34); Periclimenes_watamuae (0.32); Fennera_chacei (0.30)
+  - carb_mg_cm2: afdw_mg_cm2 (0.55); zoox_cells_cm2 (0.36); Caracanthus_maculatus (0.35); Luniella_pugil (-0.34); Periclimenes_watamuae (0.32); Fennera_chacei (0.30)
+  - carb_mg_cm2: afdw_mg_cm2 (0.55); zoox_cells_cm2 (0.36); Caracanthus_maculatus (0.35); Luniella_pugil (-0.34); Periclimenes_watamuae (0.32); Fennera_chacei (0.30)
+  - carb_mg_cm2: afdw_mg_cm2 (0.55); zoox_cells_cm2 (0.36); Caracanthus_maculatus (0.35); Luniella_pugil (-0.34); Periclimenes_watamuae (0.32); Fennera_chacei (0.30)
+  - carb_mg_cm2: afdw_mg_cm2 (0.55); zoox_cells_cm2 (0.36); Caracanthus_maculatus (0.35); Luniella_pugil (-0.34); Periclimenes_watamuae (0.32); Fennera_chacei (0.30)
+  - carb_mg_cm2: afdw_mg_cm2 (0.55); zoox_cells_cm2 (0.36); Caracanthus_maculatus (0.35); Luniella_pugil (-0.34); Periclimenes_watamuae (0.32); Fennera_chacei (0.30)
+  - growth_vol_b: Dascyllus_aruanus (0.40); Harpiliopsis_spinigera (0.37); protein_mg_cm2 (0.37); Caracanthus_maculatus (0.32); Synalpheus_charon (-0.31)
+  - growth_vol_b: Dascyllus_aruanus (0.40); Harpiliopsis_spinigera (0.37); protein_mg_cm2 (0.37); Caracanthus_maculatus (0.32); Synalpheus_charon (-0.31)
+  - growth_vol_b: Dascyllus_aruanus (0.40); Harpiliopsis_spinigera (0.37); protein_mg_cm2 (0.37); Caracanthus_maculatus (0.32); Synalpheus_charon (-0.31)
+  - growth_vol_b: Dascyllus_aruanus (0.40); Harpiliopsis_spinigera (0.37); protein_mg_cm2 (0.37); Caracanthus_maculatus (0.32); Synalpheus_charon (-0.31)
+  - growth_vol_b: Dascyllus_aruanus (0.40); Harpiliopsis_spinigera (0.37); protein_mg_cm2 (0.37); Caracanthus_maculatus (0.32); Synalpheus_charon (-0.31)
+  - protein_mg_cm2: carb_mg_cm2 (0.78); afdw_mg_cm2 (0.51); Caracanthus_maculatus (0.41); Fennera_chacei (0.39); Luniella_pugil (-0.33); Dascyllus_flavicaudus (0.32)
+  - protein_mg_cm2: carb_mg_cm2 (0.78); afdw_mg_cm2 (0.51); Caracanthus_maculatus (0.41); Fennera_chacei (0.39); Luniella_pugil (-0.33); Dascyllus_flavicaudus (0.32)
+  - protein_mg_cm2: carb_mg_cm2 (0.78); afdw_mg_cm2 (0.51); Caracanthus_maculatus (0.41); Fennera_chacei (0.39); Luniella_pugil (-0.33); Dascyllus_flavicaudus (0.32)
+  - protein_mg_cm2: carb_mg_cm2 (0.78); afdw_mg_cm2 (0.51); Caracanthus_maculatus (0.41); Fennera_chacei (0.39); Luniella_pugil (-0.33); Dascyllus_flavicaudus (0.32)
+  - protein_mg_cm2: carb_mg_cm2 (0.78); afdw_mg_cm2 (0.51); Caracanthus_maculatus (0.41); Fennera_chacei (0.39); Luniella_pugil (-0.33); Dascyllus_flavicaudus (0.32)
+  - protein_mg_cm2: carb_mg_cm2 (0.78); afdw_mg_cm2 (0.51); Caracanthus_maculatus (0.41); Fennera_chacei (0.39); Luniella_pugil (-0.33); Dascyllus_flavicaudus (0.32)
+  - zoox_cells_cm2: Galeropsis_monodonta (0.51); Galathea_mauritiana (-0.45); Zafra_hahajimana (0.38); Apataxia_cerithiiformis (-0.38); Stomatolina_rubra (-0.34); afdw_mg_cm2 (0.34)
+  - zoox_cells_cm2: Galeropsis_monodonta (0.51); Galathea_mauritiana (-0.45); Zafra_hahajimana (0.38); Apataxia_cerithiiformis (-0.38); Stomatolina_rubra (-0.34); afdw_mg_cm2 (0.34)
+  - zoox_cells_cm2: Galeropsis_monodonta (0.51); Galathea_mauritiana (-0.45); Zafra_hahajimana (0.38); Apataxia_cerithiiformis (-0.38); Stomatolina_rubra (-0.34); afdw_mg_cm2 (0.34)
+  - zoox_cells_cm2: Galeropsis_monodonta (0.51); Galathea_mauritiana (-0.45); Zafra_hahajimana (0.38); Apataxia_cerithiiformis (-0.38); Stomatolina_rubra (-0.34); afdw_mg_cm2 (0.34)
+  - zoox_cells_cm2: Galeropsis_monodonta (0.51); Galathea_mauritiana (-0.45); Zafra_hahajimana (0.38); Apataxia_cerithiiformis (-0.38); Stomatolina_rubra (-0.34); afdw_mg_cm2 (0.34)
+  - zoox_cells_cm2: Galeropsis_monodonta (0.51); Galathea_mauritiana (-0.45); Zafra_hahajimana (0.38); Apataxia_cerithiiformis (-0.38); Stomatolina_rubra (-0.34); afdw_mg_cm2 (0.34) 
+Warning message:
+Returning more (or less) than 1 row per `summarise()` group was deprecated in
+dplyr 1.1.0.
+ℹ Please use `reframe()` instead.
+ℹ When switching from `summarise()` to `reframe()`, remember that `reframe()`
+  always returns an ungrouped data frame and adjust accordingly. 
+We computed unweighted degree, distance-weighted betweenness (edge cost = 1/|r|), and node strength (sum |r|).
+----- END COPY/PASTE -----
+✔ Saved network figure → /Users/adrianstiermbp2023/Stier-2025-CAFI136-MRB-AMOUNT/output/MRB/figures/network/sem_network_physio_panel.png
+✔ Saved edges table → /Users/adrianstiermbp2023/Stier-2025-CAFI136-MRB-AMOUNT/output/MRB/tables/sem_network_edges_physio_panel.csv
+ℹ Top 15 |r| edges:
+                       from                     to     weight abs_weight 1            protein_mg_cm2            carb_mg_cm2  0.7831215  0.7831215 2  Coralliogalathea_humilis      Stomatolina_rubra  0.6486044  0.6486044 3         Diala_semistriata      Stomatolina_rubra  0.6185346  0.6185346 4         Diala_semistriata    Mitrella_moleculina  0.5870366  0.5870366 5               carb_mg_cm2            afdw_mg_cm2  0.5480217  0.5480217 6      Galeropsis_monodonta       Trapezia_serenei  0.5099164  0.5099164 7            protein_mg_cm2            afdw_mg_cm2  0.5097699  0.5097699 8            zoox_cells_cm2   Galeropsis_monodonta  0.5054704  0.5054704 9          Cerithium_zebrum         Hargeria_rapax  0.4806237  0.4806237 10    Dascyllus_flavicaudus Harpiliopsis_spinigera  0.4750464  0.4750464 11      Mitrella_moleculina      Stomatolina_rubra  0.4597331  0.4597331 12          Alpheus_diadema    Galathea_mauritiana  0.4524676  0.4524676 13         Cerithium_zebrum      Stomatolina_rubra  0.4492305  0.4492305 14           zoox_cells_cm2    Galathea_mauritiana -0.4460203  0.4460203 15     Chlorodiella_barbata  Periclimenes_watamuae  0.4436355  0.4436355      Effect 1  Positive 2  Positive 3  Positive 4  Positive 5  Positive 6  Positive 7  Positive 8  Positive 9  Positive 10 Positive 11 Positive 12 Positive 13 Positive 14 Negative 15 Positive

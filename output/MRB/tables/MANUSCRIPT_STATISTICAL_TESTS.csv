@@ -1,0 +1,26 @@
+test_id,section,Analysis,Test Description,Model/Method,test_statistic,df,p_value,p_formatted,significance,effect_size,Impact,manuscript_location,Notes
+1,Coral Growth,Coral Growth,Volume ANCOVA - Interaction,lmer(log_final ~ log_init * treatment + (1|reef)),χ²=6.479,2,0.039,0.039,*,NA,NEW,Results or Supplement,Significant interaction; post-hoc tests show no pairwise differences
+2,Coral Growth,Coral Growth,Volume ANCOVA - Intercept (interaction model),Type III Wald χ²,χ²=4.334,1,0.037,0.037,*,NA,NEW,Results or Supplement,Intercept term in interaction model
+3,Coral Growth,Coral Growth,Volume ANCOVA - log_init (interaction model),Type III Wald χ²,χ²=23.602,1,1.19e-6,< 0.001,***,NA,NEW,Results or Supplement,Strong effect of initial size
+4,Coral Growth,Coral Growth,Volume ANCOVA - treatment (interaction model),Type III Wald χ²,χ²=6.794,2,0.033,0.033,*,NA,NEW,Results or Supplement,Treatment effect in presence of interaction
+5,Coral Growth,Coral Growth,Volume ANCOVA - Unified Model (parallel slopes),lmer(log_final ~ log_init + treatment + (1|reef)),χ²=2.638,2,0.267,0.267,NS,b=0.6986,PRIMARY,Results (Main findings),Treatment effect NS; unified b=0.6986 used for all growth calculations
+6,Coral Growth,Coral Growth,Unified Model - Intercept,Type III Wald χ²,χ²=10.125,1,0.001,0.001,**,NA,NEW,Results or Supplement,Intercept in unified model
+7,Coral Growth,Coral Growth,Unified Model - log_init,Type III Wald χ²,χ²=28.463,1,9.55e-8,< 0.001,***,NA,NEW,Results or Supplement,Strong effect of initial size
+8,Coral Growth,Coral Growth,Post-hoc: Treatment 1 vs 3 slopes,emmeans::emtrends with Tukey,t=2.148; df=38,38,0.094,0.094,.,Δb=0.880,NEW,Methods or Supplement,No significant difference after adjustment
+9,Coral Growth,Coral Growth,Post-hoc: Treatment 1 vs 6 slopes,emmeans::emtrends with Tukey,t=-0.647; df=37.6,37.6,0.795,0.795,NS,Δb=-0.223,NEW,Methods or Supplement,No significant difference
+10,Coral Growth,Coral Growth,Post-hoc: Treatment 3 vs 6 slopes,emmeans::emtrends with Tukey,t=-2.277; df=36,36,0.072,0.072,.,Δb=-1.102,NEW,Methods or Supplement,Marginal but NS after adjustment
+11,Coral Growth,Coral Growth,Model comparison: Interaction vs Parallel,Likelihood Ratio Test,χ²=5.231,2,0.073,0.073,.,ΔAIC=-1.2,NEW,Methods or Supplement,Parallel slopes model adequate
+12,Coral Growth,Coral Growth,Size-corrected growth by treatment,lmer(growth_vol_b ~ treatment + (1|reef)),χ²=2.620,2,0.27,0.270,NS,NA,PRIMARY,Results (Main findings),No treatment effect on allometric-adjusted growth
+13,Coral Growth,Coral Growth,SA-scaled growth by treatment,lmer(growth_sa ~ treatment + (1|reef)),χ²=3.236,2,0.198,0.198,NS,NA,UNCHANGED,Results,No treatment effect
+14,Coral Growth,Coral Growth,ΔVolume ANCOVA - Interaction model,lmer(delta_volume ~ SA_2019 * treatment + (1|reef)),SA: χ²=6.354; trt: χ²=2.464; int: χ²=1.917,NA,NA,—,—,NA,UNCHANGED,Results,SA significant; treatment and interaction NS
+15,Coral Growth,Coral Growth,ΔVolume ANCOVA - Parallel slopes,lmer(delta_volume ~ SA_2019 + treatment + (1|reef)),SA: χ²=5.866; trt: χ²=2.905,NA,NA,—,—,NA,UNCHANGED,Results,SA significant; treatment NS
+16,Coral Physiology,Coral Physiology,Carbohydrate by treatment,lmer(carb_mg_cm2 ~ treatment + (1|reef)),χ²=10.0,2,0.007,0.007,**,p_BH=0.039,INDIRECT,Results or Supplement,Significant; p<0.05 after BH correction
+17,Coral Physiology,Coral Physiology,PC1 (physio+growth) by treatment,lmer(PC1 ~ treatment + (1|reef)),χ²=8.11,2,0.017,0.017,*,p_BH=0.052,INDIRECT,Results or Supplement,Significant; includes growth_vol_b in PCA
+18,Coral Physiology,Coral Physiology,AFDW by treatment,lmer(afdw_mg_cm2 ~ treatment + (1|reef)),χ²=4.40,2,0.111,0.111,NS,NA,INDIRECT,Methods or Supplement,Not significant
+19,Coral Physiology,Coral Physiology,Protein by treatment,lmer(protein_mg_cm2 ~ treatment + (1|reef)),χ²=3.04,2,0.219,0.219,NS,NA,INDIRECT,Methods or Supplement,Not significant
+20,Coral Physiology,Coral Physiology,Zooxanthellae by treatment,lmer(zoox_cells_cm2 ~ treatment + (1|reef)),χ²=1.70,2,0.428,0.428,NS,NA,INDIRECT,Methods or Supplement,Not significant
+21,Coral Physiology,Coral Physiology,PC2 (physio+growth) by treatment,lmer(PC2 ~ treatment + (1|reef)),χ²=0.863,2,0.649,0.649,NS,NA,INDIRECT,Methods or Supplement,Not significant
+22,CAFI-Coral Community,CAFI-Coral,Community vs Condition: SQRT_CS,lmer(PC1_cond ~ PC1_comm + (1|reef)),χ²=approx,1,8.5e-4,< 0.001,***,NA,INDIRECT,Results or Supplement,Highly significant; condition includes growth_vol_b
+23,CAFI-Coral Community,CAFI-Coral,Community vs Condition: HELLINGER,lmer(PC1_cond ~ PC1_comm + (1|reef)),χ²=approx,1,0.014,0.014,*,NA,INDIRECT,Results or Supplement,Significant
+24,CAFI-Coral Community,CAFI-Coral,Community vs Condition: SQRT,lmer(PC1_cond ~ PC1_comm + (1|reef)),χ²=approx,1,0.042,0.042,*,NA,INDIRECT,Results or Supplement,Significant
+25,CAFI-Coral Community,CAFI-Coral,Mantel: Community-Condition distance,Mantel test (999 permutations),r=TBD,NA,NA,—,—,NA,INDIRECT,Methods or Supplement,Need to extract from full output

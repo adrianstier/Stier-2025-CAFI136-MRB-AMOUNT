@@ -1,0 +1,26 @@
+Analysis,Test Description,Model/Method,Old Test Statistic,Old df,Old p-value,Old Effect Size,New Test Statistic,New df,New p-value,New Effect Size,Impact,Notes
+Coral Growth,Volume ANCOVA - Interaction,lmer(log_final ~ log_init * treatment + (1|reef)),NA,NA,NA,NA,"χ²=6.479",2,0.039,NA,NEW,"Significant interaction; post-hoc tests show no pairwise differences"
+Coral Growth,Volume ANCOVA - Intercept (interaction model),Type III Wald χ²,NA,NA,NA,NA,"χ²=4.334",1,0.037,NA,NEW,Intercept term in interaction model
+Coral Growth,Volume ANCOVA - log_init (interaction model),Type III Wald χ²,NA,NA,NA,NA,"χ²=23.602",1,1.19E-06,NA,NEW,Strong effect of initial size
+Coral Growth,Volume ANCOVA - treatment (interaction model),Type III Wald χ²,NA,NA,NA,NA,"χ²=6.794",2,0.033,NA,NEW,Treatment effect in presence of interaction
+Coral Growth,Volume ANCOVA - Unified Model (parallel slopes),lmer(log_final ~ log_init + treatment + (1|reef)),NA,NA,NA,NA,"χ²=2.638",2,0.267,b=0.6986,PRIMARY,"Treatment effect NS; unified b=0.6986 used for all growth calculations"
+Coral Growth,Unified Model - Intercept,Type III Wald χ²,NA,NA,NA,NA,"χ²=10.125",1,0.001,NA,NEW,Intercept in unified model
+Coral Growth,Unified Model - log_init,Type III Wald χ²,NA,NA,NA,NA,"χ²=28.463",1,9.55E-08,NA,NEW,Strong effect of initial size
+Coral Growth,Post-hoc: Treatment 1 vs 3 slopes,emmeans::emtrends with Tukey,NA,NA,NA,NA,"t=2.148; df=38",38,0.094,"Δb=0.880",NEW,No significant difference after adjustment
+Coral Growth,Post-hoc: Treatment 1 vs 6 slopes,emmeans::emtrends with Tukey,NA,NA,NA,NA,"t=-0.647; df=37.6",37.6,0.795,"Δb=-0.223",NEW,No significant difference
+Coral Growth,Post-hoc: Treatment 3 vs 6 slopes,emmeans::emtrends with Tukey,NA,NA,NA,NA,"t=-2.277; df=36",36,0.072,"Δb=-1.102",NEW,Marginal but NS after adjustment
+Coral Growth,Model comparison: Interaction vs Parallel,Likelihood Ratio Test,NA,NA,NA,NA,"χ²=5.231",2,0.073,ΔAIC=-1.2,NEW,Parallel slopes model adequate
+Coral Growth,Size-corrected growth by treatment,lmer(growth_vol_b ~ treatment + (1|reef)),NA,NA,NA,NA,"χ²=2.620",2,0.270,NA,PRIMARY,No treatment effect on allometric-adjusted growth
+Coral Growth,SA-scaled growth by treatment,lmer(growth_sa ~ treatment + (1|reef)),NA,NA,NA,NA,"χ²=3.236",2,0.198,NA,UNCHANGED,No treatment effect
+Coral Growth,ΔVolume ANCOVA - Interaction model,lmer(delta_volume ~ SA_2019 * treatment + (1|reef)),NA,NA,NA,NA,"SA: χ²=6.354; trt: χ²=2.464; int: χ²=1.917","-",SA: 0.012; trt: 0.292; int: 0.383,NA,UNCHANGED,SA significant; treatment and interaction NS
+Coral Growth,ΔVolume ANCOVA - Parallel slopes,lmer(delta_volume ~ SA_2019 + treatment + (1|reef)),NA,NA,NA,NA,"SA: χ²=5.866; trt: χ²=2.905","-","SA: 0.015; trt: 0.234",NA,UNCHANGED,SA significant; treatment NS
+Coral Physiology,Carbohydrate by treatment,lmer(carb_mg_cm2 ~ treatment + (1|reef)),NA,NA,NA,NA,"χ²=10.0",2,0.007,p_BH=0.039,INDIRECT,"Significant; p<0.05 after BH correction"
+Coral Physiology,PC1 (physio+growth) by treatment,lmer(PC1 ~ treatment + (1|reef)),NA,NA,NA,NA,"χ²=8.11",2,0.017,p_BH=0.052,INDIRECT,"Significant; includes growth_vol_b in PCA"
+Coral Physiology,AFDW by treatment,lmer(afdw_mg_cm2 ~ treatment + (1|reef)),NA,NA,NA,NA,"χ²=4.40",2,0.111,NA,INDIRECT,Not significant
+Coral Physiology,Protein by treatment,lmer(protein_mg_cm2 ~ treatment + (1|reef)),NA,NA,NA,NA,"χ²=3.04",2,0.219,NA,INDIRECT,Not significant
+Coral Physiology,Zooxanthellae by treatment,lmer(zoox_cells_cm2 ~ treatment + (1|reef)),NA,NA,NA,NA,"χ²=1.70",2,0.428,NA,INDIRECT,Not significant
+Coral Physiology,PC2 (physio+growth) by treatment,lmer(PC2 ~ treatment + (1|reef)),NA,NA,NA,NA,"χ²=0.863",2,0.649,NA,INDIRECT,Not significant
+CAFI-Coral,Community vs Condition: SQRT_CS,lmer(PC1_cond ~ PC1_comm + (1|reef)),NA,NA,NA,NA,"χ²=approx",1,0.00085,NA,INDIRECT,"Highly significant; condition includes growth_vol_b"
+CAFI-Coral,Community vs Condition: HELLINGER,lmer(PC1_cond ~ PC1_comm + (1|reef)),NA,NA,NA,NA,"χ²=approx",1,0.014,NA,INDIRECT,Significant
+CAFI-Coral,Community vs Condition: SQRT,lmer(PC1_cond ~ PC1_comm + (1|reef)),NA,NA,NA,NA,"χ²=approx",1,0.042,NA,INDIRECT,Significant
+CAFI-Coral,Mantel: Community-Condition distance,Mantel test (999 permutations),NA,NA,NA,NA,r=TBD,NA,p=TBD,NA,INDIRECT,Need to extract from full output

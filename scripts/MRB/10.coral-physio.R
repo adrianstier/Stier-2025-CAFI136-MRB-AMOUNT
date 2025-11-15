@@ -1,0 +1,1106 @@
+# ==============================================================================
+# MRB Analysis Script 10: Coral Physiology and Community Ordination
+# ==============================================================================
+# Purpose: Integrate CAFI community composition with coral growth and physiology
+#          using multivariate ordination techniques (PCA, PCoA, RDA). Examines
+#          relationships between community PC1 and coral condition PC1, with
+#          sensitivity analyses across species filtering thresholds.
+#
+# Inputs:
+#   - data/MRB Amount/1. mrb_fe_cafi_summer_2021_v4_AP_updated_2024.csv
+#   - data/MRB Amount/coral_growth_surface_area_change.csv
+#   - data/MRB Amount/1. amount_master_phys_data_v5.csv
+#
+# Outputs:
+#   - output/MRB/figures/coral-physio/PCA_comm_vs_cond_PC1.png
+#   - output/MRB/figures/coral-physio/panel_6b_oriented.png
+#   - output/MRB/figures/coral-physio/Loadings_panel.png
+#   - output/MRB/figures/coral-physio/Final_3panel.png
+#   - output/MRB/figures/coral-physio/sample_taxa_richness.png
+#   - output/MRB/figures/coral-physio/multi_metric_heatmaps.png
+#   - output/MRB/figures/coral-physio/combined_sensitivity_overview.png
+#   - output/MRB/figures/coral-physio/species_*_corr.png (multiple files)
+#   - output/MRB/figures/coral-physio/species_abundance_vs_ordination_scatterplots.pdf
+#   - output/MRB/tables/species_ordination_correlations.csv
+#
+# Depends:
+#   R (>= 4.3), tidyverse, vegan, ape, here, patchwork, lme4, lmerTest
+#
+# Run after:
+#   - 1.libraries.R (loads required packages)
+#   - utils.R (utility functions)
+#   - 6.coral-growth.R (generates coral growth data)
+#
+# Author: Adrian C. Stier
+# Created: 2025-05-02
+# Last updated: 2025-11-05
+#
+# Reproducibility notes:
+#   - No explicit seed set (ordinations are deterministic)
+#   - Filtering thresholds: ≥20 corals prevalence, ≥30 total abundance
+#   - RDA permutations = 999
+#   - All paths use here::here() for portability
+# ==============================================================================
+
+# ==============================================================================
+# SETUP
+# ==============================================================================
+
+# Source centralized libraries, utilities, and figure standards
+source("scripts/MRB/1.libraries.R")
+source("scripts/MRB/utils.R")
+source("scripts/MRB/mrb_figure_standards.R")  # For colors, themes, save functions
+
+# Define output directories
+fig_dir <- here("output", "MRB", "figures", "coral-physio")
+tab_dir <- here("output", "MRB", "tables")
+if (!dir.exists(fig_dir)) dir.create(fig_dir, recursive = TRUE)
+if (!dir.exists(tab_dir)) dir.create(tab_dir, recursive = TRUE)
+
+# Force dplyr's select to take precedence
+select <- dplyr::select
+filter <- dplyr::filter  # might as well fix this too
+scores <- vegan::scores
+
+# =======================================================================
+# 1.   LOAD & PROCESS CAFI COMMUNITY ABUNDANCES
+# -----------------------------------------------------------------------
+# 1.1 Read raw counts and filter
+MRBcafi_df <- read_csv(
+  here("data", "MRB Amount", "1. mrb_fe_cafi_summer_2021_v4_AP_updated_2024.csv"),
+  col_types = cols()
+) %>%
+  mutate(coral_id = as.character(coral_id)) %>%
+  filter(!is.na(coral_id), !is.na(species))
+
+# 1.2 Summarize to coral × species matrix
+comm_abund <- MRBcafi_df %>%
+  group_by(coral_id, species) %>%
+  summarise(abundance = sum(count, na.rm = TRUE), .groups = "drop") %>%
+  pivot_wider(names_from = species, values_from = abundance, values_fill = 0)
+
+# 1.3 Filter taxa by prevalence (≥20 corals) & abundance (≥30 total)
+species_summary <- comm_abund %>%
+  pivot_longer(-coral_id, names_to = "species", values_to = "abundance") %>%
+  group_by(species) %>%
+  summarise(
+    total_count = sum(abundance),
+    n_corals    = sum(abundance > 0),
+    .groups     = "drop"
+  ) %>%
+  filter(total_count >= 30, n_corals >= 20)
+
+# 1.4 Subset to abundant taxa only
+comm_abund <- comm_abund %>%
+  dplyr::select(coral_id, all_of(species_summary$species))
+
+# =======================================================================
+# 2.   LOAD & FILTER CORAL GROWTH METRICS
+# -----------------------------------------------------------------------
+coral_growth_raw <- read_csv(
+  here("data", "MRB Amount", "coral_growth_surface_area_change.csv"),
+  col_types = cols()
+) %>%
+  mutate(coral_id = paste0("FE-", coral_id))
+
+coral_growth <- coral_growth_raw %>%
+  filter(
+    if_all(starts_with("delta_"), ~ !is.na(.) & . > 0),
+    size_corrected_volume_growth > 0
+  )
+
+# =======================================================================
+# 3.   LOAD & SELECT PHYSIOLOGICAL METRICS
+# -----------------------------------------------------------------------
+physio_df <- read_csv(
+  here("data", "MRB Amount", "1. amount_master_phys_data_v5.csv"),
+  col_types = cols()
+) %>%
+  mutate(coral_id = as.character(coral_id))
+
+growth_ids <- coral_growth$coral_id
+physio_metrics_df <- physio_df %>%
+  filter(coral_id %in% growth_ids) %>%
+  dplyr::select(coral_id, protein_mg_cm2, carb_mg_cm2, zoox_cells_cm2, afdw_mg_cm2)
+
+# =======================================================================
+# 4.   MERGE GROWTH & PHYSIO INTO CONDITION MATRIX
+# -----------------------------------------------------------------------
+merged_metrics <- coral_growth %>%
+  dplyr::select(coral_id, starts_with("delta_"), size_corrected_volume_growth) %>%
+  inner_join(physio_metrics_df, by = "coral_id")
+
+cond_mat <- merged_metrics %>%
+  dplyr::select(-coral_id) %>%
+  as.matrix()
+rownames(cond_mat) <- merged_metrics$coral_id
+# Drop unwanted columns by index (example: 3,4,5)
+cond_mat <- cond_mat[, -c(3,4,5)]
+
+# =======================================================================
+# 5.   PCA: COMMUNITY & CONDITION
+# -----------------------------------------------------------------------
+# 5.1 Hellinger-transform community data
+comm_mat <- comm_abund %>%
+  dplyr::select(-coral_id) %>%
+  decostand(method = "hellinger")
+rownames(comm_mat) <- comm_abund$coral_id
+
+# make sure it's a plain matrix
+comm_mat <- as.matrix(comm_mat)
+
+keep_cols <- apply(comm_mat, 2, stats::var, na.rm = TRUE) > 0
+comm_mat  <- comm_mat[, keep_cols, drop = FALSE]
+
+# Drop zero-variance species
+vvar <- apply(comm_mat, 2, stats::var)
+comm_mat <- comm_mat[, vvar > 0]
+
+# 5.2 Community PCA (PC1, PC2)
+pca_comm <- prcomp(comm_mat, scale. = TRUE)
+scores_comm <- as_tibble(pca_comm$x[,1:2], rownames = "coral_id") %>%
+  rename(comm_PC1 = PC1, comm_PC2 = PC2)
+
+# 5.3 Condition PCA (PC1, PC2)
+pca_cond <- prcomp(cond_mat, scale. = TRUE)
+scores_cond <- as_tibble(pca_cond$x[,1:2], rownames = "coral_id") %>%
+  rename(cond_PC1 = PC1, cond_PC2 = PC2)
+
+
+scores_frame<- inner_join(scores_comm, scores_cond, by = "coral_id")
+
+#graph 
+p_pca <- ggplot(scores_frame, aes(x = comm_PC1, y = cond_PC1)) +
+  geom_point(aes(color = coral_id), alpha = 0.7) +
+  geom_smooth(method = "lm", se = TRUE) +
+  labs(
+    title = "PCA: Community vs Condition",
+    x     = "Community PC1",
+    y     = "Condition PC1"
+  ) +
+  theme_publication()
+# =======================================================================
+# 6.   PLOT PCA COMPARISON (PC1 vs PC1)
+# -----------------------------------------------------------------------
+df_pca <- inner_join(scores_comm, scores_cond, by = "coral_id")
+p_pca_scatter <- ggplot(df_pca, aes(-comm_PC1, -cond_PC1)) +
+  geom_point(alpha = 0.7) +
+  geom_smooth(method = "lm", se = TRUE) +
+  labs(
+    title = "Community PC1 vs Condition PC1",
+    x     = "Community PC1",
+    y     = "Condition PC1"
+  ) +
+  theme_publication()
+
+print(p_pca_scatter)
+ggsave(here(fig_dir, "PCA_comm_vs_cond_PC1.png"), p_pca_scatter, width = 6, height = 5,bg="white")
+
+
+# ───────────────────────────────────────────────────────────────────────────────
+# 6b. PC1 Comparison & PCA₁ Loadings (Full, oriented so growth metrics are positive)
+# ───────────────────────────────────────────────────────────────────────────────
+
+# --- Assumes you have:
+#     scores_comm (coral_id, comm_PC1, comm_PC2)
+#     scores_cond (coral_id, cond_PC1, cond_PC2)
+#     pca_comm   (with pca_comm$rotation)
+#     pca_cond   (with pca_cond$rotation)
+
+# 1) Flip community PC1 axis so positive = “more of the key community gradient”
+scores_comm <- scores_comm %>%
+  dplyr::mutate(comm_PC1 = -comm_PC1)
+
+# 2) Orient condition PC1 so that delta_surface_area loads positively
+if (pca_cond$rotation["delta_surface_area", 1] < 0) {
+  # flip both scores and loadings
+  scores_cond <- scores_cond %>%
+    dplyr::mutate(cond_PC1 = -cond_PC1)
+  pca_cond$rotation[, 1] <- -pca_cond$rotation[, 1]
+}
+
+# 3) Re-check PC1–PC1 slope; if still negative, flip condition again
+df_align <- dplyr::inner_join(
+  scores_comm %>% dplyr::select(coral_id, comm_PC1),
+  scores_cond %>% dplyr::select(coral_id, cond_PC1),
+  by = "coral_id"
+)
+if (cor(df_align$comm_PC1, df_align$cond_PC1) < 0) {
+  scores_cond <- scores_cond %>%
+    dplyr::mutate(cond_PC1 = -cond_PC1)
+  pca_cond$rotation[, 1] <- -pca_cond$rotation[, 1]
+}
+
+# 4) Prepare panel data
+# Panel A sites
+df_pca <- dplyr::inner_join(scores_comm, scores_cond, by = "coral_id")
+
+# Panel B: top 20 condition‐PCA₁ loadings
+df_cond_load <- tibble::tibble(
+  feature = rownames(pca_cond$rotation),
+  loading = pca_cond$rotation[, 1]
+) %>%
+  dplyr::arrange(dplyr::desc(abs(loading))) %>%
+  dplyr::slice_head(n = 20)
+
+# Panel C: top 20 community‐PCA₁ loadings
+df_comm_load <- tibble::tibble(
+  feature = rownames(pca_comm$rotation),
+  loading = pca_comm$rotation[, 1]
+) %>%
+  dplyr::arrange(dplyr::desc(abs(loading))) %>%
+  dplyr::slice_head(n = 20)
+
+# 5) Build ggplot panels
+library(ggplot2)
+library(patchwork)
+
+# A) PC1 vs PC1 regression
+p_pca_scatter <- ggplot(df_pca, aes(x = comm_PC1, y = cond_PC1)) +
+  geom_point(alpha = 0.7) +
+  geom_smooth(method = "lm", se = TRUE) +
+  labs(
+    x = expression(Community~PC[1]),
+    y = expression(Condition~PC[1])
+  ) +
+  theme_publication()
+
+# B) Condition PCA₁ loadings (growth metrics should appear positive)
+p_cond_load <- ggplot(df_cond_load, aes(
+  x = reorder(feature, loading),
+  y = loading
+)) +
+  geom_col(fill = "#1b9e77") +
+  coord_flip() +
+  labs(
+    x = NULL,
+    y = expression(Condition~PC[1]~Loading)
+  ) +
+  theme_publication()
+
+# C) Community PCA₁ loadings
+p_comm_load <- ggplot(df_comm_load, aes(
+  x = reorder(feature, loading),
+  y = loading
+)) +
+  geom_col(fill = "#d95f02") +
+  coord_flip() +
+  labs(
+    x = NULL,
+    y = expression(Community~PC[1]~Loading)
+  ) +
+  theme_publication()
+
+# 6) Combine into final A/B/C panel
+panel_6b <- (p_pca_scatter | p_cond_load | p_comm_load) +
+  plot_annotation(
+    title      = "PC1 Comparison & PCA₁ Loadings (Oriented for Intuition)",
+    tag_levels = "A",
+    theme = theme(
+      plot.title = element_text(size = 16, face = "bold", hjust = 0.5),
+      plot.tag   = element_text(size = 14, face = "bold")
+    )
+  )
+
+# Display & save
+print(panel_6b)
+ggsave(
+  filename = here(fig_dir, "panel_6b_oriented.png"),
+  plot     = panel_6b,
+  width    = 15,
+  height   = 5,
+  dpi      = 300
+)
+
+
+
+# =======================================================================
+# 7.   PCoA + RDA
+# -----------------------------------------------------------------------
+# Align rows
+ids <- intersect(rownames(cond_mat), rownames(comm_mat))
+cond_mat <- cond_mat[ids,]
+comm_mat <- comm_mat[ids,]
+
+# 7a. Community PCoA (first 4 axes)
+comm_pcoa <- pcoa(vegdist(comm_mat, method = "bray"))
+comm_scores <- comm_pcoa$vectors[,1:4]
+colnames(comm_scores) <- paste0("PCoA", 1:4)
+rownames(comm_scores) <- rownames(comm_mat)
+
+# 7b. RDA: condition ~ community PCoA axes
+df_comm_scores <- as.data.frame(comm_scores)
+rda_res <- rda(as.matrix(cond_mat) ~ ., data = df_comm_scores, scale = TRUE)
+
+# Permutation tests & R²
+global_test <- anova.cca(rda_res, permutations = 999)
+axis_test   <- anova.cca(rda_res, by = "axis", permutations = 999)
+adj_r2      <- RsquareAdj(rda_res)$adj.r.squared
+
+cat("\n--- RDA Results (Condition ~ Community PCoA1–4) ---\n")
+print(global_test)
+print(axis_test)
+cat("Adjusted R² =", round(adj_r2,3), "\n")
+
+# =======================================================================
+# 8.   LOADINGS VISUALIZATIONS
+# -----------------------------------------------------------------------
+# 8a. Species loadings on Community PCoA1 via capscale + envfit
+cap_comm <- capscale(comm_mat ~ 1, distance = "bray")
+env_comm <- envfit(cap_comm, comm_mat, perm = 999)
+
+comm_load <- as.data.frame(env_comm$vectors$arrows)[, "MDS1", drop = FALSE] %>%
+  tibble::rownames_to_column("species") %>%
+  rename(loading = MDS1) %>%
+  arrange(desc(abs(loading))) %>%
+  slice_head(n = 25) %>%
+  mutate(loading = -loading)
+
+p_comm_load <- ggplot(comm_load, aes(
+  x = reorder(species, loading),
+  y = loading,
+  fill = loading > 0
+)) +
+  geom_col(show.legend = FALSE) +
+  coord_flip() +
+  labs(
+    subtitle = "A) Species Loadings on Community PCoA₁ (Inverted)",
+    x        = NULL,
+    y        = "-Loading"
+  ) +
+  theme_publication()
+
+# 8b. Condition metrics loadings on RDA1
+rda_load <- rda_res$CCA$v[, "RDA1", drop = FALSE] %>%
+  as.data.frame() %>%
+  tibble::rownames_to_column("metric") %>%
+  dplyr::rename(loading = RDA1) %>%
+  dplyr::arrange(desc(abs(loading))) %>%
+  dplyr::slice_head(n = 20) %>%
+  dplyr::mutate(loading = -loading)  # Flip sign for plotting if desired
+
+p_rda_load <- ggplot(rda_load, aes(
+  x = reorder(metric, loading),
+  y = loading
+)) +
+  geom_col(fill = "#3182BD") +
+  coord_flip() +
+  labs(
+    subtitle = "B) Condition Metrics Loadings on RDA₁ (Inverted)",
+    x        = NULL,
+    y        = "-Loading"
+  ) +
+  theme_publication()
+
+# 8c. PCA1 loadings (community vs condition)
+df_pca_load_comm <- tibble(
+  feature = rownames(pca_comm$rotation),
+  loading = pca_comm$rotation[,1]
+) %>%
+  arrange(desc(abs(loading))) %>%
+  slice_head(n = 20) %>%
+  mutate(type = "Community", loading = -loading)
+
+df_pca_load_cond <- tibble(
+  feature = rownames(pca_cond$rotation),
+  loading = pca_cond$rotation[,1]
+) %>%
+  arrange(desc(abs(loading))) %>%
+  slice_head(n = 20) %>%
+  mutate(type = "Condition", loading = -loading)
+
+df_pca_load <- bind_rows(df_pca_load_comm, df_pca_load_cond)
+
+p_pca_load <- ggplot(df_pca_load, aes(
+  x = reorder(feature, loading),
+  y = loading,
+  fill = type
+)) +
+  geom_col(show.legend = FALSE) +
+  coord_flip() +
+  facet_wrap(~type, scales = "free_y") +
+  labs(
+    subtitle = "C) Top 20 PCA₁ Loadings (Inverted)",
+    x        = NULL,
+    y        = "-Loading"
+  ) +
+  theme_publication()
+
+# =======================================================================
+# 9.   SAVE PANEL FIGURES
+# -----------------------------------------------------------------------
+# 9a. Loadings panel
+loadings_panel <- (p_comm_load | p_rda_load) / p_pca_load +
+  plot_annotation(
+    title = "Loadings Across Community & Condition Ordinations",
+    theme = theme(
+      plot.title = element_text(face = "bold", size = 16, hjust = 0.5)
+    )
+  )
+print(loadings_panel)
+ggsave(here(fig_dir, "Loadings_panel.png"),
+       loadings_panel, width = 12, height = 10, dpi = 300)
+
+# 9b. Final 3-panel: PCA scatter | species load | condition load
+final_panel <- p_pca_scatter | p_comm_load | p_rda_load +
+  plot_annotation(
+    title = "Ordination & Loadings Summary",
+    theme = theme(plot.title = element_text(face = "bold", size = 18, hjust = 0.5))
+  )
+print(final_panel)
+ggsave(here(fig_dir, "Final_3panel.png"),
+       final_panel, width = 15, height = 5, dpi = 300)
+
+# =======================================================================
+# 10. sensitivity 
+# =======================================================================
+
+
+# If something called `var` is hanging around, drop it so stats::var works
+if (exists("var") && !is.function(var)) rm(var)
+
+library(dplyr)
+library(tidyr)
+library(vegan)
+library(ape)
+library(purrr)
+library(tibble)
+
+# Core helper ------------------------------------------------------------
+sensitivity_run <- function(prev_th, abun_th, comm_tbl, cond_mat, top_n = 10) {
+  
+  # 1) Filter taxa by prevalence & abundance
+  keep_sp <- comm_tbl %>%
+    pivot_longer(-coral_id, names_to = "species", values_to = "abun") %>%
+    group_by(species) %>%
+    summarise(total = sum(abun),
+              n_corals = sum(abun > 0),
+              .groups = "drop") %>%
+    filter(total >= abun_th, n_corals >= prev_th) %>%
+    pull(species)
+  
+  # Bail out if nothing passes thresholds
+  if (length(keep_sp) == 0) {
+    return(tibble(
+      prevalence = prev_th,
+      abundance  = abun_th,
+      n_taxa     = 0,
+      n_corals   = 0,
+      var_comm_pc1 = NA_real_,
+      var_cond_pc1 = NA_real_,
+      pc1_cor      = NA_real_,
+      adj_r2       = NA_real_,
+      rda_p_val    = NA_real_,
+      axis_pvals   = list(NA),
+      top_species  = list(NA),
+      top_species_loadings = list(NA)
+    ))
+  }
+  
+  # 2) Community matrix (Hellinger), drop zero-var cols
+  comm_sub <- comm_tbl %>%
+    dplyr::select(coral_id, all_of(keep_sp)) %>%  # ← FIXED
+    column_to_rownames("coral_id")
+  
+  comm_mat <- vegan::decostand(comm_sub, method = "hellinger")
+  comm_mat <- comm_mat[, apply(comm_mat, 2, stats::var) > 0, drop = FALSE]
+  
+  # 3) Align with cond_mat
+  common_ids <- intersect(rownames(comm_mat), rownames(cond_mat))
+  comm_mat <- comm_mat[common_ids, , drop = FALSE]
+  cond_sub <- cond_mat[common_ids, , drop = FALSE]
+  
+  if (nrow(comm_mat) == 0 || nrow(cond_sub) == 0) {
+    return(tibble(
+      prevalence = prev_th,
+      abundance  = abun_th,
+      n_taxa     = ncol(comm_mat),
+      n_corals   = 0,
+      var_comm_pc1 = NA_real_,
+      var_cond_pc1 = NA_real_,
+      pc1_cor      = NA_real_,
+      adj_r2       = NA_real_,
+      rda_p_val    = NA_real_,
+      axis_pvals   = list(NA),
+      top_species  = list(NA),
+      top_species_loadings = list(NA)
+    ))
+  }
+  
+  # 4) PCA summaries
+  pca_comm <- prcomp(comm_mat, scale. = TRUE)
+  pca_cond <- prcomp(cond_sub, scale. = TRUE)
+  
+  var_comm_pc1 <- pca_comm$sdev[1]^2 / sum(pca_comm$sdev^2)
+  var_cond_pc1 <- pca_cond$sdev[1]^2 / sum(pca_cond$sdev^2)
+  pc1_cor      <- suppressWarnings(cor(pca_comm$x[, 1], pca_cond$x[, 1]))
+  
+  # 5) PCoA (Bray) & RDA (cond ~ PCoA axes)
+  comm_pcoa <- ape::pcoa(vegdist(comm_mat, method = "bray"))$vectors[, 1:4, drop = FALSE]
+  comm_pcoa_df <- as.data.frame(comm_pcoa)
+  
+  # RDA: response is the matrix of condition metrics, predictors = PCoA axes
+  rda_res <- vegan::rda(cond_sub ~ ., data = comm_pcoa_df, scale = TRUE)
+  
+  adj_r2    <- vegan::RsquareAdj(rda_res)$adj.r.squared
+  global_test <- anova.cca(rda_res, permutations = 999)
+  axis_test   <- anova.cca(rda_res, by = "axis", permutations = 999)
+  rda_p_val   <- global_test[1, "Pr(>F)"]
+  axis_pvals  <- axis_test[, "Pr(>F)"]
+  
+  # 6) Top species on RDA1 (optional; may be empty depending on model)
+  sp_loadings <- tryCatch(
+    scores(rda_res, display = "species")[, 1],
+    error = function(e) numeric(0)
+  )
+  if (length(sp_loadings) > 0) {
+    top_idx     <- order(sp_loadings, decreasing = TRUE)[seq_len(min(top_n, length(sp_loadings)))]
+    top_species <- names(sp_loadings)[top_idx]
+    top_vals    <- sp_loadings[top_idx]
+  } else {
+    top_species <- NA
+    top_vals    <- NA
+  }
+  
+  # Return
+  tibble(
+    prevalence = prev_th,
+    abundance  = abun_th,
+    n_taxa     = ncol(comm_mat),
+    n_corals   = nrow(comm_mat),
+    var_comm_pc1 = var_comm_pc1,
+    var_cond_pc1 = var_cond_pc1,
+    pc1_cor      = pc1_cor,
+    adj_r2       = adj_r2,
+    rda_p_val    = rda_p_val,
+    axis_pvals   = list(axis_pvals),
+    top_species  = list(top_species),
+    top_species_loadings = list(top_vals)
+  )
+}
+
+# Threshold grid and run -------------------------------------------------------
+prevalence_thresh <- c(5, 10, 20, 30)
+abundance_thresh  <- c(10, 30, 50, 100)
+
+comm_abund_tbl <- as_tibble(comm_abund)   # keep original name clean
+
+results <- tidyr::expand_grid(
+  prev_th = prevalence_thresh,
+  abun_th = abundance_thresh
+) %>%
+  mutate(out = purrr::pmap(
+    list(prev_th, abun_th),
+    sensitivity_run,
+    comm_tbl = comm_abund_tbl,
+    cond_mat = cond_mat,
+    top_n    = 10
+  )) %>%
+  tidyr::unnest(out)
+
+# Optional helper for §11.4 (species stability)
+species_freq <- results %>%
+  unnest(top_species) %>%
+  filter(!is.na(top_species)) %>%
+  count(top_species, name = "n_scenarios") %>%
+  mutate(freq = n_scenarios / nrow(results)) %>%
+  arrange(desc(freq))
+
+# Quick check
+glimpse(results)
+glimpse(species_freq)
+
+# ───────────────────────────────────────────────────────────────────────────────
+# 11. Additional Sensitivity Visualizations
+# ───────────────────────────────────────────────────────────────────────────────
+
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(viridis)
+library(patchwork)
+
+# 11.1 Sample sizes & taxon richness lines --------------------------------
+p_sample_sizes <- results %>%
+  pivot_longer(cols = c(n_taxa, n_corals),
+               names_to = "metric", values_to = "count") %>%
+  mutate(metric = dplyr::recode(
+    metric,
+    "n_taxa" = "Number of Species",
+    "n_corals" = "Number of Corals"
+  )) %>%
+  ggplot(aes(
+    x = factor(abundance),
+    y = count,
+    color = factor(prevalence),
+    group = prevalence
+  )) +
+  geom_line() +
+  geom_point() +
+  facet_wrap(~ metric, scales = "free_y") +
+  labs(
+    x = "Abundance Threshold",
+    y = "Count",
+    color = "Prevalence\nThreshold",
+    title = "Sample & Taxon Richness Across Filters"
+  ) +
+  theme_publication()
+
+ggsave(here::here(fig_dir, "sample_taxa_richness.png"),
+       p_sample_sizes, width = 8, height = 4, dpi = 300, bg = "white")
+
+
+# 11.2 Multi-metric heatmaps --------------------------------
+res_long_all <- results %>%
+  select(prevalence, abundance,
+         var_comm_pc1, var_cond_pc1,
+         pc1_cor, adj_r2, rda_p_val) %>%
+  pivot_longer(-c(prevalence, abundance),
+               names_to = "metric", values_to = "value") %>%
+  mutate(
+    prevalence = factor(prevalence),
+    abundance  = factor(abundance),
+    metric     = factor(metric,
+                        levels = c("var_comm_pc1", "var_cond_pc1", "pc1_cor", "adj_r2", "rda_p_val"),
+                        labels = c("Var(Comm PC1)", "Var(Cond PC1)", "PC1–PC1 r", "Adj. R² (RDA)", "RDA p-value"))
+  )
+
+p_multi_heat <- ggplot(res_long_all, aes(x = abundance, y = prevalence, fill = value)) +
+  geom_tile(color = "grey80") +
+  facet_wrap(~ metric, ncol = 3, scales = "free") +
+  scale_fill_viridis_c(option = "D") +
+  labs(
+    x = "Abundance Threshold",
+    y = "Prevalence Threshold",
+    fill = "Value",
+    title = "Heatmaps of Key Metrics Across Threshold Grid"
+  ) +
+  theme_publication() +
+  theme(strip.text = element_text(face = "bold"))
+
+ggsave(here::here(fig_dir, "multi_metric_heatmaps.png"),
+       p_multi_heat, width = 10, height = 6, dpi = 300, bg = "white")
+
+
+# 11.3 PC1 correlation vs RDA R² --------------------------------
+p_corr_vs_r2 <- ggplot(results, aes(
+  x = pc1_cor, y = adj_r2,
+  size = n_taxa, color = n_corals
+)) +
+  geom_point(alpha = 0.7) +
+  scale_color_viridis_c() +
+  labs(
+    x = "PC1–PC1 Correlation",
+    y = "Adjusted R² (RDA)",
+    size = "Number of Species",
+    color = "Number of Corals",
+    title = "Strength of Link vs Explained Variance"
+  ) +
+  theme_publication()
+
+ggsave(here::here(fig_dir, "corr_vs_adjR2_scatter.png"),
+       p_corr_vs_r2, width = 6, height = 5, dpi = 300, bg = "white")
+
+
+# 11.4 Species stability --------------------------------
+p_species_stability <- ggplot(species_freq, aes(
+  x = reorder(top_species, freq),
+  y = freq
+)) +
+  geom_col() +
+  coord_flip() +
+  labs(
+    x = "Species",
+    y = "Proportion of Scenarios",
+    title = "Stability of Top-10 RDA₁ Species"
+  ) +
+  theme_publication()
+
+ggsave(here::here(fig_dir, "species_stability.png"),
+       p_species_stability, width = 6, height = 8, dpi = 300, bg = "white")
+
+
+# 11.5 Combined overview panel --------------------------------
+combined_overview <- (p_sample_sizes | p_corr_vs_r2) /
+  (p_multi_heat | p_species_stability) +
+  patchwork::plot_annotation(
+    title      = "Comprehensive Sensitivity Analysis Visuals",
+    tag_levels = "A",
+    theme = theme(
+      plot.title = element_text(face = "bold", size = 18, hjust = 0.5),
+      plot.tag   = element_text(face = "bold")
+    )
+  )
+
+print(combined_overview)
+
+ggsave(here::here(fig_dir, "combined_sensitivity_overview.png"),
+       combined_overview, width = 14, height = 12, dpi = 300, bg = "white")
+
+
+
+# ───────────────────────────────────────────────────────────────────────────────
+# 12. Correlation of Raw Abundances with PC1 & RDA₁, plus Plots
+# ───────────────────────────────────────────────────────────────────────────────
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(patchwork)
+library(here)
+# assume: pca_comm, rda_res, comm_abund, fig_dir, tab_dir are in your environment
+
+# 12.1 Extract ordination scores
+scores_comm <- as_tibble(pca_comm$x[,1, drop=FALSE], rownames="coral_id") %>%
+  rename(comm_PC1 = PC1)
+site_scores <- scores(rda_res, display="sites", choices=1) %>%
+  as.data.frame() %>%
+  tibble::rownames_to_column("coral_id") %>%
+  rename(rda1 = RDA1)
+
+# 12.2 Build correlation table
+corr_table <- comm_abund %>%
+  pivot_longer(-coral_id, names_to="species", values_to="abundance") %>%
+  inner_join(scores_comm, by="coral_id") %>%
+  inner_join(site_scores,  by="coral_id") %>%
+  group_by(species) %>%
+  summarise(
+    cor_comm_pc1 = cor(abundance, comm_PC1, use="pairwise.complete.obs"),
+    cor_rda1     = cor(abundance, rda1,     use="pairwise.complete.obs"),
+    .groups      = "drop"
+  ) %>%
+  arrange(desc(abs(cor_comm_pc1))) %>%
+  slice_head(n=25)
+
+# save table
+write_csv(corr_table, here(tab_dir, "species_ordination_correlations.csv"))
+
+# 12.3 Bar‐plot: correlation with community PC1
+p_comm_corr <- ggplot(corr_table, aes(
+  x = reorder(species, cor_comm_pc1),
+  y = cor_comm_pc1
+)) +
+  geom_col() +
+  coord_flip() +
+  labs(
+    x     = "Species",
+    y     = "Pearson r",
+    title = "Species Abundance vs Community PC1"
+  ) +
+  theme_publication()
+
+ggsave(
+  here(fig_dir, "species_vs_commPC1_corr.png"),
+  p_comm_corr, width=6, height=8, dpi=300, bg="white"
+)
+
+# 12.4 Bar‐plot: correlation with RDA1
+p_rda_corr <- ggplot(corr_table, aes(
+  x = reorder(species, cor_rda1),
+  y = cor_rda1
+)) +
+  geom_col(fill="#3182BD") +
+  coord_flip() +
+  labs(
+    x     = "Species",
+    y     = "Pearson r",
+    title = "Species Abundance vs RDA₁"
+  ) +
+  theme_publication()
+
+ggsave(
+  here(fig_dir, "species_vs_RDA1_corr.png"),
+  p_rda_corr, width=6, height=8, dpi=300, bg="white"
+)
+
+# 12.5 Combined scatter: PC1‐r vs RDA1‐r
+p_scatter_corr <- ggplot(corr_table, aes(
+  x = cor_comm_pc1,
+  y = cor_rda1,
+  label = species
+)) +
+  geom_point(size=3, alpha=0.7) +
+  geom_text(hjust=1.1, vjust=0.5, size=3) +
+  labs(
+    x     = "r(abundance, PC1)",
+    y     = "r(abundance, RDA₁)",
+    title = "Comparing Species Correlations with PC1 vs RDA₁"
+  ) +
+  theme_publication()
+
+ggsave(
+  here(fig_dir, "species_corr_PC1_vs_RDA1_scatter.png"),
+  p_scatter_corr, width=7, height=7, dpi=300, bg="white"
+)
+
+# 12.6 All three as a single panel
+combined_corr_panel <- (p_comm_corr | p_rda_corr) /
+  p_scatter_corr +
+  plot_annotation(
+    title      = "Species‐Abundance Correlations with Ordination Axes",
+    tag_levels = "A",
+    theme = theme(
+      plot.title = element_text(face="bold", size=16, hjust=0.5),
+      plot.tag   = element_text(face="bold")
+    )
+  )
+
+print(combined_corr_panel)
+ggsave(
+  here(fig_dir, "combined_species_corr_panel.png"),
+  combined_corr_panel, width=12, height=12, dpi=300, bg="white"
+)
+# ───────────────────────────────────────────────────────────────────────────────
+
+# ───────────────────────────────────────────────────────────────────────────────
+# 13. PDF of Species Abundance vs PC1 & RDA₁ Scatterplots with R² & p-value
+# ───────────────────────────────────────────────────────────────────────────────
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(patchwork)
+library(here)
+
+# Assumes in your environment:
+#   comm_abund     : data.frame with coral_id + species columns
+#   pca_comm       : prcomp result for community matrix
+#   rda_res        : rda result for condition ~ community PCoA
+#   corr_table     : table with selected species (corr_table$species)
+#   fig_dir        : output directory path
+
+# 13.1 Extract ordination scores
+scores_comm <- as_tibble(pca_comm$x[, 1, drop = FALSE], rownames = "coral_id") %>%
+  rename(comm_PC1 = PC1)
+
+site_scores <- scores(rda_res, display = "sites", choices = 1) %>%
+  as.data.frame() %>%
+  tibble::rownames_to_column("coral_id") %>%
+  rename(rda1 = RDA1)
+
+# 13.2 Prepare PDF device
+pdf_path <- here(fig_dir, "species_abundance_vs_ordination_scatterplots.pdf")
+pdf(pdf_path, width = 7, height = 9)
+
+for (sp in corr_table$species) {
+  # 1) assemble data for this species
+  df_sp <- comm_abund %>%
+    select(coral_id, abundance = all_of(sp)) %>%
+    inner_join(scores_comm, by = "coral_id") %>%
+    inner_join(site_scores, by = "coral_id") %>%
+    mutate(rda1f = -rda1)  # flipped RDA axis
+  
+  # 2) fit linear models
+  mod_comm <- lm(comm_PC1 ~ abundance, data = df_sp)
+  mod_rda  <- lm(rda1f    ~ abundance, data = df_sp)
+  
+  r2_comm <- summary(mod_comm)$r.squared
+  p_comm  <- summary(mod_comm)$coefficients[2,4]
+  
+  r2_rda  <- summary(mod_rda)$r.squared
+  p_rda   <- summary(mod_rda)$coefficients[2,4]
+  
+  # 3) scatterplot: abundance vs Community PC1
+  p1 <- ggplot(df_sp, aes(x = abundance, y = comm_PC1)) +
+    geom_point(alpha = 0.7) +
+    geom_smooth(method = "lm", se = TRUE) +
+    annotate("text",
+             x = Inf, y = Inf,
+             label = paste0("R² = ", round(r2_comm, 3),
+                            "\nP = ", signif(p_comm, 3)),
+             hjust = 1.1, vjust = 1.1, size = 4) +
+    labs(
+      title = paste0(sp, " — Abundance vs Community PC1"),
+      x     = "Abundance",
+      y     = "Community PC1"
+    ) +
+    theme_publication()
+  
+  # 4) scatterplot: abundance vs flipped RDA₁
+  p2 <- ggplot(df_sp, aes(x = abundance, y = rda1f)) +
+    geom_point(alpha = 0.7, color = "#3182BD") +
+    geom_smooth(method = "lm", se = TRUE, color = "#3182BD") +
+    annotate("text",
+             x = Inf, y = Inf,
+             label = paste0("R² = ", round(r2_rda, 3),
+                            "\nP = ", signif(p_rda, 3)),
+             hjust = 1.1, vjust = 1.1, size = 4, color = "#3182BD") +
+    labs(
+      title = paste0(sp, " — Abundance vs RDA₁ (flipped)"),
+      x     = "Abundance",
+      y     = "RDA₁ (flipped)"
+    ) +
+    theme_publication()
+  
+  # 5) print combined
+  print(p1 / p2)
+}
+
+# 13.3 Close PDF
+dev.off()
+message("PDF with annotated scatterplots saved to: ", pdf_path)
+
+
+
+
+
+
+########
+#zoom in and look at whether the effect differs
+########
+# ────────────────────────────────────────────────
+# X.  BUILD reef_id & AGGREGATE AT THE REEF LEVEL
+# ────────────────────────────────────────────────
+
+# (1) Make a reef_id in your raw CAFI table
+MRBcafi_df <- MRBcafi_df %>%
+  dplyr::mutate(
+    reef_id = paste0("reef_", row, "_", column)   # e.g. "reef_1_1", "reef_2_3", etc.
+  )
+
+# (2) Extract a coral → reef lookup
+reef_lookup <- MRBcafi_df %>%
+  dplyr::select(coral_id, reef_id) %>%
+  dplyr::distinct()
+
+# (3) Reef‐level community: sum counts of each species across all sub‐reefs
+comm_reef <- comm_abund %>%
+  dplyr::left_join(reef_lookup, by = "coral_id") %>%
+  dplyr::group_by(reef_id) %>%
+  dplyr::summarise(
+    dplyr::across(
+      .cols = -coral_id,
+      .fns  = ~ sum(.x, na.rm = TRUE)
+    ),
+    .groups = "drop"
+  ) %>%
+  tibble::column_to_rownames("reef_id")
+
+# (4) Reef‐level condition: average each physiology/growth metric across sub‐reefs
+cond_reef <- merged_metrics %>%
+  dplyr::left_join(reef_lookup, by = "coral_id") %>%
+  dplyr::select(-coral_id) %>%
+  dplyr::group_by(reef_id) %>%
+  dplyr::summarise(
+    dplyr::across(
+      .cols = everything(),
+      .fns  = ~ mean(.x, na.rm = TRUE)
+    ),
+    .groups = "drop"
+  ) %>%
+  tibble::column_to_rownames("reef_id")
+
+# (5) Hellinger‐transform the reef community
+comm_reef_hel <- vegan::decostand(comm_reef, method = "hellinger")
+# comm_reef_hel <- comm_reef_hel[, apply(comm_reef_hel, 2, var) > 0]
+
+# (6) PCA on reef‐level data
+pca_comm_reef <- stats::prcomp(comm_reef_hel, scale. = TRUE)
+pca_cond_reef <- stats::prcomp(cond_reef,   scale. = TRUE)
+
+# (7) Extract PC1 scores, join, test & plot
+scores_comm_reef <- tibble::as_tibble(
+  pca_comm_reef$x[,1, drop = FALSE],
+  rownames = "reef_id"
+) %>% dplyr::rename(comm_PC1 = PC1)
+
+scores_cond_reef <- tibble::as_tibble(
+  pca_cond_reef$x[,1, drop = FALSE],
+  rownames = "reef_id"
+) %>% dplyr::rename(cond_PC1 = PC1)
+
+reef_scores <- dplyr::inner_join(scores_comm_reef, scores_cond_reef, by = "reef_id")
+
+cor_test <- stats::cor.test(reef_scores$comm_PC1, reef_scores$cond_PC1)
+print(cor_test)
+
+ggplot2::ggplot(reef_scores, ggplot2::aes(x = comm_PC1, y = cond_PC1)) +
+  ggplot2::geom_point(size = 3) +
+  ggplot2::geom_smooth(method = "lm", se = TRUE) +
+  ggplot2::labs(
+    title    = "Reef‐level: Community PC1 vs Condition PC1",
+    subtitle = sprintf("r = %.2f, p = %.3f",
+                       cor_test$estimate, cor_test$p.value),
+    x        = "Community PC1",
+    y        = "Condition PC1"
+  ) +
+  theme_publication()
+
+
+
+
+
+
+library(dplyr)
+library(tibble)
+library(lme4)
+library(lmerTest)
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 1) Community PCA loadings (species → PC1 & PC2)
+# ─────────────────────────────────────────────────────────────────────────────
+comm_loadings <- as_tibble(pca_comm$rotation, rownames = "species")
+
+for (i in 1:2) {
+  axis <- paste0("PC", i)
+  cat("\n==== Community PCA ", axis, " ====\n")
+  
+  cat("\nTop 10 POSITIVE species loadings:\n")
+  pos <- comm_loadings %>%
+    dplyr::arrange(desc(.data[[axis]])) %>%
+    dplyr::slice_head(n = 10) %>%
+    dplyr::select(species, loading = .data[[axis]])
+  print(pos)
+  
+  cat("\nTop 10 NEGATIVE species loadings:\n")
+  neg <- comm_loadings %>%
+    dplyr::arrange(.data[[axis]]) %>%
+    dplyr::slice_head(n = 10) %>%
+    dplyr::select(species, loading = .data[[axis]])
+  print(neg)
+}
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 2) Condition PCA loadings (physio/growth metrics → PC1 & PC2)
+# ─────────────────────────────────────────────────────────────────────────────
+cond_loadings <- as_tibble(pca_cond$rotation, rownames = "metric")
+
+for (i in 1:2) {
+  axis <- paste0("PC", i)
+  cat("\n==== Condition PCA ", axis, " ====\n")
+  
+  cat("\nTop POSITIVE metric loadings:\n")
+  posm <- cond_loadings %>%
+    dplyr::arrange(desc(.data[[axis]])) %>%
+    dplyr::slice_head(n = 5) %>%
+    dplyr::select(metric, loading = .data[[axis]])
+  print(posm)
+  
+  cat("\nTop NEGATIVE metric loadings:\n")
+  negm <- cond_loadings %>%
+    dplyr::arrange(.data[[axis]]) %>%
+    dplyr::slice_head(n = 5) %>%
+    dplyr::select(metric, loading = .data[[axis]])
+  print(negm)
+}
+# ─────────────────────────────────────────────────────────────────────────────
+# 3) Mixed‐effects model on coral‐level PC1 scores
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Create df_mixed by joining PC1 scores with reef_id
+df_mixed <- dplyr::inner_join(scores_comm, scores_cond, by = "coral_id") %>%
+  dplyr::left_join(reef_lookup, by = "coral_id")
+
+# Check structure
+glimpse(df_mixed)
+
+# Run mixed-effects model
+m1 <- lmer(
+  cond_PC1 ~ comm_PC1 + (1 | reef_id),
+  data = df_mixed
+)
+
+cat("\nMixed‐Effects Model Summary:\n")
+print(summary(m1))
+
+cat("\nANOVA (Type III) Table:\n")
+print(anova(m1))
+

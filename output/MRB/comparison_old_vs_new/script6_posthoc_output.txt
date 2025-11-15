@@ -1,0 +1,434 @@
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   4.0.0     ✔ tibble    3.3.0
+✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+✔ purrr     1.1.0     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+here() starts at /Users/adrianstiermbp2023/Stier-2025-CAFI136-MRB-AMOUNT
+
+Attaching package: ‘scales’
+
+The following object is masked from ‘package:purrr’:
+
+    discard
+
+The following object is masked from ‘package:readr’:
+
+    col_factor
+
+
+Attaching package: ‘gridExtra’
+
+The following object is masked from ‘package:dplyr’:
+
+    combine
+
+Loading required package: lme4
+Loading required package: Matrix
+
+Attaching package: ‘Matrix’
+
+The following objects are masked from ‘package:tidyr’:
+
+    expand, pack, unpack
+
+
+Attaching package: ‘lmerTest’
+
+The following object is masked from ‘package:lme4’:
+
+    lmer
+
+The following object is masked from ‘package:stats’:
+
+    step
+
+Loading required package: arm
+Loading required package: MASS
+
+Attaching package: ‘MASS’
+
+The following object is masked from ‘package:patchwork’:
+
+    area
+
+The following object is masked from ‘package:dplyr’:
+
+    select
+
+
+arm (Version 1.14-4, built: 2024-4-1)
+
+Working directory is /Users/adrianstiermbp2023/Stier-2025-CAFI136-MRB-AMOUNT
+
+
+Attaching package: ‘arm’
+
+The following object is masked from ‘package:scales’:
+
+    rescale
+
+Welcome to emmeans.
+Caution: You lose important information if you filter this package's results.
+See '? untidy'
+
+Attaching package: ‘emmeans’
+
+The following object is masked from ‘package:GGally’:
+
+    pigs
+
+Registered S3 methods overwritten by 'MuMIn':
+  method        from 
+  nobs.multinom broom
+  nobs.fitdistr broom
+
+Attaching package: ‘MuMIn’
+
+The following object is masked from ‘package:arm’:
+
+    coefplot
+
+Loading required package: permute
+Loading required package: mgcv
+Loading required package: nlme
+
+Attaching package: ‘nlme’
+
+The following object is masked from ‘package:lme4’:
+
+    lmList
+
+The following object is masked from ‘package:dplyr’:
+
+    collapse
+
+This is mgcv 1.9-3. For overview type 'help("mgcv-package")'.
+This is labdsv 2.1-0
+convert existing ordinations with as.dsvord()
+
+Attaching package: ‘labdsv’
+
+The following objects are masked from ‘package:vegan’:
+
+    calibrate, pca, pco, scores
+
+The following object is masked from ‘package:MuMIn’:
+
+    importance
+
+The following object is masked from ‘package:lme4’:
+
+    factorize
+
+The following objects are masked from ‘package:stats’:
+
+    density, loadings
+
+
+Attaching package: ‘Hmisc’
+
+The following object is masked from ‘package:gt’:
+
+    html
+
+The following objects are masked from ‘package:dplyr’:
+
+    src, summarize
+
+The following objects are masked from ‘package:base’:
+
+    format.pval, units
+
+
+Attaching package: ‘ape’
+
+The following object is masked from ‘package:Hmisc’:
+
+    zoom
+
+The following object is masked from ‘package:arm’:
+
+    balance
+
+The following object is masked from ‘package:gt’:
+
+    where
+
+The following object is masked from ‘package:dplyr’:
+
+    where
+
+
+Attaching package: ‘reshape2’
+
+The following object is masked from ‘package:tidyr’:
+
+    smiths
+
+Loading required package: viridisLite
+
+Attaching package: ‘viridis’
+
+The following object is masked from ‘package:scales’:
+
+    viridis_pal
+
+Loading required package: survival
+
+Attaching package: ‘performance’
+
+The following object is masked from ‘package:arm’:
+
+    display
+
+Loading required package: carData
+
+Attaching package: ‘car’
+
+The following object is masked from ‘package:arm’:
+
+    logit
+
+The following object is masked from ‘package:dplyr’:
+
+    recode
+
+The following object is masked from ‘package:purrr’:
+
+    some
+
+✅ All libraries loaded successfully
+✅ CAFI utils loaded successfully
+📦 Functions available:
+  Data: load_cafi_data(), load_treatment_data(), load_coral_growth_data()
+  Themes: theme_cafi(), theme_cafi_pub()
+  Helpers: save_both(), save_figure(), create_community_matrix(), fit_reef_lmm()
+✅ MRB Figure Standards loaded
+   • Base font size:  14 
+   • Publication DPI:  600 
+   • Treatment colors defined
+   • theme_publication() available
+   • Specialized themes loaded
+   • Helper functions ready
+
+
+── Loading raw mesh, treatment, & manual % alive data ──
+
+── Building treatment & reef lookup ──
+
+── Processing 2019 mesh data ──
+
+── Processing 2021 mesh data ──
+
+── Combining years & computing growth metrics ──
+
+── Joining treatment/reef/% alive & filtering colonies ──
+
+── Visualizing percent alive to justify 80% cutoff ──
+
+✅ Saved: percent_alive_hist (.png and .pdf)
+   Dimensions: 6 x 4 inches at 600 DPI
+── meta_trt (percent_alive + treatment) -- full print ──
+
+# A tibble: 54 × 5
+   coral_id treatment reef     percent_alive percent_alive_scaled
+   <chr>    <fct>     <chr>            <dbl>                <dbl>
+ 1 POC100   1         Reef_3-4          0.4                  0.4 
+ 2 POC101   6         Reef_3-5          0.9                  0.9 
+ 3 POC102   6         Reef_3-5          0.9                  0.9 
+ 4 POC103   6         Reef_3-5          1                    1   
+ 5 POC104   6         Reef_3-5          0.5                  0.5 
+ 6 POC105   6         Reef_3-5          0.95                 0.95
+ 7 POC106   6         Reef_3-5          0.8                  0.8 
+ 8 POC107   1         Reef_3-6          1                    1   
+ 9 POC108   1         Reef_3-7          1                    1   
+10 POC109   3         Reef_3-8          1                    1   
+11 POC110   3         Reef_3-8          0.55                 0.55
+12 POC111   3         Reef_3-8          0.99                 0.99
+13 POC112   3         Reef_3-9          1                    1   
+14 POC113   3         Reef_3-9          1                    1   
+15 POC114   3         Reef_3-9          0.7                  0.7 
+16 POC61    1         Reef_1-1          1                    1   
+17 POC62    6         Reef_1-2          1                    1   
+18 POC63    6         Reef_1-2          0.8                  0.8 
+19 POC64    6         Reef_1-2          1                    1   
+20 POC65    6         Reef_1-2          1                    1   
+21 POC66    6         Reef_1-2          0.3                  0.3 
+22 POC67    6         Reef_1-2          1                    1   
+23 POC68    1         Reef_1-3          0.75                 0.75
+24 POC69    3         Reef_1-4          1                    1   
+25 POC70    3         Reef_1-4          1                    1   
+26 POC71    3         Reef_1-4          1                    1   
+27 POC72    1         Reef_1-5          1                    1   
+28 POC73    3         Reef_1-6          1                    1   
+29 POC74    3         Reef_1-6          0.85                 0.85
+30 POC75    3         Reef_1-6          1                    1   
+31 POC76    1         Reef_1-7          0.8                  0.8 
+32 POC77    1         Reef_1-8          1                    1   
+33 POC78    1         Reef_1-9          1                    1   
+34 POC79    1         Reef_2-1          0.75                 0.75
+35 POC80    1         Reef_2-2          1                    1   
+36 POC81    1         Reef_2-3          1                    1   
+37 POC82    3         Reef_2-4          1                    1   
+38 POC83    3         Reef_2-4          0.15                 0.15
+39 POC84    3         Reef_2-4          1                    1   
+40 POC85    1         Reef_2-5          0.2                  0.2 
+41 POC86    6         Reef_2-6          1                    1   
+42 POC87    6         Reef_2-6          0.9                  0.9 
+43 POC88    6         Reef_2-6          1                    1   
+44 POC89    6         Reef_2-6          1                    1   
+45 POC90    6         Reef_2-6          0.55                 0.55
+46 POC91    6         Reef_2-6          1                    1   
+47 POC92    1         Reef_2-7          0.95                 0.95
+48 POC93    1         Reef_2-8          1                    1   
+49 POC94    3         Reef_2-9          1                    1   
+50 POC95    3         Reef_2-9          1                    1   
+51 POC96    3         Reef_2-9          1                    1   
+52 POC97    1         Reef_3-1          0.95                 0.95
+53 POC98    1         Reef_3-2          1                    1   
+54 POC99    1         Reef_3-3          0.9                  0.9 
+✅ Saved: percent_alive_by_treatment (.png and .pdf)
+   Dimensions: 7 x 5 inches at 600 DPI
+ℹ 44 colonies retained (>= 80% alive).
+
+── Section 8: Volume ANCOVA & size-corrected growth (filtered) ──
+
+Analysis of Deviance Table (Type III Wald chisquare tests)
+
+Response: log_final
+                     Chisq Df Pr(>Chisq)    
+(Intercept)         4.3343  1    0.03735 *  
+log_init           23.6017  1  1.185e-06 ***
+treatment           6.7939  2    0.03348 *  
+log_init:treatment  6.4793  2    0.03918 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+── Post-hoc: Pairwise comparisons of allometric slopes by treatment 
+
+=== Treatment-specific allometric slopes (b estimates) ===
+ treatment log_init.trend    SE   df lower.CL upper.CL
+ 1                 0.7811 0.161 24.8    0.450    1.112
+ 3                -0.0987 0.377 37.3   -0.862    0.665
+ 6                 1.0036 0.304 33.3    0.385    1.622
+
+Degrees-of-freedom method: kenward-roger 
+Confidence level used: 0.95 
+
+=== Pairwise comparisons of slopes (Tukey-adjusted) ===
+ contrast                estimate    SE   df t.ratio p.value
+ treatment1 - treatment3    0.880 0.410 38.0   2.148  0.0937
+ treatment1 - treatment6   -0.223 0.344 37.6  -0.647  0.7951
+ treatment3 - treatment6   -1.102 0.484 36.0  -2.277  0.0721
+
+Degrees-of-freedom method: kenward-roger 
+P value adjustment: tukey method for comparing a family of 3 estimates 
+ℹ No significant pairwise differences in slopes (all p > 0.05)
+ℹ Interaction may be driven by overall heterogeneity, not specific pairs
+
+=== Treatment-specific intercepts (at mean log_init) ===
+NOTE: Results may be misleading due to involvement in interactions
+ treatment emmean     SE    df lower.CL upper.CL
+ 1           7.88 0.0759 24.79     7.72     8.04
+ 3           7.93 0.1010 13.20     7.71     8.15
+ 6           7.76 0.1260  8.44     7.48     8.05
+
+Degrees-of-freedom method: kenward-roger 
+Confidence level used: 0.95 
+
+=== Model comparison: Interaction vs Parallel Slopes ===
+refitting model(s) with ML (instead of REML)
+Data: ancova_dat
+Models:
+m_noint: log_final ~ log_init + treatment + (1 | reef)
+m_full: log_final ~ log_init * treatment + (1 | reef)
+        npar    AIC    BIC   logLik -2*log(L)  Chisq Df Pr(>Chisq)  
+m_noint    6 15.992 26.698 -1.99622    3.9924                       
+m_full     8 14.761 29.035  0.61937   -1.2387 5.2312  2    0.07313 .
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+✔ Parallel slopes model is adequate
+Analysis of Deviance Table (Type III Wald chisquare tests)
+
+Response: log_final
+              Chisq Df Pr(>Chisq)    
+(Intercept) 10.1248  1   0.001463 ** 
+log_init    28.4627  1  9.552e-08 ***
+treatment    2.6384  2   0.267345    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+Warning message:
+Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+ℹ Please use `linewidth` instead. 
+✅ Saved: ANCOVA_Init_vs_Final_Volume_by_Treatment (.png and .pdf)
+   Dimensions: 8 x 6 inches at 600 DPI
+
+── Creating figure with treatment-specific allometric slopes 
+✅ Saved: ANCOVA_TreatmentSpecific_Slopes (.png and .pdf)
+   Dimensions: 9 x 7 inches at 600 DPI
+
+--- Size-corrected growth model (growth_vol_b ~ treatment + (1|reef)) ---
+NULL
+Analysis of Deviance Table (Type III Wald chisquare tests)
+
+Response: growth_vol_b
+               Chisq Df Pr(>Chisq)    
+(Intercept) 164.6342  1     <2e-16 ***
+treatment     2.6197  2     0.2699    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+--- Unified allometric model (log(Vf) ~ log(Vi) + treatment + (1|reef)) ---
+NULL
+Analysis of Deviance Table (Type III Wald chisquare tests)
+
+Response: log(vol_2021)
+                Chisq Df Pr(>Chisq)    
+(Intercept)   10.1248  1   0.001463 ** 
+log(vol_2019) 28.4627  1  9.552e-08 ***
+treatment      2.6384  2   0.267345    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+✅ Saved: SizeCorrected_Volume_Growth_by_Treatment (.png and .pdf)
+   Dimensions: 8 x 6 inches at 600 DPI
+
+── Section 9: SA-scaled growth & ΔV ~ SA ANCOVA (filtered) ──
+
+Analysis of Deviance Table (Type III Wald chisquare tests)
+
+Response: growth_sa
+              Chisq Df Pr(>Chisq)    
+(Intercept) 64.0985  1  1.184e-15 ***
+treatment    3.2364  2     0.1983    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+✅ Saved: SA_Scaled_Volume_Growth_by_Treatment (.png and .pdf)
+   Dimensions: 8 x 6 inches at 600 DPI
+Analysis of Deviance Table (Type III Wald chisquare tests)
+
+Response: delta_volume
+                                 Chisq Df Pr(>Chisq)  
+(Intercept)                     0.1509  1    0.69772  
+surface_area_cm2_2019           6.3537  1    0.01171 *
+treatment                       2.4635  2    0.29178  
+surface_area_cm2_2019:treatment 1.9170  2    0.38347  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+Analysis of Deviance Table (Type III Wald chisquare tests)
+
+Response: delta_volume
+                       Chisq Df Pr(>Chisq)  
+(Intercept)           1.0090  1    0.31514  
+surface_area_cm2_2019 5.8655  1    0.01544 *
+treatment             2.9045  2    0.23405  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+✅ Saved: DeltaVolume_vs_SA_ANCOVA (.png and .pdf)
+   Dimensions: 8 x 6 inches at 600 DPI
+── Exporting tidy growth data ──
+
+✔ Exported coral_growth (RDS & CSV).

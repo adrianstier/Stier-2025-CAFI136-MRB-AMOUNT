@@ -1,0 +1,43 @@
+---
+title: "Tip_Stump"
+output: html_document
+date: "2025-01-29"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Tip/stump - Document Purpose
+This file is for merging and cleaning the tip/stump data as well as for future calculations correcting for differences in symbiodinium from the tip to base of the. 
+
+## load libraries
+```{r, echo = FALSE, warning = FALSE}
+library(here)
+library(tidyverse)
+library(readxl)
+```
+
+#Data read-in and cleaning
+First task, combine tip stump stuff to coral size df
+```{r, echo=FALSE, warning=FALSE}
+#tip/stump stuff
+ts_df <- read_xlsx(here("data/Survey/1. tip_stump_comparison_dec_2019.xlsx"))
+
+#coral characteristics df
+ts_characteristics_df <- read_csv(here("data/Survey/1. survey_coral_characteristics_merged_v2.csv"))
+```
+
+"Coral_id" need to match across these two dfs
+```{r, echo=FALSE, warning = FALSE}
+
+ts_join <- left_join(ts_df, ts_characteristics_df, by = "coral_id")
+
+ts_join <- ts_join %>%
+  mutate(coral_id = as.factor(coral_id))
+
+#have all the corals now - just need to pair this down to what columsn we need
+
+```
+
+

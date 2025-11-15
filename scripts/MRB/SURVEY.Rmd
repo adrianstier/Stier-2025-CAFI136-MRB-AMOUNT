@@ -1,0 +1,29 @@
+---
+title: "SURVEY"
+output: html_document
+date: "2025-02-11"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# SURVEY - Document Purpose
+This file is initial exploration of the data from the "SURVEY" subproject of the CAFI project. This was initially code for taking raw dfs and cleaning them with traceable cleans and using visualization techniques to better understand community structure on coral clusters. All data read paths are shown for reproducability and transparency. No previous code was used. 
+
+## load libraries
+```{r libraries, echo = FALSE, warning = FALSE}
+library(here)
+library(tidyverse)
+library(readxl)
+```
+
+#Data read-in
+```{r df reads, warning=FALSE}
+#coral characteristics df
+characteristics_df <- read_csv(here("data/Survey/1. survey_coral_characteristics_merged_v2.csv"))
+
+
+```
+
+

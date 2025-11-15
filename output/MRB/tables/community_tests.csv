@@ -1,0 +1,7 @@
+metric,test,F,df,p
+bray,PERMDISP,1.4756981145114578,"2, 41",0.001
+bray,adonis2 (strata=reef),2.5525916863027502,"2, 41",1
+jaccard,PERMDISP,0.7344616449230318,"2, 41",0.001
+jaccard,adonis2 (strata=reef),2.247433588572945,"2, 41",1
+gower,PERMDISP,6.04223908038658,"2, 41",0.001
+gower,adonis2 (strata=reef),1.6843375766803597,"2, 41",1

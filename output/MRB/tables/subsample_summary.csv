@@ -1,0 +1,7 @@
+metric,test,mean_p,prop_sig_0.05
+bray,adonis_p,0.001112,1
+bray,permdisp_p,0.270034,0
+gower,adonis_p,0.003376,1
+gower,permdisp_p,0.006216,1
+jaccard,adonis_p,0.001042,1
+jaccard,permdisp_p,0.518136,0

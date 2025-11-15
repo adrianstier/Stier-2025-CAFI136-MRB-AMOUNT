@@ -1,0 +1,143 @@
+---
+title: ""
+output:
+  word_document:
+    reference_docx: NULL
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+library(dplyr)
+library(flextable)
+library(officer)
+```
+
+```{r create-table}
+# Data from LMM_species_top20_RAWsqrt_vs_condPC1.csv
+# Linear mixed-effects models: PC1_coral ~ sqrt(abundance) + (1|reef)
+table_data <- tibble::tribble(
+  ~species, ~estimate, ~std_error, ~df, ~t_value, ~p_value, ~p_adj, ~loading, ~sig,
+  # Positive relationships (ordered by loading)
+  "Harpiliopsis spinigera", 0.456, 0.308, 39.8, 1.484, 0.146, 0.963, 0.212, "",
+  "Caracanthus maculatus", 1.424, 0.394, 40.1, 3.613, 0.001, 0.017, 0.211, "**",
+  "Periclimenes watamuae", 0.213, 0.129, 41.9, 1.644, 0.108, 0.963, 0.177, "",
+  "Dascyllus flavicaudus", 0.321, 0.204, 31.0, 1.578, 0.125, 0.963, 0.171, "",
+  "Halichoeres trimaculatus", 0.633, 0.532, 40.1, 1.190, 0.241, 0.963, 0.143, "",
+  "Calcinus latens", 0.454, 0.251, 41.8, 1.806, 0.078, 0.963, 0.141, "",
+  # Negative relationships (ordered by loading magnitude)
+  "Alpheus lottini", -0.278, 0.303, 38.2, -0.918, 0.364, 0.963, -0.126, "",
+  "Paragobiodon modestus", -0.194, 0.266, 42.0, -0.727, 0.471, 0.963, -0.154, "",
+  "Cerithium zebrum", -0.119, 0.287, 42.0, -0.416, 0.679, 0.963, -0.179, "",
+  "Zafra hahajimana", 0.559, 0.453, 37.1, 1.234, 0.225, 0.963, -0.196, "",
+  "Apataxia cerithiiformis", -0.294, 0.207, 38.1, -1.420, 0.164, 0.963, -0.199, "",
+  "Diala albugo", -0.099, 0.266, 38.8, -0.372, 0.712, 0.963, -0.202, "",
+  "Luniella pugil", -0.917, 0.354, 38.5, -2.589, 0.014, 0.257, -0.210, "*",
+  "Alpheus diadema", -0.995, 0.474, 39.1, -2.101, 0.042, 0.759, -0.225, "*",
+  "Diala semistriata", -0.070, 0.297, 40.4, -0.237, 0.814, 0.963, -0.231, "",
+  "Mitrella moleculina", -0.342, 0.427, 38.0, -0.800, 0.428, 0.963, -0.239, "",
+  "Strigatella assimilis", 0.264, 0.435, 41.0, 0.606, 0.548, 0.963, -0.251, "",
+  "Trapezia serenei", -0.022, 0.486, 42.0, -0.046, 0.963, 0.963, -0.265, "",
+  "Stomatolina rubra", -0.146, 0.472, 40.9, -0.309, 0.759, 0.963, -0.272, "",
+  "Galathea mauritiana", -0.343, 0.299, 41.1, -1.147, 0.258, 0.963, -0.291, ""
+)
+
+# Format species names in italics
+table_data <- table_data %>%
+  mutate(
+    species_formatted = paste0("*", gsub("_", " ", species), "*"),
+    direction = ifelse(loading > 0, "Positive", "Negative")
+  )
+
+# Create two separate tables for positive and negative relationships
+table_positive <- table_data %>%
+  filter(direction == "Positive") %>%
+  select(species_formatted, estimate, std_error, df, t_value, p_value, p_adj, sig) %>%
+  flextable() %>%
+  set_header_labels(
+    species_formatted = "Species",
+    estimate = "β",
+    std_error = "SE",
+    df = "df",
+    t_value = "t",
+    p_value = "p",
+    p_adj = "p (adj)",
+    sig = ""
+  ) %>%
+  add_header_lines(values = "Positive relationships (higher CAFI → better coral condition)") %>%
+  colformat_double(j = c("estimate", "std_error"), digits = 3) %>%
+  colformat_double(j = "df", digits = 1) %>%
+  colformat_double(j = "t_value", digits = 3) %>%
+  colformat_double(j = c("p_value", "p_adj"), digits = 3) %>%
+  bold(i = ~ sig != "", j = "sig") %>%
+  align(align = "left", j = "species_formatted", part = "body") %>%
+  align(align = "center", j = 2:8, part = "body") %>%
+  align(align = "center", part = "header") %>%
+  bold(part = "header", i = 1) %>%
+  fontsize(size = 10, part = "all") %>%
+  font(fontname = "Times New Roman", part = "all") %>%
+  width(j = "species_formatted", width = 2.2) %>%
+  width(j = c("estimate", "std_error"), width = 0.6) %>%
+  width(j = "df", width = 0.5) %>%
+  width(j = c("t_value", "p_value", "p_adj"), width = 0.6) %>%
+  width(j = "sig", width = 0.4) %>%
+  border_remove() %>%
+  hline_top(border = fp_border(width = 2), part = "all") %>%
+  hline(i = 1, border = fp_border(width = 1), part = "header") %>%
+  hline_bottom(border = fp_border(width = 1), part = "body") %>%
+  padding(padding = 2, part = "all") %>%
+  compose(j = "species_formatted", value = as_paragraph(as_i(species_formatted)), part = "body")
+
+table_negative <- table_data %>%
+  filter(direction == "Negative") %>%
+  select(species_formatted, estimate, std_error, df, t_value, p_value, p_adj, sig) %>%
+  flextable() %>%
+  set_header_labels(
+    species_formatted = "Species",
+    estimate = "β",
+    std_error = "SE",
+    df = "df",
+    t_value = "t",
+    p_value = "p",
+    p_adj = "p (adj)",
+    sig = ""
+  ) %>%
+  add_header_lines(values = "Negative relationships (higher CAFI → poorer coral condition)") %>%
+  colformat_double(j = c("estimate", "std_error"), digits = 3) %>%
+  colformat_double(j = "df", digits = 1) %>%
+  colformat_double(j = "t_value", digits = 3) %>%
+  colformat_double(j = c("p_value", "p_adj"), digits = 3) %>%
+  bold(i = ~ sig != "", j = "sig") %>%
+  align(align = "left", j = "species_formatted", part = "body") %>%
+  align(align = "center", j = 2:8, part = "body") %>%
+  align(align = "center", part = "header") %>%
+  bold(part = "header", i = 1) %>%
+  fontsize(size = 10, part = "all") %>%
+  font(fontname = "Times New Roman", part = "all") %>%
+  width(j = "species_formatted", width = 2.2) %>%
+  width(j = c("estimate", "std_error"), width = 0.6) %>%
+  width(j = "df", width = 0.5) %>%
+  width(j = c("t_value", "p_value", "p_adj"), width = 0.6) %>%
+  width(j = "sig", width = 0.4) %>%
+  border_remove() %>%
+  hline_top(border = fp_border(width = 2), part = "all") %>%
+  hline(i = 1, border = fp_border(width = 1), part = "header") %>%
+  hline_bottom(border = fp_border(width = 2), part = "body") %>%
+  padding(padding = 2, part = "all") %>%
+  compose(j = "species_formatted", value = as_paragraph(as_i(species_formatted)), part = "body")
+```
+
+# Table S2. Species-level relationships between CAFI and coral condition
+
+Linear mixed-effects models testing the relationship between species abundance and coral condition (PC~1coral~) for the top 20 CAFI taxa, with reef as a random intercept. Species are sorted by their loading on PC~1CAFI~ within each category.
+
+```{r positive-table}
+table_positive
+```
+
+\
+
+```{r negative-table}
+table_negative
+```
+
+**Note:** Significance codes: \*\* p < 0.01, \* p < 0.05. β = slope coefficient for sqrt(abundance); SE = standard error; df = degrees of freedom; t = t-statistic; p = uncorrected p-value; p (adj) = Hochberg-adjusted p-value. Models significant at α = 0.05 after adjustment: *Caracanthus maculatus* (positive), *Luniella pugil* and *Alpheus diadema* (negative, marginal after adjustment). The model format was: PC~1coral~ ~ sqrt(abundance) + (1|reef).

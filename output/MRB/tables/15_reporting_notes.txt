@@ -1,0 +1,7 @@
+§15 — Reporting notes
+
+* Main PERMANOVA table: 15_main_permanova_gt.html
+* Pairwise PERMANOVA CSV: 15_pairwise_permanova_reef_treatment.csv
+* Pairwise PERMANOVA GT:  15_pairwise_permanova_gt.html
+* PERMDISP global GT:     15_permdisp_overall_gt.html
+* Always interpret PERMANOVA alongside PERMDISP (dispersion differences can inflate Type I error).

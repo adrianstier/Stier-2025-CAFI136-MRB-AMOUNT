@@ -1,0 +1,45 @@
+PERMDISP global tests (reef level):
+
+Jaccard:
+
+Permutation test for homogeneity of multivariate dispersions
+Permutation: free
+Number of permutations: 999
+
+Response: Distances
+          Df  Sum Sq  Mean Sq      F N.Perm Pr(>F)    
+Groups     2 0.14521 0.072605 11.877    999  0.001 ***
+Residuals 20 0.12226 0.006113                         
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+---
+Gower:
+
+Permutation test for homogeneity of multivariate dispersions
+Permutation: free
+Number of permutations: 999
+
+Response: Distances
+          Df   Sum Sq   Mean Sq      F N.Perm Pr(>F)
+Groups     2 0.015261 0.0076307 2.4202    999  0.102
+Residuals 20 0.063059 0.0031530                     
+
+
+Pairwise Tukey on distances to centroid (Jaccard):
+# A tibble: 3 × 6
+  group1 group2    diff    lwr      upr    p_adj
+  <chr>  <chr>    <dbl>  <dbl>    <dbl>    <dbl>
+1 3      1      -0.0993 -0.196 -0.00282 0.0430  
+2 6      1      -0.229  -0.355 -0.103   0.000478
+3 6      3      -0.130  -0.270  0.00998 0.0717  
+
+---
+Pairwise Tukey on distances to centroid (Gower):
+# A tibble: 3 × 6
+  group1 group2     diff     lwr    upr p_adj
+  <chr>  <chr>     <dbl>   <dbl>  <dbl> <dbl>
+1 3      1       0.0541  -0.0152 0.123  0.144
+2 6      1       0.0499  -0.0405 0.140  0.361
+3 6      3      -0.00420 -0.105  0.0963 0.994
+

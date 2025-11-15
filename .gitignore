@@ -1,0 +1,29 @@
+# R specific
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+*.Rproj
+Rplots.pdf
+
+# System files
+.DS_Store
+*~
+
+# Large data files (keep raw data but exclude large outputs)
+output_backup_*/
+*.rds
+*.RData
+
+# Temporary files
+*.tmp
+*.log
+
+# Large figure directories (keep publication figures)
+output/MRB/figures/**/
+!output/MRB/figures/**/publication-figures/
+
+# Keep important output files
+!output/MRB/tables/
+!output/MRB/*.md
+!output/MRB/*.csv
