@@ -10,6 +10,14 @@ Rplots.pdf
 .DS_Store
 *~
 
+# Local symlink to manuscript folder on Google Drive (machine-specific path)
+/manuscript
+
+# Local working dirs (not part of the reproducible archive)
+.claude/
+/literature
+/graphical-abstract
+
 # Large data files (keep raw data but exclude large outputs)
 output_backup_*/
 *.rds

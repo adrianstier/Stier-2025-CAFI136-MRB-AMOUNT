@@ -923,10 +923,13 @@ cols_taxon <- c(
 # Panel A: scatter (RAW_PC1 vs Condition PC1)
 .make_scatter_raw_2p <- function(df_pca) {
   ggplot(df_pca, aes(x = RAW_PC1, y = cond_PC1)) +
-    geom_point(aes(fill = treatment), shape = 21, colour = "darkgray",
-               size = 3, alpha = 0.85) +
+    # R1.F4: coral number encoded by BOTH shape and fill so it never reads like the taxon colors in panel A
+    geom_point(aes(fill = treatment, shape = treatment), colour = "darkgray",
+               size = 3.2, alpha = 0.85) +
     geom_smooth(method = "lm", se = TRUE, colour = "black") +
     scale_fill_manual(values = cols_trt, name = "Coral number") +
+    scale_shape_manual(values = c("1" = 21, "3" = 24, "6" = 22), name = "Coral number") +
+    guides(fill = guide_legend(override.aes = list(shape = c(21, 24, 22)))) +
     labs(
       x = expression(PC1[CAFI]),   # PC1 with subscript "CAFI"
       y = expression(PC1[coral])   # PC1 with subscript "coral"
@@ -945,7 +948,8 @@ cols_taxon <- c(
   ggplot(df_comm_load, aes(x = feature_label, y = loading)) +
     geom_segment(aes(xend = feature_label, y = 0, yend = loading, colour = taxon_group),
                  linewidth = 0.5) +
-    geom_point(aes(fill = taxon_group), shape = 21, colour = "black", size = 2.5, stroke = 0.3) +
+    # R1.F4: diamonds for CAFI taxa so panel A is shape-distinct from the coral-number points in panel B
+    geom_point(aes(fill = taxon_group), shape = 23, colour = "black", size = 2.6, stroke = 0.3) +
     coord_flip() +
     geom_hline(yintercept = 0, linetype = "dashed", colour = "gray60") +
     scale_x_discrete(labels = function(x) parse(text = x)) +
@@ -955,6 +959,7 @@ cols_taxon <- c(
     ) +
     scale_fill_manual(values = cols_taxon, name = "Taxon") +
     scale_colour_manual(values = cols_taxon, guide = "none") +  # match segment colors, hide duplicate legend
+    guides(fill = guide_legend(override.aes = list(shape = 23))) +  # R1.F4: legend keys as diamonds
     labs(x = NULL, y = expression(Loading~on~PC1[CAFI])) +
     theme_pub(base_size = 10) +
     theme(
@@ -971,25 +976,26 @@ pA   <- .make_scatter_raw_2p(raw2$df_pca)
 pB   <- .make_comm_load_raw_2p(raw2$df_comm_load)
 
 # Combine + single set of panel tags
-raw_two_panel <- (pB | pA) +
-  patchwork::plot_layout(ncol = 2, widths = c(1.1, 1)) +
+# R1.F4: vertical layout (A = loadings on top, B = scatter below) per reviewer request
+raw_two_panel <- (pB / pA) +
+  patchwork::plot_layout(nrow = 2, heights = c(1.3, 1)) +
   patchwork::plot_annotation(tag_levels = "A")  # tags: A, B
 
 # Show & save
 show_and_save(
   raw_two_panel,
   file.path(FIG_DIR, "PCA_LOADINGS_RAW_2panel_clean"),
-  width = 9.5, height = 6
+  width = 6.5, height = 9.5
 )
 
 # Also save to publication-figures folder (PDF and PNG)
 ggsave(
   file.path(OUT_DIR, "figures", "publication-figures", "PCA_LOADINGS_RAW_2panel_clean.pdf"),
-  raw_two_panel, width = 9.5, height = 6, dpi = 600, bg = "white"
+  raw_two_panel, width = 6.5, height = 9.5, dpi = 600, bg = "white", create.dir = TRUE
 )
 ggsave(
   file.path(OUT_DIR, "figures", "publication-figures", "PCA_LOADINGS_RAW_2panel_clean.png"),
-  raw_two_panel, width = 9.5, height = 6, dpi = 600, bg = "white"
+  raw_two_panel, width = 6.5, height = 9.5, dpi = 600, bg = "white", create.dir = TRUE
 )
 
 

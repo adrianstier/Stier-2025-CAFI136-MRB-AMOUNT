@@ -1,0 +1,28 @@
+PhyloPic silhouettes used in FigureX_concept_hypotheses
+Downloaded via rphylopic 1.6.0 on 2026-06-25
+
+== coral (uuid 19cbe092-a0f1-4107-b6f3-2dffeeda2668) ==
+  contributor: Guillaume Dera
+  created by:  Unknown
+  license:     https://creativecommons.org/publicdomain/zero/1.0/
+
+== fish (uuid 0ac52ecf-5bd5-4bbf-9cf2-35531546d04a) ==
+  contributor: perevolotsky
+  created by:  Unknown
+  license:     https://creativecommons.org/publicdomain/zero/1.0/
+
+== crab (uuid fbb93c22-618f-4901-aade-2d07a9797e02) ==
+  contributor: Carter Johnson
+  created by:  Carter Johnson
+  license:     https://creativecommons.org/licenses/by/4.0/
+
+== shrimp (uuid 0ea8e976-df74-4306-8d3d-a81093a287b3) ==
+  contributor: Douglas Teles da Rosa
+  created by:  Douglas Teles da Rosa
+  license:     https://creativecommons.org/licenses/by/4.0/
+
+== snail (uuid f2c24e9a-382c-4f73-8692-b7251e630d9d) ==
+  contributor: karla Martínez
+  created by:  Karla Martinez
+  license:     https://creativecommons.org/licenses/by/3.0/
+
