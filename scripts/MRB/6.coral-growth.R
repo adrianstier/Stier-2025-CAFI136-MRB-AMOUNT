@@ -611,13 +611,20 @@ show_and_save(p_deltaV_sa, file.path(out_dir_fig, "DeltaVolume_vs_SA_ANCOVA.png"
 # ---- 10. Export tidy growth data --------------------------------------------
 cli::cli_h2("Exporting tidy growth data")
 
+# Growth-metric naming (2026-07-12): the manuscript's coral growth metric is the
+# allometric size-corrected growth `growth_vol_b` = V_final / V_initial^b (Methods,
+# Table S1 ANCOVA, condition PCA in 8.coral-caffi.R). The column below is the
+# surface-area-scaled growth delta_volume / surface_area_2019 and is exported here
+# as `sa_scaled_growth` (an exploratory scaling, NOT the manuscript metric). It was
+# previously named `size_corrected_volume_growth`, a misleading name that caused it
+# to be mistaken for the allometric metric downstream.
 coral_growth_df <- coral_changes %>%
   left_join(meta_df, by = "coral_id") %>%
-  mutate(size_corrected_volume_growth = delta_volume / surface_area_cm2_2019) %>%
+  mutate(sa_scaled_growth = delta_volume / surface_area_cm2_2019) %>%
   filter(coral_id %in% keep_ids) %>%
   dplyr::select(coral_id, treatment, reef, percent_alive,
                 delta_surface_area, delta_volume, delta_max_height, delta_interstitial,
-                size_corrected_volume_growth)
+                sa_scaled_growth)
 
 write_csv(coral_growth_df,
           here("data/MRB Amount/coral_growth_surface_area_change_filtered.csv"))
@@ -633,13 +640,13 @@ coral_growth <- coral_changes %>%
     sec9_df %>% dplyr::select(coral_id, growth_sa),
     by = "coral_id"
   ) %>%
-  mutate(size_corrected_volume_growth = growth_sa) %>%
+  mutate(sa_scaled_growth = growth_sa) %>%   # SA-scaled growth (exploratory); NOT the manuscript metric
   filter(coral_id %in% keep_ids) %>%
   dplyr::select(
     coral_id, treatment, reef, percent_alive,
     delta_surface_area, delta_volume, delta_max_height, delta_interstitial,
-    size_corrected_volume_growth,
-    growth_vol_b
+    sa_scaled_growth,
+    growth_vol_b   # allometric size-corrected growth = V_final / V_initial^b (manuscript metric)
   )
 
 dir.create(here("data", "processed"), showWarnings = FALSE, recursive = TRUE)

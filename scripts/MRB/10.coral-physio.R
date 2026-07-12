@@ -103,10 +103,25 @@ coral_growth_raw <- read_csv(
 ) %>%
   mutate(coral_id = paste0("FE-", coral_id))
 
+# Growth-metric consistency (2026-07-12): use the allometric size-corrected growth
+# growth_vol_b = V_final / V_initial^b, the SAME metric as the manuscript Methods,
+# the Table S1 ANCOVA, and the condition PCA in 8.coral-caffi.R. This script formerly
+# used the source-CSV column `size_corrected_volume_growth`, which is delta_volume /
+# surface_area_2019 (a surface-area-scaled metric) and is therefore inconsistent with
+# the manuscript. growth_vol_b is defined only for the >=80%-alive filtered set
+# (data/processed/coral_growth.csv, written by 6.coral-growth.R).
+growth_vol_b_lookup <- read_csv(
+  here("data", "processed", "coral_growth.csv"),
+  col_types = cols()
+) %>%
+  transmute(coral_id = paste0("FE-", coral_id), growth_vol_b)
+
 coral_growth <- coral_growth_raw %>%
+  left_join(growth_vol_b_lookup, by = "coral_id") %>%
   filter(
     if_all(starts_with("delta_"), ~ !is.na(.) & . > 0),
-    size_corrected_volume_growth > 0
+    !is.na(growth_vol_b)   # keeps the >=80%-alive set; the old `size_corrected_volume_growth > 0`
+                           # filter was redundant with delta_volume > 0 (SA_2019 > 0)
   )
 
 # =======================================================================
@@ -127,7 +142,7 @@ physio_metrics_df <- physio_df %>%
 # 4.   MERGE GROWTH & PHYSIO INTO CONDITION MATRIX
 # -----------------------------------------------------------------------
 merged_metrics <- coral_growth %>%
-  dplyr::select(coral_id, starts_with("delta_"), size_corrected_volume_growth) %>%
+  dplyr::select(coral_id, starts_with("delta_"), growth_vol_b) %>%
   inner_join(physio_metrics_df, by = "coral_id")
 
 cond_mat <- merged_metrics %>%

@@ -620,7 +620,10 @@ for (b in 1:n_boot) {
 
   if (nrow(boot_sample) > 20) {
     growth_mod <- tryCatch({
-      lmer(size_corrected_volume_growth ~ treatment + (1|reef), data = boot_sample)
+      # Growth-metric consistency (2026-07-12): bootstrap the allometric size-corrected
+      # growth growth_vol_b = V_final / V_initial^b (the manuscript's growth metric),
+      # not the SA-scaled delta_volume/SA column used previously.
+      lmer(growth_vol_b ~ treatment + (1|reef), data = boot_sample)
     }, error = function(e) NULL)
 
     if (!is.null(growth_mod)) {

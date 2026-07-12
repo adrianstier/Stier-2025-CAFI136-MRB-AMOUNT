@@ -184,8 +184,10 @@ pca_input <- physio_metrics_df %>%
 
 pca_res <- prcomp(pca_input, scale. = TRUE)
 
-anchor_var <- if ("size_corrected_volume_growth" %in% names(pca_input))
-  "size_corrected_volume_growth" else growth_vars[1]
+# Orient PC1 by the allometric size-corrected growth (growth_vol_b); the only growth
+# term in pca_input. (Removed a dead fallback to `size_corrected_volume_growth`, the
+# SA-scaled metric, which is not selected into pca_input and never applied here.)
+anchor_var <- growth_vars[1]
 
 flip_sign <- sign(cor(pca_res$x[, 1],
                       pca_input[[anchor_var]],
