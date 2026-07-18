@@ -872,9 +872,9 @@ library(forcats)
 
 # Colors for taxonomic groups (distinct from treatment colors to avoid confusion)
 cols_taxon <- c(
-  "Fishes"        = "#2E86AB",  # blue
-  "Shrimps/Crabs" = "#A23B72",  # magenta/pink
-  "Snails"        = "#F18F01"   # orange
+  "Fishes"        = "#332288",  # indigo (deliberately distinct from treatment orange/sky-blue/green)
+  "Shrimps/Crabs" = "#CC6677",  # rose
+  "Snails"        = "#DDCC77"   # sand
 )
 
 # Build data for RAW: scatter inputs + top-|loading| species with parse-ready labels
@@ -923,13 +923,14 @@ cols_taxon <- c(
 # Panel A: scatter (RAW_PC1 vs Condition PC1)
 .make_scatter_raw_2p <- function(df_pca) {
   ggplot(df_pca, aes(x = RAW_PC1, y = cond_PC1)) +
-    # R1.F4: coral number encoded by BOTH shape and fill so it never reads like the taxon colors in panel A
-    geom_point(aes(fill = treatment, shape = treatment), colour = "darkgray",
+    # R1 revision: keep treatment symbols as circles (consistent with Figs 1-3) and distinguish by
+    # fill colour only. The taxon palette in panel A is deliberately distinct so the two panels never
+    # share a colour, resolving the reviewer's "similar colours" concern without adding shapes.
+    geom_point(aes(fill = treatment), shape = 21, colour = "darkgray",
                size = 3.2, alpha = 0.85) +
     geom_smooth(method = "lm", se = TRUE, colour = "black") +
     scale_fill_manual(values = cols_trt, name = "Coral number") +
-    scale_shape_manual(values = c("1" = 21, "3" = 24, "6" = 22), name = "Coral number") +
-    guides(fill = guide_legend(override.aes = list(shape = c(21, 24, 22)))) +
+    guides(fill = guide_legend(override.aes = list(shape = 21))) +
     labs(
       x = expression(PC1[CAFI]),   # PC1 with subscript "CAFI"
       y = expression(PC1[coral])   # PC1 with subscript "coral"
