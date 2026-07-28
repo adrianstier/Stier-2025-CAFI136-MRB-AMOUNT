@@ -95,6 +95,25 @@ np_sum_ci <- function(x, k, B = 10000L, probs = c(0.025, 0.5, 0.975), seed = NUL
   stats::quantile(sm, probs = probs, names = TRUE, type = 7)
 }
 
+# Nonparametric bootstrap CI for POOLED SPECIES RICHNESS under Field of Dreams
+# (R2 revision, Osenberg comment #1218: extend panel A's resampling band to panel B).
+# Same resampling as np_sum_ci, but pools k resampled single-coral (treatment-1)
+# reef community vectors and counts unique species -- so species shared across
+# corals are not double-counted (unlike the naive baseline x k parametric expectation).
+np_richness_ci <- function(M, k, B = 10000L, probs = c(0.025, 0.5, 0.975), seed = NULL) {
+  if (!is.null(seed)) set.seed(seed)
+  M <- as.matrix(M)
+  n <- nrow(M)
+  if (n == 0L || k < 1L || B < 1L) {
+    return(setNames(rep(NA_real_, length(probs)), paste0("p", probs)))
+  }
+  rich <- replicate(B, {
+    idx <- sample.int(n, size = k, replace = TRUE)
+    sum(colSums(M[idx, , drop = FALSE]) > 0)
+  })
+  stats::quantile(rich, probs = probs, names = TRUE, type = 7)
+}
+
 # CAFI observations (counts per coral_id/species)
 MRBcafi_df <- readr::read_csv(paths$data_cafi, show_col_types = FALSE, progress = FALSE)
 
@@ -709,6 +728,24 @@ richness_summary <- community_summary %>%
 baseline_rich_mean <- richness_summary %>% filter(treatment == 1) %>% pull(mean_richness) %>% .[1]
 baseline_rich_se   <- richness_summary %>% filter(treatment == 1) %>% pull(se)            %>% .[1]
 
+# Nonparametric bootstrap-expected richness under Field of Dreams (panel B band).
+# Resample single-coral (treatment-1) reef community vectors, pool k of them, recount
+# unique species -- the resampling analog of panel A (Osenberg comment #1218).
+t1_species_mat <- species_matrix %>%
+  left_join(metadata, by = "reef") %>%
+  filter(treatment == 1) %>%
+  dplyr::select(-reef, -treatment) %>%
+  as.matrix()
+rq3 <- np_richness_ci(t1_species_mat, 3, B = params$bootstrap_B, seed = params$seed)
+rq6 <- np_richness_ci(t1_species_mat, 6, B = params$bootstrap_B, seed = params$seed)
+np_ci_rich <- tibble(
+  treatment = c(3, 6),
+  lower_np  = c(rq3[[1]], rq6[[1]]),
+  median_np = c(rq3[[2]], rq6[[2]]),
+  upper_np  = c(rq3[[3]], rq6[[3]])
+)
+cli::cli_alert_info("NP-expected richness (FoD): k=3 median {round(rq3[[2]],1)} [{round(rq3[[1]],1)}, {round(rq3[[3]],1)}]; k=6 median {round(rq6[[2]],1)} [{round(rq6[[1]],1)}, {round(rq6[[3]],1)}]")
+
 richness_summary <- richness_summary %>%
   mutate(
     expected_richness = case_when(
@@ -936,6 +973,15 @@ p_rich <- ggplot(richness_summary, aes(x = treatment_num, y = mean_richness)) +
   # Black line and points for observed mean
   geom_line(color = params$col_obs, linewidth = 1.3) +
   geom_point(shape = 21, fill = params$col_obs, color = "white", size = pt_sz, stroke = 0.8) +
+  # Expected values (Field of Dreams) - gray ribbon, dashed line (matches panel A)
+  geom_ribbon(data = np_ci_rich,
+              aes(x = treatment, ymin = lower_np, ymax = upper_np),
+              inherit.aes = FALSE,
+              fill = params$ribbon_color, alpha = params$ribbon_alpha) +
+  geom_line(data = np_ci_rich,
+            aes(x = treatment, y = median_np, group = 1),
+            inherit.aes = FALSE,
+            color = params$col_exp, linetype = "dashed", linewidth = 1.3) +
   labs(y = "Species richness") +
   x_axis_common + theme_common +
   coord_cartesian(ylim = c(0, NA)) +
