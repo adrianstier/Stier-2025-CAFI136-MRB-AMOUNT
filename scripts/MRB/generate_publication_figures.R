@@ -325,12 +325,12 @@ if (file.exists(nmds_file)) {
                aes(x = cent_NMDS1, y = cent_NMDS2, color = treatment),
                size = 10, shape = 8, stroke = 2, show.legend = FALSE) +
     scale_color_manual(
-      values = c("1" = "#E69F00", "3" = "#56B4E9", "6" = "#009E73"),
+      values = TREATMENT_COLORS,
       labels = c("1", "3", "6"),
       name = "# Corals"
     ) +
     scale_fill_manual(
-      values = c("1" = "#E69F00", "3" = "#56B4E9", "6" = "#009E73"),
+      values = TREATMENT_COLORS,
       labels = c("1", "3", "6"),
       name = "# Corals"
     ) +
@@ -390,12 +390,12 @@ if (file.exists(nmds_file)) {
                aes(x = cent_NMDS1, y = cent_NMDS2, color = treatment),
                size = 10, shape = 8, stroke = 2, show.legend = FALSE) +
     scale_color_manual(
-      values = c("1" = "#E69F00", "3" = "#56B4E9", "6" = "#009E73"),
+      values = TREATMENT_COLORS,
       labels = c("1", "3", "6"),
       name = "# Corals"
     ) +
     scale_fill_manual(
-      values = c("1" = "#E69F00", "3" = "#56B4E9", "6" = "#009E73"),
+      values = TREATMENT_COLORS,
       labels = c("1", "3", "6"),
       name = "# Corals"
     ) +

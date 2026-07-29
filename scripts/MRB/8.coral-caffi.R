@@ -105,9 +105,9 @@ TOP_N_LOAD     <- 20
 
 # ---- Colors & Theme ----------------------------------------------------------
 # Use TREATMENT_COLORS from mrb_figure_standards.R:
-#   "1" = "#E69F00" (Orange)
-#   "3" = "#56B4E9" (Sky Blue)
-#   "6" = "#009E73" (Green)
+#   "1" = "#463480" (viridis purple)
+#   "3" = "#238A8D" (viridis teal)
+#   "6" = "#7AD151" (viridis green)
 # Use theme_publication() from mrb_figure_standards.R
 # Use save_figure() from mrb_figure_standards.R
 #
@@ -871,10 +871,12 @@ library(forcats)
 # Colors already defined at top: cols_trt = TREATMENT_COLORS
 
 # Colors for taxonomic groups (distinct from treatment colors to avoid confusion)
+# Canonical taxon palette (single source of truth: mrb_figure_standards.R -> TAXON_COLORS)
+# so Fish/Crustacean/Snail are colored identically across every figure.
 cols_taxon <- c(
-  "Fishes"        = "#332288",  # indigo (deliberately distinct from treatment orange/sky-blue/green)
-  "Shrimps/Crabs" = "#CC6677",  # rose
-  "Snails"        = "#DDCC77"   # sand
+  "Fishes"        = unname(TAXON_COLORS["Fishes"]),
+  "Shrimps/Crabs" = unname(TAXON_COLORS["Shrimps/Crabs"]),
+  "Snails"        = unname(TAXON_COLORS["Snails"])
 )
 
 # Build data for RAW: scatter inputs + top-|loading| species with parse-ready labels

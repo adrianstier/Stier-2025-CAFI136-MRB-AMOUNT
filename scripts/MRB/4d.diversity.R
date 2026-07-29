@@ -63,9 +63,9 @@ cli::cli_alert_info("TAB_DIR: {TAB_DIR}")
 
 # ---- Colors & Theme ----------------------------------------------------------
 # Use TREATMENT_COLORS from mrb_figure_standards.R:
-#   "1" = "#E69F00" (Orange)
-#   "3" = "#56B4E9" (Sky Blue)
-#   "6" = "#009E73" (Green)
+#   "1" = "#463480" (viridis purple)
+#   "3" = "#238A8D" (viridis teal)
+#   "6" = "#7AD151" (viridis green)
 # Use theme_publication() from mrb_figure_standards.R
 # Use save_figure() from mrb_figure_standards.R or save_both() from utils.R
 #
@@ -1299,7 +1299,7 @@ pB_db <- ggplot(top15) +
   geom_point(aes(x = t6, y = species), shape = 21, size = 3.5,
              fill = cols_trt[["6"]], color = "black", stroke = 0.6) +
   scale_color_manual(
-    values = c("↑ 6 > 1" = "#CC79A7", "↓ 6 < 1" = "#0072B2"),  # Purple for positive, Teal for negative
+    values = c("↑ 6 > 1" = "#B2182B", "↓ 6 < 1" = "#2166AC"),  # diverging red/blue (up/down); avoids reusing the taxon pink
     name   = NULL,
     guide  = "none"
   ) +

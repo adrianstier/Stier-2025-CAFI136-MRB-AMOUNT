@@ -68,9 +68,9 @@ set.seed(42)
 
 # ---- 1.1 Standard Colors & Theme ---------------------------------------------
 # Use TREATMENT_COLORS from mrb_figure_standards.R:
-#   "1" = "#E69F00" (Orange)
-#   "3" = "#56B4E9" (Sky Blue)
-#   "6" = "#009E73" (Green)
+#   "1" = "#463480" (viridis purple)
+#   "3" = "#238A8D" (viridis teal)
+#   "6" = "#7AD151" (viridis green)
 # Use theme_publication() from mrb_figure_standards.R
 # Use save_figure() or save_both() from utils.R
 

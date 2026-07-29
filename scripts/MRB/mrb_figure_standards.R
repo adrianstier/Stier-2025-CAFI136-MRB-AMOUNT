@@ -42,11 +42,23 @@ FACET_SPACING <- 0.5               # Space between facets
 # COLOR PALETTES
 # ==============================================================================
 
-# Treatment colors (colorblind-friendly)
+# Treatment colors (coral number 1/3/6 is ORDINAL -> sequential viridis ramp;
+# resolves reviewer comment on 3-vs-6 being hard to distinguish. viridis(3, begin=0.15, end=0.80))
 TREATMENT_COLORS <- c(
-  "1" = "#E69F00",   # Orange
-  "3" = "#56B4E9",   # Sky blue
-  "6" = "#009E73"    # Green
+  "1" = "#463480",   # viridis dark purple (fewest corals)
+  "3" = "#238A8D",   # viridis teal
+  "6" = "#7AD151"    # viridis green (most corals)
+)
+
+# Taxon colors (Fish / Crustacean / Snail) -- QUALITATIVE, Okabe-Ito; single source
+# of truth so every figure colors taxa identically (resolves cross-figure inconsistency).
+TAXON_COLORS <- c(
+  "Fish"       = "#D55E00",  # vermillion
+  "Fishes"     = "#D55E00",
+  "Crustacean" = "#CC79A7",  # reddish purple
+  "Shrimps/Crabs" = "#CC79A7",
+  "Snail"      = "#E69F00",  # orange
+  "Snails"     = "#E69F00"
 )
 
 # Extended color palette for multiple categories
