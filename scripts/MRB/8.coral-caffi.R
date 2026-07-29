@@ -1749,12 +1749,11 @@ if (length(plot_species) == 0L) {
     dplyr::left_join(label_df, by = "species") %>%
     dplyr::mutate(species_label = factor(species_label, levels = label_df$species_label))
   
-  # Palette per species using taxonomic colors (matching Figure 5 per Craig's suggestion)
-  # Fishes = blue, Shrimps/Crabs = magenta/pink, Snails = orange
+  # Palette per species from the canonical TAXON_COLORS (identical to Fig 5)
   taxon_cols <- c(
-    "Fishes"        = "#2E86AB",  # blue
-    "Shrimps/Crabs" = "#A23B72",  # magenta/pink
-    "Snails"        = "#F18F01"   # orange
+    "Fishes"        = unname(TAXON_COLORS[["Fishes"]]),
+    "Shrimps/Crabs" = unname(TAXON_COLORS[["Shrimps/Crabs"]]),
+    "Snails"        = unname(TAXON_COLORS[["Snails"]])
   )
 
   # Assign taxonomic group to each species
@@ -1914,7 +1913,8 @@ if (length(plot_species) == 0L) {
   p_legend <- ggplot2::ggplot(legend_data, ggplot2::aes(x = x, y = y, fill = taxon)) +
     ggplot2::geom_point(shape = 21, size = 4, color = "black", stroke = 0.3) +
     ggplot2::scale_fill_manual(
-      values = c("Fishes" = "#2E86AB", "Shrimps/Crabs" = "#A23B72"),
+      values = c("Fishes" = unname(TAXON_COLORS[["Fishes"]]),
+                 "Shrimps/Crabs" = unname(TAXON_COLORS[["Shrimps/Crabs"]])),
       name = NULL
     ) +
     ggplot2::guides(fill = ggplot2::guide_legend(
