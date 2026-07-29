@@ -65,6 +65,7 @@
 source("scripts/MRB/1.libraries.R")
 source("scripts/MRB/utils.R")  # Provides ALIVE_THRESH, strip_fe(), load_cafi_data(), etc.
 source("scripts/MRB/mrb_figure_standards.R")
+source("scripts/MRB/silhouettes.R")  # PhyloPic taxon vector art (shared with Pocillopora repo)
 
 ## 0.1 Reproducibility & global options ----------------------------------------
 set.seed(1234)  # used anywhere stochastic (e.g., bootstraps)
@@ -895,16 +896,12 @@ cols_taxon <- c(
     dplyr::slice_head(n = TOP_N_LOAD) %>%
     dplyr::mutate(
       feature_label = paste0("italic(", gsub(" ", "~", feature), ")"),
-      # Assign taxonomic group based on known species
-      taxon_group = dplyr::case_when(
-        # Fishes (Actinopterygii)
-        grepl("Dascyllus|Caracanthus|Halichoeres|Paragobiodon|Gobiodon|Plectroglyphidodon|Stegastes|Pomacentrus", feature) ~ "Fishes",
-        # Shrimps and Crabs (Malacostraca)
-        grepl("Trapezia|Tetralia|Alpheus|Synalpheus|Periclimenes|Harpiliopsis|Calcinus|Fennera|Galathea|Thor|Athanas|Cinetorhynchus|Saron|Urocaridella|Pagurixus|Luniella", feature) ~ "Shrimps/Crabs",
-        # Snails (Gastropoda)
-        grepl("Morula|Mitrella|Galeropsis|Macteola|Chlorodiella|Pascula|Cellana|Menaethius|Vexillum|Strigatella|Apatasia|Coralliophila|Drupella|Quoyula", feature) ~ "Snails",
-        TRUE ~ "Fishes"  # Default fallback
-      ),
+      # Assign taxon group from the data's taxonomic CLASS (robust; the old name-grepl
+      # miscoded crustaceans such as Chlorodiella, Menaethius and Hargeria).
+      taxon_group = {
+        .lk <- cafi_taxon_lookup()
+        .tg <- unname(.lk[feature]); .tg[is.na(.tg)] <- "Fishes"; .tg
+      },
       taxon_group = factor(taxon_group, levels = c("Fishes", "Shrimps/Crabs", "Snails"))
     )
 
@@ -948,16 +945,28 @@ cols_taxon <- c(
     dplyr::arrange(dplyr::desc(loading)) %>%
     dplyr::mutate(feature_label = forcats::fct_inorder(feature_label))
 
+  # Per-species PhyloPic taxon silhouettes (same vector art as the Pocillopora repo),
+  # placed in a left-hand column so each species carries its taxon icon (Joe #1223/#1224).
+  icon_y  <- min(df_comm_load$loading, na.rm = TRUE) - 0.045
+  sil_layers <- lapply(seq_len(nrow(df_comm_load)), function(i) {
+    sil <- taxon_silhouette(df_comm_load$taxon_group[i])
+    if (is.null(sil)) return(NULL)
+    rphylopic::add_phylopic(img = sil, x = i, y = icon_y, height = 0.85,
+                            fill = unname(cols_taxon[[as.character(df_comm_load$taxon_group[i])]]))
+  })
+  sil_layers <- Filter(Negate(is.null), sil_layers)
+
   ggplot(df_comm_load, aes(x = feature_label, y = loading)) +
     geom_segment(aes(xend = feature_label, y = 0, yend = loading, colour = taxon_group),
                  linewidth = 0.5) +
     # R1.F4: diamonds for CAFI taxa so panel A is shape-distinct from the coral-number points in panel B
     geom_point(aes(fill = taxon_group), shape = 23, colour = "black", size = 2.6, stroke = 0.3) +
+    sil_layers +
     coord_flip() +
     geom_hline(yintercept = 0, linetype = "dashed", colour = "gray60") +
     scale_x_discrete(labels = function(x) parse(text = x)) +
     scale_y_continuous(
-      expand = expansion(mult = c(0.08, 0.08)),   # extra space so dots don't sit on axes
+      expand = expansion(mult = c(0.20, 0.08)),   # extra room on the left for the taxon icon column
       breaks = function(lims) unique(sort(c(scales::pretty_breaks(4)(lims), 0)))
     ) +
     scale_fill_manual(values = cols_taxon, name = "Taxon") +

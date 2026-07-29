@@ -42,6 +42,7 @@
 source("scripts/MRB/1.libraries.R")
 source("scripts/MRB/utils.R")  # Provides ALIVE_THRESH, strip_fe(), load functions
 source("scripts/MRB/mrb_figure_standards.R")
+source("scripts/MRB/silhouettes.R")  # PhyloPic taxon vector art (shared with Pocillopora repo)
 
 set.seed(1234)
 options(stringsAsFactors = FALSE,
@@ -1262,7 +1263,8 @@ pA_nmds <- ggplot(scores_prop, aes(NMDS1, NMDS2, color = treatment)) +
 # -------------------------------------------
 # Symmetric x-limits (balanced around 0)
 xmax <- max(abs(c(top15$t1, top15$t6)), na.rm = TRUE)
-xlim_sym <- c(-xmax, xmax) * 1.05
+xlim_sym <- c(-xmax * 1.32, xmax * 1.05)   # extra room on the left for the taxon icon column
+icon_x3  <- -xmax * 1.20                     # x position of the per-species silhouettes
 
 # ---- Reorder species for Panel B (↓ 6<1 on top, then ↑ 6>1 on bottom) ----
 # Build an ordering key:
@@ -1285,8 +1287,19 @@ top15 <- top15 %>%
 
 # ---- Dumbbell plot (Panel B) -------------------------------------------------
 # ---- Dumbbell plot (Panel B) as arrows --------------------------------------
+# Per-species taxon silhouettes (same PhyloPic vector art as Fig 5 / Pocillopora repo)
+.lk3 <- cafi_taxon_lookup()
+.sp3 <- levels(top15$species)
+sil_layers3 <- Filter(Negate(is.null), lapply(seq_along(.sp3), function(i) {
+  tg <- unname(.lk3[.sp3[i]]); if (is.na(tg)) return(NULL)
+  sil <- taxon_silhouette(tg); if (is.null(sil)) return(NULL)
+  rphylopic::add_phylopic(img = sil, x = icon_x3, y = .sp3[i], height = 0.8,
+                          fill = unname(TAXON_COLORS[[tg]]))
+}))
+
 pB_db <- ggplot(top15) +
   geom_vline(xintercept = 0, color = "grey50", linewidth = 0.5, linetype = "dashed") +
+  sil_layers3 +
   # segments become single-headed arrows from t1 to t6
   geom_segment(
     aes(x = t1, xend = t6, y = species, yend = species, color = dir),
