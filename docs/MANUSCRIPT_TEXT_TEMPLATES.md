@@ -152,7 +152,7 @@ structure while preserving compositional information (Legendre & Gallagher 2001)
 DATA AVAILABILITY
 
 All data and analysis code are publicly available at:
-https://github.com/adrianstier/Stier-2025-CAFI136-MRB-AMOUNT
+https://github.com/adrianstier/coral-cafi-density-experiment
 
 The repository includes:
 • Raw data files (coral growth, physiology, CAFI community surveys)
@@ -169,13 +169,13 @@ information on all data filtering decisions.
 ```
 DATA AVAILABILITY
 
-Data and code are permanently archived at Zenodo (DOI: 10.5281/zenodo.XXXXXXX) and
-available at GitHub: https://github.com/adrianstier/Stier-2025-CAFI136-MRB-AMOUNT
+Data and code are permanently archived at Zenodo (DOI: 10.5281/zenodo.18239646) and
+available at GitHub: https://github.com/adrianstier/coral-cafi-density-experiment
 
 The repository includes:
 • Raw data files: Coral growth (3D photogrammetry), physiology (carbohydrates, protein,
   zooxanthellae, AFDM), and CAFI community abundance surveys
-• R analysis scripts: Complete reproducible pipeline (Scripts 1-14)
+• R analysis scripts: Complete reproducible pipeline and pre-submission QA ledger
 • Documentation: Comprehensive filtering decisions, sensitivity analyses, and
   statistical summaries
 
@@ -188,8 +188,8 @@ See LICENSE and DATA_AVAILABILITY.md in repository for details.
 DATA AVAILABILITY
 
 Data and code are available from multiple repositories:
-• GitHub: https://github.com/adrianstier/Stier-2025-CAFI136-MRB-AMOUNT (code + data)
-• Zenodo: DOI 10.5281/zenodo.XXXXXXX (permanent archive)
+• GitHub: https://github.com/adrianstier/coral-cafi-density-experiment (code + data)
+• Zenodo: DOI 10.5281/zenodo.18239646 (permanent archive)
 • Dryad: DOI 10.5061/dryad.XXXXXXX (data only)
 
 All materials are released under CC-BY 4.0. See repository documentation for
@@ -338,14 +338,14 @@ standard in community ecology.
 
 ### Repository URL
 ```
-https://github.com/adrianstier/Stier-2025-CAFI136-MRB-AMOUNT
+https://github.com/adrianstier/coral-cafi-density-experiment
 ```
 
 ### Citation (preprint format)
 ```
 Stier, A.C., Primo, A., Curtis, J.S., & Osenberg, C.W. (2025). Habitat quantity drives
 community assembly and feedbacks to coral performance in reef systems. GitHub repository:
-https://github.com/adrianstier/Stier-2025-CAFI136-MRB-AMOUNT
+https://github.com/adrianstier/coral-cafi-density-experiment
 ```
 
 ### License
@@ -353,11 +353,11 @@ https://github.com/adrianstier/Stier-2025-CAFI136-MRB-AMOUNT
 CC-BY 4.0 (Creative Commons Attribution 4.0 International)
 ```
 
-### DOI (placeholder)
+### DOI
 ```
-DOI: 10.5281/zenodo.XXXXXXX (to be assigned upon archiving)
+DOI: 10.5281/zenodo.18239646
 ```
 
 ---
 
-**Last Updated:** 2026-01-13
+**Last Updated:** 2026-07-31

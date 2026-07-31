@@ -146,20 +146,20 @@ ls -lh output/MRB/figures/ | wc -l
 ## 🚀 Publication Actions
 
 ### Before Submission
-- [ ] Update README.md with final manuscript citation placeholder
-- [ ] Verify GitHub repository is public (or will be made public upon acceptance)
-- [ ] Create Zenodo DOI for repository snapshot
-- [ ] Add DOI badge to README.md
-- [ ] Update "Last Updated" date in README.md
+- [x] Update README.md with final manuscript citation placeholder
+- [x] Verify GitHub repository is public-facing for submission (`coral-cafi-density-experiment`)
+- [x] Create/maintain Zenodo DOI for repository snapshot
+- [x] Add DOI badge to README.md
+- [x] Update "Last Updated" date in README.md
 
 ### In Manuscript Methods
 Include the following text:
 
 > **Data and Code Availability**
 >
-> All data and analysis code are available at: https://github.com/adrianstier/Stier-2025-CAFI136-MRB-AMOUNT
+> All data and analysis code are available at: https://github.com/adrianstier/coral-cafi-density-experiment
 >
-> A permanent archived version is available at Zenodo: [DOI will be inserted here]
+> A permanent archived version is available at Zenodo: https://doi.org/10.5281/zenodo.18239646
 >
 > The repository includes:
 > - Raw data files (coral growth, physiology, CAFI community surveys)
@@ -243,13 +243,13 @@ Include the following text:
 **Include this in manuscript:**
 
 ```
-Code and data available at: https://github.com/adrianstier/Stier-2025-CAFI136-MRB-AMOUNT
+Code and data available at: https://github.com/adrianstier/coral-cafi-density-experiment
 ```
 
 **Alternative (if using Zenodo):**
 
 ```
-Code and data available at: https://doi.org/10.5281/zenodo.XXXXXXX
+Code and data available at: https://doi.org/10.5281/zenodo.18239646
 ```
 
 ---

@@ -8,13 +8,13 @@ All data and code associated with this manuscript are publicly available.
 
 **Primary Repository:** GitHub
 **URL:** https://github.com/adrianstier/coral-cafi-density-experiment
-**DOI:** 10.5281/zenodo.18239647
+**DOI:** 10.5281/zenodo.18239646
 
 ## Archived Version
 
 A permanent archived version has been deposited at Zenodo:
-- **Zenodo DOI:** [10.5281/zenodo.18239647](https://doi.org/10.5281/zenodo.18239647)
-- **Archive URL:** https://zenodo.org/records/18239647
+- **Zenodo concept DOI:** [10.5281/zenodo.18239646](https://doi.org/10.5281/zenodo.18239646)
+- **Archive URL:** https://zenodo.org/records/18239646
 
 ## Data Description
 
@@ -43,8 +43,8 @@ A permanent archived version has been deposited at Zenodo:
    - Click "Code" → "Download ZIP"
 
 3. **Archived version (recommended for reproducibility):**
-   - Visit: https://doi.org/10.5281/zenodo.18239647
-   - Download the archived release (v1.0.0)
+   - Visit: https://doi.org/10.5281/zenodo.18239646
+   - Download the latest archived release for the resubmission snapshot
 
 ## Code Availability
 
@@ -52,7 +52,7 @@ All analysis code is included in the repository:
 
 | Directory | Contents |
 |-----------|----------|
-| `scripts/MRB/` | R analysis scripts (numbered 1-14) |
+| `scripts/MRB/` | R analysis scripts and the pre-submission QA ledger |
 | `scripts/MRB/utils.R` | Utility functions |
 | `scripts/MRB/mrb_figure_standards.R` | Figure formatting |
 
@@ -61,7 +61,7 @@ All analysis code is included in the repository:
 To reproduce all analyses:
 
 1. Install R (≥4.3.0) and required packages (see `scripts/MRB/1.libraries.R`)
-2. Run scripts in numerical order (1 → 14)
+2. Run the full pipeline with `./run_all.sh`
 3. See `REPRODUCIBILITY_GUIDE.md` for detailed instructions
 
 ## Citation

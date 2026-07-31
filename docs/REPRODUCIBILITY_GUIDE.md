@@ -64,8 +64,8 @@ Tested on:
 
 **Option A: Using Git**
 ```bash
-git clone https://github.com/adrianstier/Stier-2025-CAFI136-MRB-AMOUNT.git
-cd Stier-2025-CAFI136-MRB-AMOUNT
+git clone https://github.com/adrianstier/coral-cafi-density-experiment.git
+cd coral-cafi-density-experiment
 ```
 
 **Option B: Download ZIP**
@@ -181,7 +181,7 @@ Run all scripts in order from repository root:
 
 ```bash
 # Navigate to repository root
-cd /path/to/Stier-2025-CAFI136-MRB-AMOUNT
+cd /path/to/coral-cafi-density-experiment
 
 # Run all scripts in canonical order
 ./run_all.sh

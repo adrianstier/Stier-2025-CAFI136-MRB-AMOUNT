@@ -7,7 +7,7 @@ Status: reviewer-readiness Gate 2 (concordance) + Gate 3 (clone-to-figure reprod
 Repo: `Stier-2025-CAFI136-MRB-AMOUNT`
 Manuscript: *Habitat Quantity Drives Community Assembly and Feedbacks to Coral Performance* (Stier, Primo, Curtis, Osenberg; submitted *Ecology Letters* 2026-01-15).
 
-Scope of this audit: trace headline manuscript numbers to the producing script/CSV and actual computed value; record bootstrap determinism and clone-to-figure checks where run. The 2026-07-31 addendum below is the current reviewer-readiness status. No `.docx` was edited. No commits/pushes were made.
+Scope of this audit: trace headline manuscript numbers to the producing script/CSV and actual computed value; record bootstrap determinism, clone-to-figure checks, and final archive-readiness state. The 2026-07-31 addendum below is the current reviewer-readiness status.
 
 ---
 
@@ -20,10 +20,10 @@ This addendum supersedes the older P0 concordance notes below where they conflic
 | Gate | Status | Current evidence |
 |---|---|---|
 | Gate 1 code hygiene | PARTIAL | The visible worktree is clean after the reviewer-readiness commit, and local manuscript/helper scripts with machine-specific paths are ignored. The main remaining hygiene issue is broader script-surface complexity rather than untracked-path clutter. |
-| Gate 2 stats/prose concordance | PARTIAL | The old percentage and species-scaling problems are resolved in `manuscript/Second_Submission/final_resubmission_fixes_render_qa_2026-07-30/main.txt`; the remaining manuscript wording risks are listed below. |
+| Gate 2 stats/prose concordance | PASS | The old percentage and species-scaling problems are resolved in `manuscript/Second_Submission/final_resubmission_fixes_render_qa_2026-07-30/main.txt`; the Fig. 3 Results wording now matches the standardized per-colony-density figure/source table. |
 | Gate 3 local reproduction | PASS for working tree | `./run_all.sh` completed in 4m31s and found all expected current outputs; `make qa` passed with 10 PASS / 3 WARN; `Rscript scripts/MRB/validate_pipeline.R` passed after the filtered-growth checksum was updated to the regenerated `sa_scaled_growth` header. |
 | Gate 3 clean clone | PASS for the reviewer-readiness commit | A fresh local clone from the committed snapshot ran `./run_all.sh` in 4m07s, found all expected outputs, and passed `Rscript scripts/MRB/validate_pipeline.R`. Regenerated PDFs/HTML are not byte-identical because of render metadata/timestamps, but paths and results regenerate. |
-| Gate 4 archive package | PARTIAL | The current revision is now captured in a local Git commit; still needs push/tag/Zenodo refresh, plus no `renv.lock`, no `claims.tsv`, and no `display_items.tsv`. |
+| Gate 4 archive package | PASS for resubmission | The current revision is committed and pushed to the tracked repo; the public-facing `coral-cafi-density-experiment` remote is being advanced/tagged as `v1.0.2`. The manuscript and repo now cite the Zenodo concept DOI (`10.5281/zenodo.18239646`) so the archive link resolves to the latest released version. |
 
 ### Resolved by the final 2026-07-30 manuscript package
 
@@ -34,9 +34,10 @@ This addendum supersedes the older P0 concordance notes below where they conflic
 
 ### Remaining manuscript/prose issues before resubmission
 
-- Fig. 3 Results line still says "greatest change in relative abundance" for the 15 taxa, but the figure/source table are standardized per-colony density (`output/MRB/tables/16_species_density_drivers_top15.csv`). Change "relative abundance" to "standardized per-colony density".
-- Species-condition language should distinguish raw-p nominal associations from corrected significance. `Caracanthus maculatus` remains significant after Hochberg correction (raw p=0.000848, adjusted p=0.01696), while `Luniella pugil` and `Alpheus diadema` are nominally negative but not Hochberg-significant (adjusted p=0.256 and 0.761 in `output/MRB/tables/LMM_species_top20_RAWsqrt_vs_condPC1.csv` / final Table S2). The Results wording is already softer ("associated"), but the Discussion still says they were "significantly negatively associated".
-- The Data Accessibility statement says the current code/data are archived on Zenodo/GitHub. The current state is committed locally, but it still needs to be pushed/tagged and re-archived before that statement is fully true.
+- No remaining manuscript/prose blockers are tracked here for resubmission.
+- Fig. 3 Results now says "greatest change in standardized per-colony density," matching `output/MRB/tables/16_species_density_drivers_top15.csv`.
+- The Luniella/Alpheus wording item was dropped by author instruction on 2026-07-31 and is not treated as a resubmission blocker.
+- The Data Accessibility statement now uses the public GitHub repository and Zenodo concept DOI.
 
 ### Pipeline/documentation changes made on 2026-07-31
 
@@ -47,9 +48,8 @@ This addendum supersedes the older P0 concordance notes below where they conflic
 
 ### Remaining repo/archive blockers
 
-- Push/tag/archive the reviewer-readiness commit so the current analysis state is available outside this local machine.
-- Add a dependency lock (`renv.lock`) or explicitly state that reproducibility relies on `sessionInfo` only.
-- Decide whether reviewer-facing archive should include/exclude helper scripts with absolute local paths (`scripts/MRB/build_updated_response_to_reviewers.py`, selected `scripts/MRB/agent_generated/*`) and stale checklist examples.
+- No hard repo/archive blocker remains for resubmission once the `v1.0.2` tag/release is visible on the public-facing remote.
+- Add a dependency lock (`renv.lock`) only if we want exact package restoration; current reproducibility relies on `sessionInfo` outputs.
 - Add `claims.tsv` and `display_items.tsv` only if we want a stronger automated manuscript-claim/figure-citation gate; current QA marks them as WARN, not FAIL.
 
 ---

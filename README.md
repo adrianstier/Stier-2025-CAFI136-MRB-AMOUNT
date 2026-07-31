@@ -1,14 +1,14 @@
 # Habitat Quantity Drives Community Assembly and Feedbacks to Coral Performance
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18239647.svg)](https://doi.org/10.5281/zenodo.18239647)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18239646.svg)](https://doi.org/10.5281/zenodo.18239646)
 
 **Authors:** Adrian C. Stier, Alexander Primo, Joseph S. Curtis, Craig W. Osenberg
 
 **Repository:** Analysis code and data for coral density experiment examining CAFI community assembly and feedbacks to coral performance
 
-**Archive:** This repository is permanently archived on Zenodo with DOI: [10.5281/zenodo.18239647](https://doi.org/10.5281/zenodo.18239647)
+**Archive:** This repository is permanently archived on Zenodo with concept DOI: [10.5281/zenodo.18239646](https://doi.org/10.5281/zenodo.18239646)
 
-**Status:** Revision-stage analysis compendium; run `./run_all.sh` and `make qa` before sharing.
+**Status:** Resubmission-ready analysis compendium; run `./run_all.sh` and `make qa` before sharing.
 
 ---
 
@@ -373,7 +373,7 @@ DOI: [to be added upon publication]
 ```
 Stier, A.C., Primo, A., Curtis, J.S., & Osenberg, C.W. (2026). Data and code for:
 Habitat quantity drives community assembly and feedbacks to coral performance [Data set].
-Zenodo. https://doi.org/10.5281/zenodo.18239647
+Zenodo. https://doi.org/10.5281/zenodo.18239646
 ```
 
 ---
@@ -418,9 +418,9 @@ We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines 
 <div align="center">
 
 **Last Updated:** July 31, 2026
-**Repository Version:** revision-stage working tree
-**Status:** Reviewer-readiness QA in progress
+**Repository Version:** v1.0.2 resubmission snapshot
+**Status:** Reviewer-readiness QA passed with WARN-only optional future gates
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18239647.svg)](https://doi.org/10.5281/zenodo.18239647)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18239646.svg)](https://doi.org/10.5281/zenodo.18239646)
 
 </div>
