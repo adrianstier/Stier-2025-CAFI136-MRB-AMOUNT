@@ -971,7 +971,7 @@ cols_taxon <- c(
     ) +
     scale_fill_manual(values = cols_taxon, name = "Taxon") +
     scale_colour_manual(values = cols_taxon, guide = "none") +  # match segment colors, hide duplicate legend
-    guides(fill = guide_legend(override.aes = list(shape = 23))) +  # R1.F4: legend keys as diamonds
+    guides(fill = "none") +  # Joe J64: drop redundant diamond legend; the taxon icon key above serves as the legend
     labs(x = NULL, y = expression(Loading~on~PC1[CAFI])) +
     theme_pub(base_size = 10) +
     theme(
@@ -982,16 +982,48 @@ cols_taxon <- c(
     )
 }
 
+# Taxon silhouette key (Joe #J64): a strip of fish/crustacean/snail PhyloPic icons in
+# the canonical TAXON_COLORS, placed above the panels (and thus above the Taxon colour
+# legend) so Fig 5 carries the same silhouette key as Fig 2.
+.make_taxon_key <- function() {
+  key_df <- tibble::tibble(
+    taxon = factor(c("Fishes", "Shrimps/Crabs", "Snails"),
+                   levels = c("Fishes", "Shrimps/Crabs", "Snails")),
+    label = c("Fishes", "Shrimps/Crabs", "Snails"),
+    x = c(1, 2, 3), y = 1
+  )
+  sil_key <- Filter(Negate(is.null), lapply(seq_len(nrow(key_df)), function(i) {
+    sil <- taxon_silhouette(as.character(key_df$taxon[i])); if (is.null(sil)) return(NULL)
+    rphylopic::geom_phylopic(
+      data = key_df[i, , drop = FALSE], ggplot2::aes(x = x, y = y),
+      img = sil, height = 0.5,
+      fill = unname(cols_taxon[[as.character(key_df$taxon[i])]]),
+      inherit.aes = FALSE
+    )
+  }))
+  ggplot(key_df, aes(x, y)) +
+    sil_key +
+    geom_text(aes(x = x, y = 0.62, label = label), size = 3.1) +
+    scale_x_continuous(limits = c(0.5, 3.5)) +
+    scale_y_continuous(limits = c(0.55, 1.35)) +
+    coord_cartesian(clip = "off") +
+    theme_void()
+}
+
 # Build panels
 raw2 <- .make_row_data_raw_2p(res_raw)
 pA   <- .make_scatter_raw_2p(raw2$df_pca)
 pB   <- .make_comm_load_raw_2p(raw2$df_comm_load)
 
 # Combine + single set of panel tags
-# R1.F4: vertical layout (A = loadings on top, B = scatter below) per reviewer request
-raw_two_panel <- (pB / pA) +
-  patchwork::plot_layout(nrow = 2, heights = c(1.3, 1)) +
-  patchwork::plot_annotation(tag_levels = "A")  # tags: A, B
+# R1.F4: vertical layout (A = loadings on top, B = scatter below) per reviewer request.
+# Manual tags (not plot_annotation auto-tagging) so the silhouette key strip stays untagged.
+pB <- pB + labs(tag = "A") + theme(plot.tag = element_text(face = "bold", size = 16))
+pA <- pA + labs(tag = "B") + theme(plot.tag = element_text(face = "bold", size = 16))
+taxon_key <- .make_taxon_key()
+
+raw_two_panel <- taxon_key / pB / pA +
+  patchwork::plot_layout(heights = c(0.14, 1.3, 1))
 
 # Show & save
 show_and_save(
@@ -1874,6 +1906,25 @@ if (length(plot_species) == 0L) {
         plot.margin = margin(5, 5, 5, 5)
       )
 
+    # Per-species PhyloPic taxon silhouette (same vector art / palette as Figs 3B & 5),
+    # placed top-left of each species panel so every panel carries its taxon icon
+    # (Joe #1223/#1224 icon consistency). `fill` is a param, not a scaled aesthetic.
+    tg_i  <- unname(species_taxon[sp])
+    sil_i <- if (!is.na(tg_i)) taxon_silhouette(tg_i) else NULL
+    if (!is.null(sil_i)) {
+      y_all <- c(sp_data$cond_PC1, pred_df$lower, pred_df$upper)
+      x_all <- c(sp_data$raw_abund, pred_df$raw_abund)
+      yhi <- max(y_all, na.rm = TRUE); ylo <- min(y_all, na.rm = TRUE); yr <- yhi - ylo
+      xhi <- max(x_all, na.rm = TRUE)
+      p <- p + rphylopic::add_phylopic(
+        img    = sil_i,
+        x      = (0.16 * sqrt(xhi))^2,   # ~16% along the sqrt x-axis (left side)
+        y      = yhi - 0.08 * yr,        # near the top
+        height = 0.20 * yr,
+        fill   = unname(base_cols[i])
+      )
+    }
+
     plot_list[[i]] <- p
   }
 
@@ -2610,7 +2661,11 @@ if (exists("trait_topk") && nrow(trait_topk)) {
   trait_lines <- trait_topk %>%
     dplyr::group_by(trait) %>%
     dplyr::summarise(
-      line = paste0(trait, ": ",
+      # unique(trait): `trait` is the grouping column (length = group size) inside
+      # summarise, so a bare `trait` makes `line` size >1 and errors under dplyr
+      # >= 1.1. Match the reframe block above. Copy/paste text only; no change to
+      # any statistical result or figure.
+      line = paste0(unique(trait), ": ",
                     paste0(species, " (", sprintf("%.2f", r), ")", collapse = "; ")),
       .groups = "drop"
     )

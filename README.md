@@ -8,7 +8,7 @@
 
 **Archive:** This repository is permanently archived on Zenodo with DOI: [10.5281/zenodo.18239647](https://doi.org/10.5281/zenodo.18239647)
 
-**Status:** Publication-ready
+**Status:** Revision-stage analysis compendium; run `./run_all.sh` and `make qa` before sharing.
 
 ---
 
@@ -19,8 +19,9 @@
 ### Highlights
 
 ✅ **One-command reproduction** via `./run_all.sh`
+✅ **Pre-submission QA** via `make qa`
 ✅ **Data integrity validation** with checksums
-✅ **Pure R workflow** - no Python required
+✅ **Pure R analysis workflow** - document-building helper scripts are separate
 ✅ **Comprehensive documentation** - 8 detailed guides
 ✅ **Publication-ready figures** - all in `output/MRB/figures/`
 
@@ -34,8 +35,8 @@ This repository contains all data, code, and outputs for analyzing a field exper
 2. Feedbacks between CAFI communities and coral performance (growth and physiology)
 
 **Key Findings:**
-- CAFI abundance increased 5× and species richness doubled with increasing coral density
-- CAFI community composition shifted with coral density
+- CAFI abundance increased 5.47× and observed species richness increased 2.82× with increasing coral density
+- CAFI community composition shifted with coral density; the Fig. 3 per-colony-density PERMANOVA has a matching non-significant PERMDISP check
 - Coral performance (integrated growth + physiology) declined with increasing coral density
 - CAFI community composition predicted coral performance
 - **Growth finding:** No treatment effect on coral growth after allometric size-correction (*p* = 0.267)
@@ -49,6 +50,7 @@ This repository contains all data, code, and outputs for analyzing a field exper
 ├── README.md                           # This file
 ├── CONTRIBUTING.md                     # Development and contribution guide
 ├── run_all.sh                          # Master script to run entire analysis
+├── Makefile                            # Convenience targets: analysis, quick, qa, validate
 ├── docs/                               # Documentation
 │   ├── REPRODUCIBILITY_GUIDE.md        # Step-by-step reproduction instructions
 │   ├── DATA_AVAILABILITY.md            # Data sharing and access policy
@@ -72,7 +74,7 @@ This repository contains all data, code, and outputs for analyzing a field exper
 │   ├── 8.coral-caffi.R                 # CAFI-coral relationships
 │   ├── 12.nmds_permanova_cafi.R        # Community composition
 │   ├── 14.compile-manuscript-statistics.R  # Compile all stats
-│   ├── generate_publication_figures.R  # Publication figures
+│   ├── 15.pre_submission_checks.R      # Submission QA ledger and robustness index
 │   └── validate_pipeline.R             # Validate data integrity and outputs
 ├── output/MRB/                         # Analysis outputs
 │   ├── figures/                        # All generated figures
@@ -120,19 +122,33 @@ For core analyses only (faster):
 ./run_all.sh --quick
 ```
 
-**Option 2: Individual Scripts**
+**Option 2: Make targets**
+
+```bash
+make analysis   # same as ./run_all.sh
+make quick      # same as ./run_all.sh --quick
+make qa         # pre-submission QA only
+make validate   # data/checksum/output validator
+```
+
+**Option 3: Individual Scripts**
 
 Run scripts manually in order:
 
 ```bash
 Rscript scripts/MRB/1.libraries.R                 # Load packages
+Rscript scripts/MRB/3.abundance.R                 # CAFI abundance/scaling
+Rscript scripts/MRB/4d.diversity.R                # Diversity, PERMANOVA/PERMDISP, density composition
+Rscript scripts/MRB/5.fishes.R                    # Fish community
 Rscript scripts/MRB/6.coral-growth.R              # Coral growth (allometric models)
 Rscript scripts/MRB/7.coral-physiology.R          # Physiology + integrated performance
+Rscript scripts/MRB/12.nmds_permanova_cafi.R      # Community composition checks
 Rscript scripts/MRB/8.coral-caffi.R               # CAFI-coral relationships
 Rscript scripts/MRB/14.compile-manuscript-statistics.R  # Compile all stats
+Rscript scripts/MRB/15.pre_submission_checks.R    # Reviewer/readiness QA
 ```
 
-**Option 3: Validate Pipeline**
+**Option 4: Validate Pipeline**
 
 Check data integrity and verify outputs:
 
@@ -165,6 +181,7 @@ Rscript scripts/MRB/validate_pipeline.R
 - Interaction: χ² = 6.48, *p* = 0.039 (treatment-specific slopes differ)
 - Treatment-specific slopes: *b* = 0.78 (1 colony), -0.10 (3 colonies), 1.00 (6 colonies)
 - Post-hoc comparisons: all *p* > 0.07 (no pairwise differences)
+- Interaction-vs-parallel model comparison: χ² = 5.23, *p* = 0.073
 - **Main finding:** No treatment effect on size-corrected growth (χ² = 2.64, *p* = 0.267)
 
 ### 2. Coral Physiology (Script 7)
@@ -183,7 +200,7 @@ Rscript scripts/MRB/validate_pipeline.R
 
 ### 3. CAFI-Coral Relationships (Script 8)
 
-**File:** `scripts/MRB/8.cafi-coral-community.R`
+**File:** `scripts/MRB/8.coral-caffi.R`
 
 **What it does:**
 - Tests whether CAFI community composition predicts coral performance
@@ -191,12 +208,28 @@ Rscript scripts/MRB/validate_pipeline.R
 - Creates CAFI community PCA and coral performance PCA
 
 **Key results:**
-- SQRT_CS transformation: *p* = 0.00085
-- HELLINGER transformation: *p* = 0.014
-- SQRT transformation: *p* = 0.042
-- **Robust, highly significant relationship**
+- SQRT_CS transformation: beta = 0.301, *p* = 0.014
+- HELLINGER transformation: beta = 0.311, *p* = 0.008
+- SQRT transformation: beta = 0.179, *p* = 0.153
+- The community-condition relationship is supported by the centered/scaled square-root and Hellinger transformations; the square-root-only check is directionally similar but not significant.
 
-### 4. Statistical Compilation (Script 14)
+### 4. Community Composition QA (Script 4d + Script 15)
+
+**Files:** `scripts/MRB/4d.diversity.R`, `scripts/MRB/15.pre_submission_checks.R`
+
+**Key outputs:**
+- `output/MRB/tables/16_permanova_summary.csv`
+- `output/MRB/tables/16_permdisp_summary.csv`
+- `output/MRB/tables/16_species_density_drivers_top15.csv`
+- `output/MRB/tables/composition_robustness_index.csv`
+- `output/MRB/tables/pre_submission_qa_summary.md`
+
+**Key results:**
+- Reef per-colony-density PERMANOVA: *F* = 2.013, R² = 0.168, *p* = 0.015
+- Matching PERMDISP: *F* = 2.275, *p* = 0.122
+- Pre-submission QA currently passes with warnings only for future structural gates (`claims.tsv`, `display_items.tsv`, `renv.lock`)
+
+### 5. Statistical Compilation (Script 14)
 
 **File:** `scripts/MRB/14.compile-manuscript-statistics.R`
 
@@ -215,7 +248,7 @@ Rscript scripts/MRB/validate_pipeline.R
 ## Data Files
 
 ### Coral Growth Data
-**Location:** `data/MRB/coral/`
+**Location:** `data/MRB Amount/`
 
 **Files:**
 - Individual coral volume/surface area measurements from 3D photogrammetry
@@ -225,16 +258,16 @@ Rscript scripts/MRB/validate_pipeline.R
 **Sample size:** *n* = 44 corals (≥80% tissue alive)
 
 ### CAFI Community Data
-**Location:** `data/MRB/cafi/`
+**Location:** `data/MRB Amount/`
 
 **Files:**
 - Species-level abundance data for all CAFI taxa
 - Taxonomic identifications
 
-**Sample size:** 23 experimental reefs (18 one-coral, 6 three-coral, 3 six-coral)
+**Sample size:** 23 reef units after the ≥80% live-tissue filter (14 one-coral, 6 three-coral, 3 six-coral)
 
 ### Coral Physiology Data
-**Location:** `data/MRB/physiology/`
+**Location:** `data/MRB Amount/`
 
 **Files:**
 - Carbohydrate content (mg/cm²)
@@ -253,6 +286,7 @@ We used a **unified allometric model** approach (Osenberg, pers. comm.) to handl
 1. **Test for interaction:** `log(V_final) ~ log(V_initial) × treatment + (1|reef)`
    - Significant interaction (*p* = 0.039) indicated treatment-specific slopes
    - However, no pairwise differences after Tukey adjustment (all *p* > 0.07)
+   - Interaction-vs-parallel model comparison was marginal (*p* = 0.073), supporting the unified exponent used below
 
 2. **Estimate unified exponent:** `log(V_final) ~ log(V_initial) + treatment + (1|reef)`
    - Unified *b* = 0.6986 (more precise than treatment-specific estimates)
@@ -383,9 +417,9 @@ We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines 
 
 <div align="center">
 
-**Last Updated:** January 14, 2026
-**Repository Version:** v1.0.1
-**Status:** Publication-ready
+**Last Updated:** July 31, 2026
+**Repository Version:** revision-stage working tree
+**Status:** Reviewer-readiness QA in progress
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18239647.svg)](https://doi.org/10.5281/zenodo.18239647)
 

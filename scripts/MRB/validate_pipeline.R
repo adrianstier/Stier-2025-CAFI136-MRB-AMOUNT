@@ -107,7 +107,8 @@ check_outputs <- function() {
 
   expected_outputs <- c(
     "output/MRB/tables/MANUSCRIPT_STATISTICAL_TESTS.csv",
-    "output/MRB/figures/coral/growth_treatment_comparison.png",
+    "output/MRB/figures/coral/SizeCorrected_Volume_Growth_by_Treatment.png",
+    "output/MRB/tables/pre_submission_qa_checks.csv",
     "output/MRB/objects/sessionInfo_05_MRB_comm.txt"
   )
 

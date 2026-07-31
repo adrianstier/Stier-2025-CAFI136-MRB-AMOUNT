@@ -1,0 +1,193 @@
+predictor,label,trait,method,n,estimate,p_value,note,p_value_BH
+sqrt_trap_serenei_z,sqrt T. serenei abundance,zoox_cells_cm2,spearman,44,0.3815695874929249,0.010597786520182057,NA,0.5086937529687388
+sqrt_trapezia_serenei_z,Trapezia serenei sqrt abundance,zoox_cells_cm2,spearman,44,0.3815695874929249,0.010597786520182057,NA,0.5086937529687388
+sqrt_trap_serenei_z,sqrt T. serenei abundance,zoox_cells_cm2,pearson,44,0.3367775755931442,0.02539337674030911,NA,0.7988413985971171
+sqrt_trapezia_serenei_z,Trapezia serenei sqrt abundance,zoox_cells_cm2,pearson,44,0.3367775755931442,0.02539337674030911,NA,0.7988413985971171
+asin_trap_prop_full_z,arcsin sqrt Trapezia share of full CAFI,carb_mg_cm2,spearman,44,-0.3324052915042837,0.02748499153270972,NA,0.6516916779468404
+asin_trap_prop_full_z,arcsin sqrt Trapezia share of full CAFI,protein_mg_cm2,spearman,44,-0.2957533085563983,0.0512740259503897,NA,0.6516916779468404
+asin_trap_prop_full_z,arcsin sqrt Trapezia share of full CAFI,growth_vol_b,pearson,44,-0.2774333873183579,0.06826065298727525,NA,0.7988413985971171
+sqrt_trapezia_tigrina_z,Trapezia tigrina sqrt abundance,zoox_cells_cm2,pearson,44,-0.2770963291888214,0.06861050757576834,NA,0.7988413985971171
+sqrt_trapezia_punctimanus_z,Trapezia punctimanus sqrt abundance,growth_vol_b,spearman,44,-0.27312286609012837,0.07284276855703867,NA,0.6516916779468404
+asin_trap_prop_full_z,arcsin sqrt Trapezia share of full CAFI,cond_PC1,spearman,44,-0.2727753346313779,0.07322251286697669,NA,0.6516916779468404
+sqrt_trapezia_tigrina_z,Trapezia tigrina sqrt abundance,zoox_cells_cm2,spearman,44,-0.268819592785801,0.07765576605560355,NA,0.6516916779468404
+asin_trap_serenei_prop_full_z,arcsin sqrt T. serenei share of full CAFI,carb_mg_cm2,spearman,44,-0.263955457936867,0.08339279668077693,NA,0.6516916779468404
+asin_trap_serenei_prop_full_z,arcsin sqrt T. serenei share of full CAFI,protein_mg_cm2,spearman,44,-0.2623343696771746,0.08537658589574366,NA,0.6516916779468404
+asin_trap_serenei_prop_full_z,arcsin sqrt T. serenei share of full CAFI,growth_vol_b,pearson,44,-0.26019421297527723,0.08805165887946721,NA,0.7988413985971171
+asin_trap_prop_full_z,arcsin sqrt Trapezia share of full CAFI,growth_vol_b,spearman,44,-0.2571982418785266,0.09190530929040977,NA,0.6516916779468404
+asin_trap_prop_full_z,arcsin sqrt Trapezia share of full CAFI,carb_mg_cm2,pearson,44,-0.24668425895675639,0.10646911293420887,NA,0.7988413985971171
+asin_trap_serenei_prop_full_z,arcsin sqrt T. serenei share of full CAFI,growth_vol_b,spearman,44,-0.24126022230117375,0.1146406341454445,NA,0.6516916779468404
+sqrt_trapezia_bidentata_z,Trapezia bidentata sqrt abundance,cond_PC1,pearson,44,-0.23538290638559642,0.1240226241758771,NA,0.7988413985971171
+sqrt_trap_non_serenei_z,sqrt non-serenei Trapezia abundance,zoox_cells_cm2,spearman,44,-0.23454075269319116,0.1254129118076788,NA,0.6516916779468404
+sqrt_trapezia_bidentata_z,Trapezia bidentata sqrt abundance,carb_mg_cm2,spearman,44,-0.22620964802073013,0.13980337688865005,NA,0.6516916779468404
+asin_trap_non_serenei_prop_full_z,arcsin sqrt non-serenei Trapezia share of full CAFI,zoox_cells_cm2,spearman,44,-0.2213901669944136,0.1486684031258522,NA,0.6516916779468404
+sqrt_trapezia_bidentata_z,Trapezia bidentata sqrt abundance,carb_mg_cm2,pearson,44,-0.22090147898076531,0.1495898819463926,NA,0.7988413985971171
+sqrt_trap_total_z,sqrt total Trapezia abundance,zoox_cells_cm2,pearson,44,0.21806539997430385,0.15502068955984746,NA,0.7988413985971171
+sqrt_trap_total_z,sqrt total Trapezia abundance,zoox_cells_cm2,spearman,44,0.21620814558094348,0.1586544736281566,NA,0.6516916779468404
+sqrt_trapezia_punctimanus_z,Trapezia punctimanus sqrt abundance,growth_vol_b,pearson,44,-0.21106323605525332,0.16904450086155745,NA,0.7988413985971171
+sqrt_trapezia_bella_z,Trapezia bella sqrt abundance,cond_PC1,spearman,44,-0.21016188700350322,0.17091424027424992,NA,0.6516916779468404
+asin_trap_non_serenei_prop_full_z,arcsin sqrt non-serenei Trapezia share of full CAFI,cond_PC1,pearson,44,-0.20919049408936946,0.1729459389611488,NA,0.7988413985971171
+asin_trap_prop_full_z,arcsin sqrt Trapezia share of full CAFI,protein_mg_cm2,pearson,44,-0.20827830531019847,0.17486959934155752,NA,0.7988413985971171
+asin_trap_non_serenei_prop_full_z,arcsin sqrt non-serenei Trapezia share of full CAFI,cond_PC1,spearman,44,-0.20772906776063857,0.17603525061832367,NA,0.6516916779468404
+asin_trap_non_serenei_prop_full_z,arcsin sqrt non-serenei Trapezia share of full CAFI,carb_mg_cm2,pearson,44,-0.20312989314193947,0.18601582798579816,NA,0.7988413985971171
+sqrt_trap_total_z,sqrt total Trapezia abundance,protein_mg_cm2,spearman,44,-0.2028734083699816,0.18658404519713043,NA,0.6516916779468404
+sqrt_trapezia_bidentata_z,Trapezia bidentata sqrt abundance,cond_PC1,spearman,44,-0.2012459347417022,0.1902183713820772,NA,0.6516916779468404
+asin_trap_prop_full_z,arcsin sqrt Trapezia share of full CAFI,afdw_mg_cm2,spearman,44,-0.1998237916485675,0.1934350686176791,NA,0.6516916779468404
+asin_trap_prop_full_z,arcsin sqrt Trapezia share of full CAFI,cond_PC1,pearson,44,-0.19868399282936508,0.19604079065848395,NA,0.7988413985971171
+sqrt_trap_richness_z,sqrt Trapezia richness,cond_PC1,spearman,44,-0.19739713992181435,0.1990123742046745,NA,0.6516916779468404
+sqrt_trap_rare_richness_z,sqrt rare Trapezia richness,cond_PC1,spearman,44,-0.19739713992181435,0.1990123742046745,NA,0.6516916779468404
+sqrt_trapezia_bidentata_z,Trapezia bidentata sqrt abundance,protein_mg_cm2,pearson,44,-0.19618778184854235,0.20183379443630003,NA,0.7988413985971171
+sqrt_trapezia_bidentata_z,Trapezia bidentata sqrt abundance,afdw_mg_cm2,pearson,44,-0.19486614063824922,0.2049491776412014,NA,0.7988413985971171
+sqrt_trap_total_z,sqrt total Trapezia abundance,growth_vol_b,pearson,44,-0.19369437748182886,0.20773931363279358,NA,0.7988413985971171
+sqrt_trap_non_serenei_z,sqrt non-serenei Trapezia abundance,cond_PC1,spearman,44,-0.19305130230298181,0.2092818008433335,NA,0.6516916779468404
+asin_trap_non_serenei_prop_full_z,arcsin sqrt non-serenei Trapezia share of full CAFI,growth_vol_b,spearman,44,-0.18924640409141347,0.21857190440724486,NA,0.6516916779468404
+sqrt_trap_serenei_z,sqrt T. serenei abundance,growth_vol_b,pearson,44,-0.18844443737428962,0.22056586548304893,NA,0.7988413985971171
+sqrt_trapezia_serenei_z,Trapezia serenei sqrt abundance,growth_vol_b,pearson,44,-0.18844443737428962,0.22056586548304893,NA,0.7988413985971171
+asin_trap_serenei_prop_full_z,arcsin sqrt T. serenei share of full CAFI,protein_mg_cm2,pearson,44,-0.1883512220923488,0.22079844313346067,NA,0.7988413985971171
+sqrt_trapezia_bidentata_z,Trapezia bidentata sqrt abundance,afdw_mg_cm2,spearman,44,-0.18729185911393784,0.22345352708664418,NA,0.6516916779468404
+sqrt_trapezia_bella_z,Trapezia bella sqrt abundance,zoox_cells_cm2,spearman,44,-0.1861433856316743,0.22635672254943703,NA,0.6516916779468404
+sqrt_trapezia_bella_z,Trapezia bella sqrt abundance,afdw_mg_cm2,spearman,44,-0.1861433856316743,0.22635672254943703,NA,0.6516916779468404
+sqrt_trap_richness_z,sqrt Trapezia richness,growth_vol_b,spearman,44,-0.1851769290310706,0.22881981475154484,NA,0.6516916779468404
+sqrt_trap_rare_richness_z,sqrt rare Trapezia richness,growth_vol_b,spearman,44,-0.1851769290310706,0.22881981475154484,NA,0.6516916779468404
+asin_trap_non_serenei_prop_full_z,arcsin sqrt non-serenei Trapezia share of full CAFI,afdw_mg_cm2,pearson,44,-0.18437142564005324,0.23088670567510836,NA,0.7988413985971171
+sqrt_trap_serenei_z,sqrt T. serenei abundance,protein_mg_cm2,spearman,44,-0.18398774831421336,0.23187568861450386,NA,0.6516916779468404
+sqrt_trapezia_serenei_z,Trapezia serenei sqrt abundance,protein_mg_cm2,spearman,44,-0.18398774831421336,0.23187568861450386,NA,0.6516916779468404
+asin_trap_non_serenei_prop_full_z,arcsin sqrt non-serenei Trapezia share of full CAFI,afdw_mg_cm2,spearman,44,-0.1836212455833884,0.23282310474216386,NA,0.6516916779468404
+sqrt_trap_richness_z,sqrt Trapezia richness,cond_PC1,pearson,44,-0.18337542105406335,0.23346004635068104,NA,0.7988413985971171
+sqrt_trap_richness_z,sqrt Trapezia richness,carb_mg_cm2,pearson,44,-0.18336449178889477,0.2334883921481326,NA,0.7988413985971171
+asin_trap_serenei_prop_full_z,arcsin sqrt T. serenei share of full CAFI,carb_mg_cm2,pearson,44,-0.1818946736354624,0.2373219061296747,NA,0.7988413985971171
+sqrt_trap_rare_richness_z,sqrt rare Trapezia richness,carb_mg_cm2,pearson,44,-0.18137915123609566,0.23867656233647308,NA,0.7988413985971171
+asin_trap_serenei_prop_full_z,arcsin sqrt T. serenei share of full CAFI,cond_PC1,spearman,44,-0.18064561780832844,0.24061314311319804,NA,0.6516916779468404
+sqrt_trap_non_serenei_z,sqrt non-serenei Trapezia abundance,cond_PC1,pearson,44,-0.18058435138745346,0.24077537213382721,NA,0.7988413985971171
+sqrt_trap_richness_z,sqrt Trapezia richness,afdw_mg_cm2,spearman,44,-0.1798000362391433,0.2428587417972077,NA,0.6516916779468404
+sqrt_trap_rare_richness_z,sqrt rare Trapezia richness,afdw_mg_cm2,spearman,44,-0.1798000362391433,0.2428587417972077,NA,0.6516916779468404
+sqrt_trap_non_serenei_z,sqrt non-serenei Trapezia abundance,carb_mg_cm2,pearson,44,-0.177688465378523,0.24852826555627924,NA,0.7988413985971171
+sqrt_trapezia_bidentata_z,Trapezia bidentata sqrt abundance,protein_mg_cm2,spearman,44,-0.17513005008056526,0.255516215425454,NA,0.6516916779468404
+sqrt_trapezia_guttata_z,Trapezia guttata sqrt abundance,afdw_mg_cm2,spearman,44,-0.17413413494575983,0.2582716566505483,NA,0.6516916779468404
+sqrt_trap_rare_richness_z,sqrt rare Trapezia richness,cond_PC1,pearson,44,-0.1731254727032397,0.26108252995686965,NA,0.7988413985971171
+sqrt_trap_richness_z,sqrt Trapezia richness,zoox_cells_cm2,spearman,44,-0.1708385482525979,0.26753085106778285,NA,0.6516916779468404
+sqrt_trap_rare_richness_z,sqrt rare Trapezia richness,zoox_cells_cm2,spearman,44,-0.1708385482525979,0.26753085106778285,NA,0.6516916779468404
+sqrt_trap_non_serenei_z,sqrt non-serenei Trapezia abundance,zoox_cells_cm2,pearson,44,-0.16907775651991505,0.27256695268172887,NA,0.7988413985971171
+sqrt_trap_non_serenei_z,sqrt non-serenei Trapezia abundance,growth_vol_b,spearman,44,-0.16838408520938758,0.2745679976493251,NA,0.6516916779468404
+sqrt_trap_non_serenei_z,sqrt non-serenei Trapezia abundance,afdw_mg_cm2,spearman,44,-0.1670900672634941,0.27832665412312974,NA,0.6516916779468404
+sqrt_trapezia_bella_z,Trapezia bella sqrt abundance,afdw_mg_cm2,pearson,44,-0.16588430980566873,0.28185917688007517,NA,0.7988413985971171
+asin_trap_non_serenei_prop_full_z,arcsin sqrt non-serenei Trapezia share of full CAFI,zoox_cells_cm2,pearson,44,-0.1628898271446991,0.29075840939556913,NA,0.7988413985971171
+sqrt_trap_total_z,sqrt total Trapezia abundance,protein_mg_cm2,pearson,44,-0.1591597749512156,0.30209564800636146,NA,0.7988413985971171
+sqrt_trap_richness_z,sqrt Trapezia richness,afdw_mg_cm2,pearson,44,-0.1565811545312403,0.3100966549021256,NA,0.7988413985971171
+sqrt_trap_total_z,sqrt total Trapezia abundance,growth_vol_b,spearman,44,-0.15260073599710391,0.32270937134402344,NA,0.7216255107453358
+sqrt_trap_serenei_z,sqrt T. serenei abundance,protein_mg_cm2,pearson,44,-0.15245186874195946,0.3231872531726593,NA,0.7988413985971171
+sqrt_trapezia_serenei_z,Trapezia serenei sqrt abundance,protein_mg_cm2,pearson,44,-0.15245186874195946,0.3231872531726593,NA,0.7988413985971171
+sqrt_trapezia_bella_z,Trapezia bella sqrt abundance,cond_PC1,pearson,44,-0.15176073746206917,0.3254116873898475,NA,0.7988413985971171
+sqrt_trap_non_serenei_z,sqrt non-serenei Trapezia abundance,afdw_mg_cm2,pearson,44,-0.1516913755037782,0.32563546034469637,NA,0.7988413985971171
+sqrt_trap_richness_z,sqrt Trapezia richness,growth_vol_b,pearson,44,-0.15104222568466522,0.32773439625310985,NA,0.7988413985971171
+sqrt_trapezia_speciosa_z,Trapezia speciosa sqrt abundance,growth_vol_b,spearman,44,-0.15011563357393087,0.3307450257582789,NA,0.7216255107453358
+sqrt_trapezia_speciosa_z,Trapezia speciosa sqrt abundance,protein_mg_cm2,spearman,44,-0.15011563357393087,0.3307450257582789,NA,0.7216255107453358
+sqrt_trap_rare_richness_z,sqrt rare Trapezia richness,growth_vol_b,pearson,44,-0.14903133977682698,0.3342898714205865,NA,0.7988413985971171
+sqrt_trapezia_bidentata_z,Trapezia bidentata sqrt abundance,growth_vol_b,pearson,44,-0.14806498318605632,0.33746896381346725,NA,0.7988413985971171
+sqrt_trap_rare_richness_z,sqrt rare Trapezia richness,afdw_mg_cm2,pearson,44,-0.14449404305860905,0.34937824410786666,NA,0.7988413985971171
+sqrt_trapezia_guttata_z,Trapezia guttata sqrt abundance,afdw_mg_cm2,pearson,44,-0.14445996748372525,0.34949311188623877,NA,0.7988413985971171
+sqrt_trapezia_tigrina_z,Trapezia tigrina sqrt abundance,cond_PC1,spearman,44,-0.14417867835213105,0.3504422117980468,NA,0.7274710724413447
+asin_trap_non_serenei_prop_full_z,arcsin sqrt non-serenei Trapezia share of full CAFI,carb_mg_cm2,spearman,44,-0.14263794788206322,0.3556687026658384,NA,0.7274710724413447
+sqrt_trapezia_bidentata_z,Trapezia bidentata sqrt abundance,growth_vol_b,spearman,44,-0.14158906095694823,0.3592537122630375,NA,0.7274710724413447
+sqrt_trapezia_bella_z,Trapezia bella sqrt abundance,zoox_cells_cm2,pearson,44,-0.14044481659403005,0.36318950531986804,NA,0.8039260488981447
+sqrt_trapezia_bella_z,Trapezia bella sqrt abundance,growth_vol_b,spearman,44,-0.1381063828880164,0.37131335989193637,NA,0.7274710724413447
+sqrt_trapezia_guttata_z,Trapezia guttata sqrt abundance,cond_PC1,spearman,44,-0.1381063828880164,0.37131335989193637,NA,0.7274710724413447
+sqrt_trap_total_z,sqrt total Trapezia abundance,carb_mg_cm2,pearson,44,-0.1374610134235442,0.3735743930535588,NA,0.8039260488981447
+asin_trap_non_serenei_prop_full_z,arcsin sqrt non-serenei Trapezia share of full CAFI,growth_vol_b,pearson,44,-0.13636433890022073,0.3774353442688666,NA,0.8039260488981447
+sqrt_trap_richness_z,sqrt Trapezia richness,carb_mg_cm2,spearman,44,-0.13368910714473684,0.3869526772015409,NA,0.7283815100264299
+sqrt_trap_rare_richness_z,sqrt rare Trapezia richness,carb_mg_cm2,spearman,44,-0.13368910714473684,0.3869526772015409,NA,0.7283815100264299
+sqrt_trapezia_bella_z,Trapezia bella sqrt abundance,carb_mg_cm2,spearman,44,-0.12609713220210192,0.4147190536024795,NA,0.7387322047355716
+asin_trap_serenei_prop_full_z,arcsin sqrt T. serenei share of full CAFI,afdw_mg_cm2,spearman,44,-0.12609247376476768,0.4147364318367226,NA,0.7387322047355716
+sqrt_trap_richness_z,sqrt Trapezia richness,zoox_cells_cm2,pearson,44,-0.12586638235288122,0.4155803612630874,NA,0.8039260488981447
+asin_trap_serenei_prop_full_z,arcsin sqrt T. serenei share of full CAFI,cond_PC1,pearson,44,-0.12531052469129073,0.41765935717308367,NA,0.8039260488981447
+sqrt_trapezia_speciosa_z,Trapezia speciosa sqrt abundance,growth_vol_b,pearson,44,-0.12274384365205784,0.427335419753901,NA,0.8039260488981447
+sqrt_trap_serenei_z,sqrt T. serenei abundance,growth_vol_b,spearman,44,-0.1218433329336503,0.430759812378152,NA,0.7387322047355716
+sqrt_trapezia_serenei_z,Trapezia serenei sqrt abundance,growth_vol_b,spearman,44,-0.1218433329336503,0.430759812378152,NA,0.7387322047355716
+sqrt_trap_non_serenei_z,sqrt non-serenei Trapezia abundance,carb_mg_cm2,spearman,44,-0.12179943915722273,0.43092711942908346,NA,0.7387322047355716
+sqrt_trap_non_serenei_z,sqrt non-serenei Trapezia abundance,growth_vol_b,pearson,44,-0.11493988606752753,0.457515866456747,NA,0.8039260488981447
+sqrt_trapezia_bella_z,Trapezia bella sqrt abundance,growth_vol_b,pearson,44,-0.11482769616138559,0.4579579776929211,NA,0.8039260488981447
+sqrt_trapezia_bella_z,Trapezia bella sqrt abundance,protein_mg_cm2,spearman,44,-0.11408788151618746,0.4608791718069606,NA,0.7566600693055174
+sqrt_trapezia_speciosa_z,Trapezia speciosa sqrt abundance,cond_PC1,spearman,44,-0.11408788151618746,0.4608791718069606,NA,0.7566600693055174
+sqrt_trapezia_bidentata_z,Trapezia bidentata sqrt abundance,zoox_cells_cm2,spearman,44,-0.11304081448913678,0.4650306675940159,NA,0.7566600693055174
+asin_trap_serenei_prop_full_z,arcsin sqrt T. serenei share of full CAFI,zoox_cells_cm2,pearson,44,0.10930715326200269,0.4799959828160322,NA,0.8039260488981447
+sqrt_trap_total_z,sqrt total Trapezia abundance,carb_mg_cm2,spearman,44,-0.10874585158672125,0.48226746998914294,NA,0.7716279519826288
+sqrt_trapezia_guttata_z,Trapezia guttata sqrt abundance,cond_PC1,pearson,44,-0.10673683616373775,0.4904435323939519,NA,0.8039260488981447
+sqrt_trapezia_tigrina_z,Trapezia tigrina sqrt abundance,growth_vol_b,pearson,44,0.10613029593443389,0.4929259972284472,NA,0.8039260488981447
+sqrt_trapezia_areolata_z,Trapezia areolata sqrt abundance,protein_mg_cm2,spearman,44,0.10583737708199735,0.4941271829681154,NA,0.7776427797530997
+sqrt_trapezia_tigrina_z,Trapezia tigrina sqrt abundance,carb_mg_cm2,pearson,44,-0.10486862734621089,0.49811050252431743,NA,0.8039260488981447
+sqrt_trap_rare_richness_z,sqrt rare Trapezia richness,zoox_cells_cm2,pearson,44,-0.10281963575054774,0.5065894972768541,NA,0.8039260488981447
+sqrt_trapezia_speciosa_z,Trapezia speciosa sqrt abundance,cond_PC1,pearson,44,-0.10274249311212798,0.5069101455982947,NA,0.8039260488981447
+sqrt_trapezia_speciosa_z,Trapezia speciosa sqrt abundance,carb_mg_cm2,spearman,44,-0.10207863083027299,0.5096737740011315,NA,0.7891722952275584
+asin_trap_non_serenei_prop_full_z,arcsin sqrt non-serenei Trapezia share of full CAFI,protein_mg_cm2,pearson,44,-0.10057378556568312,0.5159663971126647,NA,0.8039260488981447
+sqrt_trapezia_tigrina_z,Trapezia tigrina sqrt abundance,cond_PC1,pearson,44,-0.09831607909692142,0.525479455352872,NA,0.8039260488981447
+sqrt_trapezia_bidentata_z,Trapezia bidentata sqrt abundance,zoox_cells_cm2,pearson,44,-0.09757672593804177,0.5286134713093718,NA,0.8039260488981447
+sqrt_trapezia_areolata_z,Trapezia areolata sqrt abundance,zoox_cells_cm2,pearson,44,0.09588246954546809,0.5358296043253197,NA,0.8039260488981447
+sqrt_trapezia_punctimanus_z,Trapezia punctimanus sqrt abundance,afdw_mg_cm2,pearson,44,-0.09466340502823072,0.5410512165264171,NA,0.8039260488981447
+sqrt_trapezia_areolata_z,Trapezia areolata sqrt abundance,zoox_cells_cm2,spearman,44,0.09338592095470355,0.5465492113529404,NA,0.7950299453795809
+sqrt_trap_richness_z,sqrt Trapezia richness,protein_mg_cm2,spearman,44,-0.09091836902713364,0.5572438832231734,NA,0.7950299453795809
+sqrt_trap_rare_richness_z,sqrt rare Trapezia richness,protein_mg_cm2,spearman,44,-0.09091836902713364,0.5572438832231734,NA,0.7950299453795809
+sqrt_trap_richness_z,sqrt Trapezia richness,protein_mg_cm2,pearson,44,-0.09056862780811563,0.5587676117031346,NA,0.8039260488981447
+sqrt_trapezia_bella_z,Trapezia bella sqrt abundance,carb_mg_cm2,pearson,44,-0.09035690932839632,0.5596909589943643,NA,0.8039260488981447
+sqrt_trapezia_speciosa_z,Trapezia speciosa sqrt abundance,protein_mg_cm2,pearson,44,-0.09020579847692096,0.5603504200124818,NA,0.8039260488981447
+sqrt_trapezia_guttata_z,Trapezia guttata sqrt abundance,zoox_cells_cm2,spearman,44,-0.09006938014435853,0.5609460730444438,NA,0.7950299453795809
+sqrt_trap_rare_richness_z,sqrt rare Trapezia richness,protein_mg_cm2,pearson,44,-0.08958397329063124,0.5630679313776654,NA,0.8039260488981447
+sqrt_trap_serenei_z,sqrt T. serenei abundance,afdw_mg_cm2,spearman,44,0.08940452351624989,0.5638533034856934,NA,0.7950299453795809
+sqrt_trapezia_serenei_z,Trapezia serenei sqrt abundance,afdw_mg_cm2,spearman,44,0.08940452351624989,0.5638533034856934,NA,0.7950299453795809
+sqrt_trapezia_punctimanus_z,Trapezia punctimanus sqrt abundance,zoox_cells_cm2,pearson,44,0.08926998083134842,0.5644424705806894,NA,0.8039260488981447
+asin_trap_serenei_prop_full_z,arcsin sqrt T. serenei share of full CAFI,zoox_cells_cm2,spearman,44,0.08767973021988319,0.5714277732415738,NA,0.7950299453795809
+sqrt_trapezia_guttata_z,Trapezia guttata sqrt abundance,zoox_cells_cm2,pearson,44,-0.08738461279720942,0.5727284463344355,NA,0.8039260488981447
+sqrt_trapezia_speciosa_z,Trapezia speciosa sqrt abundance,zoox_cells_cm2,pearson,44,-0.08419244643601867,0.5868830708124033,NA,0.8039260488981447
+sqrt_trapezia_bella_z,Trapezia bella sqrt abundance,protein_mg_cm2,pearson,44,-0.08406002809292105,0.587473594689581,NA,0.8039260488981447
+sqrt_trapezia_speciosa_z,Trapezia speciosa sqrt abundance,carb_mg_cm2,pearson,44,-0.08041705738000245,0.6038223468241851,NA,0.8039260488981447
+asin_trap_non_serenei_prop_full_z,arcsin sqrt non-serenei Trapezia share of full CAFI,protein_mg_cm2,spearman,44,-0.08011832903572791,0.6051716602714892,NA,0.8081140768558106
+sqrt_trap_serenei_z,sqrt T. serenei abundance,carb_mg_cm2,pearson,44,-0.0794184665064857,0.6083379267196323,NA,0.8039260488981447
+sqrt_trapezia_serenei_z,Trapezia serenei sqrt abundance,carb_mg_cm2,pearson,44,-0.0794184665064857,0.6083379267196323,NA,0.8039260488981447
+sqrt_trapezia_tigrina_z,Trapezia tigrina sqrt abundance,afdw_mg_cm2,spearman,44,-0.07905279862392729,0.6099950781942391,NA,0.8081140768558106
+sqrt_trapezia_guttata_z,Trapezia guttata sqrt abundance,protein_mg_cm2,spearman,44,-0.07806012945844407,0.614503412609106,NA,0.8081140768558106
+sqrt_trapezia_speciosa_z,Trapezia speciosa sqrt abundance,zoox_cells_cm2,spearman,44,-0.07806012945844407,0.614503412609106,NA,0.8081140768558106
+asin_trap_prop_full_z,arcsin sqrt Trapezia share of full CAFI,afdw_mg_cm2,pearson,44,-0.07521835162143324,0.6274870926099312,NA,0.8039260488981447
+sqrt_trap_serenei_z,sqrt T. serenei abundance,afdw_mg_cm2,pearson,44,0.07448092896887083,0.6308747289054787,NA,0.8039260488981447
+sqrt_trapezia_serenei_z,Trapezia serenei sqrt abundance,afdw_mg_cm2,pearson,44,0.07448092896887083,0.6308747289054787,NA,0.8039260488981447
+sqrt_trapezia_punctimanus_z,Trapezia punctimanus sqrt abundance,afdw_mg_cm2,spearman,44,-0.07321020356240038,0.6367298437401205,NA,0.8231054839444508
+sqrt_trapezia_areolata_z,Trapezia areolata sqrt abundance,protein_mg_cm2,pearson,44,0.07303397951940234,0.6375435700148547,NA,0.8039260488981447
+sqrt_trapezia_punctimanus_z,Trapezia punctimanus sqrt abundance,protein_mg_cm2,spearman,44,0.07184361309590223,0.6430511593316022,NA,0.8231054839444508
+sqrt_trap_non_serenei_z,sqrt non-serenei Trapezia abundance,protein_mg_cm2,pearson,44,-0.07106564091436186,0.6466609488163191,NA,0.8039260488981447
+sqrt_trapezia_areolata_z,Trapezia areolata sqrt abundance,afdw_mg_cm2,pearson,44,0.06966289993268902,0.6531899147297425,NA,0.8039260488981447
+sqrt_trapezia_guttata_z,Trapezia guttata sqrt abundance,protein_mg_cm2,pearson,44,-0.06683299871263133,0.6664392733042764,NA,0.8042041502809193
+sqrt_trap_non_serenei_z,sqrt non-serenei Trapezia abundance,protein_mg_cm2,spearman,44,-0.06567141075409354,0.6719071886302947,NA,0.8455422771711344
+sqrt_trapezia_guttata_z,Trapezia guttata sqrt abundance,carb_mg_cm2,pearson,44,-0.06387921557687594,0.6803763795259398,NA,0.8042041502809193
+sqrt_trapezia_areolata_z,Trapezia areolata sqrt abundance,cond_PC1,pearson,44,0.06350271211505026,0.6821605750396875,NA,0.8042041502809193
+sqrt_trap_total_z,sqrt total Trapezia abundance,cond_PC1,pearson,44,-0.062499209457063866,0.6869243783649519,NA,0.8042041502809193
+sqrt_trapezia_tigrina_z,Trapezia tigrina sqrt abundance,carb_mg_cm2,spearman,44,-0.060817552300030255,0.6949343505067388,NA,0.8455422771711344
+sqrt_trap_serenei_z,sqrt T. serenei abundance,cond_PC1,spearman,44,0.060633960840063277,0.6958108322554126,NA,0.8455422771711344
+sqrt_trapezia_serenei_z,Trapezia serenei sqrt abundance,cond_PC1,spearman,44,0.060633960840063277,0.6958108322554126,NA,0.8455422771711344
+sqrt_trapezia_punctimanus_z,Trapezia punctimanus sqrt abundance,carb_mg_cm2,spearman,44,0.05466361865992562,0.7245214058813619,NA,0.849237711804816
+sqrt_trapezia_guttata_z,Trapezia guttata sqrt abundance,carb_mg_cm2,spearman,44,-0.05404162808661512,0.7275348664917984,NA,0.849237711804816
+sqrt_trapezia_areolata_z,Trapezia areolata sqrt abundance,cond_PC1,spearman,44,0.04980582450917523,0.748162745372282,NA,0.849237711804816
+sqrt_trapezia_areolata_z,Trapezia areolata sqrt abundance,carb_mg_cm2,spearman,44,0.04980582450917523,0.748162745372282,NA,0.849237711804816
+sqrt_trapezia_areolata_z,Trapezia areolata sqrt abundance,growth_vol_b,pearson,44,-0.047389315289867166,0.7600102402875892,NA,0.87280020258059
+sqrt_trapezia_speciosa_z,Trapezia speciosa sqrt abundance,afdw_mg_cm2,pearson,44,-0.04663897306509148,0.7637001772580163,NA,0.87280020258059
+sqrt_trapezia_punctimanus_z,Trapezia punctimanus sqrt abundance,zoox_cells_cm2,spearman,44,0.044316576556439696,0.7751534506484866,NA,0.849237711804816
+sqrt_trapezia_areolata_z,Trapezia areolata sqrt abundance,afdw_mg_cm2,spearman,44,0.04358009644552832,0.7787955172606369,NA,0.849237711804816
+sqrt_trapezia_speciosa_z,Trapezia speciosa sqrt abundance,afdw_mg_cm2,spearman,44,-0.04203237740070065,0.7864645391615968,NA,0.849237711804816
+sqrt_trapezia_guttata_z,Trapezia guttata sqrt abundance,growth_vol_b,spearman,44,0.04203237740070065,0.7864645391615973,NA,0.849237711804816
+sqrt_trap_serenei_z,sqrt T. serenei abundance,carb_mg_cm2,spearman,44,-0.041861168693851515,0.7873141286523815,NA,0.849237711804816
+sqrt_trapezia_serenei_z,Trapezia serenei sqrt abundance,carb_mg_cm2,spearman,44,-0.041861168693851515,0.7873141286523815,NA,0.849237711804816
+sqrt_trap_total_z,sqrt total Trapezia abundance,cond_PC1,spearman,44,-0.039077197816080815,0.801162613643619,NA,0.8545734545531936
+sqrt_trapezia_punctimanus_z,Trapezia punctimanus sqrt abundance,protein_mg_cm2,pearson,44,0.037544971629029034,0.808810530405061,NA,0.9134801284574806
+sqrt_trapezia_tigrina_z,Trapezia tigrina sqrt abundance,afdw_mg_cm2,pearson,44,-0.03139934738888872,0.8396560361918378,NA,0.9372904590048422
+sqrt_trapezia_punctimanus_z,Trapezia punctimanus sqrt abundance,carb_mg_cm2,pearson,44,0.02750868831403769,0.8593101658628561,NA,0.9482043209521172
+sqrt_trapezia_tigrina_z,Trapezia tigrina sqrt abundance,protein_mg_cm2,spearman,44,-0.026952094841364314,0.8621290344464478,NA,0.901202122033337
+sqrt_trapezia_tigrina_z,Trapezia tigrina sqrt abundance,growth_vol_b,spearman,44,0.026651513858003375,0.8636520336152813,NA,0.901202122033337
+asin_trap_prop_full_z,arcsin sqrt Trapezia share of full CAFI,zoox_cells_cm2,spearman,44,-0.019524229378008184,0.8998960793702481,NA,0.9289249851563851
+asin_trap_prop_full_z,arcsin sqrt Trapezia share of full CAFI,zoox_cells_cm2,pearson,44,0.013292780760599615,0.9317528802827739,NA,0.98418210138624
+sqrt_trap_total_z,sqrt total Trapezia abundance,afdw_mg_cm2,spearman,44,0.013192119700684216,0.9322684863789273,NA,0.9521039860891172
+sqrt_trapezia_tigrina_z,Trapezia tigrina sqrt abundance,protein_mg_cm2,pearson,44,0.012068524088825791,0.9380255796192116,NA,0.98418210138624
+sqrt_trap_total_z,sqrt total Trapezia abundance,afdw_mg_cm2,pearson,44,0.011325932088200793,0.9418322143406077,NA,0.98418210138624
+asin_trap_serenei_prop_full_z,arcsin sqrt T. serenei share of full CAFI,afdw_mg_cm2,pearson,44,-0.007820227727982581,0.9598188626437969,NA,0.98418210138624
+sqrt_trap_serenei_z,sqrt T. serenei abundance,cond_PC1,pearson,44,0.0072673274685293495,0.9626576451599309,NA,0.98418210138624
+sqrt_trapezia_serenei_z,Trapezia serenei sqrt abundance,cond_PC1,pearson,44,0.0072673274685293495,0.9626576451599309,NA,0.98418210138624
+sqrt_trapezia_guttata_z,Trapezia guttata sqrt abundance,growth_vol_b,pearson,44,0.007068558498347882,0.9636783076073601,NA,0.98418210138624
+sqrt_trapezia_areolata_z,Trapezia areolata sqrt abundance,growth_vol_b,spearman,44,-0.0062257280636469035,0.9680067911495398,NA,0.978196336319535
+sqrt_trapezia_punctimanus_z,Trapezia punctimanus sqrt abundance,cond_PC1,pearson,44,-0.003673415729303895,0.9811196136078766,NA,0.9914471884879595
+sqrt_trapezia_punctimanus_z,Trapezia punctimanus sqrt abundance,cond_PC1,spearman,44,0.0015618176759978747,0.9919720781539783,NA,0.9919720781539783
+sqrt_trapezia_areolata_z,Trapezia areolata sqrt abundance,carb_mg_cm2,pearson,44,0.0013247852502519524,0.9931904209260838,NA,0.9931904209260838

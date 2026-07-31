@@ -1,0 +1,8 @@
+scale,matrix,test,term,df,statistic,r2,p_value
+reef,sqrt Trapezia abundance,adonis2 Bray by terms,treatment,2,16.456287422293247,0.5783005765327296,0.001
+reef,sqrt Trapezia per-colony density,adonis2 Bray by terms,treatment,2,2.9603708560559148,0.1978808469749642,0.016
+reef,Trapezia relative composition,adonis2 Bray by terms,treatment,2,0.6653296384865077,0.052531569053264185,0.651
+colony condition subset,sqrt Trapezia abundance,adonis2 Bray by terms,cond_PC1,1,0.3907806064341011,0.008802494338229662,0.773
+colony condition subset,sqrt Trapezia abundance,adonis2 Bray by terms,treatment,2,2.00176151640537,0.09018100757574678,0.074
+colony condition subset,Trapezia relative composition,adonis2 Bray by terms,cond_PC1,1,1.0469750704813237,0.024585507857762263,0.364
+colony condition subset,Trapezia relative composition,adonis2 Bray by terms,treatment,2,0.7690372427408555,0.03611771035890086,0.585

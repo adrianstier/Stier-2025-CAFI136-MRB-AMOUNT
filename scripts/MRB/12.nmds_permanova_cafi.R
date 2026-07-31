@@ -188,8 +188,8 @@ plot_nmds <- function(metric) {
     scale_color_treatment() +
     theme_publication() +
     theme(legend.position = "top") +
-    labs(title = glue("NMDS ({metric})"),
-         subtitle = glue("Stress = {round(nmds$stress, 3)}"),
+    labs(title = glue::glue("NMDS ({metric})"),
+         subtitle = glue::glue("Stress = {round(nmds$stress, 3)}"),
          color = "Treatment")
 }
 

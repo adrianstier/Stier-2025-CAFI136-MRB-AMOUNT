@@ -102,7 +102,11 @@ if [ "$QUICK_MODE" = false ]; then
     run_r_script "scripts/MRB/3.abundance.R" "CAFI abundance analysis"
     run_r_script "scripts/MRB/4d.diversity.R" "CAFI diversity metrics"
     run_r_script "scripts/MRB/5.fishes.R" "Fish community analysis"
-    run_r_script "scripts/MRB/12.nmds_permanova_cafi.R" "Community composition (NMDS & PERMANOVA)"
+    # NOTE: 12.nmds_permanova_cafi.R is intentionally NOT run here. It reads
+    # physio_metrics_plus_growth_filtered.csv, which is written by
+    # 7.coral-physiology.R (Step 4). That output is git-ignored, so on a fresh
+    # clone it does not exist yet -- running 12 before 7 fails. 12 now runs
+    # after Step 4 (below). Reorder only; no statistical result changes.
 else
     print_warning "Skipping CAFI community analyses (quick mode)"
     echo ""
@@ -116,6 +120,13 @@ run_r_script "scripts/MRB/6.coral-growth.R" "Allometric growth models"
 print_status "Step 4/5: Coral physiology and performance"
 run_r_script "scripts/MRB/7.coral-physiology.R" "Physiological metrics and integrated performance"
 
+# Community composition (NMDS & PERMANOVA) -- must run AFTER 7.coral-physiology.R
+# because it depends on physio_metrics_plus_growth_filtered.csv (see note above).
+if [ "$QUICK_MODE" = false ]; then
+    print_status "Community composition (NMDS & PERMANOVA)"
+    run_r_script "scripts/MRB/12.nmds_permanova_cafi.R" "Community composition (NMDS & PERMANOVA)"
+fi
+
 # Step 5: CAFI-Coral Relationships (REQUIRED)
 print_status "Step 5/5: CAFI-coral feedbacks"
 run_r_script "scripts/MRB/8.coral-caffi.R" "Community-performance relationships"
@@ -123,6 +134,10 @@ run_r_script "scripts/MRB/8.coral-caffi.R" "Community-performance relationships"
 # Compile Final Statistics
 print_status "Compiling manuscript statistics"
 run_r_script "scripts/MRB/14.compile-manuscript-statistics.R" "Statistical summaries"
+
+# Pre-submission QA checks
+print_status "Running pre-submission QA checks"
+run_r_script "scripts/MRB/15.pre_submission_checks.R" "Pre-submission QA checks"
 
 # ==============================================================================
 # Summary
@@ -146,9 +161,12 @@ print_status "Verifying outputs..."
 
 OUTPUTS=(
     "output/MRB/tables/MANUSCRIPT_STATISTICAL_TESTS.csv"
-    "output/MRB/figures/coral/growth_treatment_comparison.png"
-    "output/MRB/figures/coral/physiology_by_treatment.png"
-    "output/MRB/figures/coral-cafi/cafi_community_vs_coral_performance.png"
+    "output/MRB/tables/pre_submission_qa_checks.csv"
+    "output/MRB/tables/composition_robustness_index.csv"
+    "output/MRB/figures/coral/SizeCorrected_Volume_Growth_by_Treatment.png"
+    "output/MRB/figures/coral/physio/physio_by_treatment.png"
+    "output/MRB/figures/diversity/16_horizontal_2panel_nmds_density_plus_top15_density.png"
+    "output/MRB/figures/cafi-coral/PCA_LOADINGS_RAW_2panel_clean.png"
 )
 
 ALL_PRESENT=true
@@ -173,7 +191,8 @@ echo ""
 echo "Next steps:"
 echo "  1. Review figures in: output/MRB/figures/"
 echo "  2. Check statistics in: output/MRB/tables/MANUSCRIPT_STATISTICAL_TESTS.csv"
-echo "  3. Verify session info: output/MRB/objects/sessionInfo_*.txt"
+echo "  3. Check pre-submission QA in: output/MRB/tables/pre_submission_qa_summary.md"
+echo "  4. Verify session info: output/MRB/objects/sessionInfo_*.txt"
 echo ""
 print_status "For full documentation, see: docs/REPRODUCIBILITY_GUIDE.md"
 echo ""

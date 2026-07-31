@@ -1,0 +1,121 @@
+result_key,result_label,scenario_id,n_species_full_scope,n_species_condition_scope,estimate,p_value,significant,direction,details
+alpha_rarefied_richness_treatment,Treatment effect on rarefied richness,all_observed_species,118,96,2.0088172340504595,0.031870626580620065,TRUE,positive,NA
+alpha_rarefied_richness_treatment,Treatment effect on rarefied richness,damselfish_only,5,5,-0.3285714285714286,0.00495944446434214,TRUE,negative,NA
+alpha_rarefied_richness_treatment,Treatment effect on rarefied richness,main_38_10x10_corrected,38,38,1.6711028094861398,0.03280301369196141,TRUE,positive,NA
+alpha_rarefied_richness_treatment,Treatment effect on rarefied richness,obligate_plus_damselfish,27,26,0.5108009067534311,0.3111458849550578,FALSE,positive,NA
+alpha_richness_treatment,Treatment effect on richness,all_observed_species,118,96,4.414285714285715,0.08087786524265939,FALSE,positive,NA
+alpha_richness_treatment,Treatment effect on richness,damselfish_only,5,5,-0.5761904761904761,0.1649335677134334,FALSE,negative,NA
+alpha_richness_treatment,Treatment effect on richness,main_38_10x10_corrected,38,38,2.7857142857142847,0.24940640730295183,FALSE,positive,NA
+alpha_richness_treatment,Treatment effect on richness,obligate_plus_damselfish,27,26,-1.3952380952380956,0.16504173549229662,FALSE,negative,NA
+alpha_shannon_treatment,Treatment effect on shannon,all_observed_species,118,96,0.3460721117026653,0.017382889279244626,TRUE,positive,NA
+alpha_shannon_treatment,Treatment effect on shannon,damselfish_only,5,5,-0.11651261818472886,0.6494762525912875,FALSE,negative,NA
+alpha_shannon_treatment,Treatment effect on shannon,main_38_10x10_corrected,38,38,0.28747362679258126,0.02468826101946422,TRUE,positive,NA
+alpha_shannon_treatment,Treatment effect on shannon,obligate_plus_damselfish,27,26,0.0944543209060269,0.36650174378586714,FALSE,positive,NA
+alpha_simpson_treatment,Treatment effect on simpson,all_observed_species,118,96,0.06272207472964397,0.059477461923380034,FALSE,positive,NA
+alpha_simpson_treatment,Treatment effect on simpson,damselfish_only,5,5,0.2519625699014186,0.012928343520215513,TRUE,positive,NA
+alpha_simpson_treatment,Treatment effect on simpson,main_38_10x10_corrected,38,38,0.058194973438914444,0.08511389415599978,FALSE,positive,NA
+alpha_simpson_treatment,Treatment effect on simpson,obligate_plus_damselfish,27,26,0.06456438001715803,0.18193789990034379,FALSE,positive,NA
+beta_permanova_bray_sqrt,Treatment effect on community composition: bray_sqrt,all_observed_species,118,96,0.29436257591284376,0.001,TRUE,NA,NA
+beta_permanova_bray_sqrt,Treatment effect on community composition: bray_sqrt,damselfish_only,5,5,0.1372036412126011,0.222,FALSE,NA,NA
+beta_permanova_bray_sqrt,Treatment effect on community composition: bray_sqrt,main_38_10x10_corrected,38,38,0.30614121043320736,0.001,TRUE,NA,NA
+beta_permanova_bray_sqrt,Treatment effect on community composition: bray_sqrt,obligate_plus_damselfish,27,26,0.2800482797557577,0.001,TRUE,NA,NA
+beta_permanova_gower_sqrt_z,Treatment effect on community composition: gower_sqrt_z,all_observed_species,118,96,0.42568730014263,0.001,TRUE,NA,NA
+beta_permanova_gower_sqrt_z,Treatment effect on community composition: gower_sqrt_z,damselfish_only,5,5,0.2865167668771342,0.001,TRUE,NA,NA
+beta_permanova_gower_sqrt_z,Treatment effect on community composition: gower_sqrt_z,main_38_10x10_corrected,38,38,0.49736698783213934,0.001,TRUE,NA,NA
+beta_permanova_gower_sqrt_z,Treatment effect on community composition: gower_sqrt_z,obligate_plus_damselfish,27,26,0.45276086196558335,0.001,TRUE,NA,NA
+beta_permanova_jaccard,Treatment effect on community composition: jaccard,all_observed_species,118,96,0.1993174873963079,0.001,TRUE,NA,NA
+beta_permanova_jaccard,Treatment effect on community composition: jaccard,damselfish_only,5,5,0.091441794498563,0.467,FALSE,NA,NA
+beta_permanova_jaccard,Treatment effect on community composition: jaccard,main_38_10x10_corrected,38,38,0.196844296762867,0.001,TRUE,NA,NA
+beta_permanova_jaccard,Treatment effect on community composition: jaccard,obligate_plus_damselfish,27,26,0.24784697014475807,0.003,TRUE,NA,NA
+cafi_pc1_condition_HELLINGER,CAFI community PC1 predicts coral condition PC1 (HELLINGER),all_observed_species,118,96,0.17354021636396655,0.05424406843996317,FALSE,positive,PC1 variance=0.090; PCA species used=96
+cafi_pc1_condition_HELLINGER,CAFI community PC1 predicts coral condition PC1 (HELLINGER),damselfish_only,5,5,0.26405416663720654,0.19001974880633327,FALSE,positive,PC1 variance=0.265; PCA species used=5
+cafi_pc1_condition_HELLINGER,CAFI community PC1 predicts coral condition PC1 (HELLINGER),main_38_10x10_corrected,38,38,0.31116363236126515,0.007838381604339147,TRUE,positive,PC1 variance=0.147; PCA species used=38
+cafi_pc1_condition_HELLINGER,CAFI community PC1 predicts coral condition PC1 (HELLINGER),obligate_plus_damselfish,27,26,0.32292907024900436,0.01516205076804907,TRUE,positive,PC1 variance=0.128; PCA species used=26
+cafi_pc1_condition_SQRT,CAFI community PC1 predicts coral condition PC1 (SQRT),all_observed_species,118,96,0.17889163181521367,0.1557251992287116,FALSE,positive,PC1 variance=0.718; PCA species used=96
+cafi_pc1_condition_SQRT,CAFI community PC1 predicts coral condition PC1 (SQRT),damselfish_only,5,5,0.25913581473921055,0.16609309442440573,FALSE,positive,PC1 variance=0.842; PCA species used=5
+cafi_pc1_condition_SQRT,CAFI community PC1 predicts coral condition PC1 (SQRT),main_38_10x10_corrected,38,38,0.17941878154270124,0.15333407193156448,FALSE,positive,PC1 variance=0.742; PCA species used=38
+cafi_pc1_condition_SQRT,CAFI community PC1 predicts coral condition PC1 (SQRT),obligate_plus_damselfish,27,26,0.27066641107427825,0.013805503110968474,TRUE,positive,PC1 variance=0.793; PCA species used=26
+cafi_pc1_condition_SQRT_CS,CAFI community PC1 predicts coral condition PC1 (SQRT_CS),all_observed_species,118,96,0.15672127846734293,0.09366766522331531,FALSE,positive,PC1 variance=0.084; PCA species used=96
+cafi_pc1_condition_SQRT_CS,CAFI community PC1 predicts coral condition PC1 (SQRT_CS),damselfish_only,5,5,0.274411972986568,0.14900693557751504,FALSE,positive,PC1 variance=0.305; PCA species used=5
+cafi_pc1_condition_SQRT_CS,CAFI community PC1 predicts coral condition PC1 (SQRT_CS),main_38_10x10_corrected,38,38,0.3005605252118914,0.014363846699573402,TRUE,positive,PC1 variance=0.138; PCA species used=38
+cafi_pc1_condition_SQRT_CS,CAFI community PC1 predicts coral condition PC1 (SQRT_CS),obligate_plus_damselfish,27,26,0.2676096074970217,0.03391190630987612,TRUE,positive,PC1 variance=0.136; PCA species used=26
+cafi_pc1_treatment_HELLINGER,Treatment effect on CAFI community PC1 (HELLINGER),all_observed_species,118,96,-3.4132439944263733,0.02604851465128345,TRUE,negative,PC1 variance=0.090; PCA species used=96
+cafi_pc1_treatment_HELLINGER,Treatment effect on CAFI community PC1 (HELLINGER),damselfish_only,5,5,0.12239130275771543,0.4514708164284898,FALSE,positive,PC1 variance=0.265; PCA species used=5
+cafi_pc1_treatment_HELLINGER,Treatment effect on CAFI community PC1 (HELLINGER),main_38_10x10_corrected,38,38,-3.4133845505116827,0.0011042643900296795,TRUE,negative,PC1 variance=0.147; PCA species used=38
+cafi_pc1_treatment_HELLINGER,Treatment effect on CAFI community PC1 (HELLINGER),obligate_plus_damselfish,27,26,-2.0108671961005973,0.0032656768316826363,TRUE,negative,PC1 variance=0.128; PCA species used=26
+cafi_pc1_treatment_SQRT,Treatment effect on CAFI community PC1 (SQRT),all_observed_species,118,96,-0.9403096622888958,0.6318498731311676,FALSE,negative,PC1 variance=0.718; PCA species used=96
+cafi_pc1_treatment_SQRT,Treatment effect on CAFI community PC1 (SQRT),damselfish_only,5,5,-1.0845146062640696,0.023340819709400423,TRUE,negative,PC1 variance=0.842; PCA species used=5
+cafi_pc1_treatment_SQRT,Treatment effect on CAFI community PC1 (SQRT),main_38_10x10_corrected,38,38,-0.9622838804911416,0.6221650995768181,FALSE,negative,PC1 variance=0.742; PCA species used=38
+cafi_pc1_treatment_SQRT,Treatment effect on CAFI community PC1 (SQRT),obligate_plus_damselfish,27,26,-2.186038898690059,0.10601777835443947,FALSE,negative,PC1 variance=0.793; PCA species used=26
+cafi_pc1_treatment_SQRT_CS,Treatment effect on CAFI community PC1 (SQRT_CS),all_observed_species,118,96,-3.5301000044406297,0.0072220357550754595,TRUE,negative,PC1 variance=0.084; PCA species used=96
+cafi_pc1_treatment_SQRT_CS,Treatment effect on CAFI community PC1 (SQRT_CS),damselfish_only,5,5,-0.8980142490887928,0.12043781173241791,FALSE,negative,PC1 variance=0.305; PCA species used=5
+cafi_pc1_treatment_SQRT_CS,Treatment effect on CAFI community PC1 (SQRT_CS),main_38_10x10_corrected,38,38,-3.336968647981708,0.0018737483339007336,TRUE,negative,PC1 variance=0.138; PCA species used=38
+cafi_pc1_treatment_SQRT_CS,Treatment effect on CAFI community PC1 (SQRT_CS),obligate_plus_damselfish,27,26,-1.8517802158238332,0.0066849242269559715,TRUE,negative,PC1 variance=0.136; PCA species used=26
+species_condition_Alpheus.diadema,Alpheus diadema abundance predicts coral condition,all_observed_species,118,96,-0.9949772626830148,0.042254248847044616,TRUE,negative,BH p=0.507
+species_condition_Alpheus.diadema,Alpheus diadema abundance predicts coral condition,damselfish_only,5,5,NA,NA,NA,not included,species not in this inclusion set
+species_condition_Alpheus.diadema,Alpheus diadema abundance predicts coral condition,main_38_10x10_corrected,38,38,-0.9949772626830148,0.042254248847044616,TRUE,negative,BH p=0.401
+species_condition_Alpheus.diadema,Alpheus diadema abundance predicts coral condition,obligate_plus_damselfish,27,26,-0.9949772626830148,0.042254248847044616,TRUE,negative,BH p=0.366
+species_condition_Calcinus.latens,Calcinus latens abundance predicts coral condition,all_observed_species,118,96,0.453427200510809,0.07846820668005616,FALSE,positive,BH p=0.690
+species_condition_Calcinus.latens,Calcinus latens abundance predicts coral condition,damselfish_only,5,5,NA,NA,NA,not included,species not in this inclusion set
+species_condition_Calcinus.latens,Calcinus latens abundance predicts coral condition,main_38_10x10_corrected,38,38,0.453427200510809,0.07846820668005616,FALSE,positive,BH p=0.529
+species_condition_Calcinus.latens,Calcinus latens abundance predicts coral condition,obligate_plus_damselfish,27,26,NA,NA,NA,not included,species not in this inclusion set
+species_condition_Caracanthus.maculatus,Caracanthus maculatus abundance predicts coral condition,all_observed_species,118,96,1.422151275487304,8.479723820138816e-4,TRUE,positive,BH p=0.042
+species_condition_Caracanthus.maculatus,Caracanthus maculatus abundance predicts coral condition,damselfish_only,5,5,NA,NA,NA,not included,species not in this inclusion set
+species_condition_Caracanthus.maculatus,Caracanthus maculatus abundance predicts coral condition,main_38_10x10_corrected,38,38,1.422151275487304,8.479723820138816e-4,TRUE,positive,BH p=0.032
+species_condition_Caracanthus.maculatus,Caracanthus maculatus abundance predicts coral condition,obligate_plus_damselfish,27,26,1.422151275487304,8.479723820138816e-4,TRUE,positive,BH p=0.022
+species_condition_Dascyllus.aruanus,Dascyllus aruanus abundance predicts coral condition,all_observed_species,118,96,0.194296000323678,0.3624344603920221,FALSE,positive,BH p=0.941
+species_condition_Dascyllus.aruanus,Dascyllus aruanus abundance predicts coral condition,damselfish_only,5,5,0.194296000323678,0.3624344603920221,FALSE,positive,BH p=0.701
+species_condition_Dascyllus.aruanus,Dascyllus aruanus abundance predicts coral condition,main_38_10x10_corrected,38,38,0.194296000323678,0.3624344603920221,FALSE,positive,BH p=0.766
+species_condition_Dascyllus.aruanus,Dascyllus aruanus abundance predicts coral condition,obligate_plus_damselfish,27,26,0.194296000323678,0.3624344603920221,FALSE,positive,BH p=0.674
+species_condition_Dascyllus.flavicaudus,Dascyllus flavicaudus abundance predicts coral condition,all_observed_species,118,96,0.3205959637563025,0.12536996046120258,FALSE,positive,BH p=0.708
+species_condition_Dascyllus.flavicaudus,Dascyllus flavicaudus abundance predicts coral condition,damselfish_only,5,5,0.3205959637563025,0.12536996046120258,FALSE,positive,BH p=0.627
+species_condition_Dascyllus.flavicaudus,Dascyllus flavicaudus abundance predicts coral condition,main_38_10x10_corrected,38,38,0.3205959637563025,0.12536996046120258,FALSE,positive,BH p=0.529
+species_condition_Dascyllus.flavicaudus,Dascyllus flavicaudus abundance predicts coral condition,obligate_plus_damselfish,27,26,0.3205959637563025,0.12536996046120258,FALSE,positive,BH p=0.466
+species_condition_Harpiliopsis.spinigera,Harpiliopsis spinigera abundance predicts coral condition,all_observed_species,118,96,0.4545990052723649,0.14732350735077587,FALSE,positive,BH p=0.744
+species_condition_Harpiliopsis.spinigera,Harpiliopsis spinigera abundance predicts coral condition,damselfish_only,5,5,NA,NA,NA,not included,species not in this inclusion set
+species_condition_Harpiliopsis.spinigera,Harpiliopsis spinigera abundance predicts coral condition,main_38_10x10_corrected,38,38,0.4545990052723649,0.14732350735077587,FALSE,positive,BH p=0.560
+species_condition_Harpiliopsis.spinigera,Harpiliopsis spinigera abundance predicts coral condition,obligate_plus_damselfish,27,26,0.4545990052723649,0.14732350735077587,FALSE,positive,BH p=0.479
+species_condition_Luniella.pugil,Luniella pugil abundance predicts coral condition,all_observed_species,118,96,-0.9168362992040319,0.013487619502702334,TRUE,negative,BH p=0.216
+species_condition_Luniella.pugil,Luniella pugil abundance predicts coral condition,damselfish_only,5,5,NA,NA,NA,not included,species not in this inclusion set
+species_condition_Luniella.pugil,Luniella pugil abundance predicts coral condition,main_38_10x10_corrected,38,38,-0.9168362992040319,0.013487619502702334,TRUE,negative,BH p=0.256
+species_condition_Luniella.pugil,Luniella pugil abundance predicts coral condition,obligate_plus_damselfish,27,26,NA,NA,NA,not included,species not in this inclusion set
+species_condition_Mitrella.moleculina,Mitrella moleculina abundance predicts coral condition,all_observed_species,118,96,-0.34132576711190454,0.4291240681370463,FALSE,negative,BH p=0.967
+species_condition_Mitrella.moleculina,Mitrella moleculina abundance predicts coral condition,damselfish_only,5,5,NA,NA,NA,not included,species not in this inclusion set
+species_condition_Mitrella.moleculina,Mitrella moleculina abundance predicts coral condition,main_38_10x10_corrected,38,38,-0.34132576711190454,0.4291240681370463,FALSE,negative,BH p=0.858
+species_condition_Mitrella.moleculina,Mitrella moleculina abundance predicts coral condition,obligate_plus_damselfish,27,26,NA,NA,NA,not included,species not in this inclusion set
+species_condition_Morula.zebrina,Morula zebrina abundance predicts coral condition,all_observed_species,118,96,0.13307793325593925,0.7461137511684801,FALSE,positive,BH p=0.967
+species_condition_Morula.zebrina,Morula zebrina abundance predicts coral condition,damselfish_only,5,5,NA,NA,NA,not included,species not in this inclusion set
+species_condition_Morula.zebrina,Morula zebrina abundance predicts coral condition,main_38_10x10_corrected,38,38,0.13307793325593925,0.7461137511684801,FALSE,positive,BH p=0.898
+species_condition_Morula.zebrina,Morula zebrina abundance predicts coral condition,obligate_plus_damselfish,27,26,NA,NA,NA,not included,species not in this inclusion set
+species_condition_Trapezia.serenei,Trapezia serenei abundance predicts coral condition,all_observed_species,118,96,-0.023161394281729055,0.9622448410655704,FALSE,negative,BH p=0.992
+species_condition_Trapezia.serenei,Trapezia serenei abundance predicts coral condition,damselfish_only,5,5,NA,NA,NA,not included,species not in this inclusion set
+species_condition_Trapezia.serenei,Trapezia serenei abundance predicts coral condition,main_38_10x10_corrected,38,38,-0.023161394281729055,0.9622448410655704,FALSE,negative,BH p=0.962
+species_condition_Trapezia.serenei,Trapezia serenei abundance predicts coral condition,obligate_plus_damselfish,27,26,-0.023161394281729055,0.9622448410655704,FALSE,negative,BH p=0.981
+species_condition_Xanthias.lamarckii,Xanthias lamarckii abundance predicts coral condition,all_observed_species,118,96,-0.36809062702522255,0.48262724843948035,FALSE,negative,BH p=0.967
+species_condition_Xanthias.lamarckii,Xanthias lamarckii abundance predicts coral condition,damselfish_only,5,5,NA,NA,NA,not included,species not in this inclusion set
+species_condition_Xanthias.lamarckii,Xanthias lamarckii abundance predicts coral condition,main_38_10x10_corrected,38,38,-0.36809062702522255,0.48262724843948035,FALSE,negative,BH p=0.873
+species_condition_Xanthias.lamarckii,Xanthias lamarckii abundance predicts coral condition,obligate_plus_damselfish,27,26,NA,NA,NA,not included,species not in this inclusion set
+species_condition_sig_negative_count,Number of included species negatively associated with coral condition,all_observed_species,118,96,2,NA,TRUE,count,BH-negative=0
+species_condition_sig_negative_count,Number of included species negatively associated with coral condition,damselfish_only,5,5,0,NA,FALSE,count,BH-negative=0
+species_condition_sig_negative_count,Number of included species negatively associated with coral condition,main_38_10x10_corrected,38,38,2,NA,TRUE,count,BH-negative=0
+species_condition_sig_negative_count,Number of included species negatively associated with coral condition,obligate_plus_damselfish,27,26,1,NA,TRUE,count,BH-negative=0
+species_condition_sig_positive_count,Number of included species positively associated with coral condition,all_observed_species,118,96,6,NA,TRUE,count,BH-positive=2
+species_condition_sig_positive_count,Number of included species positively associated with coral condition,damselfish_only,5,5,0,NA,FALSE,count,BH-positive=0
+species_condition_sig_positive_count,Number of included species positively associated with coral condition,main_38_10x10_corrected,38,38,2,NA,TRUE,count,BH-positive=1
+species_condition_sig_positive_count,Number of included species positively associated with coral condition,obligate_plus_damselfish,27,26,2,NA,TRUE,count,BH-positive=1
+species_scaling_point_above_pct_t6,Percent of included species with observed 6-coral density above proportional expectation,all_observed_species,118,96,54.54545454545454,NA,NA,mostly above,42 above; 35 below
+species_scaling_point_above_pct_t6,Percent of included species with observed 6-coral density above proportional expectation,damselfish_only,5,5,0,NA,NA,mostly below,0 above; 4 below
+species_scaling_point_above_pct_t6,Percent of included species with observed 6-coral density above proportional expectation,main_38_10x10_corrected,38,38,68.42105263157895,NA,NA,mostly above,26 above; 12 below
+species_scaling_point_above_pct_t6,Percent of included species with observed 6-coral density above proportional expectation,obligate_plus_damselfish,27,26,45.45454545454545,NA,NA,mostly below,10 above; 12 below
+species_scaling_sig_above_count,Number of species significantly above proportional scaling,all_observed_species,118,96,6,NA,TRUE,count,Breviturma pica; Chlorodiella laevissima; Cyclodius nitidus; Mitrella moleculina; Morula uva; Xanthias lamarckii
+species_scaling_sig_above_count,Number of species significantly above proportional scaling,damselfish_only,5,5,0,NA,FALSE,count,
+species_scaling_sig_above_count,Number of species significantly above proportional scaling,main_38_10x10_corrected,38,38,2,NA,TRUE,count,Mitrella moleculina; Xanthias lamarckii
+species_scaling_sig_above_count,Number of species significantly above proportional scaling,obligate_plus_damselfish,27,26,0,NA,FALSE,count,
+species_scaling_sig_below_count,Number of species significantly below proportional scaling,all_observed_species,118,96,1,NA,TRUE,count,Dascyllus aruanus
+species_scaling_sig_below_count,Number of species significantly below proportional scaling,damselfish_only,5,5,1,NA,TRUE,count,Dascyllus aruanus
+species_scaling_sig_below_count,Number of species significantly below proportional scaling,main_38_10x10_corrected,38,38,1,NA,TRUE,count,Dascyllus aruanus
+species_scaling_sig_below_count,Number of species significantly below proportional scaling,obligate_plus_damselfish,27,26,1,NA,TRUE,count,Dascyllus aruanus
+total_abundance_scaling_t6,Total CAFI abundance in 6-coral reefs vs proportional expectation,all_observed_species,118,96,-8.832644628099173,NA,FALSE,Proportional,obs=588.33; expected=645.33; bootstrap class=Proportional
+total_abundance_scaling_t6,Total CAFI abundance in 6-coral reefs vs proportional expectation,damselfish_only,5,5,-49.26470588235294,NA,FALSE,Proportional,obs=23.00; expected=45.33; bootstrap class=Proportional
+total_abundance_scaling_t6,Total CAFI abundance in 6-coral reefs vs proportional expectation,main_38_10x10_corrected,38,38,-10.890557939914174,NA,FALSE,Proportional,obs=553.67; expected=621.33; bootstrap class=Proportional
+total_abundance_scaling_t6,Total CAFI abundance in 6-coral reefs vs proportional expectation,obligate_plus_damselfish,27,26,-40.9054805401112,NA,FALSE,Proportional,obs=248.00; expected=419.67; bootstrap class=Proportional

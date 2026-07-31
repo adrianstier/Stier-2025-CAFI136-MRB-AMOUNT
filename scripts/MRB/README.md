@@ -10,22 +10,25 @@ The analysis examines how CAFI community composition, abundance, and diversity s
 
 ### Run Complete Pipeline
 
-```r
+```bash
 # From project root:
-source("scripts/run_all_analyses.R")
+./run_all.sh
 ```
 
 ### Run Individual Scripts
 
-```r
-# Must run in order:
-source("scripts/MRB/1.libraries.R")        # Load packages
-source("scripts/MRB/2.taxonomic-coverage.R") # Taxonomic analysis
-source("scripts/MRB/3.abundance.R")        # Abundance scaling
-source("scripts/MRB/4.diversity.R")        # Diversity metrics
-source("scripts/MRB/5.fishes.R")          # Fish community
-source("scripts/MRB/6.coral.R")           # Coral growth
-# ... etc
+```bash
+# Current submission order:
+Rscript scripts/MRB/1.libraries.R
+Rscript scripts/MRB/3.abundance.R
+Rscript scripts/MRB/4d.diversity.R
+Rscript scripts/MRB/5.fishes.R
+Rscript scripts/MRB/6.coral-growth.R
+Rscript scripts/MRB/7.coral-physiology.R
+Rscript scripts/MRB/12.nmds_permanova_cafi.R
+Rscript scripts/MRB/8.coral-caffi.R
+Rscript scripts/MRB/14.compile-manuscript-statistics.R
+Rscript scripts/MRB/15.pre_submission_checks.R
 ```
 
 ## Pipeline Structure
@@ -35,14 +38,15 @@ source("scripts/MRB/6.coral.R")           # Coral growth
 | Script | Description | Outputs |
 |--------|-------------|---------|
 | **1.libraries.R** | Load all required R packages | (none) |
-| **2.taxonomic-coverage.R** | Analyze taxonomic resolution (species vs genus vs family) | `figures/unique_taxa_table.png` |
 | **3.abundance.R** | Test abundance scaling with coral density | `figures/abundance/*.png` |
-| **4.diversity.R** | Calculate alpha/beta diversity, PERMANOVA | `figures/diversity/*.png` |
+| **4d.diversity.R** | Calculate alpha/beta diversity, PERMANOVA, PERMDISP, density composition, and sensitivity analyses | `figures/diversity/*.png`, `tables/16_permdisp_summary.csv`, `tables/16_species_density_drivers_top15.csv` |
 | **5.fishes.R** | Fish-specific community analysis | `figures/fishes/*.png` |
-| **6.coral.R** | Coral growth from 3D photogrammetry (2019→2021) | `figures/coral/*.png` |
-| **7.cafi-coral.R** | CAFI effects on coral growth (mixed models) | `figures/coral-cafi/*.png` |
-| **8.null-models.R** | Species co-occurrence null models | `figures/null-models/*.png` |
-| **9.coral-physio.R** | Coral physiology × CAFI community | `figures/physio/*.png` |
+| **6.coral-growth.R** | Coral growth from 3D photogrammetry (2019→2021) | `figures/coral/*.png` |
+| **7.coral-physiology.R** | Coral physiology and integrated condition metrics | `figures/coral/physio/*.png` |
+| **12.nmds_permanova_cafi.R** | Coral-level community composition checks that depend on physiology outputs | `figures/diversity/NMDS_*.png`, `tables/community_tests.html` |
+| **8.coral-caffi.R** | CAFI community and species relationships with coral condition | `figures/coral-cafi/*.png` |
+| **14.compile-manuscript-statistics.R** | Compile manuscript statistical tests | `tables/MANUSCRIPT_STATISTICAL_TESTS.csv` |
+| **15.pre_submission_checks.R** | Pre-submission QA ledger and composition robustness index | `tables/pre_submission_qa_checks.csv`, `tables/composition_robustness_index.csv` |
 | **utils.R** | Common utility functions | (sourced by other scripts) |
 
 ### Alternative/Experimental Scripts
@@ -53,12 +57,11 @@ source("scripts/MRB/6.coral.R")           # Coral growth
 | **3b.abundance.R** | Alternative | Another abundance approach |
 | **4b.diversity.R** | Alternative | Alternative diversity metrics |
 | **4c.diversity.R** | Alternative | Diversity with different methods |
-| **4d.diversity.R** | Alternative | Yet another diversity approach |
 | **7a.coral-cafi.R** | Alternative | Alternative CAFI-coral analysis |
 | **7b.coral-caffi.R** | Alternative | Typo variant (archived?) |
 | **12.SLOSS.R** | Specialized | Single Large Or Several Small analysis |
 
-> **Note:** The numbered scripts (e.g., `3.abundance.R`) are the primary/current versions. Scripts with letters (e.g., `3a`, `3b`) are alternatives or experimental variants.
+> **Note:** `run_all.sh` is the canonical submission runner. Some older numbered or lettered scripts remain for provenance or exploratory work, but are not part of the gated submission path unless they are listed above.
 
 ## Data Requirements
 
@@ -120,7 +123,8 @@ output/MRB/
 | `coral_id` | character | Colony identifier | — |
 | `delta_volume` | numeric | Change in volume (2021 - 2019) | cm³ |
 | `delta_surface_area` | numeric | Change in surface area | cm² |
-| `size_corrected_volume_growth` | numeric | Growth / initial surface area | cm³/cm² |
+| `growth_vol_b` | numeric | Allometric size-corrected volume growth used in the manuscript | residual/z-score |
+| `sa_scaled_growth` | numeric | Exploratory volume growth scaled by initial surface area | cm³/cm² |
 | `treatment` | factor | Coral density treatment | 1, 3, or 6 |
 | `reef` | character | Reef location | — |
 
@@ -148,10 +152,10 @@ output/MRB/
 
 ### 4. CAFI-Coral Relationships
 
-- **Response:** Size-corrected volume growth
-- **Predictors:** Abundance of key species
-- **Models:** `lmer(growth ~ abundance + (1|reef))`
-- **Co-occurrence:** Null models (permatfull, oecosimu)
+- **Response:** Coral condition PC1, built from allometric growth and physiology
+- **Predictors:** CAFI community PC1 and key-species abundances
+- **Models:** `lmer(condition_PC1 ~ community_PC1 + (1|reef))` and species-level checks
+- **Co-occurrence:** Exploratory reef-adjusted residual network outputs
 
 ### 5. Physiology Integration
 
@@ -250,13 +254,13 @@ analysis_data <- my_species_data %>%
 
 # 4. Run analysis
 model <- fit_reef_lmm(
-  response = "size_corrected_volume_growth",
+  response = "growth_vol_b",
   predictor = "count",
   data = analysis_data
 )
 
 # 5. Visualize
-p <- ggplot(analysis_data, aes(count, size_corrected_volume_growth)) +
+p <- ggplot(analysis_data, aes(count, growth_vol_b)) +
   geom_point() +
   geom_smooth(method = "lm") +
   theme_cafi_pub() +

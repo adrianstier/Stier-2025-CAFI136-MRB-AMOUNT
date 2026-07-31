@@ -1,0 +1,6 @@
+source,scale,metric,test,F,R2,p,permdisp_p,sensitivity_prop_sig,evidence_file,permdisp_F,sensitivity_methods,permanova_significant,dispersion_caution
+§14 unit-correct reef PERMANOVA,Reef (unit-correct),Jaccard incidence,PERMANOVA,1.9391917335822793,0.16242236299194074,0.032,NA,0.4824120603015075,output/MRB/tables/14_permanova_summary.csv,NA,Rarefaction; Bootstrap; N-sensitivity (across N),TRUE,FALSE
+§14 unit-correct reef PERMANOVA,Reef (unit-correct),Gower sqrt abundance,PERMANOVA,9.607501431230082,0.4899911120714045,0.001,NA,1,output/MRB/tables/14_permanova_summary.csv,NA,Rarefaction; Bootstrap; N-sensitivity (across N),TRUE,FALSE
+§16 reef Gower/density PERMANOVA,Reef,Gower sqrt abundance,PERMANOVA,9.607501431230082,0.4899911120714045,0.001,0.105,1,output/MRB/tables/16_permanova_summary.csv,2.420159491842712,Rarefaction; Bootstrap; N-sensitivity (across N),TRUE,FALSE
+§16 reef Gower/density PERMANOVA,Reef,Gower proportional composition,PERMANOVA,1.6586579058413684,0.1422683399098902,0.045,0.396,0.5527638190954773,output/MRB/tables/16_permanova_summary.csv,0.9565983223133948,Rarefaction; Bootstrap; N-sensitivity (across N),TRUE,FALSE
+§16 reef Gower/density PERMANOVA,Reef,Gower sqrt per-colony density,PERMANOVA,2.0127963138116365,0.16755435297753585,0.015,0.122,NA,output/MRB/tables/16_permanova_summary.csv,2.2750961663181637,NA,TRUE,FALSE

@@ -42,12 +42,15 @@ FACET_SPACING <- 0.5               # Space between facets
 # COLOR PALETTES
 # ==============================================================================
 
-# Treatment colors (coral number 1/3/6 is ORDINAL -> sequential viridis ramp;
-# resolves reviewer comment on 3-vs-6 being hard to distinguish. viridis(3, begin=0.15, end=0.80))
+# Treatment colors (coral number 1/3/6 is ORDINAL -> sequential viridis ramp).
+# R1 revision (Curtis #J61): widened the viridis spread so treatments 3 and 6 are
+# clearly distinct -- 3 is now a blue-teal and 6 a saturated green (previously teal
+# vs yellow-green read too similarly). Ordinal purple->blue->green preserved; all
+# three legible on white (no pale yellow).
 TREATMENT_COLORS <- c(
-  "1" = "#463480",   # viridis dark purple (fewest corals)
-  "3" = "#238A8D",   # viridis teal
-  "6" = "#7AD151"    # viridis green (most corals)
+  "1" = "#440154",   # viridis dark purple (fewest corals)
+  "3" = "#31688E",   # viridis blue-teal
+  "6" = "#5DC863"    # viridis green (most corals)
 )
 
 # Taxon colors (Fish / Crustacean / Snail) -- QUALITATIVE, Okabe-Ito; single source

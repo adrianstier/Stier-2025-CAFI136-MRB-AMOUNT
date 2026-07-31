@@ -6,6 +6,28 @@
 
 ---
 
+## Current Canonical Reproduction Path
+
+From the repository root:
+
+```bash
+./run_all.sh      # full analysis, figures, statistics, and pre-submission QA
+make qa          # rerun only the pre-submission QA ledger
+make validate    # data checksums plus key-output validator
+```
+
+Current reviewer-facing QA outputs:
+
+- `output/MRB/tables/pre_submission_qa_summary.md`
+- `output/MRB/tables/pre_submission_qa_checks.csv`
+- `output/MRB/tables/composition_robustness_index.csv`
+- `output/MRB/tables/16_permdisp_summary.csv`
+- `output/MRB/tables/16_species_density_drivers_top15.csv`
+
+The legacy script-by-script examples below are retained as explanatory notes, but `run_all.sh` is the canonical entry point.
+
+---
+
 ## Table of Contents
 
 1. [System Requirements](#system-requirements)
@@ -117,14 +139,12 @@ library(here)
 
 # Expected data files
 required_files <- c(
-  # Coral growth data
-  "data/MRB/coral/mesh_measures.csv",  # Placeholder - update with actual filenames
-
-  # CAFI community data
-  "data/MRB/cafi/cafi_abundance.csv",  # Placeholder - update with actual filenames
-
-  # Physiology data
-  "data/MRB/physiology/coral_physiology.csv"  # Placeholder - update with actual filenames
+  "data/MRB Amount/1. mrb_fe_cafi_summer_2021_v4_AP_updated_2024.csv",
+  "data/MRB Amount/coral_id_position_treatment.csv",
+  "data/MRB Amount/1. amount_master_phys_data_v5.csv",
+  "data/MRB Amount/MRB_2019_200K_mesh_measure.csv",
+  "data/MRB Amount/MRB_May_2021_200K_mesh_measure.csv",
+  "data/processed/coral_growth.csv"
 )
 
 # Check files
@@ -163,17 +183,8 @@ Run all scripts in order from repository root:
 # Navigate to repository root
 cd /path/to/Stier-2025-CAFI136-MRB-AMOUNT
 
-# Run all scripts in order
-Rscript scripts/MRB/1.data-organization.R
-Rscript scripts/MRB/2.exploratory-figures.R
-Rscript scripts/MRB/3.cafi-community.R
-Rscript scripts/MRB/4d.cafi-diversity.R
-Rscript scripts/MRB/5.cafi-composition.R
-Rscript scripts/MRB/6.coral-growth.R
-Rscript scripts/MRB/7.coral-physiology.R
-Rscript scripts/MRB/8.cafi-coral-community.R
-Rscript scripts/MRB/12.publication-figures.R
-Rscript scripts/MRB/14.compile-manuscript-statistics.R
+# Run all scripts in canonical order
+./run_all.sh
 ```
 
 ### Alternative: Run from R Console
@@ -181,39 +192,33 @@ Rscript scripts/MRB/14.compile-manuscript-statistics.R
 ```r
 library(here)
 
-# Set working directory to repository root
-setwd(here())
-
 # Run scripts
-source(here("scripts/MRB/1.data-organization.R"))
-source(here("scripts/MRB/2.exploratory-figures.R"))
-source(here("scripts/MRB/3.cafi-community.R"))
-source(here("scripts/MRB/4d.cafi-diversity.R"))
-source(here("scripts/MRB/5.cafi-composition.R"))
+source(here("scripts/MRB/1.libraries.R"))
+source(here("scripts/MRB/3.abundance.R"))
+source(here("scripts/MRB/4d.diversity.R"))
+source(here("scripts/MRB/5.fishes.R"))
 source(here("scripts/MRB/6.coral-growth.R"))
 source(here("scripts/MRB/7.coral-physiology.R"))
-source(here("scripts/MRB/8.cafi-coral-community.R"))
-source(here("scripts/MRB/12.publication-figures.R"))
+source(here("scripts/MRB/12.nmds_permanova_cafi.R"))
+source(here("scripts/MRB/8.coral-caffi.R"))
 source(here("scripts/MRB/14.compile-manuscript-statistics.R"))
+source(here("scripts/MRB/15.pre_submission_checks.R"))
 ```
 
 ### Script-by-Script Guide
 
-#### Script 1: Data Organization
-**Purpose:** Load and organize raw data
+#### Script 1: Libraries and shared setup
+**Purpose:** Load required packages and shared helper functions
 **Runtime:** ~30 seconds
-**Outputs:** Processed data objects in R workspace
+**Outputs:** Package checks and shared constants/functions
 
 ```bash
-Rscript scripts/MRB/1.data-organization.R
+Rscript scripts/MRB/1.libraries.R
 ```
 
 **Expected console output:**
 ```
-✓ Loaded coral growth data (n = 54)
-✓ Filtered to ≥80% tissue alive (n = 44)
-✓ Loaded CAFI community data (23 reefs)
-✓ Loaded physiology data (n = 44)
+✓ All libraries loaded successfully
 ```
 
 #### Script 6: Coral Growth Analysis (KEY SCRIPT)
@@ -272,15 +277,15 @@ PC1 (performance): χ² = 8.11, p = 0.017
 **Runtime:** ~30 seconds
 
 ```bash
-Rscript scripts/MRB/8.cafi-coral-community.R
+Rscript scripts/MRB/8.coral-caffi.R
 ```
 
 **Expected key result:**
 ```
 CAFI community predicts coral performance:
-  SQRT_CS: p = 0.00085
-  HELLINGER: p = 0.014
-  SQRT: p = 0.042
+  SQRT_CS: beta = 0.301, p = 0.014
+  HELLINGER: beta = 0.311, p = 0.008
+  SQRT: beta = 0.179, p = 0.153
 ```
 
 #### Script 14: Compile Statistics
@@ -312,9 +317,8 @@ expected_outputs <- c(
   "output/MRB/MANUSCRIPT_STATS_TABLE.csv",
   "output/MRB/tables/MANUSCRIPT_STATISTICAL_TESTS.csv",
   "output/MRB/tables/MANUSCRIPT_STATISTICAL_TESTS.html",
-
-  # Key documentation
-  "output/MRB/KEY_STATISTICS_FOR_MANUSCRIPT.md",
+  "output/MRB/tables/pre_submission_qa_checks.csv",
+  "output/MRB/tables/composition_robustness_index.csv",
 
   # Growth figures
   "output/MRB/figures/coral/ANCOVA_Init_vs_Final_Volume_by_Treatment.png",
@@ -392,10 +396,7 @@ install.packages("package_name", repos = "https://cloud.r-project.org/")
 # Verify working directory
 getwd()  # Should be repository root
 
-# If not, set it
-setwd("/path/to/Stier-2025-CAFI136-MRB-AMOUNT")
-
-# Or use here package
+# Use the here package to locate the repository root
 library(here)
 here()  # Should show repository root
 ```
@@ -469,7 +470,9 @@ Use this checklist to confirm successful reproduction:
   - [ ] Carbohydrate p-value = 0.007
   - [ ] PC1 p-value = 0.017
 - [ ] Script 8 runs successfully (CAFI-coral)
-  - [ ] SQRT_CS p-value = 0.00085
+  - [ ] SQRT_CS p-value = 0.014
+  - [ ] HELLINGER p-value = 0.008
+  - [ ] SQRT p-value = 0.153
 - [ ] Script 14 creates statistics tables
 - [ ] All expected output files generated
 - [ ] Key statistics match expected values

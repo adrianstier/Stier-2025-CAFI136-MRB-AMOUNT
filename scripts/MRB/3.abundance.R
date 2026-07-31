@@ -22,6 +22,7 @@
 source("scripts/MRB/1.libraries.R")
 source("scripts/MRB/utils.R")
 source("scripts/MRB/mrb_figure_standards.R")
+source("scripts/MRB/silhouettes.R")   # PhyloPic taxon vector art (shared by Figs 2/3B/5/6)
 
 ## 0.1 Reproducibility settings ----------------------------------------------
 set.seed(1234)                           # for any stochastic procedures
@@ -112,6 +113,28 @@ np_richness_ci <- function(M, k, B = 10000L, probs = c(0.025, 0.5, 0.975), seed 
     sum(colSums(M[idx, , drop = FALSE]) > 0)
   })
   stats::quantile(rich, probs = probs, names = TRUE, type = 7)
+}
+
+# Nonparametric resampling band for RAREFIED richness (panel C / rarefied panel).
+# R1 revision (Osenberg #C59 / Curtis #J58): give panel C the same Field-of-Dreams
+# band panel B has. Same resample as np_richness_ci -- pool k resampled single-coral
+# (treatment-1) reef community vectors -- but instead of counting unique species we
+# rarefy the pooled count vector to `sample_size` (vegan::rarefy), matching the
+# observed rarefied-richness metric. Returns the probs quantiles across B resamples.
+np_rarefied_ci <- function(M, k, sample_size, B = 10000L,
+                           probs = c(0.025, 0.5, 0.975), seed = NULL) {
+  if (!is.null(seed)) set.seed(seed)
+  M <- as.matrix(M)
+  n <- nrow(M)
+  if (n == 0L || k < 1L || B < 1L) {
+    return(setNames(rep(NA_real_, length(probs)), paste0("p", probs)))
+  }
+  rr <- replicate(B, {
+    idx    <- sample.int(n, size = k, replace = TRUE)
+    pooled <- colSums(M[idx, , drop = FALSE])
+    suppressWarnings(as.numeric(vegan::rarefy(pooled, sample = sample_size)))
+  })
+  stats::quantile(rr, probs = probs, names = TRUE, type = 7)
 }
 
 # CAFI observations (counts per coral_id/species)
@@ -564,7 +587,7 @@ theme_common <- theme_bw(base_size = 16) +
     axis.title.x       = element_text(size = 18, margin = margin(t = 8)),
     axis.text          = element_text(size = 14, color = "black"),
     strip.background   = element_blank(),
-    strip.text         = element_text(size = 10),
+    strip.text         = element_text(size = 13),
     panel.border       = element_rect(color = "black", fill = NA, linewidth = 0.5),
     plot.tag           = element_text(face = "bold", size = 18),
     plot.tag.position  = c(0.97, 0.98)
@@ -573,6 +596,33 @@ theme_common <- theme_bw(base_size = 16) +
 
 # Helper: draw the ribbon bounds too (great for debugging visibility)
 debug_bounds <- FALSE  # set TRUE to draw lower/upper as thin lines
+
+# ---- Per-panel PhyloPic taxon silhouettes (facet-aware; same vector art / palette
+#      as Figs 3B & 5). One geom_phylopic layer per panel so each facet shows its own
+#      taxon icon; `img`/`height`/`fill` are passed as params (not scaled aesthetics),
+#      so they never collide with the treatment fill scale used by the raw points. ------
+sil_panel_df <- tax_map %>%
+  dplyr::transmute(
+    panel  = factor(panel_label, levels = panel_levels),
+    tgroup = as.character(group_order)          # "Fish" / "Crustacean" / "Snail"
+  ) %>%
+  dplyr::distinct() %>%
+  dplyr::left_join(rng_df, by = "panel") %>%
+  dplyr::mutate(
+    x = 1.55,                                    # top-left, just right of the x = 1 point
+    y = ymax - 0.10 * (ymax - ymin),
+    h = 0.22 * (ymax - ymin)
+  )
+
+sil_layers2 <- Filter(Negate(is.null), lapply(seq_len(nrow(sil_panel_df)), function(i) {
+  tg  <- sil_panel_df$tgroup[i]
+  sil <- taxon_silhouette(tg); if (is.null(sil)) return(NULL)
+  rphylopic::geom_phylopic(
+    data = sil_panel_df[i, , drop = FALSE],
+    aes(x = x, y = y), img = sil, height = sil_panel_df$h[i],
+    fill = unname(TAXON_COLORS[[tg]]), inherit.aes = FALSE
+  )
+}))
 
 #THIS IS THE A PUBLICATION FIGURE
 
@@ -619,10 +669,11 @@ p_focal_np <- ggplot() +
     shape = 21, color = "white", stroke = 0.4
   ) +
   scale_fill_manual(values = TREATMENT_COLORS, guide = "none") +
+  sil_layers2 +
   facet_wrap(~ panel, ncol = 4, scales = "free_y", labeller = ggplot2::label_parsed) +
   scale_x_continuous(breaks = c(1,3,6)) +
   scale_y_continuous(breaks = my_breaks, expand = expansion(mult = c(0, 0.02))) +
-  labs(x = "Number of corals", y = "Total abundance") +
+  labs(x = "Number of corals per reef", y = "Total abundance") +
   theme_common
 
 outfile <- file.path(paths$out_dir_fig, "focal_order_species_np.png")
@@ -745,6 +796,19 @@ np_ci_rich <- tibble(
   upper_np  = c(rq3[[3]], rq6[[3]])
 )
 cli::cli_alert_info("NP-expected richness (FoD): k=3 median {round(rq3[[2]],1)} [{round(rq3[[1]],1)}, {round(rq3[[3]],1)}]; k=6 median {round(rq6[[2]],1)} [{round(rq6[[1]],1)}, {round(rq6[[3]],1)}]")
+
+# Nonparametric resampling band for the RAREFIED-richness panel (panel C).
+# Same pooled-resample of treatment-1 reefs as the richness band, rarefied to the
+# same min_sample_size used for the observed rarefied_richness above.
+rrr3 <- np_rarefied_ci(t1_species_mat, 3, min_sample_size, B = params$bootstrap_B, seed = params$seed)
+rrr6 <- np_rarefied_ci(t1_species_mat, 6, min_sample_size, B = params$bootstrap_B, seed = params$seed)
+np_ci_rare <- tibble(
+  treatment = c(3, 6),
+  lower_np  = c(rrr3[[1]], rrr6[[1]]),
+  median_np = c(rrr3[[2]], rrr6[[2]]),
+  upper_np  = c(rrr3[[3]], rrr6[[3]])
+)
+cli::cli_alert_info("NP-expected rarefied richness (FoD): k=3 median {round(rrr3[[2]],1)} [{round(rrr3[[1]],1)}, {round(rrr3[[3]],1)}]; k=6 median {round(rrr6[[2]],1)} [{round(rrr6[[1]],1)}, {round(rrr6[[3]],1)}]")
 
 richness_summary <- richness_summary %>%
   mutate(
@@ -998,7 +1062,16 @@ p_rare <- ggplot(rarefied_summary, aes(x = treatment_num, y = mean_rarefied)) +
   # Black line and points for observed mean
   geom_line(color = params$col_obs, linewidth = 1.3) +
   geom_point(shape = 21, fill = params$col_obs, color = "white", size = pt_sz, stroke = 0.8) +
-  labs(y = "Rarefied richness", x = "Number of corals") +
+  # Expected values (Field of Dreams) - gray ribbon, dashed line (matches panel B)
+  geom_ribbon(data = np_ci_rare,
+              aes(x = treatment, ymin = lower_np, ymax = upper_np),
+              inherit.aes = FALSE,
+              fill = params$ribbon_color, alpha = params$ribbon_alpha) +
+  geom_line(data = np_ci_rare,
+            aes(x = treatment, y = median_np, group = 1),
+            inherit.aes = FALSE,
+            color = params$col_exp, linetype = "dashed", linewidth = 1.3) +
+  labs(y = "Rarefied richness", x = "Number of corals per reef") +
   x_axis_common + theme_common +
   coord_cartesian(ylim = c(0, NA))
 
@@ -1140,17 +1213,36 @@ comm_long <- species_matrix %>%
   filter(!is.na(abundance)) %>%
   mutate(treatment = as.integer(as.character(treatment)))
 
-# 9.1: Identify Top 30 Most Abundant Species
-top30_species <- comm_long %>%
+# 9.1: Identify the community inclusion set (reconciled to the multivariate analyses)
+# ----------------------------------------------------------------------------
+# Use the SAME 10x10 inclusion criteria as the multivariate analyses in
+# 4d.diversity.R: keep species observed on >= 10 distinct coral colonies AND with
+# total abundance >= 10 individuals. "Prevalence" is counted on the coral-level data
+# (species_only_df, which carries coral_id) so it reflects distinct COLONIES, not
+# reefs. This yields the 38-species set used elsewhere in the paper, replacing the
+# former "top 30 most abundant" selection.
+PREV_MIN_SCALING  <- 10   # >= 10 distinct colonies with presence
+ABUND_MIN_SCALING <- 10   # >= 10 total individuals
+
+scaling_species <- species_only_df %>%
   group_by(species) %>%
-  summarise(total_abundance = sum(abundance, na.rm = TRUE), .groups = "drop") %>%
+  summarise(
+    total_abundance = sum(count, na.rm = TRUE),
+    prevalence      = dplyr::n_distinct(coral_id[!is.na(count) & count > 0]),
+    .groups = "drop"
+  ) %>%
+  filter(prevalence >= PREV_MIN_SCALING, total_abundance >= ABUND_MIN_SCALING) %>%
   arrange(desc(total_abundance)) %>%
-  slice_head(n = 30) %>%
-  pull(species)
+  pull(species) %>%
+  unique()
+
+cli::cli_alert_info(
+  "Scaling inclusion set: {length(scaling_species)} species (prevalence >= {PREV_MIN_SCALING} colonies AND total abundance >= {ABUND_MIN_SCALING} individuals)."
+)
 
 # 9.2: Observed Means and 95% CIs by Treatment (3,6)
 obs_summary_all <- comm_long %>%
-  filter(species %in% top30_species, treatment %in% c(3, 6)) %>%
+  filter(species %in% scaling_species, treatment %in% c(3, 6)) %>%
   group_by(species, treatment) %>%
   summarise(
     observed_mean = mean(abundance),
@@ -1164,7 +1256,7 @@ obs_summary_all <- comm_long %>%
 # 9.3: Expected Means from Treatment 1 (Nonparametric Bootstrap, helper)
 set.seed(params$seed)
 boot_results_all <- comm_long %>%
-  filter(species %in% top30_species, treatment == 1) %>%
+  filter(species %in% scaling_species, treatment == 1) %>%
   group_by(species) %>%
   summarise(
     q3 = list(np_sum_ci(abundance, 3, B = params$bootstrap_B, seed = params$seed)),
@@ -1242,10 +1334,10 @@ summary_table_all <- combined_results %>%
   gt::sub_missing(columns = everything(), missing_text = "–")
 
 # 9.6: Save CSV and PDF table (with PNG fallback)
-readr::write_csv(combined_results, file.path(paths$out_dir_data, "top30_observed_vs_expected_all.csv"))
+readr::write_csv(combined_results, file.path(paths$out_dir_data, "scaling38_observed_vs_expected_all.csv"))
 
-pdf_path <- file.path(paths$out_dir_fig, "top30_observed_vs_expected_all.pdf")
-png_path <- file.path(paths$out_dir_fig, "top30_observed_vs_expected_all.png")
+pdf_path <- file.path(paths$out_dir_fig, "scaling38_observed_vs_expected_all.pdf")
+png_path <- file.path(paths$out_dir_fig, "scaling38_observed_vs_expected_all.png")
 ok <- try(gt::gtsave(summary_table_all, filename = pdf_path), silent = TRUE)
 if (inherits(ok, "try-error")) {
   cli::cli_warn("PDF save failed for gt table; falling back to PNG.")
@@ -1253,11 +1345,134 @@ if (inherits(ok, "try-error")) {
 }
 summary_table_all
 
+# 9.6b: Supplement table -- per-species scaling for all inclusion-set species -----
+# One row per species x scaling treatment (3, 6). Adds taxon group (Fish/Crustacean/
+# Snail) from class, observed mean density, expected under proportional scaling
+# (nonparametric bootstrap median), the direction classification, and the species-
+# level significance flag. Also prints the community summary counts for the Results.
+taxon_group_map <- MRBcafi_df %>%
+  dplyr::distinct(species, class) %>%
+  dplyr::mutate(
+    taxon_group = dplyr::case_when(
+      class %in% c("Actinopterygii", "Teleostei") ~ "Fish",
+      class == "Malacostraca"                     ~ "Crustacean",
+      class == "Gastropoda"                       ~ "Snail",
+      TRUE                                        ~ NA_character_
+    )
+  ) %>%
+  dplyr::distinct(species, taxon_group)
+
+scaling_supplement <- combined_results %>%
+  dplyr::left_join(taxon_group_map, by = "species") %>%
+  dplyr::transmute(
+    Species                = species,
+    Taxon_group            = taxon_group,
+    Treatment              = treatment,
+    Observed_mean          = round(observed_mean, 3),
+    Expected_proportional  = round(expected_median, 3),
+    Direction              = direction,
+    Significant            = sig
+  ) %>%
+  dplyr::arrange(Taxon_group, Species, Treatment)
+
+readr::write_csv(scaling_supplement,
+                 file.path(paths$out_dir_data, "scaling_table_38species_supplement.csv"))
+cli::cli_alert_success(
+  "Saved 38-species scaling supplement table ({nrow(scaling_supplement)} rows) to {file.path(paths$out_dir_data, 'scaling_table_38species_supplement.csv')}."
+)
+
+# 9.6c: One-row-per-species scaling table (for the supplement) ------------------
+# Reshapes the per-species x treatment results into a single row per species with
+# both scaling treatments side by side. Two "expected" definitions are reported:
+#   - Exp_t3 / Exp_t6 = the PARAMETRIC Field-of-Dreams (proportional) expectation,
+#     k x mean(treatment-1) -- the dashed line in Fig 2 -- used for the reported
+#     percent-deviation ("observed vs proportional expectation").
+#   - Significant = the NONPARAMETRIC bootstrap CI test from combined_results
+#     (sig at treatment 3 OR 6), i.e. the same species-level test as §9.4.
+# Deviation_pct_t6 = (Obs_t6 - Exp_t6) / Exp_t6 * 100; Direction is its sign.
+base_t1_scaling <- comm_long %>%
+  dplyr::filter(species %in% scaling_species, treatment == 1) %>%
+  dplyr::group_by(species) %>%
+  dplyr::summarise(mean_t1 = mean(abundance), .groups = "drop")
+
+scaling_1row <- combined_results %>%
+  dplyr::select(species, treatment, observed_mean, sig) %>%
+  tidyr::pivot_wider(names_from = treatment,
+                     values_from = c(observed_mean, sig),
+                     names_sep = "_") %>%
+  dplyr::left_join(base_t1_scaling, by = "species") %>%
+  dplyr::left_join(taxon_group_map, by = "species") %>%
+  dplyr::mutate(
+    Exp_t3           = mean_t1 * 3,
+    Exp_t6           = mean_t1 * 6,
+    Deviation_pct_t6 = (observed_mean_6 - Exp_t6) / Exp_t6 * 100,
+    Direction        = dplyr::if_else(Deviation_pct_t6 >= 0, "Above", "Below"),
+    Significant      = (sig_3 | sig_6)
+  ) %>%
+  dplyr::transmute(
+    Species          = species,
+    Taxon            = taxon_group,
+    Obs_t3           = round(observed_mean_3, 3),
+    Exp_t3           = round(Exp_t3, 3),
+    Obs_t6           = round(observed_mean_6, 3),
+    Exp_t6           = round(Exp_t6, 3),
+    Deviation_pct_t6 = round(Deviation_pct_t6, 1),
+    Direction,
+    Significant
+  ) %>%
+  dplyr::arrange(Taxon, Species)
+
+readr::write_csv(scaling_1row,
+                 file.path(paths$out_dir_data, "scaling_table_38species_1row.csv"))
+cli::cli_alert_success(
+  "Saved 38-species one-row-per-species scaling table ({nrow(scaling_1row)} rows) to {file.path(paths$out_dir_data, 'scaling_table_38species_1row.csv')}."
+)
+
+# ---- Species-level community scaling summary (for the Results text) -----------
+# Species-level classification: a species is Below/Above if it tests significantly
+# Below/Above in EITHER scaling treatment (3 or 6); otherwise Proportional. (No
+# species is both.) Significance = the CI-based species-level test.
+scaling_species_summary <- combined_results %>%
+  dplyr::group_by(species) %>%
+  dplyr::summarise(
+    below_any = any(direction == "Below Expected"),
+    above_any = any(direction == "Above Expected"),
+    sig_any   = any(sig),
+    .groups   = "drop"
+  ) %>%
+  dplyr::mutate(
+    species_direction = dplyr::case_when(
+      below_any ~ "Below Expected",
+      above_any ~ "Above Expected",
+      TRUE      ~ "Proportional"
+    )
+  )
+
+# Point-estimate direction (observed vs expected proportional), collapsed per
+# species (mean of observed-minus-expected across treatments 3 & 6). This parallels
+# the manuscript's "X% had observed densities below expected" framing.
+scaling_pointdir <- combined_results %>%
+  dplyr::group_by(species) %>%
+  dplyr::summarise(mean_diff = mean(diff, na.rm = TRUE), .groups = "drop") %>%
+  dplyr::mutate(point_dir = dplyr::if_else(mean_diff < 0, "Below expected", "Above expected"))
+
+n_scaling <- length(scaling_species)
+cli::cli_h3("Community scaling summary (inclusion set, N = {n_scaling} species)")
+cat("\n--- Species-level significance test (CI-based direction) ---\n")
+print(as.data.frame(table(scaling_species_summary$species_direction)))
+cat(sprintf("Statistically significant species-level tests: %d of %d\n",
+            sum(scaling_species_summary$sig_any), n_scaling))
+cat("\n--- Point-estimate direction (observed vs proportional expectation) ---\n")
+print(as.data.frame(table(scaling_pointdir$point_dir)))
+cat(sprintf("Observed BELOW proportional expectation: %d of %d (%.1f%%)\n",
+            sum(scaling_pointdir$point_dir == "Below expected"), n_scaling,
+            100 * mean(scaling_pointdir$point_dir == "Below expected")))
+
 # 9.7: Visualization – Observed vs. Expected Abundance by Species (1, 3, 6)
 cli::cli_h3("Section 9.7: Per-species plots with observed & bootstrap expected")
 
 obs_summary_all_extended <- comm_long %>%
-  filter(species %in% top30_species, treatment %in% c(1, 3, 6)) %>%
+  filter(species %in% scaling_species, treatment %in% c(1, 3, 6)) %>%
   group_by(species, treatment) %>%
   summarise(
     observed_mean = mean(abundance),
@@ -1388,8 +1603,8 @@ if (exists("p_rarefied")) {
 # -- Data artifacts saved above:
 # - Section 6: top_species_treatment_data.csv
 # - Section 8: three_panel_nonparametric.pdf
-# - Section 9: top30_observed_vs_expected_all.csv, top30_observed_vs_expected_all.pdf/PNG,
-#              species_observed_vs_expected.pdf
+# - Section 9: scaling38_observed_vs_expected_all.csv, scaling38_observed_vs_expected_all.pdf/PNG,
+#              scaling_table_38species_supplement.csv, species_observed_vs_expected.pdf
 
 # -- Save key R objects for reuse ---------------------------------------------
 objs_to_save <- list()

@@ -1035,6 +1035,38 @@ adonis_row1_16 <- function(fit) {
   )
 }
 
+permdisp_row1_16 <- function(dist_obj, meta_df, scale_label, flavor_label,
+                             id_col, group_col = "treatment", nperm = 999) {
+  labs <- attr(dist_obj, "Labels")
+  if (is.null(labs)) stop("PERMDISP distance object has no Labels attribute.")
+  meta_aligned <- meta_df |>
+    dplyr::mutate(
+      .unit = as.character(.data[[id_col]]),
+      .group = droplevels(factor(.data[[group_col]], levels = c(1, 3, 6)))
+    ) |>
+    dplyr::slice(match(labs, .data$.unit))
+  if (any(is.na(meta_aligned$.unit))) {
+    stop("PERMDISP metadata could not be aligned for ", scale_label, " / ", flavor_label)
+  }
+  bd <- vegan::betadisper(dist_obj, meta_aligned$.group)
+  pt <- vegan::permutest(bd, permutations = nperm)
+  tab <- as.data.frame(pt$tab)
+  tibble::tibble(
+    scale = scale_label,
+    flavor = flavor_label,
+    Df = suppressWarnings(as.numeric(tab$Df[1])),
+    F = suppressWarnings(as.numeric(tab$F[1])),
+    p = suppressWarnings(as.numeric(tab[1, "Pr(>F)"])),
+    n_units = length(labs),
+    n_groups = nlevels(droplevels(meta_aligned$.group)),
+    diagnostic_scope = dplyr::if_else(
+      grepl("^Coral", scale_label),
+      "free permutations; diagnostic only because the matching PERMANOVA uses reef strata",
+      "free permutations at the reef unit"
+    )
+  )
+}
+
 # ---- 16.2 Matrices (Abundance vs Proportion; Coral vs Reef) -----------------
 # Coral-level matrices (already 10×10-filtered species earlier)
 X_coral_abund <- mat_coral_abund
@@ -1114,6 +1146,20 @@ sum16 <- dplyr::bind_rows(
 print(sum16)
 readr::write_csv(sum16, file.path(TAB_DIR, "16_permanova_summary.csv"))
 
+disp16 <- dplyr::bind_rows(
+  permdisp_row1_16(dist_coral_gow_abund, meta_coral, "Coral (strata=reef)", "Abundance", "coral_id"),
+  permdisp_row1_16(dist_coral_gow_prop,  meta_coral, "Coral (strata=reef)", "Proportion", "coral_id"),
+  permdisp_row1_16(dist_reef_gow_abund,  meta_reef,  "Reef", "Abundance", "reef"),
+  permdisp_row1_16(dist_reef_gow_prop,   meta_reef,  "Reef", "Proportion", "reef"),
+  permdisp_row1_16(dist_reef_gow_density, meta_reef, "Reef", "Per-colony density", "reef")
+) |>
+  dplyr::mutate(sig = dplyr::case_when(
+    p < 0.001 ~ "***", p < 0.01 ~ "**", p < 0.05 ~ "*", p < 0.1 ~ ".", TRUE ~ ""
+  ))
+
+print(disp16)
+readr::write_csv(disp16, file.path(TAB_DIR, "16_permdisp_summary.csv"))
+
 # nice GT table
 gt16 <- sum16 |>
   dplyr::rename(df = Df) |>
@@ -1125,40 +1171,51 @@ gt16 <- sum16 |>
                 locations = gt::cells_body(columns = sig, rows = sig %in% c("***","**","*")))
 gt::gtsave(gt16, file.path(TAB_DIR, "16_permanova_summary.html"))
 
-cli::cli_alert_success("§16 complete: panels saved; PERMANOVAs run and summaries written.")
+gt16_disp <- disp16 |>
+  gt::gt(groupname_col = "scale") |>
+  gt::tab_header(title = "§16 — PERMDISP summary: Abundance vs Proportion × Scale (+ Density)") |>
+  gt::fmt_number(columns = c(Df, F, p, n_units, n_groups), decimals = 3) |>
+  gt::cols_label(flavor = "Flavor", Df = "df", F = "F", p = "p",
+                 n_units = "n units", n_groups = "groups", sig = "Sig.",
+                 diagnostic_scope = "Scope") |>
+  gt::tab_style(gt::cell_text(weight = "bold"),
+                locations = gt::cells_body(columns = sig, rows = sig %in% c("***","**","*")))
+gt::gtsave(gt16_disp, file.path(TAB_DIR, "16_permdisp_summary.html"))
+
+cli::cli_alert_success("§16 complete: panels saved; PERMANOVA and PERMDISP summaries written.")
 
 
-# ---- Build objects used by §16 vertical 2-panel ----
-# (scores_prop, hulls_prop, centroids_prop, top15)
+# ---- Build objects used by §16 publication 2-panel ----
+# (scores_density, hulls_density, centroids_density, top15)
 
-# 1) Reef × proportion NMDS scores (Gower)
+# 1) Reef × per-colony density NMDS scores (Gower)
 set.seed(42)
-fit_reef_prop <- vegan::metaMDS(dist_reef_gow_prop, k = 2, trymax = 200, trace = FALSE)
+fit_reef_density_publication <- vegan::metaMDS(dist_reef_gow_density, k = 2, trymax = 200, trace = FALSE)
 
-scores_prop <- vegan::scores(fit_reef_prop, display = "sites") |>
+scores_density <- vegan::scores(fit_reef_density_publication, display = "sites") |>
   as.data.frame()
 
 # Standardize column names to NMDS1/NMDS2
-if (all(c("MDS1","MDS2") %in% names(scores_prop))) {
-  scores_prop <- dplyr::rename(scores_prop, NMDS1 = MDS1, NMDS2 = MDS2)
-} else if (!all(c("NMDS1","NMDS2") %in% names(scores_prop))) {
-  ax <- names(scores_prop)[vapply(scores_prop, is.numeric, logical(1))]
-  scores_prop <- dplyr::rename(scores_prop, NMDS1 = !!ax[1], NMDS2 = !!ax[2])
+if (all(c("MDS1","MDS2") %in% names(scores_density))) {
+  scores_density <- dplyr::rename(scores_density, NMDS1 = MDS1, NMDS2 = MDS2)
+} else if (!all(c("NMDS1","NMDS2") %in% names(scores_density))) {
+  ax <- names(scores_density)[vapply(scores_density, is.numeric, logical(1))]
+  scores_density <- dplyr::rename(scores_density, NMDS1 = !!ax[1], NMDS2 = !!ax[2])
 }
 
-scores_prop <- scores_prop |>
+scores_density <- scores_density |>
   tibble::rownames_to_column("reef") |>
   dplyr::left_join(meta_reef |> dplyr::select(reef, treatment), by = "reef") |>
   dplyr::mutate(treatment = factor(treatment, levels = c(1,3,6)))
 
 # Convex hulls and centroids for Panel A
-hulls_prop <- scores_prop |>
+hulls_density <- scores_density |>
   dplyr::group_by(treatment) |>
   dplyr::filter(dplyr::n() >= 3, is.finite(NMDS1), is.finite(NMDS2)) |>
   dplyr::slice(chull(NMDS1, NMDS2)) |>
   dplyr::ungroup()
 
-centroids_prop <- scores_prop |>
+centroids_density <- scores_density |>
   dplyr::group_by(treatment) |>
   dplyr::summarise(cx = mean(NMDS1, na.rm = TRUE),
                    cy = mean(NMDS2, na.rm = TRUE),
@@ -1184,19 +1241,35 @@ top15 <- den_long |>
                 adiff = abs(diff),
                 dir = ifelse(diff > 0, "↑ 6 > 1", "↓ 6 < 1")) |>
   dplyr::arrange(dplyr::desc(adiff)) |>
-  dplyr::slice(1:15)
+  dplyr::slice(1:15) |>
+  dplyr::mutate(rank_by_abs_change = dplyr::row_number())
+
+readr::write_csv(
+  top15 |>
+    dplyr::transmute(
+      rank_by_abs_change,
+      species,
+      mean_z_treatment_1 = t1,
+      mean_z_treatment_6 = t6,
+      delta_z_6_minus_1 = diff,
+      abs_delta_z = adiff,
+      direction = dplyr::if_else(diff > 0, "higher per-colony density in 6-coral reefs",
+                                 "higher per-colony density in 1-coral reefs")
+    ),
+  file.path(TAB_DIR, "16_species_density_drivers_top15.csv")
+)
 
 # =========================
 # §16.6/16.8 — Vertical 2-panel figure
 # Panels:
-#   A) Reef NMDS (proportion, Gower) with hulls + centroid stars
+#   A) Reef NMDS (per-colony density, Gower) with hulls + centroid stars
 #   B) Top-15 Δ z-scored per-colony density (6 − 1) dumbbell
 # =========================
-cli::cli_h3("§16 — Vertical 2-panel: NMDS (prop) + Top-15 density change")
+cli::cli_h3("§16 — Publication 2-panel: NMDS (density) + Top-15 density change")
 
 # ---- Safety: build centroids if missing ----
-if (!exists("centroids_prop", inherits = FALSE)) {
-  centroids_prop <- scores_prop %>%
+if (!exists("centroids_density", inherits = FALSE)) {
+  centroids_density <- scores_density %>%
     dplyr::group_by(treatment) %>%
     dplyr::summarise(
       cx = mean(NMDS1, na.rm = TRUE),
@@ -1206,13 +1279,13 @@ if (!exists("centroids_prop", inherits = FALSE)) {
 }
 
 # -------------------------------------------
-# Panel A — NMDS (reef × proportion, Gower)
+# Panel A — NMDS (reef × per-colony density, Gower)
 # -------------------------------------------
-pA_nmds <- ggplot(scores_prop, aes(NMDS1, NMDS2, color = treatment)) +
+pA_nmds <- ggplot(scores_density, aes(NMDS1, NMDS2, color = treatment)) +
   # convex hulls (skip if <3 reefs per level)
-  { if (exists("hulls_prop", inherits=FALSE) && nrow(hulls_prop))
+  { if (exists("hulls_density", inherits=FALSE) && nrow(hulls_density))
     geom_polygon(
-      data = hulls_prop,
+      data = hulls_density,
       aes(x = NMDS1, y = NMDS2, group = treatment, fill = treatment),
       inherit.aes = FALSE, alpha = 0.15, color = NA
     )
@@ -1220,7 +1293,7 @@ pA_nmds <- ggplot(scores_prop, aes(NMDS1, NMDS2, color = treatment)) +
   # reef points (circles) + centroid stars
   geom_point(shape = 16, size = 3.5, alpha = 0.8, stroke = 0.5) +
   geom_point(
-    data = centroids_prop,
+    data = centroids_density,
     aes(x = cx, y = cy),
     inherit.aes = TRUE,
     shape = 8, size = 5, stroke = 1.2
@@ -1236,7 +1309,7 @@ pA_nmds <- ggplot(scores_prop, aes(NMDS1, NMDS2, color = treatment)) +
   labs(x = "NMDS1", y = "NMDS2") +
   # Add stress annotation in upper-left corner
   annotate("text", x = -Inf, y = Inf,
-           label = sprintf("Stress = %.3f", fit_reef_prop$stress),
+           label = sprintf("Stress = %.3f", fit_reef_density_publication$stress),
            hjust = -0.1, vjust = 1.5, size = 3.5, fontface = "italic") +
   theme_pub() +
   theme(
@@ -1266,21 +1339,13 @@ xmax <- max(abs(c(top15$t1, top15$t6)), na.rm = TRUE)
 xlim_sym <- c(-xmax * 1.32, xmax * 1.05)   # extra room on the left for the taxon icon column
 icon_x3  <- -xmax * 1.20                     # x position of the per-species silhouettes
 
-# ---- Reorder species for Panel B (↓ 6<1 on top, then ↑ 6>1 on bottom) ----
-# Build an ordering key:
-#   dir_flag = 1 for "↓ 6 < 1" (negative, on top), 0 for "↑ 6 > 1" (positive, on bottom)
-#   Negative group (↓): sort by magnitude ascending (least negative first)
-#   Positive group (↑): sort by magnitude descending (largest first)
-ord_tbl <- top15 %>%
-  dplyr::mutate(
-    dir_flag = ifelse(dir == "↓ 6 < 1", 1L, 0L),  # SWAPPED: negative now gets 1
-    sort_key = ifelse(dir == "↑ 6 > 1", -adiff, adiff)  # negative for desc, positive for asc
-  ) %>%
-  dplyr::arrange(dplyr::desc(dir_flag), sort_key)
-
-# Factor levels determine vertical order in a horizontal dumbbell:
-# last level is at the TOP, so reverse the vector to put ↓ block on top.
-levs <- rev(ord_tbl$species)
+# ---- Reorder species for Panel B: single monotonic order by Δ (6 − 1) ----
+# R1 revision (Curtis #J63): one continuous ordering from most-positive Δ at the
+# TOP to most-negative Δ at the BOTTOM, instead of grouping by direction.
+# ggplot places the FIRST factor level at the bottom and the LAST at the top, so
+# ordering levels by ASCENDING diff puts most-negative at the bottom and
+# most-positive at the top.
+levs <- top15$species[order(top15$diff)]
 
 top15 <- top15 %>%
   dplyr::mutate(species = factor(species, levels = levs))
@@ -1349,21 +1414,21 @@ p_horizontal <- pA_nmds + pB_db +
 
 show_and_save(
   p_horizontal,
-  file.path(FIG_DIR, "16_horizontal_2panel_nmds_prop_plus_top15_density.png"),
+  file.path(FIG_DIR, "16_horizontal_2panel_nmds_density_plus_top15_density.png"),
   width = 12, height = 5.5, dpi = 600
 )
 
 # Also save to publication-figures folder (PDF and PNG)
 ggsave(
-  file.path(OUT_DIR, "figures", "publication-figures", "16_horizontal_2panel_nmds_prop_plus_top15_density.pdf"),
+  file.path(OUT_DIR, "figures", "publication-figures", "16_horizontal_2panel_nmds_density_plus_top15_density.pdf"),
   p_horizontal, width = 12, height = 5.5, dpi = 600, bg = "white"
 )
 ggsave(
-  file.path(OUT_DIR, "figures", "publication-figures", "16_horizontal_2panel_nmds_prop_plus_top15_density.png"),
+  file.path(OUT_DIR, "figures", "publication-figures", "16_horizontal_2panel_nmds_density_plus_top15_density.png"),
   p_horizontal, width = 12, height = 5.5, dpi = 600, bg = "white"
 )
 
-cli::cli_alert_success("Saved: 16_horizontal_2panel_nmds_prop_plus_top15_density.png")
+cli::cli_alert_success("Saved: 16_horizontal_2panel_nmds_density_plus_top15_density.png")
 
 
 
@@ -1722,7 +1787,11 @@ cli::cli_h3("17D) Concordance vs §15 main PERMANOVA")
     dplyr::mutate(metric = .canon_metric(metric)) %>%
     dplyr::group_by(metric) %>%
     dplyr::summarise(
-      technique = label,
+      # .env$label: `label` is also a column in res_rare/res_boot (added by
+      # .run_perms_one), so a bare `label` here resolves to the length-199 data
+      # column under dplyr >= 1.1 and errors ("must be size 1"). Force the scalar
+      # function argument. Label-only fix; no statistical result changes.
+      technique = .env$label,
       F_med     = stats::median(F,  na.rm = TRUE),
       R2_med    = stats::median(R2, na.rm = TRUE),
       p_med     = stats::median(p,  na.rm = TRUE),

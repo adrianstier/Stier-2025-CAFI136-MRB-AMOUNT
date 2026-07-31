@@ -1,0 +1,6 @@
+scale,flavor,Df,F,p,n_units,n_groups,diagnostic_scope,sig
+Coral (strata=reef),Abundance,2,1.207208997954037,0.327,44,3,free permutations; diagnostic only because the matching PERMANOVA uses reef strata,
+Coral (strata=reef),Proportion,2,2.7465788425640456,0.081,44,3,free permutations; diagnostic only because the matching PERMANOVA uses reef strata,.
+Reef,Abundance,2,2.420159491842712,0.105,23,3,free permutations at the reef unit,
+Reef,Proportion,2,0.9565983223133948,0.396,23,3,free permutations at the reef unit,
+Reef,Per-colony density,2,2.2750961663181637,0.122,23,3,free permutations at the reef unit,
