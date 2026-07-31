@@ -63,7 +63,7 @@
 
 ```bash
 # From repository root
-cd /Users/adrianstier/Stier-2025-CAFI136-MRB-AMOUNT
+cd /path/to/coral-cafi-density-experiment
 
 # 1. Check R version
 R --version

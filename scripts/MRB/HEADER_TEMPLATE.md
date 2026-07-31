@@ -160,7 +160,7 @@ data <- read_csv(here("data", "MRB Amount", "filename.csv"))
 
 # ❌ BAD
 data <- read_csv("../data/MRB Amount/filename.csv")
-data <- read_csv("/Users/username/project/data/filename.csv")
+data <- read_csv("/absolute/path/to/project/data/filename.csv")
 ```
 
 ---

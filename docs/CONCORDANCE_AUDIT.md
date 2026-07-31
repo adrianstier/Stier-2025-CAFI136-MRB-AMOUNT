@@ -23,7 +23,7 @@ This addendum supersedes the older P0 concordance notes below where they conflic
 | Gate 2 stats/prose concordance | PASS | The old percentage and species-scaling problems are resolved in `manuscript/Second_Submission/final_resubmission_fixes_render_qa_2026-07-30/main.txt`; the Fig. 3 Results wording now matches the standardized per-colony-density figure/source table. |
 | Gate 3 local reproduction | PASS for working tree | `./run_all.sh` completed in 4m31s and found all expected current outputs; `make qa` passed with 10 PASS / 3 WARN; `Rscript scripts/MRB/validate_pipeline.R` passed after the filtered-growth checksum was updated to the regenerated `sa_scaled_growth` header. |
 | Gate 3 clean clone | PASS for the reviewer-readiness commit | A fresh local clone from the committed snapshot ran `./run_all.sh` in 4m07s, found all expected outputs, and passed `Rscript scripts/MRB/validate_pipeline.R`. Regenerated PDFs/HTML are not byte-identical because of render metadata/timestamps, but paths and results regenerate. |
-| Gate 4 archive package | PASS for resubmission | The current revision is committed and pushed to the tracked repo; the public-facing `coral-cafi-density-experiment` remote is being advanced/tagged as `v1.0.2`. The manuscript and repo now cite the Zenodo concept DOI (`10.5281/zenodo.18239646`) so the archive link resolves to the latest released version. |
+| Gate 4 archive package | PASS for resubmission | The current revision is committed and pushed to the tracked repo; the public-facing `coral-cafi-density-experiment` remote is tagged/released as `v1.0.3`. The manuscript and repo now cite the Zenodo concept DOI (`10.5281/zenodo.18239646`) so the archive link resolves to the latest released version. |
 
 ### Resolved by the final 2026-07-30 manuscript package
 
@@ -48,7 +48,7 @@ This addendum supersedes the older P0 concordance notes below where they conflic
 
 ### Remaining repo/archive blockers
 
-- No hard repo/archive blocker remains for resubmission once the `v1.0.2` tag/release is visible on the public-facing remote.
+- No hard repo/archive blocker remains for resubmission once the `v1.0.3` tag/release is visible on the public-facing remote.
 - Add a dependency lock (`renv.lock`) only if we want exact package restoration; current reproducibility relies on `sessionInfo` outputs.
 - Add `claims.tsv` and `display_items.tsv` only if we want a stronger automated manuscript-claim/figure-citation gate; current QA marks them as WARN, not FAIL.
 

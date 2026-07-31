@@ -418,7 +418,7 @@ We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines 
 <div align="center">
 
 **Last Updated:** July 31, 2026
-**Repository Version:** v1.0.2 resubmission snapshot
+**Repository Version:** v1.0.3 final resubmission snapshot
 **Status:** Reviewer-readiness QA passed with WARN-only optional future gates
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18239646.svg)](https://doi.org/10.5281/zenodo.18239646)
