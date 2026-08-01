@@ -2,6 +2,8 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18239646.svg)](https://doi.org/10.5281/zenodo.18239646)
 
+![Moorea field site, coral habitat, and representative CAFI species](assets/photos/cafi/cafi-photo-strip.jpg)
+
 **Authors:** Adrian C. Stier, Alexander Primo, Joseph S. Curtis, Craig W. Osenberg
 
 **Repository:** Analysis code and data for coral density experiment examining CAFI community assembly and feedbacks to coral performance
@@ -51,6 +53,10 @@ This repository contains all data, code, and outputs for analyzing a field exper
 ├── CONTRIBUTING.md                     # Development and contribution guide
 ├── run_all.sh                          # Master script to run entire analysis
 ├── Makefile                            # Convenience targets: analysis, quick, qa, validate
+├── assets/                             # Static visual assets
+│   ├── photos/cafi/                    # CAFI system photos for README/repo materials
+│   ├── coral_art/                      # Coral artwork
+│   └── silhouettes/                    # Guild silhouettes used in figures
 ├── docs/                               # Documentation
 │   ├── REPRODUCIBILITY_GUIDE.md        # Step-by-step reproduction instructions
 │   ├── DATA_AVAILABILITY.md            # Data sharing and access policy
