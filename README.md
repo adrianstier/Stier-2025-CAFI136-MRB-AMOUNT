@@ -23,8 +23,8 @@
 ✅ **One-command reproduction** via `./run_all.sh`
 ✅ **Pre-submission QA** via `make qa`
 ✅ **Data integrity validation** with checksums
-✅ **Pure R analysis workflow** - document-building helper scripts are separate
-✅ **Comprehensive documentation** - 8 detailed guides
+✅ **Pure R analysis workflow** - manuscript assembly lives outside this public analysis repo
+✅ **Comprehensive documentation** - reproducibility, data, figure, and QA guides
 ✅ **Publication-ready figures** - all in `output/MRB/figures/`
 
 ---
@@ -35,6 +35,8 @@ This repository contains all data, code, and outputs for analyzing a field exper
 
 1. Coral-associated fish and invertebrate (CAFI) community assembly
 2. Feedbacks between CAFI communities and coral performance (growth and physiology)
+
+This public repository is scoped to data analysis, validation, and figure/table generation. Manuscript drafting, Word/PDF production, response-letter assembly, and private coauthor revision materials are maintained in a separate private companion repository that syncs validated outputs from this analysis compendium.
 
 **Key Findings:**
 - CAFI abundance increased 5.47× and observed species richness increased 2.82× with increasing coral density
@@ -61,8 +63,6 @@ This repository contains all data, code, and outputs for analyzing a field exper
 │   ├── REPRODUCIBILITY_GUIDE.md        # Step-by-step reproduction instructions
 │   ├── DATA_AVAILABILITY.md            # Data sharing and access policy
 │   ├── DATA_SUBSETTING.md              # Filtering decisions and justification
-│   ├── MANUSCRIPT_TEXT_TEMPLATES.md    # Methods/Results text for manuscript
-│   ├── PUBLICATION_CHECKLIST.md        # Pre-submission verification
 │   ├── FIGURE_GUIDE_FOR_PUBLICATION.md # Guide to publication figures
 │   └── ZERO_INFLATION_PCA_ASSESSMENT.md # PCA validity assessment
 ├── data/                               # Raw data files
@@ -81,13 +81,12 @@ This repository contains all data, code, and outputs for analyzing a field exper
 │   ├── 12.nmds_permanova_cafi.R        # Community composition
 │   ├── 14.compile-manuscript-statistics.R  # Compile all stats
 │   ├── 15.pre_submission_checks.R      # Submission QA ledger and robustness index
+│   ├── supplemental_checks/            # Supplemental robustness checks and figures
 │   └── validate_pipeline.R             # Validate data integrity and outputs
 ├── output/MRB/                         # Analysis outputs
 │   ├── figures/                        # All generated figures
 │   ├── tables/                         # Statistical summary tables
 │   └── objects/                        # R session info
-└── archive/                            # Archived files
-    └── python_agents/                  # Previous Python automation system
 ```
 
 ---
@@ -195,14 +194,14 @@ Rscript scripts/MRB/validate_pipeline.R
 **File:** `scripts/MRB/7.coral-physiology.R`
 
 **What it does:**
-- Analyzes carbohydrate, protein, zooxanthellae, AFDW by treatment
+- Analyzes carbohydrate, protein, Symbiodiniaceae density, AFDW by treatment
 - Creates integrated performance PC1 (physiology + growth)
 - Multiple testing correction (Benjamini-Hochberg)
 
 **Key results:**
 - Carbohydrate: χ² = 10.0, *p* = 0.007 (BH-adjusted *p* = 0.039)
 - PC1 (performance): χ² = 8.11, *p* = 0.017
-- Individual metrics (protein, zooxanthellae, AFDW): NS
+- Individual metrics (protein, Symbiodiniaceae density, AFDW): NS
 
 ### 3. CAFI-Coral Relationships (Script 8)
 
@@ -278,7 +277,7 @@ Rscript scripts/MRB/validate_pipeline.R
 **Files:**
 - Carbohydrate content (mg/cm²)
 - Protein content (mg/cm²)
-- Zooxanthellae density (cells/cm²)
+- Symbiodiniaceae density (cells/cm²)
 - Ash-free dry mass (AFDM, mg/cm²)
 
 ---
@@ -346,7 +345,7 @@ None currently. All scripts run successfully with provided data.
 
 ---
 
-## Output Files for Manuscript
+## Output Files for Paper Integration
 
 ### Main Statistics
 - `output/MRB/MANUSCRIPT_STATS_TABLE.csv` - Complete statistical results table
@@ -377,9 +376,11 @@ DOI: [to be added upon publication]
 
 **Data & Code Archive:**
 ```
-Stier, A.C., Primo, A., Curtis, J.S., & Osenberg, C.W. (2026). Data and code for:
-Habitat quantity drives community assembly and feedbacks to coral performance [Data set].
-Zenodo. https://doi.org/10.5281/zenodo.18239646
+Stier, A.C. (2026). adrianstier/coral-cafi-density-experiment: v1.0.3 -
+Final Resubmission Snapshot [Software]. Zenodo.
+https://doi.org/10.5281/zenodo.21727277
+
+All-version concept DOI: https://doi.org/10.5281/zenodo.18239646
 ```
 
 ---

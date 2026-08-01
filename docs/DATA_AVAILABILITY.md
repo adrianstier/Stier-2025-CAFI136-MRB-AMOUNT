@@ -2,19 +2,22 @@
 
 ## Overview
 
-All data and code associated with this manuscript are publicly available.
+All data and analysis code used to generate the manuscript results and figures are publicly available.
 
 ## Data Repository
 
 **Primary Repository:** GitHub
 **URL:** https://github.com/adrianstier/coral-cafi-density-experiment
-**DOI:** 10.5281/zenodo.18239646
+**Current archived version DOI:** 10.5281/zenodo.21727277
+**All-version concept DOI:** 10.5281/zenodo.18239646
 
 ## Archived Version
 
 A permanent archived version has been deposited at Zenodo:
-- **Zenodo concept DOI:** [10.5281/zenodo.18239646](https://doi.org/10.5281/zenodo.18239646)
-- **Archive URL:** https://zenodo.org/records/18239646
+- **Current version:** v1.0.3 final resubmission snapshot
+- **Version-specific DOI:** [10.5281/zenodo.21727277](https://doi.org/10.5281/zenodo.21727277)
+- **All-version concept DOI:** [10.5281/zenodo.18239646](https://doi.org/10.5281/zenodo.18239646)
+- **Archive URL:** https://zenodo.org/records/21727277
 
 ## Data Description
 
@@ -43,12 +46,12 @@ A permanent archived version has been deposited at Zenodo:
    - Click "Code" → "Download ZIP"
 
 3. **Archived version (recommended for reproducibility):**
-   - Visit: https://doi.org/10.5281/zenodo.18239646
-   - Download the latest archived release for the resubmission snapshot
+   - Visit: https://doi.org/10.5281/zenodo.21727277
+   - Download the v1.0.3 final resubmission snapshot
 
 ## Code Availability
 
-All analysis code is included in the repository:
+All analysis code used to generate the manuscript results and figures is included in the repository:
 
 | Directory | Contents |
 |-----------|----------|
@@ -72,6 +75,14 @@ If you use this data or code, please cite:
 Stier, A.C., Primo, A., Curtis, J.S., & Osenberg, C.W. (2025). Habitat quantity
 drives community assembly and feedbacks to coral performance. Ecology Letters.
 DOI: [to be added]
+```
+
+Analysis archive:
+
+```
+Stier, A.C. (2026). adrianstier/coral-cafi-density-experiment: v1.0.3 -
+Final Resubmission Snapshot [Software]. Zenodo.
+https://doi.org/10.5281/zenodo.21727277
 ```
 
 ## Contact

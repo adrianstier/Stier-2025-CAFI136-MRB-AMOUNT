@@ -58,7 +58,7 @@ total_abundance_by_treatment_plot <- total_abundance_by_treatment_plot +
 # Save figure
 save_both(
   total_abundance_by_treatment_plot,
-  here::here("output/MRB/figures/agent_generated/total_abundance_by_treatment"),
+  here::here("output/MRB/figures/supplemental_checks/total_abundance_by_treatment"),
   width = 8,
   height = 6
 )

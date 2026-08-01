@@ -96,8 +96,7 @@ test_abundance_plot <- test_abundance_plot +
 # Save figure
 save_both(
   test_abundance_plot,
-  here::here("output/MRB/figures/agent_generated/test_abundance"),
+  here::here("output/MRB/figures/supplemental_checks/test_abundance"),
   width = 8,
   height = 6
 )
-

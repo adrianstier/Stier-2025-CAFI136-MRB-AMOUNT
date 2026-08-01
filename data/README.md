@@ -72,7 +72,7 @@ data/
 | `coral_id` | string | - | Coral identifier |
 | `protein_mg_cm2` | numeric | mg/cm² | Protein content per surface area |
 | `carb_mg_cm2` | numeric | mg/cm² | Carbohydrate content per surface area |
-| `zoox_cells_cm2` | numeric | cells/cm² | Zooxanthellae density |
+| `zoox_cells_cm2` | numeric | cells/cm² | Symbiodiniaceae density |
 | `afdw_mg_cm2` | numeric | mg/cm² | Ash-free dry weight |
 | `surface_area` | numeric | cm² | Coral surface area from wax dipping |
 

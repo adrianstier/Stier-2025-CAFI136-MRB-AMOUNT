@@ -138,7 +138,7 @@ This table lists unadjusted p < 0.10 screens across transformed Trapezia metrics
 - The strongest Trapezia pattern is ecological rather than physiological: `T. serenei` is everywhere and has higher per-colony abundance in the multi-coral treatments, but the existing proportional-scaling table does not support calling it significantly above expected.
 - Rare congeners are too sparse for strong species-specific inference. Their incidence and richness are useful descriptors, but the sample sizes are small enough that isolated nominal results should not drive the manuscript.
 - I do not see a robust signal that Trapezia abundance, diversity, incidence, or relative contribution explains overall coral condition PC1 after accounting for treatment and reef structure.
-- The only places worth watching are physiology-specific screens, especially zooxanthellae-related correlations for dominant or moderately common congeners. Those are candidate story details only if they remain consistent with the broader manuscript and multiple-testing caveats.
+- The only places worth watching are physiology-specific screens, especially Symbiodiniaceae-density correlations for dominant or moderately common congeners. Those are candidate story details only if they remain consistent with the broader manuscript and multiple-testing caveats.
 
 ## Output files
 

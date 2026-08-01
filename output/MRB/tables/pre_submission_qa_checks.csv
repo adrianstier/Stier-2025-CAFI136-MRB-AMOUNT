@@ -3,9 +3,9 @@ COMPOSITION_INDEX,composition,PASS,Composition robustness index assembled with 4
 PERMDISP_DENSITY_PRESENT,composition,PASS,"Exact matching PERMDISP for reef per-colony-density distance: F=2.275, p=0.122.",output/MRB/tables/16_permdisp_summary.csv
 PERM_DENSITY_PRESENT,composition,PASS,"Exact reef per-colony-density PERMANOVA present: F=2.013, R2=0.168, p=0.015.",output/MRB/tables/16_permanova_summary.csv
 SAMPLE_SIZE_SENSITIVITY,composition,PASS,Section 17 rarefaction/bootstrap/N-sensitivity concordance table is present.,output/MRB/tables/section17_concordance_vs_main.csv
-CONCORDANCE_AUDIT_DOC,concordance,PASS,Manual concordance audit document is present.,docs/CONCORDANCE_AUDIT.md
 MANUSCRIPT_STATS_TABLE,concordance,PASS,Compiled manuscript statistical test table is present.,output/MRB/tables/MANUSCRIPT_STATISTICAL_TESTS.csv
 MRB_README_CURRENT,documentation,PASS,scripts/MRB/README.md points to the current runner/script names.,scripts/MRB/README.md
+PUBLIC_ANALYSIS_DOCS,documentation,PASS,"Public reproducibility, data availability, and figure guide documents are present.",docs/REPRODUCIBILITY_GUIDE.md; docs/DATA_AVAILABILITY.md; docs/FIGURE_GUIDE_FOR_PUBLICATION.md
 TRAPEZIA_EXPLORATION,exploratory,PASS,Exploratory Trapezia treatment/condition report is present and kept outside the gated manuscript outputs.,output/MRB/exploratory/trapezia/trapezia_exploration_report.md
 QA_WIRED_IN_RUNNER,pipeline,PASS,run_all.sh invokes scripts/MRB/15.pre_submission_checks.R.,run_all.sh
 SPECIES_DRIVER_TABLE,species drivers,PASS,Top-15 per-colony-density driver table present; strongest delta is Apataxia cerithiiformis (delta z=1.911).,output/MRB/tables/16_species_density_drivers_top15.csv

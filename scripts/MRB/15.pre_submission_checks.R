@@ -275,13 +275,27 @@ if (exists_nonempty(stats_table)) {
             "Compiled manuscript statistical test table is missing.", stats_table)
 }
 
-concordance_doc <- file.path(DOC_DIR, "CONCORDANCE_AUDIT.md")
-if (exists_nonempty(concordance_doc)) {
-  add_check("CONCORDANCE_AUDIT_DOC", "concordance", "PASS",
-            "Manual concordance audit document is present.", concordance_doc)
+public_docs <- file.path(
+  DOC_DIR,
+  c(
+    "REPRODUCIBILITY_GUIDE.md",
+    "DATA_AVAILABILITY.md",
+    "FIGURE_GUIDE_FOR_PUBLICATION.md"
+  )
+)
+public_doc_evidence <- paste(
+  file.path("docs", basename(public_docs)),
+  collapse = "; "
+)
+missing_public_docs <- public_docs[!vapply(public_docs, exists_nonempty, logical(1))]
+if (length(missing_public_docs) == 0L) {
+  add_check("PUBLIC_ANALYSIS_DOCS", "documentation", "PASS",
+            "Public reproducibility, data availability, and figure guide documents are present.",
+            public_doc_evidence)
 } else {
-  add_check("CONCORDANCE_AUDIT_DOC", "concordance", "WARN",
-            "Manual concordance audit document is missing.", concordance_doc)
+  add_check("PUBLIC_ANALYSIS_DOCS", "documentation", "WARN",
+            "One or more public analysis documentation files are missing.",
+            paste(file.path("docs", basename(missing_public_docs)), collapse = "; "))
 }
 
 if (exists_nonempty(here::here("renv.lock"))) {

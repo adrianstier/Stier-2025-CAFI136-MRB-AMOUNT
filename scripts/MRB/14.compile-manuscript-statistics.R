@@ -192,7 +192,7 @@ cli::cli_alert_success("Saved: MANUSCRIPT_STATISTICAL_TESTS.csv")
 stats_html <- manuscript_stats %>%
   dplyr::select(test_id, section, Analysis, test_statistic, df,
                 p_value, p_formatted, significance, Impact, manuscript_location, Notes) %>%
-  gt() %>%
+  gt(id = "manuscript_statistical_tests") %>%
   tab_header(
     title = "Complete Statistical Tests for Manuscript",
     subtitle = paste0("Generated: ", Sys.Date(), " | Scripts 6-8 | n = 44 corals")

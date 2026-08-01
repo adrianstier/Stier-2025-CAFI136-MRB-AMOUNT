@@ -538,7 +538,7 @@ cat("  (These will be generated once full performance metrics are processed)\n\n
 # SUPPLEMENTAL FIGURE S1: Individual coral metrics -----------------------------
 cat("Generating Supplemental Figure S1: Individual coral metrics...\n")
 
-# This would show violin plots of protein, carbohydrate, AFDM, zooxanthellae, growth
+# This would show violin plots of protein, carbohydrate, AFDM, Symbiodiniaceae density, growth
 # Placeholder for now
 figS1 <- ggplot() +
   annotate("text", x = 0.5, y = 0.5,

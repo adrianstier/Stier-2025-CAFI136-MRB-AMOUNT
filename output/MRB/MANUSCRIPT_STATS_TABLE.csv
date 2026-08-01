@@ -18,7 +18,7 @@ Coral Physiology,Carbohydrate by treatment,lmer(carb_mg_cm2 ~ treatment + (1|ree
 Coral Physiology,PC1 (physio+growth) by treatment,lmer(PC1 ~ treatment + (1|reef)),NA,NA,NA,NA,"χ²=8.11",2,0.017,p_BH=0.052,INDIRECT,"Significant; includes growth_vol_b in PCA"
 Coral Physiology,AFDW by treatment,lmer(afdw_mg_cm2 ~ treatment + (1|reef)),NA,NA,NA,NA,"χ²=4.40",2,0.111,NA,INDIRECT,Not significant
 Coral Physiology,Protein by treatment,lmer(protein_mg_cm2 ~ treatment + (1|reef)),NA,NA,NA,NA,"χ²=3.04",2,0.219,NA,INDIRECT,Not significant
-Coral Physiology,Zooxanthellae by treatment,lmer(zoox_cells_cm2 ~ treatment + (1|reef)),NA,NA,NA,NA,"χ²=1.70",2,0.428,NA,INDIRECT,Not significant
+Coral Physiology,Symbiodiniaceae density by treatment,lmer(zoox_cells_cm2 ~ treatment + (1|reef)),NA,NA,NA,NA,"χ²=1.70",2,0.428,NA,INDIRECT,Not significant
 Coral Physiology,PC2 (physio+growth) by treatment,lmer(PC2 ~ treatment + (1|reef)),NA,NA,NA,NA,"χ²=0.863",2,0.649,NA,INDIRECT,Not significant
 CAFI-Coral,Community vs Condition: SQRT_CS,lmer(PC1_cond ~ PC1_comm + (1|reef)),NA,NA,NA,NA,"χ²=approx",1,0.00085,NA,INDIRECT,"Highly significant; condition includes growth_vol_b"
 CAFI-Coral,Community vs Condition: HELLINGER,lmer(PC1_cond ~ PC1_comm + (1|reef)),NA,NA,NA,NA,"χ²=approx",1,0.014,NA,INDIRECT,Significant

@@ -49,6 +49,10 @@ Rscript scripts/MRB/15.pre_submission_checks.R
 | **15.pre_submission_checks.R** | Pre-submission QA ledger and composition robustness index | `tables/pre_submission_qa_checks.csv`, `tables/composition_robustness_index.csv` |
 | **utils.R** | Common utility functions | (sourced by other scripts) |
 
+### Supplemental Checks
+
+Additional robustness and diagnostic scripts live in `scripts/MRB/supplemental_checks/`. They generate supporting checks used during revision and are kept separate from the canonical `run_all.sh` submission path unless explicitly wired into that runner.
+
 ### Alternative/Experimental Scripts
 
 | Script | Status | Description |
@@ -159,7 +163,7 @@ output/MRB/
 
 ### 5. Physiology Integration
 
-- **PCA:** Coral condition score from protein, carbs, zoox, AFDW
+- **PCA:** Coral condition score from protein, carbs, Symbiodiniaceae density, AFDW
 - **RDA:** Constrain physiology by community composition
 - **Envfit:** Overlay species vectors on ordination
 

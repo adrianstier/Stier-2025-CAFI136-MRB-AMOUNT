@@ -32,15 +32,13 @@ __pycache__/
 
 # Local manuscript/document/graphics helper scripts, not part of the reproducible
 # analysis pipeline or reviewer archive.
+scripts/MRB/agent_generated/
 scripts/MRB/apply_revision_docx_fixes.py
 scripts/MRB/build_updated_response_to_reviewers.py
 scripts/MRB/copyedit_main_text.py
 scripts/MRB/finalize_resubmission_artifact_fixes.py
 scripts/MRB/fix_supplement_table_headers.py
 scripts/MRB/fig_graphical_abstract_resubmission.R
-scripts/MRB/agent_generated/build_photo_vectorized_concept.py
-scripts/MRB/agent_generated/build_redirection_vector_workspace.py
-scripts/MRB/agent_generated/build_vector_concept_components.py
 
 # Large figure directories (keep publication figures)
 output/MRB/figures/**/

@@ -3,7 +3,7 @@ Stomatolina_rubra,Species,italic(Stomatolina~rubra),9,3.927248784753912,0.084146
 protein_mg_cm2,Trait,Protein,7,3.1056049446984044,0.06951219512195123
 Coralliogalathea_humilis,Species,italic(Coralliogalathea~humilis),7,3.0257607115385006,0.05
 carb_mg_cm2,Trait,Carbohydrate,7,3.005466332426781,0.03902439024390244
-zoox_cells_cm2,Trait,Zooxanthellae,7,2.7578213597539247,0.1524390243902439
+zoox_cells_cm2,Trait,Symbiodiniaceae,7,2.7578213597539247,0.1524390243902439
 Galathea_mauritiana,Species,italic(Galathea~mauritiana),7,2.718374011853353,0.12804878048780488
 Trapezia_serenei,Species,italic(Trapezia~serenei),7,2.5930295469062923,0.14634146341463414
 Caracanthus_maculatus,Species,italic(Caracanthus~maculatus),6,2.1959331864438587,0.03536585365853658
