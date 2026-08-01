@@ -3,7 +3,7 @@
 # ==============================================================================
 # Purpose: Integrate coral physiology data with growth metrics from script 6.
 #          Performs PCA ordination of physiological metrics (protein, carbohydrates,
-#          zooxanthellae, AFDW) combined with growth data. Fits mixed-effects models
+#          Symbiodiniaceae, AFDM) combined with growth data. Fits mixed-effects models
 #          to test treatment effects on physiology and examines relationships between
 #          physiology and growth using multivariate approaches.
 #
@@ -253,8 +253,8 @@ load_df <- as_tibble(rot_fl[, 1:2], rownames = "metric") %>%
     label = dplyr::recode(metric,
                           protein_mg_cm2 = "Protein~(mg~cm^{-2})",
                           carb_mg_cm2    = "Carbohydrate~(mg~cm^{-2})",
-                          zoox_cells_cm2 = "Zooxanthellae~(cells~cm^{-2})",
-                          afdw_mg_cm2    = "Tissue~biomass~(AFDW~mg~cm^{-2})",
+                          zoox_cells_cm2 = "Symbiodiniaceae~(cells~cm^{-2})",
+                          afdw_mg_cm2    = "Tissue~biomass~(AFDM~mg~cm^{-2})",
                           growth_vol_b   = "Growth",
                           .default       = metric)
   )
@@ -307,8 +307,8 @@ cli::cli_h3("Section 16c: PC1 loadings + scores by treatment")
 pretty_labs <- c(
   protein_mg_cm2  = "Protein~(mg~cm^{-2})",
   carb_mg_cm2     = "Carbohydrate~(mg~cm^{-2})",
-  zoox_cells_cm2  = "Zooxanthellae~(cells~cm^{-2})",
-  afdw_mg_cm2     = "Tissue~biomass~(AFDW~mg~cm^{-2})",
+  zoox_cells_cm2  = "Symbiodiniaceae~(cells~cm^{-2})",
+  afdw_mg_cm2     = "Tissue~biomass~(AFDM~mg~cm^{-2})",
   growth_vol_b    = "Growth"
 )
 
@@ -470,10 +470,10 @@ write_csv(treat_tests,
 # Plots
 # Create more intuitive facet labels
 metric_labels <- c(
-  "afdw_mg_cm2" = "AFDW (mg/cm²)",
+  "afdw_mg_cm2" = "AFDM (mg/cm²)",
   "carb_mg_cm2" = "Carbohydrate (mg/cm²)",
   "protein_mg_cm2" = "Protein (mg/cm²)",
-  "zoox_cells_cm2" = "Zooxanthellae (cells/cm²)"
+  "zoox_cells_cm2" = "Symbiodiniaceae (cells/cm²)"
 )
 
 p_physio_trt <- physio_metrics_df %>%
@@ -536,16 +536,16 @@ cli::cli_h2("Section 17b: Univariate treatment effects for individual coral metr
 pretty_labs <- c(
   protein_mg_cm2  = "Protein~(mg~cm^{-2})",
   carb_mg_cm2     = "Carbohydrate~(mg~cm^{-2})",
-  zoox_cells_cm2  = "Zooxanthellae~(cells~cm^{-2})",
-  afdw_mg_cm2     = "Tissue~biomass~(AFDW~mg~cm^{-2})",
+  zoox_cells_cm2  = "Symbiodiniaceae~(cells~cm^{-2})",
+  afdw_mg_cm2     = "Tissue~biomass~(AFDM~mg~cm^{-2})",
   growth_vol_b    = "Growth"
 )
 
 pretty_labels_gt <- c(
   protein_mg_cm2  = "Protein (mg cm⁻²)",
   carb_mg_cm2     = "Carbohydrate (mg cm⁻²)",
-  zoox_cells_cm2  = "Zooxanthellae (cells cm⁻²)",
-  afdw_mg_cm2     = "Tissue biomass (AFDW mg cm⁻²)",
+  zoox_cells_cm2  = "Symbiodiniaceae (cells cm⁻²)",
+  afdw_mg_cm2     = "Tissue biomass (AFDM mg cm⁻²)",
   growth_vol_b    = "Growth"
 )
 
@@ -620,8 +620,8 @@ gt::gtsave(univar_gt, file.path(out_dir_phys, "univariate_anova_treatment_effect
 pretty_facet <- c(
   protein_mg_cm2  = "Protein (mg cm⁻²)",
   carb_mg_cm2     = "Carbohydrate (mg cm⁻²)",
-  zoox_cells_cm2  = "Zooxanthellae (cells cm⁻²)",
-  afdw_mg_cm2     = "Tissue biomass (AFDW mg cm⁻²)",
+  zoox_cells_cm2  = "Symbiodiniaceae (cells cm⁻²)",
+  afdw_mg_cm2     = "Tissue biomass (AFDM mg cm⁻²)",
   growth_vol_b    = "Growth"
 )
 
@@ -708,6 +708,3 @@ write_csv(treat_tests_growth,
           file.path(out_dir_phys, "section18_treatment_effect_growth.csv"))
 
 cli::cli_alert_success("Section 18 complete: combined treatment-effect table saved & printed.")
-
-
-

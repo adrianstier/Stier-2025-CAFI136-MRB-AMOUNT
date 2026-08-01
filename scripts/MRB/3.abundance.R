@@ -680,7 +680,7 @@ outfile <- file.path(paths$out_dir_fig, "focal_order_species_np.png")
 ggsave(outfile, p_focal_np, width = 11, height = 8,
        dpi = params$fig_dpi, bg = params$fig_bg)
 
-p_focal_np_labeled <- p_focal_np + patchwork::plot_annotation(tag_levels = "A")
+p_focal_np_labeled <- p_focal_np
 
 outfile_labeled <- file.path(paths$out_dir_fig, "focal_order_species_np_labeled.pdf")
 ggsave(outfile_labeled, p_focal_np_labeled, width = 11, height = 8,
@@ -1161,7 +1161,7 @@ legend_grob <- cowplot::get_legend(p_legend_plot)
 threepanel <- cowplot::plot_grid(
   p_comm, p_rich, p_rare,
   ncol = 1, align = "v", rel_heights = c(1, 1, 1),
-  labels = c("a", "b", "c"),
+  labels = c("A", "B", "C"),
   label_size = 18, label_fontface = "bold",
   label_x = 0.02, label_y = 0.98, hjust = 0, vjust = 1
 )
@@ -1198,7 +1198,7 @@ ggsave(
   bg     = params$fig_bg
 )
 
-cli::cli_alert_success("Saved nonparametric three-panel figure (tagged a/b/c, shared x-axis).")
+cli::cli_alert_success("Saved nonparametric three-panel figure (tagged A/B/C, shared x-axis).")
 
 # =============================================================================
 # 9. COMMUNITY SCALING: OBSERVED vs. EXPECTED (Nonparametric Bootstrap)

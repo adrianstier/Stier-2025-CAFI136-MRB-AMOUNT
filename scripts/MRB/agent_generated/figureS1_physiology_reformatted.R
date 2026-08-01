@@ -53,7 +53,7 @@ physio_df <- physio_df %>%
   rename(
     protein = protein_mg_cm2,
     carbohydrate = carb_mg_cm2,
-    zooxanthellae = zoox_cells_cm2,
+    symbiodiniaceae = zoox_cells_cm2,
     afdw = afdw_mg_cm2
   )
 
@@ -95,24 +95,24 @@ panel_carb <- ggplot(physio_df, aes(x = treatment, y = carbohydrate, fill = trea
   base_theme +
   theme(axis.title.x = element_text(margin = margin(t = 10)))
 
-# Panel C: Zooxanthellae (matching Figure 4A style)
-panel_zoox <- ggplot(physio_df, aes(x = treatment, y = zooxanthellae / 1e6, fill = treatment)) +
+# Panel C: Symbiodiniaceae (matching Figure 4A style)
+panel_zoox <- ggplot(physio_df, aes(x = treatment, y = symbiodiniaceae / 1e6, fill = treatment)) +
   geom_violin(trim = FALSE, alpha = 0.6, colour = NA) +
   geom_boxplot(width = 0.2, fill = "white", outlier.shape = NA, alpha = 0.95) +
   geom_jitter(width = 0.15, size = 1.8, alpha = 0.7, colour = "gray30") +
   scale_fill_manual(values = TREATMENT_COLORS) +
-  labs(y = expression(Zooxanthellae~(cells~cm^{-2})),
+  labs(y = expression(Symbiodiniaceae~(cells~cm^{-2})),
        x = "Number of corals") +
   base_theme +
   theme(axis.title.x = element_text(margin = margin(t = 10)))
 
-# Panel D: Tissue biomass (AFDW) - matching Figure 4A style exactly
+# Panel D: Tissue biomass (AFDM) - matching Figure 4A style exactly
 panel_afdw <- ggplot(physio_df, aes(x = treatment, y = afdw, fill = treatment)) +
   geom_violin(trim = FALSE, alpha = 0.6, colour = NA) +
   geom_boxplot(width = 0.2, fill = "white", outlier.shape = NA, alpha = 0.95) +
   geom_jitter(width = 0.15, size = 1.8, alpha = 0.7, colour = "gray30") +
   scale_fill_manual(values = TREATMENT_COLORS) +
-  labs(y = expression(Tissue~biomass~(AFDW~mg~cm^{-2})),
+  labs(y = expression(Tissue~biomass~(AFDM~mg~cm^{-2})),
        x = "Number of corals") +
   base_theme +
   theme(axis.title.x = element_text(margin = margin(t = 10)))

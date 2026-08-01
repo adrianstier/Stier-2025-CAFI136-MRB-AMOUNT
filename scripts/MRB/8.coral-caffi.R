@@ -740,8 +740,8 @@ df_cond_load <- tibble::tibble(
       feature,
       carb_mg_cm2    = "Carbohydrate~(mg~cm^{-2})",
       protein_mg_cm2 = "Protein~(mg~cm^{-2})",
-      afdw_mg_cm2    = "Tissue~biomass~(AFDW~mg~cm^{-2})",
-      zoox_cells_cm2 = "Zooxanthellae~(cells~cm^{-2})",
+      afdw_mg_cm2    = "Tissue~biomass~(AFDM~mg~cm^{-2})",
+      zoox_cells_cm2 = "Symbiodiniaceae~(cells~cm^{-2})",
       growth_vol_b   = "Growth"
     ))
   )
@@ -1314,8 +1314,8 @@ pretty_metric <- function(x) dplyr::case_when(
   x == pc1_coral_col       ~ "PC1[coral]",
   x == "protein_mg_cm2"    ~ "atop(Protein, (mg~cm^{-2}))",
   x == "carb_mg_cm2"       ~ "atop(Carbohydrate, (mg~cm^{-2}))",
-  x == "zoox_cells_cm2"    ~ "atop(Zooxanthellae, (cells~cm^{-2}))",
-  x == "afdw_mg_cm2"       ~ "atop(Tissue~biomass, (AFDW~mg~cm^{-2}))",
+  x == "zoox_cells_cm2"    ~ "atop(Symbiodiniaceae, (cells~cm^{-2}))",
+  x == "afdw_mg_cm2"       ~ "atop(Tissue~biomass, (AFDM~mg~cm^{-2}))",
   x == "growth_vol_b"      ~ "Growth",
   TRUE                     ~ x
 )
@@ -2325,7 +2325,7 @@ trait_label_map <- c(
   carb_mg_cm2    = "Carbohydrate",
   protein_mg_cm2 = "Protein",
   afdw_mg_cm2    = "Tissue~biomass",
-  zoox_cells_cm2 = "Zooxanthellae",
+  zoox_cells_cm2 = "Symbiodiniaceae",
   growth_vol_b   = "Growth"
   # percent_alive removed
 )
@@ -2493,8 +2493,8 @@ if (!"label_parsed" %in% names(v_tbl)) {
   trait_label_map <- c(
     carb_mg_cm2    = "Carbohydrate~(mg~cm^{-2})",
     protein_mg_cm2 = "Protein~(mg~cm^{-2})",
-    afdw_mg_cm2    = "Tissue~biomass~(AFDW~mg~cm^{-2})",
-    zoox_cells_cm2 = "Zooxanthellae~(cells~cm^{-2})",
+    afdw_mg_cm2    = "Tissue~biomass~(AFDM~mg~cm^{-2})",
+    zoox_cells_cm2 = "Symbiodiniaceae~(cells~cm^{-2})",
     growth_vol_b   = "Growth",
     percent_alive  = "Percent~alive"
   )
