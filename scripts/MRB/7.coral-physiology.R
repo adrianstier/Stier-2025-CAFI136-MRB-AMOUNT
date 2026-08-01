@@ -611,7 +611,13 @@ univar_gt <- univar_anova %>%
 
 # Save
 gt::gtsave(univar_gt, file.path(out_dir_phys, "univariate_anova_treatment_effects.html"))
-gt::gtsave(univar_gt, file.path(out_dir_phys, "univariate_anova_treatment_effects.png"))
+if (requireNamespace("webshot2", quietly = TRUE)) {
+  gt::gtsave(univar_gt, file.path(out_dir_phys, "univariate_anova_treatment_effects.png"))
+} else {
+  cli::cli_alert_info(
+    "Skipping univariate_anova_treatment_effects.png; install webshot2 to export gt tables as images."
+  )
+}
 
 # ----------------------------------------------------------------------------
 # Visualization: Violin plots
