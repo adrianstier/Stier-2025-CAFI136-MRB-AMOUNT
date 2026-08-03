@@ -24,9 +24,9 @@ output/MRB/figures/publication/
 | **Figure 1** | `main/Figure1_abundance_richness.png` | Total abundance, species richness, rarefied richness (3 panels) |
 | **Figure 2** | `main/Figure2_species_responses.png` | Species-specific responses (12 panels: 4 fish, 4 crustacean, 4 mollusc) |
 | **Figure 3** | `main/Figure3_nmds_density.png` | NMDS ordination + top 15 species density changes |
-| **Figure 4** | `main/Figure4_coral_performance_pca.png` | Coral performance PCA loadings + PC1 scores by treatment |
-| **Figure 5** | `main/Figure5_cafi_loadings_relationship.png` | CAFI species loadings + PC1_CAFI vs PC1_coral relationship |
-| **Figure 6** | `main/Figure6_species_coral_condition.png` | Species abundance vs coral condition (20 species panels) |
+| **Figure 4** | `Figure4_coral_condition_pca.png` | Coral condition PCA loadings + PC1 scores by treatment |
+| **Figure 5** | `Figure5_cafi_condition_relationship.png` | CAFI species loadings + PC1_CAFI vs PC1_coral relationship |
+| **Figure 6** | `Figure6_species_condition_models.png` | Species abundance vs coral condition (6 panels) |
 
 **PDF versions also available** (same names with .pdf extension)
 

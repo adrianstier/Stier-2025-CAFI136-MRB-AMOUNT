@@ -2,7 +2,7 @@
 
 Thank you for your interest in this research! This repository contains the analysis pipeline for:
 
-**Stier, A.C., Primo, A., Curtis, J.S., & Osenberg, C.W.** Habitat quantity drives community assembly and feedbacks to coral performance.
+**Stier, A.C., Primo, A., Curtis, J.S., & Osenberg, C.W.** Habitat amount reshapes coral-associated communities and host condition.
 
 ## Ways to Contribute
 

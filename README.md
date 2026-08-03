@@ -1,4 +1,4 @@
-# Habitat Quantity Drives Community Assembly and Feedbacks to Coral Performance
+# Habitat amount reshapes coral-associated communities and host condition
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18239646.svg)](https://doi.org/10.5281/zenodo.18239646)
 
@@ -6,7 +6,7 @@
 
 **Authors:** Adrian C. Stier, Alexander Primo, Joseph S. Curtis, Craig W. Osenberg
 
-**Repository:** Analysis code and data for coral density experiment examining CAFI community assembly and feedbacks to coral performance
+**Repository:** Analysis code and data for a coral-density experiment examining CAFI community assembly and feedbacks to host condition
 
 **Archive:** This repository is permanently archived on Zenodo with concept DOI: [10.5281/zenodo.18239646](https://doi.org/10.5281/zenodo.18239646)
 
@@ -31,18 +31,18 @@
 
 ## Overview
 
-This repository contains all data, code, and outputs for analyzing a field experiment that manipulated coral density (1, 3, or 6 *Pocillopora* colonies per reef) to test how habitat quantity affects:
+This repository contains all data, code, and outputs for analyzing a field experiment that manipulated coral density (1, 3, or 6 *Pocillopora* colonies per reef) to test how habitat amount affects:
 
 1. Coral-associated fish and invertebrate (CAFI) community assembly
-2. Feedbacks between CAFI communities and coral performance (growth and physiology)
+2. Feedbacks between CAFI communities and host condition (growth and physiology)
 
 This public repository is scoped to data analysis, validation, and figure/table generation. Manuscript drafting, Word/PDF production, response-letter assembly, and private coauthor revision materials are maintained in a separate private companion repository that syncs validated outputs from this analysis compendium.
 
 **Key Findings:**
 - CAFI abundance increased 5.47× and observed species richness increased 2.82× with increasing coral density
 - CAFI community composition shifted with coral density; the Fig. 3 per-colony-density PERMANOVA has a matching non-significant PERMDISP check
-- Coral performance (integrated growth + physiology) declined with increasing coral density
-- CAFI community composition predicted coral performance
+- Coral condition (integrated growth + physiology) declined with increasing coral density
+- CAFI community composition predicted coral condition
 - **Growth finding:** No treatment effect on coral growth after allometric size-correction (*p* = 0.267)
 
 ---
@@ -200,7 +200,7 @@ Rscript scripts/MRB/validate_pipeline.R
 
 **Key results:**
 - Carbohydrate: χ² = 10.0, *p* = 0.007 (BH-adjusted *p* = 0.039)
-- PC1 (performance): χ² = 8.11, *p* = 0.017
+- PC1 (condition): χ² = 8.11, *p* = 0.017
 - Individual metrics (protein, Symbiodiniaceae density, AFDW): NS
 
 ### 3. CAFI-Coral Relationships (Script 8)
@@ -208,9 +208,9 @@ Rscript scripts/MRB/validate_pipeline.R
 **File:** `scripts/MRB/8.coral-caffi.R`
 
 **What it does:**
-- Tests whether CAFI community composition predicts coral performance
+- Tests whether CAFI community composition predicts coral condition
 - Uses multiple data transformations for robustness
-- Creates CAFI community PCA and coral performance PCA
+- Creates CAFI community PCA and coral condition PCA
 
 **Key results:**
 - SQRT_CS transformation: beta = 0.301, *p* = 0.014
@@ -369,8 +369,8 @@ If you use this code or data, please cite:
 
 **Manuscript:**
 ```
-Stier, A.C., Primo, A., Curtis, J.S., & Osenberg, C.W. (2025). Habitat quantity
-drives community assembly and feedbacks to coral performance. Ecology Letters.
+Stier, A.C., Primo, A., Curtis, J.S., & Osenberg, C.W. (2026). Habitat amount
+reshapes coral-associated communities and host condition. Ecology Letters.
 DOI: [to be added upon publication]
 ```
 

@@ -72,8 +72,8 @@ To reproduce all analyses:
 If you use this data or code, please cite:
 
 ```
-Stier, A.C., Primo, A., Curtis, J.S., & Osenberg, C.W. (2025). Habitat quantity
-drives community assembly and feedbacks to coral performance. Ecology Letters.
+Stier, A.C., Primo, A., Curtis, J.S., & Osenberg, C.W. (2026). Habitat amount
+reshapes coral-associated communities and host condition. Ecology Letters.
 DOI: [to be added]
 ```
 

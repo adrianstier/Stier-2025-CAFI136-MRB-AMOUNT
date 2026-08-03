@@ -259,7 +259,7 @@ Size-corrected growth by treatment:
 ```
 
 #### Script 7: Coral Physiology
-**Purpose:** Physiological metrics and integrated performance
+**Purpose:** Physiological metrics and integrated coral condition
 **Runtime:** ~30 seconds
 
 ```bash
@@ -269,11 +269,11 @@ Rscript scripts/MRB/7.coral-physiology.R
 **Expected key result:**
 ```
 Carbohydrate: χ² = 10.0, p = 0.007 (BH-adjusted p = 0.039)
-PC1 (performance): χ² = 8.11, p = 0.017
+PC1 (condition): χ² = 8.11, p = 0.017
 ```
 
 #### Script 8: CAFI-Coral Relationships
-**Purpose:** Test CAFI community → coral performance relationship
+**Purpose:** Test CAFI community → coral condition relationship
 **Runtime:** ~30 seconds
 
 ```bash
@@ -282,7 +282,7 @@ Rscript scripts/MRB/8.coral-caffi.R
 
 **Expected key result:**
 ```
-CAFI community predicts coral performance:
+CAFI community predicts coral condition:
   SQRT_CS: beta = 0.301, p = 0.014
   HELLINGER: beta = 0.311, p = 0.008
   SQRT: beta = 0.179, p = 0.153
