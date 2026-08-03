@@ -86,8 +86,7 @@ fi
 echo ""
 echo "╔════════════════════════════════════════════════════════════════╗"
 echo "║  CAFI Analysis Pipeline - Stier et al. 2026                    ║"
-echo "║  Version DOI: 10.5281/zenodo.21727277                          ║"
-echo "║  All-version DOI: 10.5281/zenodo.18239646                      ║"
+echo "║  Zenodo concept DOI: 10.5281/zenodo.18239646                   ║"
 echo "╚════════════════════════════════════════════════════════════════╝"
 echo ""
 

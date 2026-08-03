@@ -8,16 +8,13 @@ All data and analysis code used to generate the manuscript results and figures a
 
 **Primary Repository:** GitHub
 **URL:** https://github.com/adrianstier/coral-cafi-density-experiment
-**Current archived version DOI:** 10.5281/zenodo.21727277
 **All-version concept DOI:** 10.5281/zenodo.18239646
 
 ## Archived Version
 
-A permanent archived version has been deposited at Zenodo:
-- **Current version:** v1.0.3 final resubmission snapshot
-- **Version-specific DOI:** [10.5281/zenodo.21727277](https://doi.org/10.5281/zenodo.21727277)
+Permanent archived versions have been deposited at Zenodo:
 - **All-version concept DOI:** [10.5281/zenodo.18239646](https://doi.org/10.5281/zenodo.18239646)
-- **Archive URL:** https://zenodo.org/records/21727277
+- **Archive URL:** https://doi.org/10.5281/zenodo.18239646
 
 ## Data Description
 
@@ -46,8 +43,8 @@ A permanent archived version has been deposited at Zenodo:
    - Click "Code" → "Download ZIP"
 
 3. **Archived version (recommended for reproducibility):**
-   - Visit: https://doi.org/10.5281/zenodo.21727277
-   - Download the v1.0.3 final resubmission snapshot
+   - Visit: https://doi.org/10.5281/zenodo.18239646
+   - Download the latest final resubmission snapshot
 
 ## Code Availability
 
@@ -80,9 +77,9 @@ DOI: [to be added]
 Analysis archive:
 
 ```
-Stier, A.C. (2026). adrianstier/coral-cafi-density-experiment: v1.0.3 -
+Stier, A.C. (2026). adrianstier/coral-cafi-density-experiment:
 Final Resubmission Snapshot [Software]. Zenodo.
-https://doi.org/10.5281/zenodo.21727277
+https://doi.org/10.5281/zenodo.18239646
 ```
 
 ## Contact

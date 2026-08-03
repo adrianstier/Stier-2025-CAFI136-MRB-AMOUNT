@@ -376,9 +376,8 @@ DOI: [to be added upon publication]
 
 **Data & Code Archive:**
 ```
-Stier, A.C. (2026). adrianstier/coral-cafi-density-experiment: v1.0.3 -
+Stier, A.C. (2026). adrianstier/coral-cafi-density-experiment:
 Final Resubmission Snapshot [Software]. Zenodo.
-https://doi.org/10.5281/zenodo.21727277
 
 All-version concept DOI: https://doi.org/10.5281/zenodo.18239646
 ```
@@ -425,7 +424,7 @@ We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines 
 <div align="center">
 
 **Last Updated:** July 31, 2026
-**Repository Version:** v1.0.3 final resubmission snapshot
+**Repository Version:** final resubmission snapshot
 **Status:** Reviewer-readiness QA passed with WARN-only optional future gates
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18239646.svg)](https://doi.org/10.5281/zenodo.18239646)
