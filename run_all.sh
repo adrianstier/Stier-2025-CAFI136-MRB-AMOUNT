@@ -166,9 +166,14 @@ OUTPUTS=(
     "output/MRB/tables/composition_robustness_index.csv"
     "output/MRB/figures/coral/SizeCorrected_Volume_Growth_by_Treatment.png"
     "output/MRB/figures/coral/physio/physio_by_treatment.png"
-    "output/MRB/figures/diversity/16_horizontal_2panel_nmds_density_plus_top15_density.png"
     "output/MRB/figures/cafi-coral/PCA_LOADINGS_RAW_2panel_clean.png"
 )
+
+if [ "$QUICK_MODE" = false ]; then
+    OUTPUTS+=(
+        "output/MRB/figures/diversity/16_horizontal_2panel_nmds_density_plus_top15_density.png"
+    )
+fi
 
 ALL_PRESENT=true
 for file in "${OUTPUTS[@]}"; do
